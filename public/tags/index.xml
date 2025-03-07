@@ -2,99 +2,99 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Secure The Throne</title>
-    <link>http://localhost:1313/secure-the-throne/tags/</link>
+    <link>http://localhost:1313/Secure-The-Throne/tags/</link>
     <description>Recent content in Tags on Secure The Throne</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/secure-the-throne/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/Secure-The-Throne/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Active Directory</title>
-      <link>http://localhost:1313/secure-the-throne/tags/active-directory/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/active-directory/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/active-directory/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/active-directory/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Database</title>
-      <link>http://localhost:1313/secure-the-throne/tags/database/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/database/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/database/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/database/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hacking</title>
-      <link>http://localhost:1313/secure-the-throne/tags/hacking/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/hacking/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/hacking/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/hacking/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>HTB</title>
-      <link>http://localhost:1313/secure-the-throne/tags/htb/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/htb/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/htb/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/htb/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Info</title>
-      <link>http://localhost:1313/secure-the-throne/tags/info/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/info/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/info/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/info/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Server</title>
-      <link>http://localhost:1313/secure-the-throne/tags/server/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/server/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/server/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/server/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Web</title>
-      <link>http://localhost:1313/secure-the-throne/tags/web/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/web/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/web/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/web/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Windows</title>
-      <link>http://localhost:1313/secure-the-throne/tags/windows/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/windows/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/windows/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/windows/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Writeup</title>
-      <link>http://localhost:1313/secure-the-throne/tags/writeup/</link>
+      <link>http://localhost:1313/Secure-The-Throne/tags/writeup/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/secure-the-throne/tags/writeup/</guid>
+      <guid>http://localhost:1313/Secure-The-Throne/tags/writeup/</guid>
       <description></description>
       
     </item>
