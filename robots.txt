@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://Emp5r0R.github.io/secure-the-throne/sitemap.xml
