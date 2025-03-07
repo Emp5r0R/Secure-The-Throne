@@ -3,6 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/Secure-The-Throne/about/</loc>
+    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>

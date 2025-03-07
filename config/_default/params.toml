@@ -8,6 +8,9 @@ disableImageOptimization = false
 disableTextInHeader = false
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
+highlightCurrentMenuArea = true
+smartTOC = true
+smartTOCHideUnfocusedChildren = ""
 
 [header]
 layout = "fixed-fill-blur"
@@ -15,7 +18,7 @@ layout = "fixed-fill-blur"
 [footer]
 showMenu = true
 showCopyright = true
-showThemeAttribution = true
+showThemeAttribution = false
 showAppearanceSwitcher = true
 showScrollToTop = true
 
@@ -24,10 +27,10 @@ layout = "background"
 showRecent = true
 showRecentItems = "5"
 showMoreLink = true
-showMoreLinkDest = "/posts/"
+showMoreLinkDest = "/Secure-The-Throne/posts/"
 cardView = true
 cardViewScreenWidth = false
-layoutBackgroundBlur = false
+layoutBackgroundBlur = "Disable"
 homepageImage = "moon-half.png"
 
 [article]
@@ -56,7 +59,7 @@ showWordCount = true
 showZenMode = true
 showSummary = true
 sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email" ]
-heroStyle = "basic"
+heroStyle = "background"
 showRelatedContent = false
 
 [list]
@@ -80,7 +83,7 @@ excludedKinds = [ "taxonomy", "term" ]
 
 [taxonomy]
 showTermCount = true
-showHero = false
+showHero = "Show"
 showBreadcrumbs = false
 showViews = false
 showLikes = false
