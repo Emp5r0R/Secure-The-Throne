@@ -30,7 +30,7 @@ showMoreLink = true
 showMoreLinkDest = "/Secure-The-Throne/posts/"
 cardView = true
 cardViewScreenWidth = false
-layoutBackgroundBlur = "Disable"
+layoutBackgroundBlur = false
 homepageImage = "moon-half.png"
 
 [article]

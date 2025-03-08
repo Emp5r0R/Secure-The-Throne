@@ -26,7 +26,7 @@ import { getAnalytics } from "firebase/analytics";
 // 你 Web 应用的 Firebase 配置
 // 对于 Firebase JS SDK v7.20.0 以及更高版本，measurementId 参数是可选的
 const firebaseConfig = {
-  apiKey: "AIzaSyB5tqlqDky77Vb4Tc4apiHV4hRZI18KGiY",
+  apiKey: "",
   authDomain: "blowfish-21fff.firebaseapp.com",
   projectId: "blowfish-21fff",
   storageBucket: "blowfish-21fff.appspot.com",
