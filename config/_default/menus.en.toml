@@ -18,12 +18,18 @@ name = "About"
 pageRef = "about"
 identifier = "YZmORBM0hj"
 weight = 3
+[[main]]
+name = "Banana Cracker"
+url = "https://github.com/Emp5r0R/BananaCracker" 
+parent = "Tools"
+weight = 999 
 
 [[footer]]
 none = "none"
 
+
 [[footer]]
-name = "Banana Cracker"
-url = "https://github.com/Emp5r0R/BananaCracker"
-identifier = "kdgivRmmJ7"
+name = "Under Development"
+pageRef = "newSite"
+identifier = "pFMCArvgCO"
 weight = 9999

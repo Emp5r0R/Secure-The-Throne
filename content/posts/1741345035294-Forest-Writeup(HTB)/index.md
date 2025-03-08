@@ -278,7 +278,7 @@ Info: Establishing connection to remote endpoint
 ```
 - ## Privilege escalation
 - Got the bloodhound data
-- ![[Pasted image 20250114004642.png]]
+- ![Bloodhound picture](https://github.com/Emp5r0R/Obsidian_vault/blob/main/shots/Pasted%20image%2020250114004642.png?raw=true)
 - We have `genericAll` and `writeDACL` to abuse.
 - Invoke powerview
 ```
