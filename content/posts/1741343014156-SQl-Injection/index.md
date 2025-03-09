@@ -3,7 +3,7 @@ title: "SQl-Injection"
 date: 2025-03-07
 draft: false
 description: "Intro To Sql Injections"
-tags: ["web", "hacking", "Server"]
+tags: ["web", "hacking", "Server", "web"]
 ---
 - Very common vulnerability in web applications is a `SQL Injection` vulnerability. Similarly to a Command Injection vulnerability, this vulnerability may occur when the web application executes a SQL query, including a value taken from user-supplied input.
 

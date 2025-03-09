@@ -18,8 +18,25 @@ tags: ["database", "web", "info"]
 
 - Each of the above models has a different way of storing data. For example, the `Key-Value` model usually stores data in `JSON` or `XML`, and has a key for each pair, storing all of its data as its value:
 
-![HTML Example](https://academy.hackthebox.com/storage/modules/75/web_apps_non-relational_db.jpg)
+{{< mermaid >}}
 
+graph LR
+    subgraph Posts 
+        box1[id<br>date<br>content]
+        box2[id<br>date<br>content]
+        box3[id<br>date<br>content]
+    end
+
+    box1 --> Key1[Key]
+    box1 --> Value1[Value]
+
+    box2 --> Key2[Key]
+    box2 --> Value2[Value]
+
+    box3 --> Key3[Key]
+    box3 --> Value3[Value]
+
+{{< /mermaid >}}
 - The above example can be represented using `JSON` as follows:
 
 ```json

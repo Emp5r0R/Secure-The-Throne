@@ -13,6 +13,7 @@ logo = "My_logo-background-less.png"
 description = "A Cybersecurity Blog"
 author = { name = "Emp5r0R", image = "My-Picture.jpeg", headline = "Lead By Curiosity", bio = "Born to learn", links = [ { htb = "https://app.hackthebox.com/profile/1652264" }, { github = "https://github.com/Emp5r0R" }, { discord = "https://discord.com/users/1221148367707443353"} ] }
 secondaryLogo = "My_logo-background-less.png"
+enableEmoji = true
 
 [author]
 links = []
