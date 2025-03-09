@@ -114,7 +114,7 @@
     "keywords": ["database","web","info"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "325"
+    "wordCount": "357"
   }]
   </script>
 
@@ -140,6 +140,17 @@
 <script src="/Secure-The-Throne/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
+
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/Secure-The-Throne/js/mermaid.bundle.e1dc118d1d5c060fb5035f6ed11303122f4ad26ae607992d7c428d00430883ca9f26a9f029180a9dd9c7c3774502a38f34fac2ad91dd4e8eb2a739f068841356.js"
+    integrity="sha512-4dwRjR1cBg&#43;1A19u0RMDEi9K0mrmB5ktfEKNAEMIg8qfJqnwKRgKndnHw3dFAqOPNPrCrZHdTo6ypznwaIQTVg=="
+  ></script>
 
 
 
@@ -672,7 +683,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-07T00:00:00&#43;00:00">7 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>325 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-07T00:00:00&#43;00:00">7 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>357 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -912,12 +923,28 @@
 <p>Each of the above models has a different way of storing data. For example, the <code>Key-Value</code> model usually stores data in <code>JSON</code> or <code>XML</code>, and has a key for each pair, storing all of its data as its value:</p>
 </li>
 </ul>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://academy.hackthebox.com/storage/modules/75/web_apps_non-relational_db.jpg" alt="HTML Example" />
-    
-  </figure>
-</p>
+<div class="mermaid" align="center">
+  
+
+graph LR
+    subgraph Posts 
+        box1[id<br>date<br>content]
+        box2[id<br>date<br>content]
+        box3[id<br>date<br>content]
+    end
+
+    box1 --> Key1[Key]
+    box1 --> Value1[Value]
+
+    box2 --> Key2[Key]
+    box2 --> Value2[Value]
+
+    box3 --> Key3[Key]
+    box3 --> Value3[Value]
+
+
+</div>
+
 <ul>
 <li>The above example can be represented using <code>JSON</code> as follows:</li>
 </ul>
@@ -1180,7 +1207,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Forest Writeup(HTB)</span
+                  >Forest Walkthrough(HTB)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
