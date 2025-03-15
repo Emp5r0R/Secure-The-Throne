@@ -4,13 +4,11 @@ date: 2025-03-12
 draft: false
 description: "Caption is a Hard-difficulty Linux box, showcasing the chaining of niche vulnerabilities arising from different technologies such as HAProxy and Varnish. It begins with default credentials granting access to GitBucket, which exposes credentials for a web portal login through commits. The application caches a frequently visited page by an admin user, whose session can be hijacked by exploiting Web Cache Deception (WCD) via response poisoning exploited through a Cross-Site Scripting (XSS) payload. HAProxy controls can be bypassed by establishing an HTTP/2 cleartext tunnel, also known as an H2C Smuggling Attack, enabling the exploitation of a locally running service vulnerable to path traversal ([CVE-2023-37474](https://security.snyk.io/vuln/SNYK-PYTHON-COPYPARTY-5777718)). A foothold is gained by reading the SSH ECDSA private key. Root privileges are obtained by exploiting a command injection vulnerability in the Apache Thrift service running as root."
 tags: ["Hard", "Linux", "HTB", "hacking", "walkthrough", "web"]
-series: ["Hack The Box"]
-series_order: 3
 ---
 ## Reconnaissance 
 - On scanning the ports we can see that there are three ports open
 ![scan](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241227201550.png?raw=true)
-- We got two web services running. which are on port 80 caption and on port 8080 git bucket
+- We got two web services running. which are on port 80 (caption) and on port 8080 (git bucket)
 ![gif-two](https://media.giphy.com/media/xTiN0h0Kh5gH7yQYUw/giphy.gif?cid=790b7611k5tpf42ercj3pdfd7v74ngpuqutts89i3ev5886a&ep=v1_gifs_search&rid=giphy.gif&ct=g)
 - More importantly after some recon I come to know about a login page on port 80 which is caption, however we don't have the credentials yet so I started digging further 
 - The Gitbucket on port 8000 had two repos, interesting isn't it

