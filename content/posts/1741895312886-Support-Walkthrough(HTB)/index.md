@@ -4,8 +4,6 @@ date: 2025-03-13
 draft: true 
 description: "Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication....."
 tags: ["Easy", "Windows", "HTB", "Hacking", "Active Directory", "Walkthrough"]
-series: ["Hack The Box"]
-series_order: 6
 ---
 ## Reconnaissance #Windows #ActiveDirectory 
 - Got multiple ports open
