@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/</loc>
-    <lastmod>2025-03-15T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/Secure-The-Throne/posts/</loc>
-    <lastmod>2025-03-15T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-18T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/Secure-The-Throne/</loc>
+    <lastmod>2025-03-18T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/</loc>
+    <lastmod>2025-03-16T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/</loc>
     <lastmod>2025-03-15T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
