@@ -5,6 +5,9 @@ draft: false
 description: "Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication....."
 tags: ["Easy", "Windows", "HTB", "Hacking", "Active Directory", "Walkthrough"]
 ---
+## About
+- Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication. After connecting to the share, an executable file is discovered that is used to query the machine&amp;amp;amp;amp;#039;s LDAP server for available users. Through reverse engineering, network analysis or emulation, the password that the binary uses to bind the LDAP server is identified and can be used to make further LDAP queries. A user called `support` is identified in the users list, and the `info` field is found to contain his password, thus allowing for a WinRM connection to the machine. Once on the machine, domain information can be gathered through `SharpHound`, and `BloodHound` reveals that the `Shared Support Accounts` group that the `support` user is a member of, has `GenericAll` privileges on the Domain Controller. A Resource Based Constrained Delegation attack is performed, and a shell as `NT Authority\System` is received. 
+
 ## Reconnaissance & Enumeration
 - The port scan reveals multiple open ports 
 ![Pasted image 20241221142512.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221142512.png?raw=true)
@@ -174,7 +177,7 @@ KRB5CCNAME=ticket.ccache psexec.py support.htb/administrator@dc.support.htb -k -
 - Secured the {{< keyword >}} Root flag  {{< /keyword >}} 
 ![Pasted image 20241222190524.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222190524.png?raw=true)
 
-{{< typeit >}} Knock..knock... this walkthrough is over, don't forget to check my other walkthroughs. Bye, see you again  {{< /typeit >}}
+{{< typeit >}} Knock..knock... this walkthrough is over, don't forget to check out my other walkthroughs. Bye, see you again  {{< /typeit >}}
 
 
 ![end](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjBjdzF0N2Nid25rOTViZWZmcWtmMDZpazQ0b21tbTJxeDY3Z2YwNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QLpMNfBtUi3ss/giphy.gif)
