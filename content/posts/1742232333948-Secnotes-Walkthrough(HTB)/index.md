@@ -1,7 +1,7 @@
 ---
 title: "SecNotes Walkthrough(HTB)"
 date: 2025-03-22
-draft: false
+draft: true 
 description: "A straight forward walkthrough of the box SecNotes"
 tags: ["Medium", "Windows", "HTB", "hacking", "Active Directory", "Walkthrough"]
 ---
