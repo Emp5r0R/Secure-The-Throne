@@ -713,7 +713,7 @@ cat /home/htb/user.txt
 e2848e17<redacted>
 root@Jarmis:/root# 
 ```
-{{< typeit >}} I hope you enjoyed my walkthrough, It took me lot of time to contruct everything, With that being said I hope that you would share this to your connections. But I have to mention this, if it weren't for 0xdf this writeup wouldn't possible. Thank you for reading my article, Hey! I really meant that Thank you.. See you soon on another
+{{< typeit >}} I hope you enjoyed my walkthrough, It took me lot of time to contruct everything, With that being said I hope that you would share this to your connections. But I have to mention this, if it weren't for 0xdf this walkthrough wouldn't possible. Thank you for reading this, Hey! I really meant that Thank you.. See you soon on another
 {{< /typeit >}}
 
 ![bye](https://media1.tenor.com/m/cTQhkMn8dLgAAAAC/car-bye.gif)
