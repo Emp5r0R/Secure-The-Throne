@@ -117,7 +117,7 @@
     "keywords": ["Easy","Linux","Hack The Box","Hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "818"
+    "wordCount": "824"
   }]
   </script>
 
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-22T00:00:00&#43;00:00">22 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>818 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-22T00:00:00&#43;00:00">22 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>824 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -1063,7 +1063,7 @@
     
 </h2>
 <ul>
-<li>Started with an Nmap scan, revealing open ports: 22, 80.
+<li>Started with a Nmap scan, revealing open ports: 22, 80.
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005036.png?raw=true" alt="Pasted image 20241218005036.png" />
@@ -1091,7 +1091,7 @@
 <li>As expected the contents were rendered and loaded like this
 
   <figure>
-    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005523.png?raw=true" alt="Pasted image 20241218005550.png" />
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218005550.png?raw=true" alt="Pasted image 20241218005550.png" />
     
   </figure>
 </li>
@@ -1112,7 +1112,7 @@
 <ul>
 <li>Also another functionality in this website is pretty straight forward, where in <code>contact form</code> whatever link is filled and sent seems to be clicked by an admin.</li>
 <li>We can easily get the admin&rsquo;s cookie by making a <code>.md</code> file with malicious payload and by sharing the <code>.md</code> file link using the share option to the admin through the contact form. The admin will eventually click the link and it will make the code to execute on his browser potentially sending the cookie to us(Attacker).</li>
-<li>More dangerously we could also read arbitrary files using the <code>message.php</code> parameter</li>
+<li>More dangerously we could also read arbitrary files using the <code>message.php</code></li>
 <li>So to exploit this LFI vulnerability I tried this payload and opened a nc on other side.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
@@ -1148,7 +1148,7 @@
   </figure>
 </p>
 <ul>
-<li>Found couple of users. Now the configs for apache2 running websites generally resides at <code>/etc/apache2/sites-available/000-default.conf</code> I learnt this from enumerating my own machine.
+<li>Found couple of users. The configs for apache2 websites generally resides at <code>/etc/apache2/sites-available/000-default.conf</code> I learnt this from enumerating my own machine.
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/fG6zxAnLtWsAAAAC/vegito-db.gif" alt="lies-within-you" />
@@ -1169,14 +1169,18 @@
   </figure>
 </li>
 <li>Got the <code>.htpasswd</code> location. Usually this file contains the passwords or hashes for apache2.</li>
-<li>Within that file password hash for user <code>albert</code> was there<br>
+<li>Within that file, password hash for user <code>albert</code> was there<br>
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218011625.png?raw=true" alt="Pasted image 20241218011625.png" />
     
   </figure>
 </li>
-<li>Let&rsquo;s crack the hash I used hashcat to crack this hash <code>hashcat hash.txt  /usr/share/wordlists/rockyou.txt -m 1600 --username</code> Here I specified module <code>1600</code> to crack apache type hash and with as <code>albert</code> username is presented with the hash we have to specify <code>--username</code> flag
+<li>Let&rsquo;s crack the hash I used hashcat to crack this hash</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hashcat hash.txt  /usr/share/wordlists/rockyou.txt -m <span class="m">1600</span> --username
+</span></span></code></pre></div><ul>
+<li>Here I specified module <code>1600</code> to crack apache type hash and with as <code>albert</code> username is presented with the hash we have to specify <code>--username</code> flag
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241218012743.png?raw=true" alt="Pasted image 20241218012743.png" />
@@ -1184,7 +1188,7 @@
   </figure>
 </li>
 <li>Now I can use ssh to login as user <code>albert</code></li>
-<li>We got the 
+<li>I got the 
 <div class="flex mt-2">
 <span
   class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
@@ -1196,6 +1200,40 @@
 </span>
 </div></li>
 </ul>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c17.67 0 32 14.33 32 32c0 17.67-14.33 32-32 32S224 177.7 224 160C224 142.3 238.3 128 256 128zM296 384h-80C202.8 384 192 373.3 192 360s10.75-24 24-24h16v-64H224c-13.25 0-24-10.75-24-24S210.8 224 224 224h32c13.25 0 24 10.75 24 24v88h16c13.25 0 24 10.75 24 24S309.3 384 296 384z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >Sorry I accidently nuked the user flag image</span>
+</div>
+
 
 
 <h2 class="relative group">Privilege Escalation 
@@ -1220,7 +1258,7 @@
   </figure>
 </p>
 <ul>
-<li>The web service name litterely  <code>websitemonitor</code> which track and monitor the websites like <code>alert.htb</code></li>
+<li>The web service name is litterely  <code>websitemonitor</code> which tracks and monitor the websites like <code>alert.htb</code></li>
 <li>I found the website&rsquo;s directory location at <code>/opt/websitemonitor</code></li>
 <li>The configuration files for this website are stored within <code>/config</code>
 
@@ -1277,11 +1315,11 @@
 <p>During the <strong>enumeration</strong> phase, it was discovered that the Markdown reader could execute code embedded within the Markdown content. Additionally, a contact form was found to be exploitable because the administrator would click on links sent through it without analyzing them, suggesting a potential <strong>Local File Inclusion (LFI)</strong> vulnerability. This LFI was exploited by crafting a payload and sending it to the admin via the contact form. This allowed for the discovery of user information and the location of the Apache2 configuration file, which contained the path to the <code>.htpasswd</code> file. The password hash for the user <code>albert</code> was found within this file.</p>
 <p>The <strong>exploitation</strong> phase also involved cracking <code>albert</code>&rsquo;s password hash using <code>hashcat</code>. The cracked password enabled successful SSH login, granting initial user access and the user flag.</p>
 <p>For <strong>privilege escalation</strong>, an internal web service named &ldquo;websitemonitor&rdquo; was discovered running on port 8080. This port was tunneled to the attacker&rsquo;s machine via SSH. The configuration files for &ldquo;websitemonitor,&rdquo; including the web root, were located in <code>/opt/websitemonitor/config</code>. As the user <code>albert</code> and root had permissions to modify files in the web directory,I replaced a file with a reverse shell, leading to root access and the acquisition of the root flag.</p>
-<div id="typeit-1018ee6b38923e9bb6c0ac576645b328"></div>
+<div id="typeit-595a5199aa54f085b1f22d4890486729"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-1018ee6b38923e9bb6c0ac576645b328", {
+      new TypeIt("#typeit-595a5199aa54f085b1f22d4890486729", {
         strings: [" This is a small and straightforward walkthrough for the box Alert, I hope you liked this if so kindly check my other posts too. Thank you, see you again "],
         speed:  100 ,
         lifeLike:  false ,
