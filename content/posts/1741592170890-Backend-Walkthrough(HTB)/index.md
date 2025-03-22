@@ -1,9 +1,9 @@
 ---
-title: "Backend Walkthrough(HTB)"
+title: "Backend Walkthrough(Hack The Box)"
 date: 2025-03-10
 draft: false 
 description: "A straight walthrough of Backend Box"
-tags: ["Medium", "Linux", "HTB", "hacking", "walkthrough", "web"]
+tags: ["Medium", "Linux", "Hack The Box", "hacking", "walkthrough", "web"]
 ---
 ## Reconnaissance & Enumeration
 - Nmap scan results:
@@ -224,7 +224,7 @@ from enum import Enum
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
-    JWT_SECRET: str = "SuperSecretSigningKey-HTB"
+    JWT_SECRET: str = "SuperSecretSigningKey-Hack The Box"
     ALGORITHM: str = "HS256"
 
     # 60 minutes * 24 hours * 8 days = 8 days
@@ -284,7 +284,7 @@ import jwt
 import datetime
 
 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzQxOTM2OTU0LCJpYXQiOjE3NDEyNDU3NTQsInN1YiI6IjEiLCJpc19zdXBlcnVzZXIiOnRydWUsImd1aWQiOiIzNmMyZTk0YS00MjcxLTQyNTktOTNiZi1jOTZhZDU5NDgyODQifQ.eL4UaJ5NCf-TEpWdq21t-kEbO-7YJTmmLLkooJussuE"
-secret = "SuperSecretSigningKey-HTB"
+secret = "SuperSecretSigningKey-Hack The Box"
 
 leeway = datetime.timedelta(hours=3)
 decoder = jwt.decode(token, secret, ["HS256"], leeway=leeway)

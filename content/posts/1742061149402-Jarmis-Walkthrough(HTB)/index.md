@@ -1,9 +1,9 @@
 ---
-title: "Jarmis Walkthrough(HTB)"
+title: "Jarmis Walkthrough(Hack The Box)"
 date: 2025-03-20
 draft: false 
 description: "Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell."
-tags: ["Hard", "Linux", "HTB", "hacking", "Web", "Walkthrough"]
+tags: ["Hard", "Linux", "Hack The Box", "hacking", "Web", "Walkthrough"]
 ---
 ## About 
 Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell. 
@@ -289,28 +289,28 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
 ```
 ❯ curl http://10.10.11.117/api/v1/search/id/400 
 null%                                                                                                                  
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/300 
 null%                                                                                                                  
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/200 
 {"id":200,"sig":"29d29d00029d29d21c29d29d29d29df3fb741bc8febeb816e400df4c5f2e9e","ismalicious":false,"endpoint":"176.32.103.205:443","note":"amazon.com"}%  
 ```
 - So the values should be between 0 to 200 or in along those lines. Now lets get the accurate value
 ```
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/220
 {"id":220,"sig":"29d29d00029d29d21c42d43d00041d44609a5a9a88e797f466e878a82e8365","ismalicious":false,"endpoint":"3.211.157.115:443","note":"netflix.com"}%                                                                                    
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/230
 null%                                                                                                                  
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/221
 {"id":221,"sig":"29d3fd00029d29d21c42d43d00041df48f145f65c66577d0b01ecea881c1ba","ismalicious":false,"endpoint":"35.186.224.25:443","note":"spotify.com"}%                                                                                    
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/222
 {"id":222,"sig":"27d27d27d00027d1dc27d27d27d27d3446fb8839649f251e5083970c44ad30","ismalicious":false,"endpoint":"47.246.24.234:443","note":"login.tmall.com"}%                                                                                
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/223
 null%      
 ```

