@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Jarmis Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Jarmis Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Jarmis Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Jarmis Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell." />
-  <meta name="keywords" content="Hard, Linux, HTB, hacking, Web, Walkthrough, " />
+  <meta name="keywords" content="Hard, Linux, Hack The Box, hacking, Web, Walkthrough, " />
   
   
   <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/" />
@@ -71,7 +71,7 @@
   
   <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Jarmis Walkthrough(HTB)">
+  <meta property="og:title" content="Jarmis Walkthrough(Hack The Box)">
   <meta property="og:description" content="Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -80,7 +80,7 @@
     <meta property="article:modified_time" content="2025-03-20T00:00:00+00:00">
     <meta property="article:tag" content="Hard">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Web">
     <meta property="article:tag" content="Walkthrough">
@@ -89,7 +89,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/featured.jpeg">
-  <meta name="twitter:title" content="Jarmis Walkthrough(HTB)">
+  <meta name="twitter:title" content="Jarmis Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.">
 
   
@@ -98,8 +98,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Jarmis Walkthrough(HTB)",
-    "headline": "Jarmis Walkthrough(HTB)",
+    "name": "Jarmis Walkthrough(Hack The Box)",
+    "headline": "Jarmis Walkthrough(Hack The Box)",
     "description": "Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell.",
     
     "inLanguage": "en",
@@ -114,10 +114,10 @@
     
     "dateModified": "2025-03-20T00:00:00\u002b00:00",
     
-    "keywords": ["Hard","Linux","HTB","hacking","Web","Walkthrough"],
+    "keywords": ["Hard","Linux","Hack The Box","hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3407"
+    "wordCount": "3421"
   }]
   </script>
 
@@ -634,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Jarmis Walkthrough(HTB)
+      Jarmis Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3407 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">16 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3421 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -756,10 +756,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
@@ -1433,28 +1433,28 @@ Ncat: Failed SSL connection from 10.10.11.117: error:0A00006C:SSL routines::bad 
 </ul>
 <pre tabindex="0"><code>❯ curl http://10.10.11.117/api/v1/search/id/400 
 null%                                                                                                                  
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/300 
 null%                                                                                                                  
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/200 
 {&#34;id&#34;:200,&#34;sig&#34;:&#34;29d29d00029d29d21c29d29d29d29df3fb741bc8febeb816e400df4c5f2e9e&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;176.32.103.205:443&#34;,&#34;note&#34;:&#34;amazon.com&#34;}%  
 </code></pre><ul>
 <li>So the values should be between 0 to 200 or in along those lines. Now lets get the accurate value</li>
 </ul>
-<pre tabindex="0"><code>HTB/Machines/Jarmis 
+<pre tabindex="0"><code>Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/220
 {&#34;id&#34;:220,&#34;sig&#34;:&#34;29d29d00029d29d21c42d43d00041d44609a5a9a88e797f466e878a82e8365&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;3.211.157.115:443&#34;,&#34;note&#34;:&#34;netflix.com&#34;}%                                                                                    
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/230
 null%                                                                                                                  
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/221
 {&#34;id&#34;:221,&#34;sig&#34;:&#34;29d3fd00029d29d21c42d43d00041df48f145f65c66577d0b01ecea881c1ba&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;35.186.224.25:443&#34;,&#34;note&#34;:&#34;spotify.com&#34;}%                                                                                    
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/222
 {&#34;id&#34;:222,&#34;sig&#34;:&#34;27d27d27d00027d1dc27d27d27d27d3446fb8839649f251e5083970c44ad30&#34;,&#34;ismalicious&#34;:false,&#34;endpoint&#34;:&#34;47.246.24.234:443&#34;,&#34;note&#34;:&#34;login.tmall.com&#34;}%                                                                                
-HTB/Machines/Jarmis 
+Hack The Box/Machines/Jarmis 
 ❯ curl http://10.10.11.117/api/v1/search/id/223
 null%      
 </code></pre><ul>
@@ -1995,7 +1995,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;title=Jarmis%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;title=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -2014,7 +2014,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;text=Jarmis%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;text=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -2032,7 +2032,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;resubmit=true&amp;title=Jarmis%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;resubmit=true&amp;title=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -2051,7 +2051,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;description=Jarmis%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;description=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -2070,7 +2070,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;resubmit=true&amp;title=Jarmis%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;resubmit=true&amp;title=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -2089,7 +2089,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;quote=Jarmis%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;quote=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -2108,7 +2108,7 @@ root@Jarmis:/root#
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;subject=Jarmis%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/&amp;subject=Jarmis%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -2170,7 +2170,7 @@ root@Jarmis:/root#
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Support Walkthrough(HTB)</span
+                  >Support Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -2182,6 +2182,28 @@ root@Jarmis:/root#
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1742495783286-alert-walkthroughhtb/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Alert Walkthrough(Hack The Box)</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-03-22T00:00:00&#43;00:00">22 March 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

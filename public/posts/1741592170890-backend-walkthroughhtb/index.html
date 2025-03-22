@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Backend Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Backend Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Backend Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Backend Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="A straight walthrough of Backend Box" />
-  <meta name="keywords" content="Medium, Linux, HTB, hacking, walkthrough, web, " />
+  <meta name="keywords" content="Medium, Linux, Hack The Box, hacking, walkthrough, web, " />
   
   
   <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/" />
@@ -71,7 +71,7 @@
   
   <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Backend Walkthrough(HTB)">
+  <meta property="og:title" content="Backend Walkthrough(Hack The Box)">
   <meta property="og:description" content="A straight walthrough of Backend Box">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -80,7 +80,7 @@
     <meta property="article:modified_time" content="2025-03-10T00:00:00+00:00">
     <meta property="article:tag" content="Medium">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Walkthrough">
     <meta property="article:tag" content="Web">
@@ -89,7 +89,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/featured.png">
-  <meta name="twitter:title" content="Backend Walkthrough(HTB)">
+  <meta name="twitter:title" content="Backend Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="A straight walthrough of Backend Box">
 
   
@@ -98,8 +98,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Backend Walkthrough(HTB)",
-    "headline": "Backend Walkthrough(HTB)",
+    "name": "Backend Walkthrough(Hack The Box)",
+    "headline": "Backend Walkthrough(Hack The Box)",
     "description": "A straight walthrough of Backend Box",
     
     "inLanguage": "en",
@@ -114,10 +114,10 @@
     
     "dateModified": "2025-03-10T00:00:00\u002b00:00",
     
-    "keywords": ["Medium","Linux","HTB","hacking","walkthrough","web"],
+    "keywords": ["Medium","Linux","Hack The Box","hacking","walkthrough","web"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1249"
+    "wordCount": "1253"
   }]
   </script>
 
@@ -634,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Backend Walkthrough(HTB)
+      Backend Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-10T00:00:00&#43;00:00">10 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1249 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-10T00:00:00&#43;00:00">10 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1253 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -756,10 +756,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
@@ -1385,7 +1385,7 @@ HOP RTT       ADDRESS
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="n">API_V1_STR</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;/api/v1&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">JWT_SECRET</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;SuperSecretSigningKey-HTB&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">JWT_SECRET</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;SuperSecretSigningKey-Hack The Box&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">ALGORITHM</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;HS256&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 60 minutes * 24 hours * 8 days = 8 days</span>
@@ -1453,7 +1453,7 @@ HOP RTT       ADDRESS
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">datetime</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">token</span> <span class="o">=</span> <span class="s2">&#34;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzQxOTM2OTU0LCJpYXQiOjE3NDEyNDU3NTQsInN1YiI6IjEiLCJpc19zdXBlcnVzZXIiOnRydWUsImd1aWQiOiIzNmMyZTk0YS00MjcxLTQyNTktOTNiZi1jOTZhZDU5NDgyODQifQ.eL4UaJ5NCf-TEpWdq21t-kEbO-7YJTmmLLkooJussuE&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">secret</span> <span class="o">=</span> <span class="s2">&#34;SuperSecretSigningKey-HTB&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">secret</span> <span class="o">=</span> <span class="s2">&#34;SuperSecretSigningKey-Hack The Box&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">leeway</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">decoder</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">secret</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;HS256&#34;</span><span class="p">],</span> <span class="n">leeway</span><span class="o">=</span><span class="n">leeway</span><span class="p">)</span>
@@ -1609,7 +1609,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;title=Backend%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;title=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1628,7 +1628,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;text=Backend%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;text=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1646,7 +1646,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;resubmit=true&amp;title=Backend%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;resubmit=true&amp;title=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1665,7 +1665,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;description=Backend%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;description=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1684,7 +1684,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;resubmit=true&amp;title=Backend%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;resubmit=true&amp;title=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1703,7 +1703,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;quote=Backend%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;quote=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1722,7 +1722,7 @@ HOP RTT       ADDRESS
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;subject=Backend%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/&amp;subject=Backend%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1784,7 +1784,7 @@ HOP RTT       ADDRESS
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Forest Walkthrough(HTB)</span
+                  >Forest Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1801,7 +1801,7 @@ HOP RTT       ADDRESS
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Caption Walkthrough(HTB)</span
+                  >Caption Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

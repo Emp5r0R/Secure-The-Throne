@@ -1,9 +1,9 @@
 ---
-title: "Access Walkthrough(HTB)"
+title: "Access Walkthrough(Hack The Box)"
 date: 2025-03-20
 draft: true
 description: "a description"
-tags: ["Easy", "Windows", "HTB", "Hacking", "Active Directory", "Walkthrough"]
+tags: ["Easy", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkthrough"]
 ---
 ## Reconnaissance #Windows 
 - We got straight away Webserver on port 80 and Telnet, FTP on the nmap scan.

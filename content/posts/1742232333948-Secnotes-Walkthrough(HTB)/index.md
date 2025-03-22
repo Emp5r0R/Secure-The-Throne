@@ -1,9 +1,9 @@
 ---
-title: "SecNotes Walkthrough(HTB)"
+title: "SecNotes Walkthrough(Hack The Box)"
 date: 2025-03-22
 draft: true 
 description: "A straight forward walkthrough of the box SecNotes"
-tags: ["Medium", "Windows", "HTB", "hacking", "Active Directory", "Walkthrough"]
+tags: ["Medium", "Windows", "Hack The Box", "hacking", "Active Directory", "Walkthrough"]
 ---
 ## Reconnaissance & Enumeration
 

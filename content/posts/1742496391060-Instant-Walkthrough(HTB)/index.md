@@ -1,9 +1,9 @@
 ---
-title: "Instant Walkthrough(HTB)"
+title: "Instant Walkthrough(Hack The Box)"
 date: 2025-03-20
 draft: true
 description: "a description"
-tags: ["Medium", "Linux", "HTB", "hacking", "Web", "Android", "Walkthrough"]
+tags: ["Medium", "Linux", "Hack The Box", "hacking", "Web", "Android", "Walkthrough"]
 ---
 ## Reconnaissance #Linux 
 - We got exactly two ports open web and ssh

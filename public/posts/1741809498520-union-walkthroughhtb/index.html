@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Union Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Union Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Union Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Union Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses." />
-  <meta name="keywords" content="medium, Linux, HTB, hacking, Web, Walkthrough, " />
+  <meta name="keywords" content="medium, Linux, Hack The Box, hacking, Web, Walkthrough, " />
   
   
   <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/" />
@@ -71,7 +71,7 @@
   
   <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Union Walkthrough(HTB)">
+  <meta property="og:title" content="Union Walkthrough(Hack The Box)">
   <meta property="og:description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -80,7 +80,7 @@
     <meta property="article:modified_time" content="2025-03-16T00:00:00+00:00">
     <meta property="article:tag" content="Medium">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Web">
     <meta property="article:tag" content="Walkthrough">
@@ -89,7 +89,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/featured.jpeg">
-  <meta name="twitter:title" content="Union Walkthrough(HTB)">
+  <meta name="twitter:title" content="Union Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses.">
 
   
@@ -98,8 +98,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Union Walkthrough(HTB)",
-    "headline": "Union Walkthrough(HTB)",
+    "name": "Union Walkthrough(Hack The Box)",
+    "headline": "Union Walkthrough(Hack The Box)",
     "description": "Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses.",
     
     "inLanguage": "en",
@@ -114,10 +114,10 @@
     
     "dateModified": "2025-03-16T00:00:00\u002b00:00",
     
-    "keywords": ["medium","Linux","HTB","hacking","Web","Walkthrough"],
+    "keywords": ["medium","Linux","Hack The Box","hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "941"
+    "wordCount": "943"
   }]
   </script>
 
@@ -634,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Union Walkthrough(HTB)
+      Union Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-16T00:00:00&#43;00:00">16 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>941 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-16T00:00:00&#43;00:00">16 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>943 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -756,10 +756,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
@@ -1332,7 +1332,7 @@
 </ul>
 <pre tabindex="0"><code>Sorry, &lt;redacted&gt; you are not eligible due to already qualifying.
 </code></pre><ul>
-<li>I Got the flag not the HTB user flag but the platform flag for this box and after submission of the flag, the website firewalls lifted and port 22 is now accessible
+<li>I Got the flag not the Hack The Box user flag but the platform flag for this box and after submission of the flag, the website firewalls lifted and port 22 is now accessible
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113003834.png?raw=true" alt="Pasted image 20250113003834.png" />
@@ -1578,7 +1578,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;title=Union%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;title=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1597,7 +1597,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;text=Union%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;text=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1615,7 +1615,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;resubmit=true&amp;title=Union%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;resubmit=true&amp;title=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1634,7 +1634,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;description=Union%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;description=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1653,7 +1653,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;resubmit=true&amp;title=Union%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;resubmit=true&amp;title=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1672,7 +1672,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;quote=Union%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;quote=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1691,7 +1691,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;subject=Union%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/&amp;subject=Union%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1753,7 +1753,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Certified Walkthrough(HTB)</span
+                  >Certified Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1770,7 +1770,7 @@ uhc:x:1001:1001:,,,:/home/uhc:/bin/bash
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Support Walkthrough(HTB)</span
+                  >Support Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

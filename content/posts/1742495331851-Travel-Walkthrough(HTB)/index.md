@@ -1,9 +1,9 @@
 ---
-title: "Travel Walkthrough(HTB)"
+title: "Travel Walkthrough(Hack The Box)"
 date: 2025-03-20
 draft: true
 description: "A straight forward walkthrough of the box Travel from Hack The Box"
-tags: ["Hard", "Linux", "HTB", "Hacking", "Web", "Walkthrough"]
+tags: ["Hard", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
 ## Reconnaissance & Enumeration #Linux 
 - Nmap scan results:
@@ -16,18 +16,18 @@ PORT    STATE SERVICE  VERSION
 |_  256 3a:01:bc:f8:57:f5:27:a1:68:1d:6a:3d:4e:bc:21:1b (ED25519)
 80/tcp  open  http     nginx 1.17.6
 |_http-server-header: nginx/1.17.6
-|_http-title: Travel.HTB
+|_http-title: Travel.Hack The Box
 | http-methods: 
 |_  Supported Methods: GET HEAD
 443/tcp open  ssl/http nginx 1.17.6
 |_ssl-date: TLS randomness does not represent time
 | http-methods: 
 |_  Supported Methods: GET HEAD
-|_http-title: Travel.HTB - SSL coming soon.
+|_http-title: Travel.Hack The Box - SSL coming soon.
 |_http-server-header: nginx/1.17.6
-| ssl-cert: Subject: commonName=www.travel.htb/organizationName=Travel.HTB/countryName=UK
+| ssl-cert: Subject: commonName=www.travel.htb/organizationName=Travel.Hack The Box/countryName=UK
 | Subject Alternative Name: DNS:www.travel.htb, DNS:blog.travel.htb, DNS:blog-dev.travel.htb
-| Issuer: commonName=www.travel.htb/organizationName=Travel.HTB/countryName=UK
+| Issuer: commonName=www.travel.htb/organizationName=Travel.Hack The Box/countryName=UK
 | Public Key type: rsa
 | Public Key bits: 2048
 | Signature Algorithm: sha256WithRSAEncryption

@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Caption Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Caption Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Caption Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Caption Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="Caption is a Hard-difficulty Linux box, showcasing the chaining of niche vulnerabilities arising from different technologies such as HAProxy and Varnish. It begins with default credentials granting access to GitBucket, which exposes credentials for a web portal login through commits. The application caches a frequently visited page by an admin user, whose session can be hijacked by exploiting Web Cache Deception (WCD) via response poisoning exploited through a Cross-Site Scripting (XSS) payload. HAProxy controls can be bypassed by establishing an HTTP/2 cleartext tunnel, also known as an H2C Smuggling Attack, enabling the exploitation of a locally running service vulnerable to path traversal ([CVE-2023-37474](https://security.snyk.io/vuln/SNYK-PYTHON-COPYPARTY-5777718)). A foothold is gained by reading the SSH ECDSA private key. Root privileges are obtained by exploiting a command injection vulnerability in the Apache Thrift service running as root." />
-  <meta name="keywords" content="Hard, Linux, HTB, hacking, walkthrough, web, " />
+  <meta name="keywords" content="Hard, Linux, Hack The Box, hacking, walkthrough, web, " />
   
   
   <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/" />
@@ -71,7 +71,7 @@
   
   <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Caption Walkthrough(HTB)">
+  <meta property="og:title" content="Caption Walkthrough(Hack The Box)">
   <meta property="og:description" content="Caption is a Hard-difficulty Linux box, showcasing the chaining of niche vulnerabilities arising from different technologies such as HAProxy and Varnish. It begins with default credentials granting access to GitBucket, which exposes credentials for a web portal login through commits. The application caches a frequently visited page by an admin user, whose session can be hijacked by exploiting Web Cache Deception (WCD) via response poisoning exploited through a Cross-Site Scripting (XSS) payload. HAProxy controls can be bypassed by establishing an HTTP/2 cleartext tunnel, also known as an H2C Smuggling Attack, enabling the exploitation of a locally running service vulnerable to path traversal ([CVE-2023-37474](https://security.snyk.io/vuln/SNYK-PYTHON-COPYPARTY-5777718)). A foothold is gained by reading the SSH ECDSA private key. Root privileges are obtained by exploiting a command injection vulnerability in the Apache Thrift service running as root.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -80,7 +80,7 @@
     <meta property="article:modified_time" content="2025-03-12T00:00:00+00:00">
     <meta property="article:tag" content="Hard">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Walkthrough">
     <meta property="article:tag" content="Web">
@@ -89,7 +89,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/featured.png">
-  <meta name="twitter:title" content="Caption Walkthrough(HTB)">
+  <meta name="twitter:title" content="Caption Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="Caption is a Hard-difficulty Linux box, showcasing the chaining of niche vulnerabilities arising from different technologies such as HAProxy and Varnish. It begins with default credentials granting access to GitBucket, which exposes credentials for a web portal login through commits. The application caches a frequently visited page by an admin user, whose session can be hijacked by exploiting Web Cache Deception (WCD) via response poisoning exploited through a Cross-Site Scripting (XSS) payload. HAProxy controls can be bypassed by establishing an HTTP/2 cleartext tunnel, also known as an H2C Smuggling Attack, enabling the exploitation of a locally running service vulnerable to path traversal ([CVE-2023-37474](https://security.snyk.io/vuln/SNYK-PYTHON-COPYPARTY-5777718)). A foothold is gained by reading the SSH ECDSA private key. Root privileges are obtained by exploiting a command injection vulnerability in the Apache Thrift service running as root.">
 
   
@@ -98,8 +98,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Caption Walkthrough(HTB)",
-    "headline": "Caption Walkthrough(HTB)",
+    "name": "Caption Walkthrough(Hack The Box)",
+    "headline": "Caption Walkthrough(Hack The Box)",
     "description": "Caption is a Hard-difficulty Linux box, showcasing the chaining of niche vulnerabilities arising from different technologies such as HAProxy and Varnish. It begins with default credentials granting access to GitBucket, which exposes credentials for a web portal login through commits. The application caches a frequently visited page by an admin user, whose session can be hijacked by exploiting Web Cache Deception (WCD) via response poisoning exploited through a Cross-Site Scripting (XSS) payload. HAProxy controls can be bypassed by establishing an HTTP\/2 cleartext tunnel, also known as an H2C Smuggling Attack, enabling the exploitation of a locally running service vulnerable to path traversal ([CVE-2023-37474](https:\/\/security.snyk.io\/vuln\/SNYK-PYTHON-COPYPARTY-5777718)). A foothold is gained by reading the SSH ECDSA private key. Root privileges are obtained by exploiting a command injection vulnerability in the Apache Thrift service running as root.",
     
     "inLanguage": "en",
@@ -114,7 +114,7 @@
     
     "dateModified": "2025-03-12T00:00:00\u002b00:00",
     
-    "keywords": ["Hard","Linux","HTB","hacking","walkthrough","web"],
+    "keywords": ["Hard","Linux","Hack The Box","hacking","walkthrough","web"],
     
     "mainEntityOfPage": "true",
     "wordCount": "1224"
@@ -634,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Caption Walkthrough(HTB)
+      Caption Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -756,10 +756,10 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
@@ -1548,7 +1548,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;title=Caption%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;title=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1567,7 +1567,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;text=Caption%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;text=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1585,7 +1585,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;resubmit=true&amp;title=Caption%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;resubmit=true&amp;title=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1604,7 +1604,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;description=Caption%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;description=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1623,7 +1623,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;resubmit=true&amp;title=Caption%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;resubmit=true&amp;title=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1642,7 +1642,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;quote=Caption%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;quote=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1661,7 +1661,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;subject=Caption%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/&amp;subject=Caption%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1723,7 +1723,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Backend Walkthrough(HTB)</span
+                  >Backend Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1740,7 +1740,7 @@ The <a href="https://www.exploit-db.com/exploits/51636" target="_blank">POC</a> 
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Perfection Walkthrough(HTB)</span
+                  >Perfection Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

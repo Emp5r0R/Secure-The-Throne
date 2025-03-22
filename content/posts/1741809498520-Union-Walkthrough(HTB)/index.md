@@ -1,9 +1,9 @@
 ---
-title: "Union Walkthrough(HTB)"
+title: "Union Walkthrough(Hack The Box)"
 date: 2025-03-16
 draft: false 
 description: "Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses."
-tags: ["medium", "Linux", "HTB", "hacking", "Web", "Walkthrough"]
+tags: ["medium", "Linux", "Hack The Box", "hacking", "Web", "Walkthrough"]
 ---
 ## Reconnaissance & Enumeration  
 - Nmap scan results 
@@ -82,7 +82,7 @@ Sorry, flag:one,players:player you are not eligible due to already qualifying.
 ```
 Sorry, <redacted> you are not eligible due to already qualifying.
 ```
-- I Got the flag not the HTB user flag but the platform flag for this box and after submission of the flag, the website firewalls lifted and port 22 is now accessible
+- I Got the flag not the Hack The Box user flag but the platform flag for this box and after submission of the flag, the website firewalls lifted and port 22 is now accessible
 ![Pasted image 20250113003834.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250113003834.png?raw=true)
 - Lets confirm this by a simple nmap scan on port `22`
 ```
