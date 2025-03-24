@@ -22,3 +22,9 @@ Also I built this tool, a hash cracker which can rival even hashcat in terms of 
 
 {{< github repo="Emp5r0R/BananaCracker" >}}
 
+{{< typeit 
+    tag=h3 
+    lifeLike=true 
+>}} 
+"When you play the game of thrones, you win or you die. There is no middle ground" 
+{{< /typeit >}}

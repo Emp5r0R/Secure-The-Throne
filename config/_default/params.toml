@@ -27,7 +27,7 @@ layout = "background"
 showRecent = true
 showRecentItems = "3"
 showMoreLink = true
-showMoreLinkDest = "/Secure-The-Throne/posts/"
+showMoreLinkDest = "/posts/"
 cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
@@ -60,7 +60,8 @@ showZenMode = true
 showSummary = true
 sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email" ]
 heroStyle = "background"
-showRelatedContent = false
+showRelatedContent = "show"
+relatedContentLimit = "3"
 
 [list]
 showHero = false

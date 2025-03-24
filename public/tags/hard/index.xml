@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hard on Secure The Throne</title>
-    <link>http://localhost:1313/Secure-The-Throne/tags/hard/</link>
+    <link>http://localhost:1313/tags/hard/</link>
     <description>Recent content in Hard on Secure The Throne</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/Secure-The-Throne/tags/hard/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/hard/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Jarmis Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1742061149402-jarmis-walkthroughhtb/</link>
       <pubDate>Thu, 20 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1742061149402-jarmis-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1742061149402-jarmis-walkthroughhtb/featured.jpeg" />
     </item>
     
     <item>
       <title>Caption Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1741762551259-caption-walkthroughhtb/</link>
       <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1741762551259-caption-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1741762551259-caption-walkthroughhtb/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1741762551259-caption-walkthroughhtb/featured.png" />
     </item>
     
   </channel>

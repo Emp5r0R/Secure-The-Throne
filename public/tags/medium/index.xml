@@ -2,41 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Medium on Secure The Throne</title>
-    <link>http://localhost:1313/Secure-The-Throne/tags/medium/</link>
+    <link>http://localhost:1313/tags/medium/</link>
     <description>Recent content in Medium on Secure The Throne</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Sun, 16 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/Secure-The-Throne/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/medium/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SecNotes Walkthrough(Hack The Box)</title>
+      <link>http://localhost:1313/posts/1742232333948-secnotes-walkthroughhtb/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/1742232333948-secnotes-walkthroughhtb/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1742232333948-secnotes-walkthroughhtb/featured.jpeg" />
+    </item>
     
     <item>
       <title>Union Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1741809498520-union-walkthroughhtb/</link>
       <pubDate>Sun, 16 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1741809498520-union-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1741809498520-union-walkthroughhtb/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1741809498520-union-walkthroughhtb/featured.jpeg" />
     </item>
     
     <item>
       <title>Certified Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1742035934336-certified-walkthroughhtb/</link>
       <pubDate>Sat, 15 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1742035934336-certified-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1742035934336-certified-walkthroughhtb/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1742035934336-certified-walkthroughhtb/featured.jpeg" />
     </item>
     
     <item>
       <title>Backend Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1741592170890-backend-walkthroughhtb/</link>
       <pubDate>Mon, 10 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1741592170890-backend-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1741592170890-backend-walkthroughhtb/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1741592170890-backend-walkthroughhtb/featured.png" />
     </item>
     
   </channel>

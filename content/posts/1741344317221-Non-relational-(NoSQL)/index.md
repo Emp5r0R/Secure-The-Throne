@@ -4,6 +4,7 @@ date: 2025-03-07
 draft: false
 description: "a description"
 tags: ["database", "web", "info"]
+categories: ["Ethical Hacking", "Information"]
 ---
 - A [non-relational database](https://en.wikipedia.org/wiki/NoSQL) does not use tables, rows, columns, primary keys, relationships, or schemas. Instead, a `NoSQL` database stores data using various storage models, depending on the type of data stored.
 

