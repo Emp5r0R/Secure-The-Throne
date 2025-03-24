@@ -1,7 +1,7 @@
 ---
 title: "Travel Walkthrough(Hack The Box)"
-date: 2025-03-23
-draft: true
+date: 2025-03-28
+draft: false 
 description: "A straight forward walkthrough of the box Travel from Hack The Box"
 tags: ["Hard", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
@@ -63,8 +63,8 @@ HOP RTT       ADDRESS
 
 
 ```
-- Surprisingly there are three ports open with 433 being the unusal .
-- Nmap scan reveals the domain names/Host names.
+- Surprisingly there are three ports open with 433 being the unusal.
+- Nmap scan reveals the domain name/host names.
 - There are some interesting information that I stumbled upon while on the reconnaissance process
 	> I learnt about `hello@travel.htb` from the home page of port 80
 	> There is some pretty good filter on the `email` subscribe field
