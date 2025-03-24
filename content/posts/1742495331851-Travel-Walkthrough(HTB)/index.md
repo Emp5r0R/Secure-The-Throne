@@ -1,6 +1,6 @@
 ---
 title: "Travel Walkthrough(Hack The Box)"
-date: 2025-03-25
+date: 2025-03-24
 draft: false 
 description: "A straight forward walkthrough of the box Travel from Hack The Box"
 tags: ["Hard", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
