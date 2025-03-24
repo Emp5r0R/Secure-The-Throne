@@ -2,12 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Secure The Throne</title>
-    <link>http://localhost:1313/Secure-The-Throne/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Secure The Throne</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <atom:link href="http://localhost:1313/Secure-The-Throne/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ethical Hacking</title>
+      <link>http://localhost:1313/categories/ethical-hacking/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/ethical-hacking/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Information</title>
+      <link>http://localhost:1313/categories/information/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/information/</guid>
+      <description></description>
+      
+    </item>
     
   </channel>
 </rss>

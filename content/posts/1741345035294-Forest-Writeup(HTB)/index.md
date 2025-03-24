@@ -4,6 +4,7 @@ date: 2025-03-07
 draft: false
 description: "Forest in an easy difficulty Windows Domain Controller (DC), for a domain in which Exchange Server has been installed. The DC is found to allow anonymous LDAP binds, which is used to enumerate domain objects. The password for a service account with Kerberos pre-authentication disabled can be cracked to gain a foothold. The service account is found to be a member of the Account Operators group, which can be used to add users to privileged Exchange groups. The Exchange group membership is leveraged to gain DCSync privileges on the domain and dump the NTLM hashes."
 tags: ["Easy", "windows","Hack The Box", "hacking", "Active Directory", "walkthrough"]
+ 
 ---
 
 

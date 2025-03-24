@@ -4,6 +4,7 @@ date: 2025-03-15
 draft: false
 description: "A straight forward walkthrough for Certified hack the box machine"
 tags: ["Medium", "Windows", "Hack The Box", "hacking", "Active Directory", "Walkthrough"]
+ 
 ---
 ## Reconnaissance  
 - We got multiple ports open, Which is interesting 

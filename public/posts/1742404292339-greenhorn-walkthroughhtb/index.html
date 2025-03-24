@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/Secure-The-Throne/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Secure-The-Throne/livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=36395&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -8,17 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Greenhorn Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Greenhorn Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Greenhorn Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Greenhorn Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="A straight forward walkthrough for Greenhorn box." />
-  <meta name="keywords" content="Easy, Linux, HTB, Hacking, Web, Walkthrough, " />
+  <meta name="keywords" content="Easy, Linux, Hack The Box, Hacking, Web, Walkthrough, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/" />
-  
-  
-  
+  <link rel="canonical" href="http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/" />
   
   
   
@@ -28,12 +25,15 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/Secure-The-Throne/css/main.bundle.min.41689a74295ccc3e512d39a90d741ccebbde3860c6ab3597149f60e95cdd18e4873f14a9f484bfad85452fece214f7257f3a74a9971df31c9efa5a199b6414b2.css"
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.41689a74295ccc3e512d39a90d741ccebbde3860c6ab3597149f60e95cdd18e4873f14a9f484bfad85452fece214f7257f3a74a9971df31c9efa5a199b6414b2.css"
     integrity="sha512-QWiadClczD5RLTmpDXQczrveOGDGqzWXFJ9g6VzdGOSHPxSp9IS/rYVFL&#43;ziFPclfzp0qZcd8xye&#43;loZm2QUsg==" />
   
   
-  <script type="text/javascript" src="/Secure-The-Throne/js/appearance.min.314516f6fc60028f836d15d02678a0f42ee34554fb9c51c36fbb07e0c3b89d2ef4e827f2f1d81cb69a02248b89e2a1ca86afe6f212f7ce65329072265dbba39d.js"
-    integrity="sha512-MUUW9vxgAo&#43;DbRXQJnig9C7jRVT7nFHDb7sH4MO4nS706Cfy8dgctpoCJIuJ4qHKhq/m8hL3zmUykHImXbujnQ=="></script>
+  <script type="text/javascript" src="/js/appearance.min.abe07aa3ed764e6e722c4f1cd3f92acd0c1823260f550b6055a4811d0bc9b54753abb435aa4e92781e1df45555ec873d4d6231157af4ab2bf6e70de35355c062.js"
+    integrity="sha512-q&#43;B6o&#43;12Tm5yLE8c0/kqzQwYIyYPVQtgVaSBHQvJtUdTq7Q1qk6SeB4d9FVV7Ic9TWIxFXr0qyv25w3jU1XAYg=="></script>
   
   
   
@@ -48,48 +48,48 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/Secure-The-Throne/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
     integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
   
   
   
-  <script src="/Secure-The-Throne/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
   
   
   
-  <link rel="apple-touch-icon" sizes="180x180" href="/Secure-The-Throne/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/Secure-The-Throne/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/Secure-The-Throne/favicon-16x16.png" />
-  <link rel="manifest" href="/Secure-The-Throne/site.webmanifest" />
-  
-  
-  
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   
   
   
   
-  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/">
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Greenhorn Walkthrough(HTB)">
+  <meta property="og:title" content="Greenhorn Walkthrough(Hack The Box)">
   <meta property="og:description" content="A straight forward walkthrough for Greenhorn box.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-19T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-19T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-03-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-23T00:00:00+00:00">
     <meta property="article:tag" content="Easy">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Web">
     <meta property="article:tag" content="Walkthrough">
-    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/featured.png">
+    <meta property="og:image" content="http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/featured.png">
-  <meta name="twitter:title" content="Greenhorn Walkthrough(HTB)">
+  <meta name="twitter:image" content="http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/featured.png">
+  <meta name="twitter:title" content="Greenhorn Walkthrough(Hack The Box)">
   <meta name="twitter:description" content="A straight forward walkthrough for Greenhorn box.">
 
   
@@ -98,26 +98,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Greenhorn Walkthrough(HTB)",
-    "headline": "Greenhorn Walkthrough(HTB)",
+    "name": "Greenhorn Walkthrough(Hack The Box)",
+    "headline": "Greenhorn Walkthrough(Hack The Box)",
     "description": "A straight forward walkthrough for Greenhorn box.",
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1742404292339-greenhorn-walkthroughhtb\/",
+    "url" : "http:\/\/localhost:36395\/posts\/1742404292339-greenhorn-walkthroughhtb\/",
     "author" : {
       "@type": "Person",
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-19T00:00:00\u002b00:00",
-    "datePublished": "2025-03-19T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-23T00:00:00\u002b00:00",
+    "datePublished": "2025-03-23T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-19T00:00:00\u002b00:00",
+    "dateModified": "2025-03-23T00:00:00\u002b00:00",
     
-    "keywords": ["Easy","Linux","HTB","Hacking","Web","Walkthrough"],
+    "keywords": ["Easy","Linux","Hack The Box","Hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1009"
+    "wordCount": "1013"
   }]
   </script>
 
@@ -143,7 +143,7 @@
   
   
 
-<script src="/Secure-The-Throne/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -157,7 +157,7 @@
 
 
 
-<script defer src="/Secure-The-Throne/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -199,11 +199,11 @@
     
     
     <div>
-        <a href="/Secure-The-Throne/" class="flex">
+        <a href="/" class="flex">
             <span class="sr-only">Secure The Throne</span>
 
             
-            <img src="/Secure-The-Throne/My_logo-background-less.png" width="512" height="512"
+            <img src="/My_logo-background-less.png" width="512" height="512"
                 class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Secure The Throne" />
             
 
@@ -214,7 +214,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/Secure-The-Throne/" class="text-base font-medium text-gray-500 hover:text-gray-900">Secure The Throne</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Secure The Throne</a>
             
 
         </nav>
@@ -223,7 +223,7 @@
             
             
             
-  <a href="/Secure-The-Throne/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Posts">
         Posts
@@ -234,7 +234,7 @@
 
             
             
-  <a href="/Secure-The-Throne/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Tags">
         Tags
@@ -245,7 +245,7 @@
 
             
             
-  <a href="/Secure-The-Throne/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="$WHOAMI">
         About
@@ -449,7 +449,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Posts">
             Posts
@@ -464,7 +464,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Tags">
             Tags
@@ -479,7 +479,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="$WHOAMI">
             About
@@ -608,7 +608,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/featured_hu_adbc676b7afc694a.png);">
+    style="background-image:url(/posts/1742404292339-greenhorn-walkthroughhtb/featured_hu_adbc676b7afc694a.png);">
     
 
 
@@ -634,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Greenhorn Walkthrough(HTB)
+      Greenhorn Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -681,10 +681,10 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-19T00:00:00&#43;00:00">19 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1009 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-23T00:00:00&#43;00:00">23 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1013 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
-<script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
+<script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
 
 <span class="mb-[2px]">
     <span id="zen-mode-button"
@@ -740,7 +740,7 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/easy/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Easy
@@ -748,7 +748,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/linux/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Linux
@@ -756,15 +756,15 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hacking/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Hacking
@@ -772,7 +772,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Web
@@ -780,7 +780,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/walkthrough/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Walkthrough
@@ -822,7 +822,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="Emp5r0R" src="/Secure-The-Throne/My-Picture_hu_52e4dc4fdec70a08.jpeg" />
+      alt="Emp5r0R" src="/My-Picture_hu_52e4dc4fdec70a08.jpeg" />
     
   
   <div class="place-self-center">
@@ -1080,7 +1080,7 @@
     
 </h2>
 <ul>
-<li>I scanned the ports with Nmap and we have three ports open 80,22,3000 respectively as shown in the below image
+<li>I scanned the ports with rustscan and we have three ports open 80,22,3000 respectively as shown in the below image
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225141303.png?raw=true" alt="Pasted image 20241225141303.png" />
@@ -1088,7 +1088,7 @@
   </figure>
 </li>
 <li>First I checked Port 80 and it runs a website called greenhorn. The noticeable thing is it had a loginpage.</li>
-<li>While poking areound more I found that this freenhorn page uses Pluck CMS, which is sensitive as it goes.</li>
+<li>While poking areound more I found that this greenhorn page uses Pluck CMS, which is sensitive as it goes.</li>
 </ul>
 <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
@@ -1271,7 +1271,7 @@ else {
 $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743c5580556c0d838b51749de15530f87fb793afdcc689b6b39024d7790163&#39;;
 ?&gt;
 </code></pre><ul>
-<li>As from the lenght we can say that this is a sha512 hash, So I cracked it using hashcat
+<li>As from the length we can say that this is a sha512 hash, So I cracked it using hashcat
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225163840.png?raw=true" alt="Pasted image 20241225163840.png" />
@@ -1331,7 +1331,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
     
 </h2>
 <ul>
-<li>From enumeration I learnt that there is a user called <code>junior</code> on the machine.
+<li>From enumeration I learnt that there is an user called <code>junior</code> on the machine.
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225164853.png?raw=true" alt="Pasted image 20241225164853.png" />
@@ -1371,14 +1371,14 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
 </h2>
 <ul>
 <li>In the home directory of junior, there is not only user flag but also a file named <code>Using OpenVAS.pdf</code> was also there.</li>
-<li>So I transferred pdf file to my attack machine
+<li>So I transferred the pdf file to my attack machine
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165235.png?raw=true" alt="Pasted image 20241225165235.png" />
     
   </figure>
 </li>
-<li>These were the contents
+<li>These were it&rsquo;s contents
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165315.png?raw=true" alt="Pasted image 20241225165315.png" />
@@ -1392,9 +1392,9 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
     
   </figure>
 </li>
-<li>From this <a href="https://labs.jumpsec.com/can-depix-deobfuscate-your-data/" target="_blank">article</a> found that actually, blured part can be recovered</li>
+<li>From this <a href="https://labs.jumpsec.com/can-depix-deobfuscate-your-data/" target="_blank">article</a> I found that actually, blured part can be recovered</li>
 <li>Using this tool <a href="https://github.com/spipm/Depixelization_poc" target="_blank">Depixelization</a> I can easily recontruct the particular blured sentence</li>
-<li>There is an option in my pdf reader to extract only the pix-elated part from the PDF as image which was convinient for me.
+<li>There is an option in my pdf reader to extract only the pix-elated part from the PDF as an image which was convinient for me.
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165809.png?raw=true" alt="Pasted image 20241225165809.png" />
@@ -1411,7 +1411,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
   </figure>
 </p>
 <ul>
-<li>Got the root password
+<li>Got the root user&rsquo;s password
 
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225170036.png?raw=true" alt="Pasted image 20241225170036.png" />
@@ -1436,11 +1436,11 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
   </figure>
 </li>
 </ul>
-<div id="typeit-3fe73caae1f961fd8ef24cfda15d842f"></div>
+<div id="typeit-497ede4ff6740b3a04323dbcbf884fce"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-3fe73caae1f961fd8ef24cfda15d842f", {
+      new TypeIt("#typeit-497ede4ff6740b3a04323dbcbf884fce", {
         strings: [" I know you are worried that this walkthrough is ending. I know that you are craving for my wrtting, Don't worry mate there are plenty of posts in this website made especially for you. Feel free to read them. Anyway it's time for me to go, see you next time "],
         speed:  100 ,
         lifeLike:  false ,
@@ -1474,7 +1474,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;title=Greenhorn%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;title=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1493,7 +1493,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;text=Greenhorn%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;text=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1511,7 +1511,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;resubmit=true&amp;title=Greenhorn%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;resubmit=true&amp;title=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1530,7 +1530,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;description=Greenhorn%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;description=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1549,7 +1549,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;resubmit=true&amp;title=Greenhorn%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;resubmit=true&amp;title=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1568,7 +1568,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;quote=Greenhorn%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;quote=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1587,7 +1587,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742404292339-greenhorn-walkthroughhtb/&amp;subject=Greenhorn%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:36395/posts/1742404292339-greenhorn-walkthroughhtb/&amp;subject=Greenhorn%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1621,7 +1621,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       </script>
       
       
-      <script type="text/javascript" src="/Secure-The-Throne/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
       
   
     </section>
@@ -1637,7 +1637,7 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/">
+            <a class="flex group mr-3" href="/posts/1742495783286-alert-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1649,11 +1649,11 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Support Walkthrough(HTB)</span
+                  >Alert Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-18T00:00:00&#43;00:00">18 March 2025</time>
+                    <time datetime="2025-03-22T00:00:00&#43;00:00">22 March 2025</time>
                   
                 </span>
               </span>
@@ -1661,28 +1661,6 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/Secure-The-Throne/posts/1742495331851-travel-walkthroughhtb/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Travel Walkthrough(HTB)</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
@@ -1754,14 +1732,14 @@ $ww = &#39;d5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743
   </script>
   
   
-  <script type="text/javascript" src="/Secure-The-Throne/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
 </footer>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/Secure-The-Throne/"
+  data-url="http://localhost:36395/"
   style="z-index:500"
 >
   <div

@@ -1,18 +1,19 @@
 ---
 title: "Greenhorn Walkthrough(Hack The Box)"
-date: 2025-03-19
+date: 2025-03-26
 draft: true 
 description: "A straight forward walkthrough for Greenhorn box."
 tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
+ 
 ---
 ## About
 GreenHorn is an easy difficulty machine that takes advantage of an exploit in Pluck to achieve Remote Code Execution and then demonstrates the dangers of pixelated credentials. The machine also showcases that we must be careful when sharing open-source configurations to ensure that we do not reveal files containing passwords or other information that should be kept confidential. 
 
 ## Reconnaissance  
-- I scanned the ports with Nmap and we have three ports open 80,22,3000 respectively as shown in the below image
+- I scanned the ports with rustscan and we have three ports open 80,22,3000 respectively as shown in the below image
 ![Pasted image 20241225141303.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225141303.png?raw=true)
 - First I checked Port 80 and it runs a website called greenhorn. The noticeable thing is it had a loginpage.  
-- While poking areound more I found that this freenhorn page uses Pluck CMS, which is sensitive as it goes.
+- While poking areound more I found that this greenhorn page uses Pluck CMS, which is sensitive as it goes.
 
 {{< badge >}} Definition {{< /badge >}}
 - Pluck is a small and simple content management system (CMS), written in PHP. With Pluck, you can easily manage your own website. Pluck focuses on simplicity and ease of use. This makes Pluck an excellent choice for every small website. Licensed under the General Public License (GPL), Pluck is completely open source. This allows you to do with the software whatever you want, as long as the software stays open source.
@@ -159,7 +160,7 @@ else {
 $ww = 'd5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743c5580556c0d838b51749de15530f87fb793afdcc689b6b39024d7790163';
 ?>
 ```
-- As from the lenght we can say that this is a sha512 hash, So I cracked it using hashcat 
+- As from the length we can say that this is a sha512 hash, So I cracked it using hashcat 
 ![Pasted image 20241225163840.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225163840.png?raw=true)
 - Using the cracked password I logged in on the greenhorn website as admin, which is cool!
 ![cool](https://media1.tenor.com/m/HR98MsC-pIgAAAAC/cool-i-guess-star-fox.gif)
@@ -175,7 +176,7 @@ $ww = 'd5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743c558
 ![Pasted image 20241225164758.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225164758.png?raw=true)
 
 ## Pivoting
-- From enumeration I learnt that there is a user called `junior` on the machine.
+- From enumeration I learnt that there is an user called `junior` on the machine.
 ![Pasted image 20241225164853.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225164853.png?raw=true)
 - I just tried using the previously cracked password and it worked for the user `junior`
 - Got  the {{< keyword >}} User flag {{< /keyword >}}
@@ -183,22 +184,22 @@ $ww = 'd5443aef1b64544f3685bf112f6c405218c573c7279a831b1fe9612e3a4d770486743c558
 
 ## Privilege Escalation
 - In the home directory of junior, there is not only user flag but also a file named `Using OpenVAS.pdf` was also there.
-- So I transferred pdf file to my attack machine
+- So I transferred the pdf file to my attack machine
 ![Pasted image 20241225165235.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165235.png?raw=true)
-- These were the contents
+- These were it's contents
 ![Pasted image 20241225165315.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165315.png?raw=true)
 - Interesting right, Root password is blured
 ![interesting](https://media.giphy.com/media/3oKIPl97G9KsnxS3XG/giphy.gif?cid=790b7611djcza1sxhh3u5h2y36vq1fhv6p0fl3l0pyhdtizl&ep=v1_gifs_search&rid=giphy.gif&ct=g)
-- From this [article](https://labs.jumpsec.com/can-depix-deobfuscate-your-data/) found that actually, blured part can be recovered 
+- From this [article](https://labs.jumpsec.com/can-depix-deobfuscate-your-data/) I found that actually, blured part can be recovered 
 - Using this tool [Depixelization](https://github.com/spipm/Depixelization_poc) I can easily recontruct the particular blured sentence
-- There is an option in my pdf reader to extract only the pix-elated part from the PDF as image which was convinient for me.
+- There is an option in my pdf reader to extract only the pix-elated part from the PDF as an image which was convinient for me.
 ![Pasted image 20241225165809.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165809.png?raw=true)
 - I Saved the image as `png` and then used the tool on that to get the original text
 ```bash
 python3 depix.py -p ../pixel.png -s images/searchimages/debruinseq_notepad_Windows10_closeAndSpaced.png -o ../download-notepad_Windows10_closeAndSpaced.png
 ```
 ![Pasted image 20241225165946.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225165946.png?raw=true)
-- Got the root password
+- Got the root user's password
 ![Pasted image 20241225170036.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225170036.png?raw=true)
 - Logged in as root and got the {{< keyword >}} Root flag {{< /keyword >}}
 ![Pasted image 20241225170134.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225170134.png?raw=true)

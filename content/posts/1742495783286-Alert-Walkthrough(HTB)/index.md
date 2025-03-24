@@ -4,6 +4,7 @@ date: 2025-03-22
 draft: false 
 description: "a description"
 tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
+ 
 ---
 
 ## Reconnaissance & Enumeration

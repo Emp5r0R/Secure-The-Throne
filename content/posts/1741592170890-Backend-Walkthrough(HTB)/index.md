@@ -4,6 +4,7 @@ date: 2025-03-10
 draft: false 
 description: "A straight walthrough of Backend Box"
 tags: ["Medium", "Linux", "Hack The Box", "hacking", "walkthrough", "web"]
+ 
 ---
 ## Reconnaissance & Enumeration
 - Nmap scan results:

