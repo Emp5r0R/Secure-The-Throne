@@ -1,6 +1,6 @@
 ---
 title: "Travel Walkthrough(Hack The Box)"
-date: 2025-03-28
+date: 2025-03-25
 draft: false 
 description: "A straight forward walkthrough of the box Travel from Hack The Box"
 tags: ["Hard", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
@@ -758,6 +758,6 @@ cat /etc/group | grep -i sudo
 ## Summary
 This walkthrough details the full compromise of travel.htb, a Linux-based target. Reconnaissance revealed open ports (22, 80, 443), a WordPress site (blog.travel.htb), and an exposed .git directory. Enumeration uncovered an outdated WordPress 5.4 installation with XML-RPC enabled and a vulnerable rss_template.php file. Exploiting an SSRF vulnerability, cache poisoning in Memcached, and PHP object injection, a web shell was uploaded, leading to remote code execution. Pivoting further, a MySQL database dump exposed credentials, and an .ldaprc file hinted at LDAP-based authentication. Using .viminfo, a stored password was retrieved, granting access to lynik-admin via SSH. By modifying LDAP attributes, the user’s group was changed to root (27), escalating privileges and leading to complete system takeover. This successful attack leveraged SSRF, cache poisoning, and LDAP misconfigurations to achieve root access and capture the final flag.
 
-{{< typeit >}} I am not going to lie this one of the logest box that I have ever encountered. Apart from that this was good, This is machine geve me pure statisfaction. As always i'll see you on another walkthrough {{< /typeit >}}
+{{< typeit >}} I am not going to lie this is one of the logest box that I have ever encountered. Apart from that this was good, This machine gave me pure statisfaction. As always i'll see you on another walkthrough {{< /typeit >}}
 
 ![see-you](https://media.tenor.com/EtD1uTCJ_3sAAAAi/no-bye.gif)
