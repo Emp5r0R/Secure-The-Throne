@@ -24,7 +24,19 @@ Also I built this tool, a hash cracker which can rival even hashcat in terms of 
 
 {{< typeit 
     tag=h3 
-    lifeLike=true 
+    lifeLike=false 
+    loop=true
+    breakLines=false
+    speed=70
 >}} 
-"When you play the game of thrones, you win or you die. There is no middle ground" 
+"When you play the game of thrones, you win or you die. There is no middle ground" - Cersei Lannister
+"Winter is coming." — Eddard Stark
+"The lone wolf dies but the pack survives." — Sansa Stark
+"Power resides where men believe it resides. It’s a trick, a shadow on the wall. And, a very small man can cast a very large shadow." — Varys
+"Fear cuts deeper than swords." — Arya Stark
+"A mind needs books like a sword needs a whetstone." - Tyrion Lannister
+"I’m not going to stop the wheel. I’m going to break the wheel." — Daenerys Targaryen
+"Power is power." - Cersei Lannister
+"If I fall, don't bring me back." - Jon Snow
+"Death is so final, yet life is full of possibilities." - Tyrion Lannister
 {{< /typeit >}}
