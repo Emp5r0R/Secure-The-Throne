@@ -1,7 +1,7 @@
 ---
 title: "Jarmis Walkthrough(Hack The Box)"
 date: 2025-03-20
-draft: false 
+draft: false
 description: "Jarmis is a hard rated Linux machine. The port scan reveals SSH and web-server running on the box. The web-server is hosting an API service, which fetches the JARM signature of the queried server. This API service also labels the queried JARM signature as malicious if the corresponding entry is present in its database. We can then leverage this API service to exploit an SSRF vulnerability and determine the internal open ports of the remote host, which reveal the OMI (Open Management Infrastructure) service running on one of them. The OMI service is vulnerable to the OMIgod remote code execution vulnerability. OMIgod can be exploited by redirecting the API requests using a custom Flask server and making use of a Gopher URL, trigger an SSRF POST request to the remote server along with a reverse shell payload and obtain a root shell."
 tags: ["Hard", "Linux", "Hack The Box", "hacking", "Web", "Walkthrough"]
  

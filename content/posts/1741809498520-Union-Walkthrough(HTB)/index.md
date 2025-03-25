@@ -1,7 +1,7 @@
 ---
 title: "Union Walkthrough(Hack The Box)"
 date: 2025-03-16
-draft: false 
+draft: false
 description: "Union is an medium difficulty linux machine featuring a web application that is vulnerable to SQL Injection. There are filters in place which prevent SQLMap from dumping the database. Users are intended to manually craft union statements to extract information from the database and website source code. The database contains a flag that can be used to authenticate against the machine and upon authentication the webserver runs an iptables command to enable port 22. The credentials for SSH are in the PHP Configuration file used to authenticate against MySQL. Once on the machine, users can examine the source code of the web application and find out by setting the X-FORWARDED-FOR header, they can perform command injection on the system command used by the webserver to whitelist IP Addresses."
 tags: ["medium", "Linux", "Hack The Box", "hacking", "Web", "Walkthrough"]
  

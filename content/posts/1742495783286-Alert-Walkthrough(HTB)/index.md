@@ -1,7 +1,7 @@
 ---
 title: "Alert Walkthrough(Hack The Box)"
 date: 2025-03-22
-draft: false 
+draft: false
 description: "a description"
 tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
  

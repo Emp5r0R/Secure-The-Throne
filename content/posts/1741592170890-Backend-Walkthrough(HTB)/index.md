@@ -1,7 +1,7 @@
 ---
 title: "Backend Walkthrough(Hack The Box)"
 date: 2025-03-10
-draft: false 
+draft: false
 description: "A straight walthrough of Backend Box"
 tags: ["Medium", "Linux", "Hack The Box", "hacking", "walkthrough", "web"]
  

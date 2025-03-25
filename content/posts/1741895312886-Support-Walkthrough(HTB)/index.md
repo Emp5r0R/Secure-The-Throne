@@ -1,7 +1,7 @@
 ---
 title: "Support Walkthrough(Hack The Box)"
 date: 2025-03-18
-draft: false 
+draft: false
 description: "Support is an Easy difficulty Windows machine that features an SMB share that allows anonymous authentication....."
 tags: ["Easy", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkthrough"]
  
