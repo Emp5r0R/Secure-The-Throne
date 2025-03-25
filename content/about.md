@@ -12,20 +12,20 @@ showWordCount: false
 layoutBackgroundBlur: false
 showZenMode: false
 ---
-I'm Emp5r0R, and I'm really into space and cybersecurity. This website? It's my way of sharing all the cool stuff that sparks my curiosity. I'm a big believer in ethical hacking – it's how I learn and explore. You'll often find me on platforms like Hack The Box and Try Hack Me, getting my hands dirty and having fun.
+I'm Emp5r0R, and I'm into space and cybersecurity. This website? It's my way of sharing all the cool stuff that sparks my curiosity. Ethical hacking isn’t just a skill for me—it’s a mindset. I believe in using my knowledge to learn and explore. You'll often find me on platforms like Hack The Box and Try Hack Me, getting my hands dirty and having fun.
 
 {{< htb cardColor="#171616" textColor="#3df246" iconColor="#ed0707" >}}
 Don't forget to [visit](https://app.hackthebox.com/profile/1652264") me on Hack The Box.
 {{< /htb >}}
 
-Also I built this tool, a hash cracker which can rival even hashcat in terms of speed. Although it supports way less hashing algorithms for now, worry not I will keep on improving the tool.
+I’ve also built a hash cracker that rivals Hashcat in speed. While it currently supports fewer hashing algorithms, I’m actively improving it—stay tuned!
 
 {{< github repo="Emp5r0R/BananaCracker" >}}
 
 {{< typeit 
     tag=h3 
     lifeLike=false 
-    loop=true
+    loop=false
     breakLines=false
     speed=70
 >}} 
