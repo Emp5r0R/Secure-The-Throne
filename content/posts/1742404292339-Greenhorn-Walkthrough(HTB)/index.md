@@ -1,7 +1,7 @@
 ---
 title: "Greenhorn Walkthrough(Hack The Box)"
-date: 2025-03-26
-draft: true 
+date: 2025-03-25
+draft: true
 description: "A straight forward walkthrough for Greenhorn box."
 tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
  

@@ -1,7 +1,7 @@
 ---
 title: "SecNotes Walkthrough(Hack The Box)"
 date: 2025-03-24
-draft: false 
+draft: false
 description: "A straight forward walkthrough of the box SecNotes"
 tags: ["Medium", "Windows", "Hack The Box", "hacking", "Active Directory", "Walkthrough"]
  
