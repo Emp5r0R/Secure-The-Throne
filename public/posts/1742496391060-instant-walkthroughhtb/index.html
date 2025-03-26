@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/Secure-The-Throne/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Secure-The-Throne/livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -8,16 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Instant Walkthrough(HTB) &middot; Secure The Throne</title>
-  <meta name="title" content="Instant Walkthrough(HTB) &middot; Secure The Throne" />
+  <title>Instant Walkthrough(Hack The Box) &middot; Secure The Throne</title>
+  <meta name="title" content="Instant Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
-  <meta name="description" content="a description" />
-  <meta name="keywords" content="Medium, Linux, HTB, hacking, Web, Android, Walkthrough, " />
-  
-  
-  <link rel="canonical" href="http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/" />
+  <meta name="description" content="A short and awesome walkthrough" />
+  <meta name="keywords" content="Medium, Linux, Hack The Box, hacking, Web, Android, Walkthrough, " />
   
   
+  <link rel="canonical" href="http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/" />
   
   
   
@@ -28,12 +26,14 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/Secure-The-Throne/css/main.bundle.min.41689a74295ccc3e512d39a90d741ccebbde3860c6ab3597149f60e95cdd18e4873f14a9f484bfad85452fece214f7257f3a74a9971df31c9efa5a199b6414b2.css"
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.41689a74295ccc3e512d39a90d741ccebbde3860c6ab3597149f60e95cdd18e4873f14a9f484bfad85452fece214f7257f3a74a9971df31c9efa5a199b6414b2.css"
     integrity="sha512-QWiadClczD5RLTmpDXQczrveOGDGqzWXFJ9g6VzdGOSHPxSp9IS/rYVFL&#43;ziFPclfzp0qZcd8xye&#43;loZm2QUsg==" />
   
   
-  <script type="text/javascript" src="/Secure-The-Throne/js/appearance.min.314516f6fc60028f836d15d02678a0f42ee34554fb9c51c36fbb07e0c3b89d2ef4e827f2f1d81cb69a02248b89e2a1ca86afe6f212f7ce65329072265dbba39d.js"
-    integrity="sha512-MUUW9vxgAo&#43;DbRXQJnig9C7jRVT7nFHDb7sH4MO4nS706Cfy8dgctpoCJIuJ4qHKhq/m8hL3zmUykHImXbujnQ=="></script>
+  <script type="text/javascript" src="/js/appearance.min.abe07aa3ed764e6e722c4f1cd3f92acd0c1823260f550b6055a4811d0bc9b54753abb435aa4e92781e1df45555ec873d4d6231157af4ab2bf6e70de35355c062.js"
+    integrity="sha512-q&#43;B6o&#43;12Tm5yLE8c0/kqzQwYIyYPVQtgVaSBHQvJtUdTq7Q1qk6SeB4d9FVV7Ic9TWIxFXr0qyv25w3jU1XAYg=="></script>
   
   
   
@@ -48,49 +48,49 @@
   
   
   
-  <script defer type="text/javascript" id="script-bundle" src="/Secure-The-Throne/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
     integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
   
   
   
-  <script src="/Secure-The-Throne/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
   
   
   
-  <link rel="apple-touch-icon" sizes="180x180" href="/Secure-The-Throne/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/Secure-The-Throne/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/Secure-The-Throne/favicon-16x16.png" />
-  <link rel="manifest" href="/Secure-The-Throne/site.webmanifest" />
-  
-  
-  
-  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   
   
   
   
-  <meta property="og:url" content="http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/">
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
-  <meta property="og:title" content="Instant Walkthrough(HTB)">
-  <meta property="og:description" content="a description">
+  <meta property="og:title" content="Instant Walkthrough(Hack The Box)">
+  <meta property="og:description" content="A short and awesome walkthrough">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-20T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-03-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-26T00:00:00+00:00">
     <meta property="article:tag" content="Medium">
     <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="HTB">
+    <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Web">
     <meta property="article:tag" content="Android">
-    <meta property="og:image" content="http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/featured.png">
+    <meta property="og:image" content="http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/featured.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/featured.png">
-  <meta name="twitter:title" content="Instant Walkthrough(HTB)">
-  <meta name="twitter:description" content="a description">
+  <meta name="twitter:image" content="http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/featured.png">
+  <meta name="twitter:title" content="Instant Walkthrough(Hack The Box)">
+  <meta name="twitter:description" content="A short and awesome walkthrough">
 
   
   <script type="application/ld+json">
@@ -98,26 +98,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Instant Walkthrough(HTB)",
-    "headline": "Instant Walkthrough(HTB)",
-    "description": "a description",
+    "name": "Instant Walkthrough(Hack The Box)",
+    "headline": "Instant Walkthrough(Hack The Box)",
+    "description": "A short and awesome walkthrough",
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/Secure-The-Throne\/posts\/1742496391060-instant-walkthroughhtb\/",
+    "url" : "http:\/\/localhost:1313\/posts\/1742496391060-instant-walkthroughhtb\/",
     "author" : {
       "@type": "Person",
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-20T00:00:00\u002b00:00",
-    "datePublished": "2025-03-20T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-26T00:00:00\u002b00:00",
+    "datePublished": "2025-03-26T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-20T00:00:00\u002b00:00",
+    "dateModified": "2025-03-26T00:00:00\u002b00:00",
     
-    "keywords": ["Medium","Linux","HTB","hacking","Web","Android","Walkthrough"],
+    "keywords": ["Medium","Linux","Hack The Box","hacking","Web","Android","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "271"
+    "wordCount": "274"
   }]
   </script>
 
@@ -143,7 +143,7 @@
   
   
 
-<script src="/Secure-The-Throne/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
 
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -196,11 +199,11 @@
     
     
     <div>
-        <a href="/Secure-The-Throne/" class="flex">
+        <a href="/" class="flex">
             <span class="sr-only">Secure The Throne</span>
 
             
-            <img src="/Secure-The-Throne/My_logo-background-less.png" width="512" height="512"
+            <img src="/My_logo-background-less.png" width="512" height="512"
                 class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom" alt="Secure The Throne" />
             
 
@@ -211,7 +214,7 @@
         <nav class="flex space-x-3">
 
             
-            <a href="/Secure-The-Throne/" class="text-base font-medium text-gray-500 hover:text-gray-900">Secure The Throne</a>
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Secure The Throne</a>
             
 
         </nav>
@@ -220,7 +223,7 @@
             
             
             
-  <a href="/Secure-The-Throne/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Posts">
         Posts
@@ -231,7 +234,7 @@
 
             
             
-  <a href="/Secure-The-Throne/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="Tags">
         Tags
@@ -242,7 +245,7 @@
 
             
             
-  <a href="/Secure-The-Throne/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="$WHOAMI">
         About
@@ -446,7 +449,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Posts">
             Posts
@@ -461,7 +464,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="Tags">
             Tags
@@ -476,7 +479,7 @@
 
                     
   <li class="mt-1">
-    <a href="/Secure-The-Throne/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="$WHOAMI">
             About
@@ -605,7 +608,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/featured_hu_7edefbf8294f0839.png);">
+    style="background-image:url(/posts/1742496391060-instant-walkthroughhtb/featured_hu_7edefbf8294f0839.png);">
     
 
 
@@ -631,7 +634,7 @@
   <header id="single_header" class="mt-5 max-w-prose">
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      Instant Walkthrough(HTB)
+      Instant Walkthrough(Hack The Box)
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -678,10 +681,10 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>271 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>274 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
-<script type="text/javascript" src="/Secure-The-Throne/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
+<script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
 
 <span class="mb-[2px]">
     <span id="zen-mode-button"
@@ -737,7 +740,7 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/medium/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Medium
@@ -745,7 +748,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/linux/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Linux
@@ -753,15 +756,15 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/htb/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    HTB
+    Hack the Box
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/hacking/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Hacking
@@ -769,7 +772,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/web/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Web
@@ -777,7 +780,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/android/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/android/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Android
@@ -785,7 +788,7 @@
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/Secure-The-Throne/tags/walkthrough/&#34;,'_self');return false;">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Walkthrough
@@ -827,7 +830,7 @@
         
       
       <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
-      alt="Emp5r0R" src="/Secure-The-Throne/My-Picture_hu_52e4dc4fdec70a08.jpeg" />
+      alt="Emp5r0R" src="/My-Picture_hu_52e4dc4fdec70a08.jpeg" />
     
   
   <div class="place-self-center">
@@ -840,7 +843,7 @@
     </div>
     
     
-    <div class="text-sm text-neutral-700 dark:text-neutral-400">Born to learn</div>
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">Lead By Curiosity</div>
     
     <div class="text-2xl sm:text-lg">
   <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
@@ -953,7 +956,7 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
@@ -970,7 +973,7 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
@@ -1057,24 +1060,47 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance #Linux 
-    <div id="reconnaissance-linux" class="anchor"></div>
+<h2 class="relative group">Reconnaissance 
+    <div id="reconnaissance" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance-linux" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#reconnaissance" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>We got exactly two ports open web and ssh</li>
-<li>![[Pasted image 20241222223503.png]]</li>
-<li>When accessing the web it gives an option to download a mobile app. That also in two places</li>
-<li>![[Pasted image 20241222223731.png]]</li>
-<li>Even this button downloads the app called <code>instant.apk</code></li>
-<li>![[Pasted image 20241222223929.png]]</li>
+<li>During the initial scan, we identified two open ports:</li>
 </ul>
+<blockquote>
+<p>Port 80 (HTTP) - Web Server</p></blockquote>
+<blockquote>
+<p>Port 22 (SSH) - Secure Shell</p></blockquote>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222223503.png?raw=true" alt="Pasted image 20241222223503.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Upon accessing the web application, we noticed an option to download a mobile app, which was available in two places on the site.</li>
+</ul>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222223731.png?raw=true" alt="Pasted image 20241222223731.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Clicking on the button initiated a download for an application named instant.apk.</li>
+</ul>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222223929.png?raw=true" alt="Pasted image 20241222223929.png" />
+    
+  </figure>
+</p>
 
 
 <h2 class="relative group">Enumeration 
@@ -1088,17 +1114,41 @@
     
 </h2>
 <ul>
-<li>I have downloaded and used this tool <a href="https://github.com/skylot/jadx?tab=readme-ov-file" target="_blank">jadx</a> to decompile the java code from the android app</li>
-<li>While running and it gave me the decompiled code</li>
-<li>![[Pasted image 20241222224706.png]]</li>
-<li>While recursive grepping the files <code>grep -r &quot;instant&quot;</code> I got admin jwt token</li>
-<li>![[Pasted image 20241222222123.png]]</li>
-<li>And also found some api endpoints</li>
-<li>I got swagger api endpoint too</li>
-<li>![[Pasted image 20241222224908.png]]</li>
-<li>when I access it can see all beautiful endpoints .</li>
-<li>One in particular looks interesting , which is a an endpoint to red logs. With that I have read <code>/etc/passwd</code> and found the users info</li>
-<li>![[Pasted image 20241222231821.png]]</li>
+<li>To analyze the Android application, I downloaded and used jadx to decompile the Java code.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222224706.png?raw=true" alt="Pasted image 20241222224706.png" />
+    
+  </figure>
+</li>
+<li>While recursive grepping the files <code>grep -r &quot;instant&quot;</code> I got admin jwt token
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222222123.png?raw=true" alt="Pasted image 20241222222123.png" />
+    
+  </figure>
+</li>
+<li>Additionally, I found multiple API endpoints, including a Swagger API documentation page.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222224908.png?raw=true" alt="Pasted image 20241222224908.png" />
+    
+  </figure>
+</li>
+<li>when I access it I can see all beautiful endpoints.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/fPpPW3fVISkAAAAd/it%27s-so-beautiful-grady-smith.gif" alt="beautiful" />
+    
+  </figure>
+</li>
+<li>Upon accessing the Swagger UI, I could see all the available API endpoints. One particularly interesting endpoint allowed reading system logs. Exploiting this, I was able to read <code>/etc/passwd</code> and retrieve system user information.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222231821.png?raw=true" alt="Pasted image 20241222231821.png" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1113,14 +1163,37 @@
     
 </h2>
 <ul>
-<li>With this I requested for <code>shirohige/.ssh/id_rsa</code> file for login</li>
-<li>I logged in with file after some cleaning</li>
+<li>By leveraging the API vulnerability, I requested access to shirohige&rsquo;s private SSH key stored at:</li>
+</ul>
+<pre tabindex="0"><code>/home/shirohige/.ssh/id_rsa
+</code></pre><ul>
+<li>After cleaning the key, I used it to log in via SSH:</li>
 </ul>
 <pre tabindex="0"><code>ssh -i id_rsa -vl shirohige instant.htb 
-</code></pre><ul>
-<li>![[Pasted image 20241222233027.png]]</li>
-<li>Got the user flag</li>
-<li>![[Pasted image 20241222233106.png]]</li>
+</code></pre><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222233027.png?raw=true" alt="Pasted image 20241222233027.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222233106.png?raw=true" alt="Pasted image 20241222233106.png" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1135,16 +1208,71 @@
     
 </h2>
 <ul>
-<li>I came across an SQLite database file named <strong>instant.db</strong> located in the directory <strong>/projects/mywallet/Instant-Api/mywallet/instance</strong>. Upon closer inspection, this database contained usernames and their corresponding hashed passwords.</li>
-<li>The password hashes were generated using <strong>Werkzeug hashing</strong></li>
-<li>Started cracking the hashes.</li>
-<li>After that I discovered some backups of Putty sessions from <code>/opt</code> directory</li>
-<li>By supplying the correct password with the session code in file we can get it decoded using this tool <a href="https://github.com/VoidSec/SolarPuttyDecrypt" target="_blank">SolarPuttyDecrypt</a></li>
-<li>![[Pasted image 20241223021105.png]]</li>
-<li>We got the password for root</li>
-<li>Got the root flag</li>
-<li>![[Pasted image 20241223021213.png]]</li>
+<li>While exploring the system, I discovered an SQLite database file named instant.db in:</li>
 </ul>
+<pre tabindex="0"><code>/projects/mywallet/Instant-Api/mywallet/instance
+</code></pre><ul>
+<li>
+<p>Upon inspecting the database, I found a table containing usernames and hashed passwords.</p>
+</li>
+<li>
+<p>The hashes were generated using Werkzeug hashing.</p>
+</li>
+<li>
+<p>I started cracking the hashes to retrieve plaintext passwords.</p>
+</li>
+<li>
+<p>Additionally, I found backup files of Putty sessions stored in the /opt directory. These session files contained encoded credentials.
+By using the <a href="https://github.com/VoidSec/SolarPuttyDecrypt" target="_blank">SolarPuttyDecrypt</a> tool, I was able to decrypt the stored credentials.</p>
+</li>
+</ul>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241223021105.png?raw=true" alt="Pasted image 20241223021105.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>With the retrieved password, I gained root access.</li>
+<li>Got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Root flag</span>
+  </span>
+</span>
+</div></li>
+</ul>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241223021213.png?raw=true" alt="Pasted image 20241223021213.png" />
+    
+  </figure>
+</p>
+<div id="typeit-2996b30d72f5766e7aaa1f5d16e961a1"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-2996b30d72f5766e7aaa1f5d16e961a1", {
+        strings: [" This walkthrough showcases multiple attack vectors including Android app analysis, API exploitation, and credential decryption, making it an exciting challenge for Hack The Box players. See you again on a longer post next time "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExamg2bTE1cGJ0ODU3NWd5MDI4c2R0a3RpMHk1dGh4dTZ0NTY2dnY4byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JshL4uZk1tZt5W0TWV/giphy.gif" alt="end" />
+    
+  </figure>
+</p>
 
           
           
@@ -1162,7 +1290,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;title=Instant%20Walkthrough%28HTB%29"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;title=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on LinkedIn"
       aria-label="Share on LinkedIn"
       >
@@ -1181,7 +1309,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;text=Instant%20Walkthrough%28HTB%29"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;text=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Tweet on Twitter"
       aria-label="Tweet on Twitter"
       >
@@ -1199,7 +1327,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://api.whatsapp.com/send?text=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;resubmit=true&amp;title=Instant%20Walkthrough%28HTB%29"
+      href="https://api.whatsapp.com/send?text=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;resubmit=true&amp;title=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Share via WhatsApp"
       aria-label="Share via WhatsApp"
       >
@@ -1218,7 +1346,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;description=Instant%20Walkthrough%28HTB%29"
+      href="https://pinterest.com/pin/create/bookmarklet/?url=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;description=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Pin on Pinterest"
       aria-label="Pin on Pinterest"
       >
@@ -1237,7 +1365,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://reddit.com/submit/?url=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;resubmit=true&amp;title=Instant%20Walkthrough%28HTB%29"
+      href="https://reddit.com/submit/?url=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;resubmit=true&amp;title=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Submit to Reddit"
       aria-label="Submit to Reddit"
       >
@@ -1256,7 +1384,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;quote=Instant%20Walkthrough%28HTB%29"
+      href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;quote=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Share on Facebook"
       aria-label="Share on Facebook"
       >
@@ -1275,7 +1403,7 @@
       <a
       target="_blank"
       class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
-      href="mailto:?body=http://localhost:1313/Secure-The-Throne/posts/1742496391060-instant-walkthroughhtb/&amp;subject=Instant%20Walkthrough%28HTB%29"
+      href="mailto:?body=http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/&amp;subject=Instant%20Walkthrough%28Hack%20The%20Box%29"
       title="Send via email"
       aria-label="Send via email"
       >
@@ -1293,7 +1421,513 @@
   </section>
 
 
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/posts/1741809498520-union-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1741809498520-union-walkthroughhtb/featured_hu_3ed7bc6f71332e39.jpeg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1741809498520-union-walkthroughhtb/">Union Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
           
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-16T00:00:00&#43;00:00">16 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>934 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Medium
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/posts/1742061149402-jarmis-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742061149402-jarmis-walkthroughhtb/featured_hu_ae273af3970d77f5.jpeg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1742061149402-jarmis-walkthroughhtb/">Jarmis Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3421 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hard/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hard
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/posts/1742404292339-greenhorn-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742404292339-greenhorn-walkthroughhtb/featured_hu_ca5f1c2508c29c51.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1742404292339-greenhorn-walkthroughhtb/">Greenhorn Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1013 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
       </div>
      
       
@@ -1309,7 +1943,7 @@
       </script>
       
       
-      <script type="text/javascript" src="/Secure-The-Throne/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
       
   
     </section>
@@ -1325,7 +1959,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/Secure-The-Throne/posts/1742061149402-jarmis-walkthroughhtb/">
+            <a class="flex group mr-3" href="/posts/1742232333948-secnotes-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1337,11 +1971,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Jarmis Walkthrough(HTB)</span
+                  >SecNotes Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time>
+                    <time datetime="2025-03-24T00:00:00&#43;00:00">24 March 2025</time>
                   
                 </span>
               </span>
@@ -1349,6 +1983,28 @@
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/1742404292339-greenhorn-walkthroughhtb/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Greenhorn Walkthrough(Hack The Box)</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>
@@ -1375,10 +2031,18 @@
       <ul class="flex flex-col list-none sm:flex-row">
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/attribution-and-terms-of-use/"
+            title="Attribution &amp; Terms of Use">
+            
+            Attribution &amp; Terms of Use
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href=""
             title="">
             
-            Under Development
+            Terms and Attributions
           </a>
         </li>
         
@@ -1420,14 +2084,14 @@
   </script>
   
   
-  <script type="text/javascript" src="/Secure-The-Throne/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
   
   
 </footer>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/Secure-The-Throne/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div

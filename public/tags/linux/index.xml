@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Greenhorn Walkthrough(Hack The Box)</title>
+      <link>http://localhost:1313/posts/1742404292339-greenhorn-walkthroughhtb/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/1742404292339-greenhorn-walkthroughhtb/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1742404292339-greenhorn-walkthroughhtb/featured.png" />
+    </item>
     
     <item>
       <title>Alert Walkthrough(Hack The Box)</title>
