@@ -12,7 +12,7 @@ GreenHorn is an easy difficulty machine that takes advantage of an exploit in Pl
 - I scanned the ports with rustscan and we have three ports open 80,22,3000 respectively as shown in the below image
 ![Pasted image 20241225141303.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241225141303.png?raw=true)
 - First I checked Port 80 and it runs a website called greenhorn. The noticeable thing is it had a loginpage.  
-- While poking areound more I found that this greenhorn page uses Pluck CMS, which is sensitive as it goes.
+- While poking around more I found that this greenhorn page uses Pluck CMS, which is sensitive as it goes.
 
 {{< badge >}} Definition {{< /badge >}}
 - Pluck is a small and simple content management system (CMS), written in PHP. With Pluck, you can easily manage your own website. Pluck focuses on simplicity and ease of use. This makes Pluck an excellent choice for every small website. Licensed under the General Public License (GPL), Pluck is completely open source. This allows you to do with the software whatever you want, as long as the software stays open source.
