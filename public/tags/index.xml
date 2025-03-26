@@ -10,16 +10,6 @@
     <lastBuildDate>Wed, 26 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Android</title>
-      <link>http://localhost:1313/tags/android/</link>
-      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/android/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Easy</title>
       <link>http://localhost:1313/tags/easy/</link>
       <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
@@ -60,16 +50,6 @@
     </item>
     
     <item>
-      <title>Medium</title>
-      <link>http://localhost:1313/tags/medium/</link>
-      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/medium/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Walkthrough</title>
       <link>http://localhost:1313/tags/walkthrough/</link>
       <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
@@ -95,6 +75,16 @@
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/active-directory/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Medium</title>
+      <link>http://localhost:1313/tags/medium/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/medium/</guid>
       <description></description>
       
     </item>
