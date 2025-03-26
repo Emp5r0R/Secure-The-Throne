@@ -27,3 +27,15 @@ weight = 999
 
 [[footer]]
 none = "none"
+
+[[footer]]
+name = "Attribution & Terms of Use"
+pageRef = "Attribution-and-Terms-of-Use.md"
+identifier = "qBgqnCSbw4"
+weight = 9999
+
+[[footer]]
+name = "Terms and Attributions"
+pageRef = "termsandcon.md"
+identifier = "g2bMVwLcLu"
+weight = 9999
