@@ -11,6 +11,7 @@ showTableOfContents: false
 showWordCount: false
 layoutBackgroundBlur: false
 showZenMode: false
+showPagination: false
 ---
 I'm Emp5r0R, and I'm into space and cybersecurity. This website? It's my way of sharing all the cool stuff that sparks my curiosity. Ethical hacking isn’t just a skill for me—it’s a mindset. I believe in using my knowledge to learn and explore. You'll often find me on platforms like Hack The Box and Try Hack Me, getting my hands dirty and having fun.
 
