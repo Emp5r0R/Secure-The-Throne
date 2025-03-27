@@ -1,6 +1,6 @@
 ---
 title: "Sightless Walkthrough(Hack The Box)"
-date: 2025-04-1
+date: 2025-04-01
 draft: true
 description: "a description"
 tags: ["Easy", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
