@@ -1,7 +1,7 @@
 ---
 title: "Instant Walkthrough(Hack The Box)"
-date: 2025-03-26
-draft: false
+date: 2025-03-30
+draft: true
 description: "A short and awesome walkthrough"
 tags: ["Medium", "Linux", "Hack The Box", "hacking", "Web", "Android", "Walkthrough"] 
 ---
@@ -12,13 +12,9 @@ tags: ["Medium", "Linux", "Hack The Box", "hacking", "Web", "Android", "Walkthro
 > Port 22 (SSH) - Secure Shell
 
 ![Pasted image 20241222223503.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222223503.png?raw=true)
-
 - Upon accessing the web application, we noticed an option to download a mobile app, which was available in two places on the site.
-
 ![Pasted image 20241222223731.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222223731.png?raw=true)
-
 - Clicking on the button initiated a download for an application named instant.apk.
-
 ![Pasted image 20241222223929.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222223929.png?raw=true)
 
 ## Enumeration
