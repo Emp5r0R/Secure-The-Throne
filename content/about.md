@@ -31,7 +31,6 @@ I’ve also built a hash cracker that rivals Hashcat in speed. While it currentl
     speed=70
 >}} 
 "When you play the game of thrones, you win or you die. There is no middle ground" - Cersei Lannister
-"Winter is coming." — Eddard Stark
 "The lone wolf dies but the pack survives." — Sansa Stark
 "Power resides where men believe it resides. It’s a trick, a shadow on the wall. And, a very small man can cast a very large shadow." — Varys
 "Fear cuts deeper than swords." — Arya Stark
