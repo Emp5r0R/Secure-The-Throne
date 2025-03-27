@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tag on Secure The Throne</title>
-    <link>http://localhost:1313/Secure-The-Throne/tags/tag/</link>
+    <link>http://localhost:1313/tags/tag/</link>
     <description>Recent content in Tag on Secure The Throne</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <atom:link href="http://localhost:1313/Secure-The-Throne/tags/tag/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/tag/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>
