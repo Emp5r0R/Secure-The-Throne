@@ -1,7 +1,7 @@
 ---
 title: "Instant Walkthrough(Hack The Box)"
 date: 2025-03-26
-draft: true
+draft: false
 description: "A short and awesome walkthrough"
 tags: ["Medium", "Linux", "Hack The Box", "hacking", "Web", "Android", "Walkthrough"] 
 ---
@@ -27,6 +27,9 @@ tags: ["Medium", "Linux", "Hack The Box", "hacking", "Web", "Android", "Walkthro
 - While recursive grepping the files `grep -r "instant"` I got admin jwt token
 ![Pasted image 20241222222123.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222222123.png?raw=true)
 - Additionally, I found multiple API endpoints, including a Swagger API documentation page.
+{{< badge >}} Definition {{< /badge >}}
+Swagger UI transforms JSON or YAML files into interactive interfaces that simplify the navigation and testing of endpoints. Its advantages include: Enhanced Interactivity: Allows developers to test methods (GET, POST, PUT, DELETE) and view parameters in real time.
+
 ![Pasted image 20241222224908.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222224908.png?raw=true)
 - when I access it I can see all beautiful endpoints.
 ![beautiful](https://media1.tenor.com/m/fPpPW3fVISkAAAAd/it%27s-so-beautiful-grady-smith.gif)
@@ -64,8 +67,14 @@ By using the [SolarPuttyDecrypt](https://github.com/VoidSec/SolarPuttyDecrypt) t
 
 - With the retrieved password, I gained root access.
 - Got the {{< keyword >}} Root flag {{< /keyword >}}
-
 ![Pasted image 20241223021213.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241223021213.png?raw=true)
+
+## Summary
+
+Initially, my reconnaissance revealed two open ports: 80 (HTTP) and 22 (SSH). Accessing the web server presented an option to download a mobile application, instant.apk.
+During enumeration, I decompiled the Android application using jadx. By recursively grepping the decompiled code, I uncovered an admin JWT token and several API endpoints, including a Swagger API endpoint. One particularly interesting endpoint allowed reading logs, which I used to view /etc/passwd and identify users.
+Moving to exploitation, I leveraged the log reading capability to request and obtain the SSH private key for the user shirohige. After some cleaning, I successfully logged in via SSH using this private key and obtained the user flag.
+For privilege escalation, I discovered an SQLite database file named instant.db in the application's instance directory. This database contained usernames and Werkzeug-hashed passwords. I proceeded to crack these hashes. Furthermore, I found backups of Putty sessions in the /opt directory. Using the correct password with a tool like SolarPuttyDecrypt, I was able to decode the root password from these session backups. This allowed me to log in as root and retrieve the root flag.
 
 {{< typeit >}} This walkthrough showcases multiple attack vectors including Android app analysis, API exploitation, and credential decryption, making it an exciting challenge for Hack The Box players. See you again on a longer post next time {{< /typeit >}}
 
