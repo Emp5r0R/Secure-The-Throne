@@ -117,7 +117,7 @@
     "keywords": ["Medium","Linux","Hack The Box","hacking","Web","Android","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "274"
+    "wordCount": "499"
   }]
   </script>
 
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>274 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>499 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -960,6 +960,7 @@
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -977,6 +978,7 @@
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -1129,12 +1131,21 @@
   </figure>
 </li>
 <li>Additionally, I found multiple API endpoints, including a Swagger API documentation page.
+<span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     Definition 
+  </span>
+</span>
 
+Swagger UI transforms JSON or YAML files into interactive interfaces that simplify the navigation and testing of endpoints. Its advantages include: Enhanced Interactivity: Allows developers to test methods (GET, POST, PUT, DELETE) and view parameters in real time.</li>
+</ul>
+<p>
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241222224908.png?raw=true" alt="Pasted image 20241222224908.png" />
     
   </figure>
-</li>
+</p>
+<ul>
 <li>when I access it I can see all beautiful endpoints.
 
   <figure>
@@ -1244,19 +1255,35 @@ By using the <a href="https://github.com/VoidSec/SolarPuttyDecrypt" target="_bla
     <span>Root flag</span>
   </span>
 </span>
-</div></li>
-</ul>
-<p>
+</div>
+
   <figure>
     <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241223021213.png?raw=true" alt="Pasted image 20241223021213.png" />
     
   </figure>
-</p>
-<div id="typeit-2996b30d72f5766e7aaa1f5d16e961a1"></div>
+</li>
+</ul>
+
+
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Initially, my reconnaissance revealed two open ports: 80 (HTTP) and 22 (SSH). Accessing the web server presented an option to download a mobile application, instant.apk.
+During enumeration, I decompiled the Android application using jadx. By recursively grepping the decompiled code, I uncovered an admin JWT token and several API endpoints, including a Swagger API endpoint. One particularly interesting endpoint allowed reading logs, which I used to view /etc/passwd and identify users.
+Moving to exploitation, I leveraged the log reading capability to request and obtain the SSH private key for the user shirohige. After some cleaning, I successfully logged in via SSH using this private key and obtained the user flag.
+For privilege escalation, I discovered an SQLite database file named instant.db in the application&rsquo;s instance directory. This database contained usernames and Werkzeug-hashed passwords. I proceeded to crack these hashes. Furthermore, I found backups of Putty sessions in the /opt directory. Using the correct password with a tool like SolarPuttyDecrypt, I was able to decode the root password from these session backups. This allowed me to log in as root and retrieve the root flag.</p>
+<div id="typeit-357540b6504584f324e7d30b838aca83"></div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-      new TypeIt("#typeit-2996b30d72f5766e7aaa1f5d16e961a1", {
+      new TypeIt("#typeit-357540b6504584f324e7d30b838aca83", {
         strings: [" This walkthrough showcases multiple attack vectors including Android app analysis, API exploitation, and credential decryption, making it an exciting challenge for Hack The Box players. See you again on a longer post next time "],
         speed:  100 ,
         lifeLike:  false ,
@@ -2035,14 +2062,6 @@ By using the <a href="https://github.com/VoidSec/SolarPuttyDecrypt" target="_bla
             title="Attribution &amp; Terms of Use">
             
             Attribution &amp; Terms of Use
-          </a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href=""
-            title="">
-            
-            Terms and Attributions
           </a>
         </li>
         
