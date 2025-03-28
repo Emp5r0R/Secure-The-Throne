@@ -1,6 +1,6 @@
 ---
 title: "Access Walkthrough(Hack The Box)"
-date: 2025-03-20
+date: 2025-04-01
 draft: true
 description: "a description"
 tags: ["Easy", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkthrough"]
