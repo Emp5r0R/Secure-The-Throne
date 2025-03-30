@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Android on Secure The Throne</title>
-    <link>http://localhost:1313/tags/android/</link>
-    <description>Recent content in Android on Secure The Throne</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>© 2025 Emp5r0R</copyright>
-    <atom:link href="http://localhost:1313/tags/android/index.xml" rel="self" type="application/rss+xml" />
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on Secure The Throne</title><link>https://securethethrone.com/tags/android/</link><description>Recent content in Android on Secure The Throne</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2025 Emp5r0R</copyright><lastBuildDate>Sun, 30 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://securethethrone.com/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Instant Walkthrough(Hack The Box)</title><link>https://securethethrone.com/posts/1742496391060-instant-walkthroughhtb/</link><pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate><guid>https://securethethrone.com/posts/1742496391060-instant-walkthroughhtb/</guid><description/><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://securethethrone.com/posts/1742496391060-instant-walkthroughhtb/featured.png"/></item></channel></rss>
