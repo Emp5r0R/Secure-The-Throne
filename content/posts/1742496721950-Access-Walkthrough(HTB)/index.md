@@ -9,8 +9,8 @@ tags: ["Easy", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkth
 ## Reconnaissance
 - On the initial Nmap scan I can see interesting ports open which are FTP, Telnet and a http port(80) 
 ![Pasted image 20241216220450.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241216220450.png?raw=true)
-- Quickly I checked for anonymous login and it seems like it was enabled. Whcih was interesting.
-- While at that I also discovered that a web page mentions `LON-MC6` which leads to `MS09-042` a vulnerability in Telnet
+- Quickly I checked for anonymous login and it seems like it was enabled. Which was interesting.
+- While at that I also discovered that home page mentions `LON-MC6` which leads to `MS09-042` a vulnerability in Telnet
 
 {{< badge >}} Definition {{< /badge >}}
 This security update resolves a publicly disclosed vulnerability in the Microsoft Telnet service. The vulnerability could allow an attacker to obtain credentials and then use them to log back into affected systems. The attacker would then acquire user rights on a system identical to the user rights of the logged-on user. This scenario could ultimately result in remote code execution on affected systems. An attacker who successfully exploited this vulnerability could install programs; view, change, or delete data; or create new accounts with full user rights. Users whose accounts are configured to have fewer user rights on the system could be less impacted than users who operate with administrative user rights.

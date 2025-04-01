@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Instant Walkthrough(Hack The Box)</title>
+      <link>http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/</link>
+      <pubDate>Sun, 30 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1742496391060-instant-walkthroughhtb/featured.png" />
+    </item>
+    
+    <item>
+      <title>BlockBlock Walkthrough(Hack The Box)</title>
+      <link>http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/</link>
+      <pubDate>Sat, 29 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1743038151313-blockblock-walkthroughhack-the-box/featured.png" />
+    </item>
     
     <item>
       <title>Travel Walkthrough(Hack The Box)</title>
