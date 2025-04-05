@@ -79,6 +79,15 @@ chisel server -p 7001 --reverse
 - Got the {{< keyword >}} User flag {{< /keyword >}} Then I realized that from the start I should've changed permissions for root directory itself
 ![Pasted image 20241221024851.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241221024851.png?raw=true)
 
+## Summary
+The **Sightless** machine is an easy-difficulty Linux machine. The walkthrough details the process of exploiting several vulnerabilities to gain root access.
+
+**Initial Foothold:** The website uses an SQLPad instance vulnerable to template injection (CVE-2022-0944), which is 1 used to gain access to a Docker container.   
+
+**SSH Access:** The /etc/shadow file is found within the Docker container, revealing a password hash. Cracking this hash provides SSH access to the host machine.
+
+**Privilege Escalation:** A Froxlor instance vulnerable to Blind XSS (CVE-2024-34070) is exploited to gain access to the FTP service. This FTP service contains a KeePass database. Accessing this database reveals the root SSH keys, granting a privileged shell on the host
+
 {{< typeit >}} I hope you liked my walkthrough if you do please share it with your connections. That's it see you later {{< /typeit >}}
 
 ![see-ya](https://media1.tenor.com/m/DF0rzVHsu14AAAAC/xranz45-xranz54.gif)
