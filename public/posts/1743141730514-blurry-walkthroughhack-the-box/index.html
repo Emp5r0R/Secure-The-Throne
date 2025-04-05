@@ -117,7 +117,7 @@
     "keywords": ["Medium","Linux","Hack The Box","Hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "187"
+    "wordCount": "497"
   }]
   </script>
 
@@ -155,6 +155,9 @@
 
 
 
+
+
+<script defer src="/lib/typeit/typeit.umd.57f9bc6e047efc875cb4f2e9ca74c802de33638d2c3aff6d9b7eb3c7588c24649b6c3e51cd45f49c0ed0cf72aedbd694bf2d35f358a34076d63f9febabc0bd6f.js" integrity="sha512-V/m8bgR&#43;/IdctPLpynTIAt4zY40sOv9tm36zx1iMJGSbbD5RzUX0nA7Qz3Ku29aUvy0181ijQHbWP5/rq8C9bw=="></script>
 
 
 
@@ -678,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-04-05T00:00:00&#43;00:00">5 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>187 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-04-05T00:00:00&#43;00:00">5 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>497 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -945,10 +948,12 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -962,10 +967,12 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#reconnaissance-linux">Reconnaissance #Linux</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reconnaissance">Reconnaissance</a></li>
     <li><a href="#enumeration">Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -1049,20 +1056,39 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h2 class="relative group">Reconnaissance #Linux 
-    <div id="reconnaissance-linux" class="anchor"></div>
+<h2 class="relative group">About 
+    <div id="about" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#reconnaissance-linux" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#about" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Blurry is a medium-difficulty Linux machine that features DevOps-related vectors surrounding machine learning. The foothold is comprised of a series of CVEs recently disclosed about the ClearML suite. The service provides a web platform, a fileserver, and an API; all of which contain vulnerabilities (<code>[CVE-2024-24590](https://nvd.nist.gov/vuln/detail/CVE-2024-24590)</code> - <code>[CVE-2024-24595](https://nvd.nist.gov/vuln/detail/CVE-2024-24595)</code>) that can be chained together for remote code execution. Once a shell on the target is obtained, a program that can be run with <code>sudo</code> is discovered. The program loads arbitrary <code>PyTorch</code> models to evaluate them against a protected dataset. While it is known that such models are susceptible to insecure deserialisation, <code>fickling</code> is used to scan the dataset for insecure <code>pickle</code> files , prior to loading the model. Malicious code can be injected into a model, using <code>runpy</code> to bypass the <code>fickling</code> checks.</p>
+
+
+<h2 class="relative group">Reconnaissance 
+    <div id="reconnaissance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#reconnaissance" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>Got two ports open</li>
-<li>![[Pasted image 20241230011755.png]]</li>
-<li>We got the main app at <code>app.blurry.htb</code></li>
+<li>Initial Nmap scan revealed <strong>two open ports</strong>.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230011755.png?raw=true" alt="Pasted image 20241230011755.png" />
+    
+  </figure>
+</li>
+<li>Browsing to the IP led me to a <strong>main web application hosted at</strong> <code>app.blurry.htb</code>.</li>
+<li>At this point, I added <code>blurry.htb</code> and <code>app.blurry.htb</code> to my <code>/etc/hosts</code> file for easy access.</li>
 </ul>
 
 
@@ -1077,10 +1103,28 @@
     
 </h2>
 <ul>
-<li>Got multiple subdomains</li>
-<li><code>files</code>, <code>app</code>, <code>chat</code>, <code>api</code></li>
-<li>![[Pasted image 20241230012112.png]]</li>
-<li>Learnt about the project in <code>app</code> from <code>chat</code> announcements.</li>
+<li>Through further inspection of the application and some basic fuzzing/DNS enumeration, I discovered <strong>multiple subdomains</strong>:
+<ul>
+<li><code>files.blurry.htb</code></li>
+<li><code>app.blurry.htb</code></li>
+<li><code>chat.blurry.htb</code></li>
+<li><code>api.blurry.htb</code><br>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230012112.png?raw=true" alt="Pasted image 20241230012112.png" />
+    
+  </figure>
+</li>
+</ul>
+</li>
+<li>The <code>chat</code> subdomain contained a messaging system where I found <strong>announcements and internal discussions</strong> that revealed the app under <code>app.blurry.htb</code> was built using <strong>ClearML</strong>.</li>
+<li>This detail turned out to be crucial during exploitation.<br>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.tenor.com/DrQJZb8JvoQAAAAj/its-kinda-important-eric-cartman.gif" alt="crucial" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1095,12 +1139,44 @@
     
 </h2>
 <ul>
-<li>Found a exploit <code>CVE-2024-24590-ClearML-RCE-Exploit</code></li>
-<li>Followed the steps and initiated the clearML on the host</li>
-<li>Ran the exploit and got the shell</li>
-<li>![[Pasted image 20241230012804.png]]</li>
-<li>Also got the user flag</li>
-<li>![[Pasted image 20241230022137.png]]</li>
+<li>Based on my enumeration, I looked into known vulnerabilities for ClearML and came across a <strong>Remote Code Execution (RCE) exploit: <code>CVE-2024-24590</code></strong>.</li>
+<li>The exploit allowed arbitrary code execution via manipulated task scheduling in the ClearML system.</li>
+<li>Followed the PoC steps from a GitHub repo:
+<ul>
+<li>Set up and triggered a ClearML task on the host</li>
+<li>Executed the RCE payload
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media1.tenor.com/m/5xhyv6ICia8AAAAC/legends-of-the-fall-all-the-rules.gif" alt="Followed" />
+    
+  </figure>
+</li>
+</ul>
+</li>
+<li>Successfully gained a <strong>reverse shell</strong> as the <code>blurry</code> user.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230012804.png?raw=true" alt="Pasted image 20241230012804.png" />
+    
+  </figure>
+</li>
+<li>Also got the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>User flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230022137.png?raw=true" alt="Pasted image 20241230022137.png" />
+    
+  </figure>
+</li>
 </ul>
 
 
@@ -1115,11 +1191,16 @@
     
 </h2>
 <ul>
-<li>Had a <code>sudo</code> priv esc path</li>
-<li>![[Pasted image 20241230031047.png]]</li>
-<li>This script basically runs and gets a file as input and check whether it is malicious or not.</li>
-<li>I made a program in python using torch. Using this script can get reverse shell as root</li>
-<li>I learned about this vulnerability in the same blog</li>
+<li>Checked for potential privesc vectors and found a <strong>sudo permission</strong> allowing execution of a script that loads and verifies <code>.pth</code> model files.
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230031047.png?raw=true" alt="Pasted image 20241230031047.png" />
+    
+  </figure>
+</li>
+<li>The script used <strong>PyTorch</strong> to load models, creating an opportunity for exploitation via the <code>__reduce__</code> method in a custom model class.</li>
+<li>I crafted a malicious PyTorch model that, when deserialized by the script, would trigger a <strong>reverse shell as root</strong>.</li>
+<li>Learned about this technique from a detailed blog post on ML model deserialization attacks.</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>  
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>  
@@ -1140,11 +1221,81 @@
 </span></span><span class="line"><span class="cl"><span class="n">malicious_model</span> <span class="o">=</span> <span class="n">MaliciousModel</span><span class="p">()</span>  
 </span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">malicious_model</span><span class="p">,</span> <span class="s1">&#39;pk2212.pth&#39;</span><span class="p">)</span>
 </span></span></code></pre></div><ul>
-<li>Executed the script</li>
-<li>![[Pasted image 20241230031501.png]]</li>
-<li>Got the root shell and flag</li>
-<li>![[Pasted image 20241230031533.png]]</li>
+<li>Used sudo to run the verification script with this model
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230031501.png?raw=true" alt="Pasted image 20241230031501.png" />
+    
+  </figure>
+</li>
+<li>Got a root shell back to my listener and captured the 
+<div class="flex mt-2">
+<span
+  class="rounded-full bg-primary-500 dark:bg-primary-400 text-neutral-50 dark:text-neutral-800 px-1.5 py-[1px] text-xs font-normal"
+>
+  <span class="flex flex-row items-center">
+    
+    <span>Root flag</span>
+  </span>
+</span>
+</div>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020241230031533.png?raw=true" alt="Pasted image 20241230031533.png" />
+    
+  </figure>
+</li>
 </ul>
+
+
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>
+<p>Target: Linux machine hosting a ClearML-based app.</p>
+</li>
+<li>
+<p>Recon revealed key subdomains and led us to ClearML.</p>
+</li>
+<li>
+<p>Used known CVE-2024-24590 to exploit the ClearML service and gain a foothold.</p>
+</li>
+<li>
+<p>Escalated privileges to root via a malicious PyTorch model deserialization attack, leveraging a misconfigured sudo script.</p>
+</li>
+<li>
+<p>Successfully retrieved both user and root flags.</p>
+</li>
+</ul>
+<p><div id="typeit-945a6f45e778082e28626b58ca92e962"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-945a6f45e778082e28626b58ca92e962", {
+        strings: [" I hope you enjoyed my walkthrough if yes kindly share this with your connections. So until next time byee...... "],
+        speed:  100 ,
+        lifeLike:  false ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+
+  <figure>
+    <img class="my-0 rounded-md" loading="lazy" src="https://media.giphy.com/media/7DzlajZNY5D0I/giphy.gif?cid=ecf05e4795scc63iio2egfh13waslmf6buv3kdg985s97vkv&amp;ep=v1_gifs_search&amp;rid=giphy.gif&amp;ct=g" alt="end" />
+    
+  </figure>
+</p>
 
           
           
@@ -1301,11 +1452,11 @@
   
   
 
-  <a href="/posts/1743142068376-jeeves-walkthroughhack-the-box/" class="min-w-full">
+  <a href="/posts/1742496391060-instant-walkthroughhtb/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1743142068376-jeeves-walkthroughhack-the-box/featured_hu_5d08bcec2fec6afc.png);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/1742496391060-instant-walkthroughhtb/featured_hu_42ebd1923707feca.png);"></div>
         
       
 
@@ -1313,7 +1464,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/1743142068376-jeeves-walkthroughhack-the-box/">Jeeves Walkthrough(Hack The Box)</div>
+          href="/posts/1742496391060-instant-walkthroughhtb/">Instant Walkthrough(Hack The Box)</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1356,7 +1507,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-04-07T00:00:00&#43;00:00">7 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>462 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  <time datetime="2025-03-30T00:00:00&#43;00:00">30 March 2025</time><span class="px-2 text-primary-500">&middot;</span><span>499 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
   
 
   
@@ -1430,6 +1581,14 @@
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     Web
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/android/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Android
   </span>
 </span>
   </span>
@@ -1831,7 +1990,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/1742495331851-travel-walkthroughhtb/">
+            <a class="flex group mr-3" href="/posts/1742496891311-sightless-walkthroughhtb/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1843,11 +2002,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Travel Walkthrough(Hack The Box)</span
+                  >Sightless Walkthrough(Hack The Box)</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-28T00:00:00&#43;00:00">28 March 2025</time>
+                    <time datetime="2025-04-03T00:00:00&#43;00:00">3 April 2025</time>
                   
                 </span>
               </span>
@@ -1855,28 +2014,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/1743142068376-jeeves-walkthroughhack-the-box/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Jeeves Walkthrough(Hack The Box)</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-04-07T00:00:00&#43;00:00">7 April 2025</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>

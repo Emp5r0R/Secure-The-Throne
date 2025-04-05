@@ -117,7 +117,7 @@
     "keywords": ["Easy","Linux","Hack The Box","Hacking","Web","Walkthrough"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "515"
+    "wordCount": "628"
   }]
   </script>
 
@@ -681,7 +681,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-04-03T00:00:00&#43;00:00">3 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>515 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
+  <time datetime="2025-04-03T00:00:00&#43;00:00">3 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>628 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 <script type="text/javascript" src="/js/zen-mode.min.eea5245cf9244ecbdf2c150d1c8833226c1541cadf6e98f63a7c9192b1a3676df2c3ec603b14f4cfaaa53971fd9d8955640c0f405bf3de2b43ee7a5fb29ae721.js" integrity="sha512-7qUkXPkkTsvfLBUNHIgzImwVQcrfbpj2OnyRkrGjZ23yw&#43;xgOxT0z6qlOXH9nYlVZAwPQFvz3itD7npfsprnIQ=="></script>
@@ -951,6 +951,7 @@
     <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -967,6 +968,7 @@
     <li><a href="#reconnaissance--enumeration">Reconnaissance &amp; Enumeration</a></li>
     <li><a href="#exploitation">Exploitation</a></li>
     <li><a href="#privilege-escalation">Privilege Escalation</a></li>
+    <li><a href="#summary">Summary</a></li>
   </ul>
 </nav>
   </div>
@@ -1256,6 +1258,22 @@ Template injection in connection test endpoint leads to RCE in GitHub repository
   </figure>
 </li>
 </ul>
+
+
+<h2 class="relative group">Summary 
+    <div id="summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The <strong>Sightless</strong> machine is an easy-difficulty Linux machine. The walkthrough details the process of exploiting several vulnerabilities to gain root access.</p>
+<p><strong>Initial Foothold:</strong> The website uses an SQLPad instance vulnerable to template injection (CVE-2022-0944), which is 1 used to gain access to a Docker container.</p>
+<p><strong>SSH Access:</strong> The /etc/shadow file is found within the Docker container, revealing a password hash. Cracking this hash provides SSH access to the host machine.</p>
+<p><strong>Privilege Escalation:</strong> A Froxlor instance vulnerable to Blind XSS (CVE-2024-34070) is exploited to gain access to the FTP service. This FTP service contains a KeePass database. Accessing this database reveals the root SSH keys, granting a privileged shell on the host</p>
 <div id="typeit-2c30664922b76feb6bc01781d60811d6"></div>
 
 <script>
