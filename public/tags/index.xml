@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Sat, 05 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hack the Box</title>
       <link>http://localhost:1313/tags/hack-the-box/</link>
-      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/hack-the-box/</guid>
       <description></description>
@@ -22,9 +22,49 @@
     <item>
       <title>Hacking</title>
       <link>http://localhost:1313/tags/hacking/</link>
-      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/hacking/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Medium</title>
+      <link>http://localhost:1313/tags/medium/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/medium/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Walkthrough</title>
+      <link>http://localhost:1313/tags/walkthrough/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/walkthrough/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>http://localhost:1313/tags/web/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/web/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:1313/tags/windows/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/windows/</guid>
       <description></description>
       
     </item>
@@ -35,36 +75,6 @@
       <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/linux/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Medium</title>
-      <link>http://localhost:1313/tags/medium/</link>
-      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/medium/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Walkthrough</title>
-      <link>http://localhost:1313/tags/walkthrough/</link>
-      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/walkthrough/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Web</title>
-      <link>http://localhost:1313/tags/web/</link>
-      <pubDate>Sat, 05 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
       
     </item>
@@ -85,16 +95,6 @@
       <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/active-directory/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>http://localhost:1313/tags/windows/</link>
-      <pubDate>Tue, 01 Apr 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/windows/</guid>
       <description></description>
       
     </item>
