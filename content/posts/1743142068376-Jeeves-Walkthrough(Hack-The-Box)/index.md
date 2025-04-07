@@ -1,7 +1,7 @@
 ---
 title: "Jeeves Walkthrough(Hack The Box)"
 date: 2025-04-07
-draft: true
+draft: false
 description: "a description"
 tags: ["Medium", "Linux", "Hack The Box", "Hacking", "Web", "Walkthrough"]
 ---
