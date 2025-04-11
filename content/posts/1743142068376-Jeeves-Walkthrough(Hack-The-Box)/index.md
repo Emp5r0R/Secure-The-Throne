@@ -3,7 +3,7 @@ title: "Jeeves Walkthrough(Hack The Box)"
 date: 2025-04-07
 draft: false
 description: "a description"
-tags: ["Medium", "Windows", "Hack The Box", "Hacking", "Web", "Walkthrough"]
+tags: ["Medium", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkthrough"]
 lastmod: 2025-04-07
 ---
 ## Reconnaissance #Windows 
