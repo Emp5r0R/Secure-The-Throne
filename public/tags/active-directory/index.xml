@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2025 Emp5r0R</copyright>
-    <lastBuildDate>Tue, 01 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/active-directory/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Authority Walkthrough(Hack-The-Box)</title>
+      <link>http://localhost:1313/posts/1744186617357-authority-walkthroughhack-the-box/</link>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/1744186617357-authority-walkthroughhack-the-box/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1744186617357-authority-walkthroughhack-the-box/featured.png" />
+    </item>
+    
+    <item>
+      <title>Jeeves Walkthrough(Hack The Box)</title>
+      <link>http://localhost:1313/posts/1743142068376-jeeves-walkthroughhack-the-box/</link>
+      <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/1743142068376-jeeves-walkthroughhack-the-box/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/1743142068376-jeeves-walkthroughhack-the-box/featured.png" />
+    </item>
     
     <item>
       <title>Access Walkthrough(Hack The Box)</title>
