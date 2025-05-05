@@ -1,7 +1,7 @@
 ---
 title: "Authority Walkthrough(Hack-The-Box)"
 date: 2025-05-05
-draft: true
+draft: false
 description: "a description"
 tags: ["Medium", "Windows", "Hack The Box", "Hacking", "Active Directory", "Walkthrough"]
 ---
